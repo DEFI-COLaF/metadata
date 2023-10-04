@@ -1,126 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    1er jet de la structuration du fichier XML pour le SOTA des corpus
-    date: 04/10/2023
-    auteur: Juliette
--->
+
 <sota_meta>
     <head>
         <!--Metadonnées du document, auteurs, dates, description etc?-->
+        <titre></titre>
+        <auteur></auteur>
+        <date_creation></date_creation>
+        <description></description>
     </head>
     <body>
         <data_colaf>
-            <data_corpus>
-                <metadata_corpus>
-                    <!--Succession de balises décrivant les métadonnées employées par le corpus pour décrire un corpus. (titre, auteurs,etc...)-->
-                    <attribut n="niveau de description si existant" nom="nom de l'attribut" id="identifiant">
-                        <valeur nom="nom de la valeur"/>
-                        <valeur nom="nom de la valeur"/>
-                        <attribut n="niveau de description si existant" nom="nom de l'attribut" id="identifiant">
-                            <valeur nom="nom de la valeur"/>
-                            <valeur nom="nom de la valeur"/>
-                        </attribut>
-                    </attribut>
-                </metadata_corpus>
+            <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
+            <attribut nom="nom de l'attribut" xml:id="identifiant" type="corpus">
+                <description/>
+                <valeur nom="nom de la valeur" xml:id="identifiant">
+                    <description/>
+                </valeur>
+                <valeur nom="nom de la valeur" xml:id="identifiant"></valeur>
+                <attribut nom="nom de l'attribut" xml:id="identifiant" type="corpus">
+                    <valeur nom="nom de la valeur" xml:id="identifiant">
+                        <valeur nom="nom de la valeur" xml:id="identifiant">
+                            <description/>
+                        </valeur>
+                    </valeur>
                     
-                <organisation>
-                    <!--Succession de balises décrivant l'organisation des documents dans le corpus.-->
-                    <categorie n="niveau de description" nom="nom de la catégorie" id="identifiant">
-                        <description>Description et commentaires?</description>
-                        <categorie n="niveau de description" nom="nom de la catégorie" id="identifiant">
-                            <description></description>
-                            <categorie n="niveau de description" nom="nom de la catégorie" id="identifiant">
-                                <description></description>
-                            </categorie>
-                        </categorie>
-                    </categorie>
-                </organisation>
-            </data_corpus>
-            <data_doc>
-                <metadata_doc>
-                    <!--Succession de balises décrivant les métadonnées employées par le corpus pour décrire un document. (titre, auteurs,etc...)-->
-                    <attribut n="niveau de description si existant" nom="nom de l'attribut" id="identifiant">
-                        <valeur nom="nom de la valeur"/>
-                        <valeur nom="nom de la valeur"/>
-                        <attribut n="niveau de description si existant" nom="nom de l'attribut" id="identifiant">
-                            <valeur nom="nom de la valeur"/>
-                            <valeur nom="nom de la valeur"/>
-                        </attribut>
-                    </attribut>
-                </metadata_doc>
-                
-                <structuration>
-                    <!--Succession de balises décrivant la structuration du contenu du document (paragraphe, vers, etc...)-->
-                    <balise n="niveau de description" nom="nom de la balise" attrib="attributs" contexte="id des doc concernés"/>
-                        <!--Si balise de structuration existant, ajouter éléments de compréhension dans l'emploi de la base... 
-                            + possibilité de fonctionner en sous cat avec n si plusieurs balises emboîtées-->
-                </structuration>
-            </data_doc>
+                </attribut>
+            </attribut>
+            
+            <attribut nom="nom de l'attribut" xml:id="identifiant" type="doc">
+                <description/>
+                <valeur nom="nom de la valeur" xml:id="identifiant">
+                    <description/>
+                </valeur>
+            </attribut>
+            <attribut nom="nom de l'attribut" xml:id="identifiant" type="structuration">
+                <description/>
+                <valeur nom="nom de la valeur" xml:id="identifiant">
+                    <description/>
+                    <valeur nom="nom de la valeur" xml:id="identifiant">
+                        <description/>
+                    </valeur>
+                </valeur>
+            </attribut>
+                     
         </data_colaf>
         <grp-corpus>
             <corpus>
-                <!--Pour chaque corpus étudié, on liste les métadonnées du corpus pour nous (balise head), les métadonnées employées par le corpus, l'organisation de sa structuration
-                    et pareil pour le doc(métadonnées et structuration quand existante-->
+                <!--Pour chaque corpus étudié-->
                 <head>
-                    <name id="identifiant du corpus" url="url">Nom du corpus</name>
+                    <!--Metadonnées brèves du corpus-->
+                    <name xml:id="identifiant du corpus" url="url">Nom du corpus</name>
                     <description>Description rapide du corpus étudié</description>
                     <auteur>Auteur du corpus</auteur>
-                    <date>Date de création du corpus <!--A ajouter en attrib peut être--></date>
-                    <!-- A discuter si utile-->
+                    <date>Date de création du corpus</date>
                     <docCorpus quant="quantité de doc totale">
                         <docType quant="quantité de doc de ce type">type de document (journal, etc...)</docType>
                     </docCorpus>
-                    <langCorpus>
-                        <langue ident="code de la langue norm" quant="quantité de doc dans la langue">nom de la langue</langue>
-                    </langCorpus>
                     <refbib type="bibtex">Citation BibTeX</refbib>
                     
                 </head>
                 <data_corpus>
-                    <metadata_corpus>
-                        <!--Succession de balises décrivant les métadonnées employées par le corpus pour décrire un corpus. (titre, auteurs,etc...)-->
-                        <attribut n="niveau de description si existant" nom="nom de l'attribut" idref="équivalence dans le metadata_doc de colaf">
-                            <valeur nom="nom de la valeur"/>
-                            <valeur nom="nom de la valeur"/>
-                            <attribut n="niveau de description si existant" nom="nom de l'attribut" idref="équivalence dans le metadata_doc de colaf">
-                                <valeur nom="nom de la valeur"/>
-                                <valeur nom="nom de la valeur"/>
+                        <!--Métadonnées utilisées par le corpus pour sa description (du corpus lui-même, des documents et du contenu des docs.-->
+                    <!-- On ajoute ici la langue décrite avant plus haut pour permettre de voir quelles sont les normes employées par les corpus-->
+                        <attribut nom="nom de l'attribut" ref="#identifiant" type="corpus">
+                            <commmentaire/>
+                            <valeur nom="nom de la valeur" ref="#identifiant">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="nom de la valeur" ref="#identifiant"></valeur>
+                            <attribut nom="nom de l'attribut" ref="#identifiant" type="corpus">
+                                <valeur nom="nom de la valeur" ref="#identifiant">
+                                    <valeur nom="nom de la valeur" ref="#identifiant">
+                                        <commentaire/>
+                                    </valeur>
+                                </valeur>
+                                
                             </attribut>
                         </attribut>
-                    </metadata_corpus>
-                    <organisation>
-                        <!--Succession de balises décrivant l'organisation (genre) des documents dans le corpus.-->
-                        <categorie n="niveau de description" nom="nom de la catégorie" idref="equivalence dans l'orga de colaf" id="id_doc">
-                            <description><!--Description et commentaires?--></description>
-                            <categorie n="niveau de description" nom="nom de la catégorie" idref="equivalence dans l'orga de colaf" id="id_doc">
-                                <description></description>
-                                <categorie n="niveau de description" nom="nom de la catégorie" idref="equivalence dans l'orga de colaf" id="id_doc">
-                                    <description></description>
-                                </categorie>
-                            </categorie>
-                        </categorie>
-                    </organisation>
+                        <attribut nom="nom de l'attribut" ref="#identifiant" type="doc">
+                            <commentaire/>
+                            <valeur nom="nom de la valeur" ref="#identifiant">
+                                <valeur nom="nom de la valeur" ref="#identifiant">
+                                    <commentaire/>
+                                </valeur>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="nom de l'attribut" ref="#identifiant" type="structuration">
+                            <valeur nom="nom de la valeur" ref="#identifiant">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
                 </data_corpus>
-                <data_doc>
-                    <metadata_doc>
-                        <!--Succession de balises décrivant les métadonnées employées par le corpus pour décrire un document. (titre, auteurs,etc...)-->
-                        <attribut n="niveau de description si existant" nom="nom de l'attribut" idref="équivalence dans le metadata_doc de colaf">
-                            <valeur nom="nom de la valeur"/>
-                            <valeur nom="nom de la valeur"/>
-                            <attribut n="niveau de description si existant" nom="nom de l'attribut" idref="équivalence dans le metadata_doc de colaf">
-                                <valeur nom="nom de la valeur"/>
-                                <valeur nom="nom de la valeur"/>
-                            </attribut>
-                        </attribut>
-                    </metadata_doc>
-                    <structuration>
-                        <balise n="niveau de description" nom="nom de la balise" attrib="attributs" contexte="id des doc concernés">
-                            <!--Si balise de structuration existant, ajouter éléments de compréhension dans l'emploi de la base... 
-                            + possibilité de fonctionner en sous cat avec n si plusieurs balises emboîtées-->
-                        </balise>
-                        <!--bof à éprouver.... peut être réemployer la technique pour organisation plus haut-->
-                    </structuration>
-                </data_doc>
             </corpus>
         </grp-corpus>
     </body>
