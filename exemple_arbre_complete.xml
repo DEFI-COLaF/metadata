@@ -13,26 +13,26 @@
             <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
             <attribut nom="genre" xml:id="genre" type="doc">
                 <description>Décrit le genre du document</description>
-                <valeur nom="fiction" xml:id="fiction">
+                <valeur nom="fiction" xml:id="genre_fiction">
                     <description>Fiction</description>
-                    <valeur nom="roman" xml:id="roman">
+                    <valeur nom="roman" xml:id="genre_roman">
                         <description>Romans</description>
                     </valeur>              
-                    <valeur nom="theatre" xml:id="theatre">
+                    <valeur nom="theatre" xml:id="genre_theatre">
                         <description>Théatre</description>
                     </valeur>
                 </valeur>
             </attribut>
             <attribut nom="langue" xml:id="langue" type="corpus">
                 <description>langue du corpus</description>
-                <valeur nom="français" xml:id="fr">
+                <valeur nom="langue_français" xml:id="fr">
                     <description/>
-                    <valeur nom="picard" xml:id="pc"><description></description></valeur>
+                    <valeur nom="langue_français_picard" xml:id="pc"><description></description></valeur>
                 </valeur>       
             </attribut>
             <attribut nom="titre" xml:id="titre" type="doc">
                 <description>Titre du document</description>
-                <attribut nom="sous-titre" xml:id="sous-titre" type="doc">
+                <attribut nom="sous-titre" xml:id="titre_sous-titre" type="doc">
                     <description/>
                 </attribut>
             </attribut>
@@ -60,7 +60,7 @@
                     <!-- On ajoute ici la langue décrite avant plus haut pour permettre de voir quelles sont les normes employées par les corpus-->
                     <attribut nom="titre" ref="titre" type="doc">
                         <commentaire/>
-                        <attribut nom="titre secondaire" ref="sous-titre" type="doc">
+                        <attribut nom="titre secondaire" ref="titre_sous-titre" type="doc">
                             <commentaire/>
                         </attribut>
                     </attribut>
