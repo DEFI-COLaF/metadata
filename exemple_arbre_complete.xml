@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?xml-model href="schema_sota_arbre.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <sota_meta>
     <head>
@@ -49,9 +48,9 @@
                     <name xml:id="identifiant du corpus" url="url">Nom du corpus</name>
                     <description>Description rapide du corpus étudié</description>
                     <auteur>Auteur du corpus</auteur>
-                    <date>2023</date>
+                    <date type="creation">2023-10-06</date>
                     <docCorpus quant="quantité de doc totale">
-                        <docType quant="quantité de doc de ce type">type de document (journal, etc...)</docType>
+                        <docType type="documents" value="4"><description/></docType>
                     </docCorpus>
                     <refbib type="bibtex">Citation BibTeX</refbib>
                     
@@ -65,9 +64,9 @@
                             <commentaire/>
                         </attribut>
                     </attribut>
-                    <attribut nom="langage" ref="langue" type="corpus">
+                    <attribut nom="langage" ref="langue" type="all">
                         <commentaire></commentaire>
-                        <attribut nom="type" ref="ignore" type="corpus">
+                        <attribut nom="type" ref="ignore" type="all">
                             <commentaire/>
                             <valeur nom="oc" ref="ignore">
                                 <commentaire/>
