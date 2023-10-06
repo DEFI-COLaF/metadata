@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="test_ref.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
+<?xml-model href="schema_sota_arbre.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <sota_meta>
     <head>
         <!--Metadonnées du document, auteurs, dates, description etc?-->
@@ -35,7 +36,10 @@
                 <attribut nom="sous-titre" xml:id="sous-titre" type="doc">
                     <description/>
                 </attribut>
-            </attribut>        
+            </attribut>
+            <attribut nom="ignore" xml:id="ignore" type="corpus">
+                <description>Quand pas de clé associable</description>
+            </attribut>
         </data_colaf>
         <grp-corpus>
             <corpus>
@@ -63,9 +67,9 @@
                     </attribut>
                     <attribut nom="langage" ref="langue" type="corpus">
                         <commentaire></commentaire>
-                        <attribut nom="type" ref="langue" type="corpus">
+                        <attribut nom="type" ref="ignore" type="corpus">
                             <commentaire/>
-                            <valeur nom="oc" ref="langue">
+                            <valeur nom="oc" ref="ignore">
                                 <commentaire/>
                             </valeur>
                         </attribut>
