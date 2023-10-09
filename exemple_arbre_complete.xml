@@ -67,6 +67,7 @@
                     <attribut nom="langage" ref="langue" type="all">
                         <commentaire></commentaire>
                         <attribut nom="type" ref="ignore" type="all">
+                            <commentaire/>
                             <valeur nom="oc" ref="ignore">
                                 <commentaire/>
                             </valeur>
