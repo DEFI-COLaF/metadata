@@ -45,7 +45,7 @@
                 <!--Pour chaque corpus étudié-->
                 <head>
                     <!--Metadonnées brèves du corpus-->
-                    <name xml:id="identifiant du corpus" url="url">Nom du corpus</name>
+                    <name xml:id="identifiant_corpus" url="url">Nom du corpus</name>
                     <description>Description rapide du corpus étudié</description>
                     <auteur>Auteur du corpus</auteur>
                     <date type="creation">2023-10-06</date>
