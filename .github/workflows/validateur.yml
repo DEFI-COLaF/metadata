@@ -1,0 +1,21 @@
+name: ArbreSOTA
+
+on: [push, pull_request]
+
+jobs:
+    test:
+      run-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Set up Python 3.8
+          uses: actions/setip-python@v2
+          with:
+            python-version: 3.8
+        - name: Install dependencies
+          run: |
+            python -m pip install -upgrade pip
+            pip install "click<9.0" lxml
+        - name: Run Validator XML
+          run: |
+            python3 validateur.py schema_sota_arbre.rng exemple_arbre_complete.xml
+          
