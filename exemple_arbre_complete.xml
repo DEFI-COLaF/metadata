@@ -61,7 +61,6 @@
                     <attribut nom="titre" ref="titre" type="doc">
                         <commentaire/>
                         <attribut nom="titre secondaire" ref="titre_sous-titre" type="doc">
-                            <commentaire/>
                         </attribut>
                     </attribut>
                     <attribut nom="langage" ref="langue" type="all">
