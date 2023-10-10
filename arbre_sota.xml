@@ -1,2 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?xml-model href="schema_sota_arbre.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<sota_meta>
+    <head>
+        <!--Metadonnées du document, auteurs, dates, description etc?-->
+        <titre/>
+        <auteur/>
+        <date_creation/>
+        <description/>
+    </head>
+    <body>
+        <data_colaf>
+            <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
+            <attribut nom="id" type="doc" xml:id="id">
+                <description>Identifiant du document</description>
+            </attribut>
+            <attribut nom="ignore" type="all" xml:id="ignore">
+                <description/>
+            </attribut>
+        </data_colaf>
+        <grp-corpus>
+            <corpus>
+                <!--Pour chaque corpus étudié-->
+                <head>
+                    <name xml:id="dh_abstract" url="https://dh-abstracts.library.virginia.edu/">The
+                        Index of Digital Humanities Conferences</name>
+                    <description>Corpus de présentations issues de conférences en humanités
+                        numériques sur 60 ans</description>
+                    <auteur>Carnegie Mellon University Libraries</auteur>
+                    <date type="creation">10-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="work_id" type="doc" ref="id">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="conference" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <attribut nom="conference_short_title" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="conference_theme_title" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="conference_year" type="corpus" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="0000" ref="ignore"><commentaire/></valeur>
+                        </attribut>
+                        <attribut nom="conference_organizers" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="conference_series" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="conference_hosting_institutions" type="corpus" ref="ignore">
+                            <commentaire>Non obligatoire, ajout manuel de la valeur</commentaire>
+                        </attribut>
+                        <attribut nom="conference_city" type="corpus" ref="ignore">
+                            <commentaire>Non obligatoire, ajout manuel de la valeur</commentaire>
+                        </attribut>
+                        <attribut nom="conference_state" type="corpus" ref="ignore">
+                            <commentaire>Non obligatoire, ajout manuel de la valeur</commentaire>
+                        </attribut>
+                        <attribut nom="conference_country" type="corpus" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="https://vocab.getty.edu/tgn/" ref="ignore">
+                                <commentaire>Pays extraits du thesaurus of geographic names du
+                                    getty</commentaire>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="conference_url" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+
+                    <attribut nom="work_title" type="doc" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="work_authors" type="doc" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="work_type" type="doc" ref="ignore">
+                        <commentaire>10 types de documents possibles</commentaire>
+                        <valeur nom="multipaper session" ref="ignore">
+                            <commentaire>Peut être parent d'autres papiers mais pas
+                                forcément.</commentaire>
+                            <valeur nom="paper" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="poster/demo/art installation" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="panel / roundtable" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="keynote / plenary" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="paper, specified 'short_paper'" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="paper, specified 'long paper'" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="workshop / tutorial" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="lightening talk" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="moderated discussion / birds of a feather (BoF)"
+                                ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="full_text" type="structuration" ref="ignore">
+                        <commentaire>En plein texte ou en xml</commentaire>
+                    </attribut>
+                    <attribut nom="full_text_type" type="doc" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="xml" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="txt" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="full_text_license" type="doc" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="Creative Commons Attribution 2.0" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="Creative Commons Attribution 4.0 International" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur
+                            nom="This text is republished here with the permission from the original holder"
+                            ref="ignore">
+                            <commentaire>pas de précision sur la licence.</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="parent_work_id" type="doc" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="keywords" type="doc" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="languages" type="doc" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="ISO 639-1" ref="ignore">
+                            <commentaire>Liste plate de langues sous la forme d'un code ISO
+                                639-1. Plusieurs langues pour un document possible.</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="topics" type="doc" ref="ignore">
+                        <commentaire>Liste plate de topics.</commentaire>
+                    </attribut>
+                </data_corpus>
+            </corpus>
+        </grp-corpus>
+    </body>
+</sota_meta>

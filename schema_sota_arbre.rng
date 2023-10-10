@@ -37,6 +37,7 @@
                                     <text/>
                                 </element>
                             </oneOrMore>
+                            <zeroOrMore>
                             <element name="docCorpus">
                                 <attribute name="quant"/>
                                 <oneOrMore>
@@ -56,6 +57,7 @@
                                     </element>
                                 </oneOrMore>
                             </element>
+                            </zeroOrMore>
                             <element name="refbib">
                                 <attribute name="type">
                                     <value>bibtex</value>
