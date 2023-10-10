@@ -16,5 +16,5 @@ jobs:
             pip install "click<9.0" lxml
         - name: Run Validator XML
           run: |
-            python3 validateur.py schema_sota_arbre.rng exemple_arbre_complete.xml
+            python3 validateur.py schema_sota_arbre.rng arbre_sota.xml
           
