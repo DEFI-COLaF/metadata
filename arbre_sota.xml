@@ -45,7 +45,9 @@
                         </attribut>
                         <attribut nom="conference_year" type="corpus" ref="ignore">
                             <commentaire/>
-                            <valeur nom="0000" ref="ignore"><commentaire/></valeur>
+                            <valeur nom="0000" ref="ignore">
+                                <commentaire/>
+                            </valeur>
                         </attribut>
                         <attribut nom="conference_organizers" type="corpus" ref="ignore">
                             <commentaire/>
@@ -150,13 +152,100 @@
                     <attribut nom="languages" type="doc" ref="ignore">
                         <commentaire/>
                         <valeur nom="ISO 639-1" ref="ignore">
-                            <commentaire>Liste plate de langues sous la forme d'un code ISO
-                                639-1. Plusieurs langues pour un document possible.</commentaire>
+                            <commentaire>Liste plate de langues sous la forme d'un code ISO 639-1.
+                                Plusieurs langues pour un document possible.</commentaire>
                         </valeur>
                     </attribut>
                     <attribut nom="topics" type="doc" ref="ignore">
                         <commentaire>Liste plate de topics.</commentaire>
                     </attribut>
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name xml:id="ArticleBNF"
+                        url="https://api.bnf.fr/fr/documents-de-presse-numerises-en-mode-article"
+                        >Documents de presse numérisés en mode article</name>
+                    <description>Sélection de documents de presse issus des collections de la BNF et
+                        traitée avec une reconnaissance de la mise en page (article, section, titre
+                        d'articlle, légende avec ABBYY Fine Reader.</description>
+                    <auteur>Bibliothèque nationale de France</auteur>
+                    <date type="creation">11-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="ID" type="corpus-doc" ref="ignore">
+                        <commentaire>1 ID pour le corpus (ici magazine), 1 ID par Document (ici
+                            page)</commentaire>
+                    </attribut>
+                    <attribut nom="mimetype" type="corpus-doc" ref="ignore">
+                        <commentaire>Format de document</commentaire>
+                        <valeur nom="text/xml" ref="ignore">
+                            <commentaire>1 seule valeur existante dans le corpus</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="title" type="corpus-doc" ref="ignore">
+                        <commentaire>Metadonnées en Dublin Core</commentaire>
+                        <valeur nom="date-numero" ref="ignore">
+                            <commentaire>Stucture du titre du corpus sous la forme date - numéro
+                                exemple: 1938-03-11 (Numéro 54)</commentaire>
+                        </valeur>
+                        <attribut nom="subtitle" type="doc" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="description" type="corpus-doc" ref="ignore">
+                        <commentaire>Brève description du corpus/doc</commentaire>
+                        <valeur nom="entry" ref="ignore">
+                            <commentaire>Dans le cas du document.</commentaire>
+                        </valeur>
+                        <valeur nom="binding" ref="ignore">
+                            <commentaire>Dans le cas du document.</commentaire>
+                        </valeur>
+                        <valeur nom="numero_magazine" ref="ignore">
+                            <commentaire>Dans le cas du corpus, exemeple: Numéro 54</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="type" type="corpus" ref="ignore">
+                        <commentaire>Un seul type dans le corpus</commentaire>
+                        <valeur nom="periodical" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="date" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="AAAA-MM-DD" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="publisher" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="relation" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="ark" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="provenance" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="BnF" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="fileGrp" type="doc" ref="ignore">
+                        <commentaire>Description physique du document avec ID et USE
+                            (ocr)</commentaire>
+                        <attribut nom="file" type="doc" ref="ignore">
+                            <commentaire>Pour chaque document</commentaire>
+                            <attribut nom="FLocat" type="doc" ref="ignore">
+                                <commentaire/>
+                                <valeur nom="href" ref="ignore">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+               </attribut>
                 </data_corpus>
             </corpus>
         </grp-corpus>
