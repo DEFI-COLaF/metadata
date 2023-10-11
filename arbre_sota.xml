@@ -260,38 +260,88 @@
                     <refbib type="bibtex"/>
                 </head>
                 <data_corpus>
-                    <attribut nom="doc_id" type="doc" ref="ignore">
-                        <commentaire/>
-                        <valeur nom="nom_xml" ref="ignore">
-                            <commentaire/>
-                        </valeur>
-                    </attribut>
-                    <attribut nom="dewey" type="doc" ref="ignore">
+                    <attribut nom="dewey" type="corpus" ref="ignore">
                         <commentaire>Organisation des documents dans le corpus avec la
                             classification Dewey</commentaire>
                     </attribut>
+                    <attribut nom="abc" type="corpus" ref="ignore">
+                        <commentaire>Organisation des documents dans le corpus par ordre
+                            alphabétique</commentaire>
+                    </attribut>
                     <attribut nom="title" type="corpus-doc" ref="ignore">
                         <commentaire/>
-                        <valeur nom="titre_date" ref="ignore">
-                            <commentaire/>
-                        </valeur>
                     </attribut>
-                    <attribut nom="dates" type="doc" ref="ignore">
+                    <attribut nom="author" type="corpus" ref="ignore">
                         <commentaire/>
-                        <valeur nom="annee" ref="ignore">
-                            <commentaire/>
+                        <valeur nom="auteur_key_dates" ref="ignore">
+                            <commentaire>Pour le corpus : Nom des auteurs avec dates de vie et clé
+                                dans Data.BnF</commentaire>
                         </valeur>
-                    </attribut>
-                    <attribut nom="identifier" type="doc" ref="ignore">
-                        <commentaire/>
-                        <valeur nom="ark" ref="ignore">
-                            <commentaire/>
+                        <valeur nom="auteur_dates" ref="ignore">
+                            <commentaire>Pour le document: Nom, Prénom (dates de vie)</commentaire>
                         </valeur>
+                        <attribut nom="role" type="doc" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="Auteur du texte" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="key" type="doc" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="cle_data_bnf" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
                     </attribut>
-                    <attribut nom="author" type="doc" ref="ignore">
-                        <commentaire>Nom des auteurs avec dates de vie et clé dans
-                            Data.BnF</commentaire>
+                    <attribut nom="publisher" type="doc" ref="ignore">
+                        <commentaire>Editeur scientifique</commentaire>
                     </attribut>
+                    <attribut nom="sourceDoc" type="doc" ref="ignore">
+                        <commentaire>Référence bibliographique</commentaire>
+                        <attribut nom="bibl" type="doc" ref="ignore">
+                            <commentaire/>
+                            <attribut nom="idno" type="doc" ref="ignore">
+                                <commentaire/>
+                                <valeur nom="ark" ref="ignore">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                            <attribut nom="publisher" type="doc" ref="ignore">
+                                <commentaire>Editeur du document physique</commentaire>
+                            </attribut>
+                            <attribut nom="date" type="doc" ref="ignore">
+                                <commentaire/>
+                                <attribut nom="when" type="doc" ref="ignore">
+                                    <commentaire/>
+                                    <valeur nom="annee" ref="ignore">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="pb" type="structuration" ref="ignore">
+                        <commentaire>Balise de structuration TEI qui indique les pages</commentaire>
+                        <attribut nom="xml:id" type="structuration" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="nom_page" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="corresp" type="structuration" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="ark" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="div" type="structuration" ref="ignore">
+                        <commentaire>Pour indiquer les paragraphes dans le texte </commentaire>
+                    </attribut>
+                    <attribut nom="head" type="structuration" ref="ignore">
+                        <commentaire>Pour les titres/débuts de paragraphes...</commentaire>
+                    </attribut>
+
                 </data_corpus>
             </corpus>
         </grp-corpus>
