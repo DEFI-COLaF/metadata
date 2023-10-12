@@ -12,7 +12,6 @@ TALN,Corpus TALN // https://www.ortolang.fr/market/corpora/corpus-taln,Doc scien
 jurinet,,Textes juridiques,,A TRAITER
 data french social mediabank,,,,A ETUDIER
 Corpus du projet Restaure,https://zenodo.org/communities/restaure?page=1&size=20,Textes en langues de france,,A TRAITER
-OSCAR,,,,A ETUDIER
 corpus de CLARIN,https://www.clarin.eu/content/data,,,A TRAITER
 corpus de European Language Grid ,https://live.european-language-grid.eu/catalogue/?entity_type__term=LanguageResource,,,A ETUDIER
 Corpus Middle English Prose and Verse,https://quod.lib.umich.edu/c/cme/,Romans/Poèmes,,A ETUDIER
@@ -26,3 +25,5 @@ Débats parlementaires sur l'Europe à l'Assemblée nationale (2002-2012),https:
 Interviews d'Alphonse Daudet dans la presse parisienne (1883-1897),https://www.ortolang.fr/market/corpora/interviewsdaudet,Entretiens,TEI,A TRAITER
 Corpus journalistique issu de l'Est Républicain,https://www.ortolang.fr/market/corpora/est_republicain,Presse,TEI,A TRAITER
 Corpus de tweets encodés en TEI,https://repository.ortolang.fr/api/content/comere/v3.1/cmr-polititweets.html,Tweets,TEI,A TRAITER
+Erudit,https://www.erudit.org/,Bibliothèque numérique,,A TRAITER
+,,,,A ETUDIER
