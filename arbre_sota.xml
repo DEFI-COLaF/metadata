@@ -344,6 +344,123 @@
 
                 </data_corpus>
             </corpus>
+            <corpus>
+                <head>
+                    <name xml:id="UD" url="https://universaldependencies.org/">Universal
+                        Dependencies</name>
+                    <description>Framework pour l'annotation grammaticale.</description>
+                    <auteur>Communautaire</auteur>
+                    <date type="creation">13-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="genre" type="corpus" ref="ignore">
+                        <commentaire>Attribut non nommé mais décrit au niveau de chaque corpus de
+                            langue puis de sous corpus</commentaire>
+                        <valeur nom="academic" ref="ignore">
+                            <commentaire>Articles scientifiques dans des domaines
+                                variés</commentaire>
+                        </valeur>
+                        <valeur nom="bible" ref="ignore">
+                            <commentaire>Passages de la Bible</commentaire>
+                        </valeur>
+                        <valeur nom="blog" ref="ignore">
+                            <commentaire>Documents internets sur sujets variés // Répétition avec
+                                news possible?</commentaire>
+                        </valeur>
+                        <valeur nom="email" ref="ignore">
+                            <commentaire>communications écrites formelles // Lettres dont
+                                correspondances aussi ajoutées ici</commentaire>
+                        </valeur>
+                        <valeur nom="fiction" ref="ignore">
+                            <commentaire>paragraphes extraits de magazines et livres de
+                                fiction</commentaire>
+                        </valeur>
+                        <valeur nom="government" ref="ignore">
+                            <commentaire>Tout ce qui provient d'une source gouvernementale (prises
+                                de paroles politiques, inscriptions assyriennes....</commentaire>
+                        </valeur>
+                        <valeur nom="grammar-examples" ref="ignore">
+                            <commentaire>Phrases issues de textes de cours.</commentaire>
+                        </valeur>
+                        <valeur nom="learner-essays" ref="ignore">
+                            <commentaire>si erreurs dans les phrases</commentaire>
+                        </valeur>
+                        <valeur nom="legal" ref="ignore">
+                            <commentaire>Lois et corpus juridique</commentaire>
+                        </valeur>
+                        <valeur nom="medical" ref="ignore">
+                            <commentaire>Articles et livres scientifiques du domaine médical \\
+                                Répétition avec academic? </commentaire>
+                        </valeur>
+                        <valeur nom="news" ref="ignore">
+                            <commentaire>Presse écrite (papier et internet)</commentaire>
+                        </valeur>
+                        <valeur nom="nonfiction" ref="ignore">
+                            <commentaire>Large corpus: littéraire, textes philosophiques, livres,
+                                internet</commentaire>
+                        </valeur>
+                        <valeur nom="poetry" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="reviews" ref="ignore">
+                            <commentaire>commentaires informels en ligne avec orthographe non
+                                normalisé, forums</commentaire>
+                        </valeur>
+                        <valeur nom="spoken" ref="ignore">
+                            <commentaire>transcription orale (radio notamment)</commentaire>
+                        </valeur>
+                        <valeur nom="social" ref="ignore">
+                            <commentaire>social media data: tweets, forum...</commentaire>
+                        </valeur>
+                        <valeur nom="web" ref="ignore">
+                            <commentaire>associé à non fiction, blog et social</commentaire>
+                        </valeur>
+                        <valeur nom="wiki" ref="ignore">
+                            <commentaire>Tout ce qui a pour source un wiki</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="family" type="corpus" ref="ignore">
+                        <commentaire>Famille de la langue du corpus </commentaire>
+                        <valeur nom="family_WALS" ref="ignore">
+                            <commentaire>Sélectionné dans la colonne family ici
+                                https://wals.info/languoid</commentaire>
+                        </valeur>
+                        <attribut nom="genus" type="corpus" ref="ignore">
+                            <commentaire>Branche de la langue</commentaire>
+                            <valeur nom="genus_WALS" ref="ignore">
+                                <commentaire>Sélectionné dans la colonne genus ici
+                                    https://wals.info/languoid</commentaire>
+                            </valeur>
+                            <attribut nom="language" type="corpus" ref="ignore">
+                                <commentaire>Corpus organisés par rapport à la langue</commentaire>
+                                <valeur nom="language_WALS" ref="ignore">
+                                    <commentaire>Langage écrit en toutes lettres</commentaire>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="quantite_dataset" type="corpus" ref="ignore">
+                        <commentaire>Nombre de datasets contenus dans le corpus de
+                            langue</commentaire>
+                    </attribut>
+                    <attribut nom="quantite_token" type="corpus" ref="ignore">
+                        <commentaire>Quantité de tokens contenus dans le corpus</commentaire>
+                    </attribut>
+                    <attribut nom="title" type="corpus-doc" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="content" type="corpus-doc" ref="ignore">
+                        <commentaire>Liste les types de contenus dans le corpus/doc</commentaire>
+                        <valeur nom="lemmas" ref="ignore"><commentaire/></valeur>
+                        <valeur nom="features" ref="ignore"><commentaire/></valeur>
+                        <valeur nom="secondary_dependencies" ref="ignore"><commentaire/></valeur>
+                    </attribut>
+                    <attribut nom="licence" type="corpus-doc" ref="ignore">
+                        <commentaire>Différents types de licence CCBY en général.</commentaire>
+                    </attribut>
+                </data_corpus>
+            </corpus>
         </grp-corpus>
     </body>
 </sota_meta>
