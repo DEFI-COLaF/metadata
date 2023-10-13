@@ -6,7 +6,7 @@ OBVIL,https://api.bnf.fr/fr/documents-de-gallica-produits-au-format-tei-par-obvi
 DH index conf,https://dh-abstracts.library.virginia.edu/,Conférences,WEB,FAITE
 OPUS,https://opus.nlpl.eu/,Sous titres,,A TRAITER
 Cremma,https://github.com/HTR-United/cremma-wikipedia,All,TEI,A TRAITER
-Universal Dependencies,https://universaldependencies.org/,Annotations grammaticales,,A TRAITER
+Universal Dependencies,https://universaldependencies.org/,Annotations grammaticales,,FAITE
 Hal,//,Doc scientifiques,,A TRAITER
 TALN,Corpus TALN // https://www.ortolang.fr/market/corpora/corpus-taln,Doc scientifiques,,A TRAITER
 jurinet,,Textes juridiques,,A TRAITER
