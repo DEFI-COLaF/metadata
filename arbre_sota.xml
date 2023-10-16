@@ -4,17 +4,14 @@
 <sota_meta>
     <head>
         <!--Metadonnées du document, auteurs, dates, description etc?-->
-        <titre/>
-        <auteur/>
-        <date_creation/>
+        <titre>SoTA des Métadonnées de Corpus</titre>
+        <auteur>JJanes Projet COLAF Almanach Inria</auteur>
+        <date_creation>10-10-2023</date_creation>
         <description/>
     </head>
     <body>
         <data_colaf>
             <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
-            <attribut nom="id" type="doc" xml:id="id">
-                <description>Identifiant du document</description>
-            </attribut>
             <attribut nom="ignore" type="all" xml:id="ignore">
                 <description/>
             </attribut>
