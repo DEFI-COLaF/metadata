@@ -545,7 +545,9 @@
                         <valeur nom="multilingue" ref="ignore">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="parallele" ref="ignore"><commentaire/></valeur>
+                        <valeur nom="parallele" ref="ignore">
+                            <commentaire/>
+                        </valeur>
                     </attribut>
                     <attribut nom="langues_corpus" type="corpus" ref="ignore">
                         <commentaire>Liste ouverte de langues dont</commentaire>
@@ -643,7 +645,9 @@
                         <valeur nom="parole_naturelle" ref="ignore">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="scientifique" ref="ignore"><commentaire/></valeur>
+                        <valeur nom="scientifique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
                     </attribut>
                     <attribut nom="nombre_de_mots" type="corpus" ref="ignore">
                         <commentaire/>
@@ -654,15 +658,72 @@
                 <head>
                     <name url="https://www.ortolang.fr/market/corpora/est_republicain"
                         xml:id="estrep">Corpus journalistique issu de l'Est Républicain</name>
-                    <description>Corpus XML-TEI des journaux de 1999 à 2011 de l'Est
-                        Républicain</description>
+                    <description>Corpus XML-TEI des journaux de 1999 à 2011 de l'Est Républicain.
+                        Présenté dans Ortolang, pour un détail des métadonnées employées dans la
+                        description du corpus voir la description des métadonnées
+                        ortolang.</description>
                     <auteur>ATILF, CLLE</auteur>
                     <date type="creation">16-10-2023</date>
                     <refbib type="bibtex"/>
                 </head>
                 <data_corpus>
-                    <attribut nom="test" type="corpus" ref="ignore">
+                    <attribut nom="title" ref="ignore" type="corpus-doc">
+                        <commentaire>Titre du corpus (dans TeiHeader)</commentaire>
+                    </attribut>
+                    <attribut nom="respStmt" ref="ignore" type="corpus-doc">
+                        <commentaire>Responsable du document</commentaire>
+                        <attribut nom="name" ref="ignore" type="corpus-doc">
+                            <commentaire/>
+                            <valeur nom="nom_auteur_doc" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="resp" ref="ignore" type="corpus-doc">
+                            <commentaire/>
+                            <valeur nom="role" ref="ignore">
+                                <commentaire>Exemple: conversion en TEI</commentaire>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="publicationStmt" ref="ignore" type="corpus-doc">
                         <commentaire/>
+                        <attribut nom="distributor" ref="ignore" type="corpus-doc">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="addresse" ref="ignore" type="corpus-doc">
+                            <commentaire>Addresse détaillée avec balises ou non</commentaire>
+                        </attribut>
+                        <attribut nom="availability" ref="ignore" type="corpus-doc">
+                            <commentaire>Réutilisation</commentaire>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="sourceDesc" ref="ignore" type="corpus-doc">
+                        <commentaire>Journal titre</commentaire>
+                    </attribut>
+                    <attribut nom="change" ref="ignore" type="doc">
+                        <commentaire>Pour chaque changement, une nouvelle balise avec les
+                            modifications</commentaire>
+                        <attribut nom="who" ref="ignore" type="doc">
+                            <commentaire>Nom de la personne qui a fait le changement</commentaire>
+                        </attribut>
+                        <attribut nom="when" ref="ignore" type="doc">
+                            <commentaire>date du changement</commentaire>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="div[part]" ref="ignore" type="structuration">
+                        <commentaire>Niveau 1 de division</commentaire>
+                        <attribut nom="div[article]" ref="ignore" type="structuration">
+                            <commentaire>Division par article</commentaire>
+                            <attribut nom="div" ref="ignore" type="structuration">
+                                <commentaire/>
+                                <attribut nom="head" ref="ignore" type="structuration">
+                                    <commentaire>Titre de l'article</commentaire>
+                                </attribut>
+                                <attribut nom="p" ref="ignore" type="structuration">
+                                    <commentaire>Contenu de l'article par paragraphe</commentaire>
+                                </attribut>
+                            </attribut>
+                        </attribut>
                     </attribut>
                 </data_corpus>
             </corpus>
