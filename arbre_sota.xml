@@ -29,7 +29,7 @@
                     <refbib type="bibtex"/>
                 </head>
                 <data_corpus>
-                    <attribut nom="work_id" type="doc" ref="id">
+                    <attribut nom="work_id" type="doc" ref="ignore">
                         <commentaire/>
                     </attribut>
                     <attribut nom="conference" type="corpus" ref="ignore">
