@@ -724,6 +724,103 @@
                     </attribut>
                 </data_corpus>
             </corpus>
+            <corpus>
+                <head>
+                    <name url="https://www.clarin.eu/portal" xml:id="clarin">Clarin - Common
+                        Language Resources and Technology Infrastructure</name>
+                    <description>Infrastructure européenne pour le partage de ressources et d'outils
+                        autour du langage au niveau européen (dont Datasets).</description>
+                    <auteur/>
+                    <date type="creation">16-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="title" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="authors" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="item_identifier" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="handle" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="project_url" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="project_identifier" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="handle" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="date_issued" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="type" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="text" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="corpus" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="xml" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="size" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <attribut nom="texts" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="words" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="languages" type="corpus" ref="ignore">
+                        <commentaire>Peut être monolingue ou multilingue</commentaire>
+                        <valeur nom="ISO" ref="ignore">
+                            <commentaire>Juste indiqué que norme iso suivie. Liste
+                                plate.</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="description" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="publisher" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="acknowledgement" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="subjects" type="corpus" ref="ignore">
+                        <commentaire>Liste ouverte de mots clefs</commentaire>
+                    </attribut>
+                    <attribut nom="collections" type="corpus" ref="ignore">
+                        <commentaire>Structuration des corpus dans un/des surcorpus</commentaire>
+                    </attribut>
+                    <attribut nom="file" type="doc" ref="ignore">
+                        <commentaire/>
+                        <attribut nom="file_name" type="doc" ref="ignore">
+                            <commentaire>Pour chaque fichier, titre.</commentaire>
+                        </attribut>
+                        <attribut nom="file_size" type="doc" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="file_format" type="doc" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="file_description" type="doc" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+
+                    </attribut>
+
+                </data_corpus>
+            </corpus>
         </grp-corpus>
     </body>
 </sota_meta>
