@@ -452,12 +452,217 @@
                     </attribut>
                     <attribut nom="content" type="corpus-doc" ref="ignore">
                         <commentaire>Liste les types de contenus dans le corpus/doc</commentaire>
-                        <valeur nom="lemmas" ref="ignore"><commentaire/></valeur>
-                        <valeur nom="features" ref="ignore"><commentaire/></valeur>
-                        <valeur nom="secondary_dependencies" ref="ignore"><commentaire/></valeur>
+                        <valeur nom="lemmas" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="features" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="secondary_dependencies" ref="ignore">
+                            <commentaire/>
+                        </valeur>
                     </attribut>
                     <attribut nom="licence" type="corpus-doc" ref="ignore">
                         <commentaire>Différents types de licence CCBY en général.</commentaire>
+                    </attribut>
+
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name url="https://www.ortolang.fr/" xml:id="ortolang">Ortolang</name>
+                    <description>Bibliothèque de corpus linguistiques</description>
+                    <auteur/>
+                    <date type="creation">16-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="titre" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="laboratoires_producteurs" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="soutien_institutionnel" type="corpus" ref="ignore">
+                        <commentaire>Université, institut de recherche....</commentaire>
+                    </attribut>
+                    <attribut nom="description" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="licence" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="CCAttrib2" ref="ignore">
+                            <commentaire>Licence Creative Commons Attribution - Pas d'Utilisation
+                                Commerciale - Partage dans les Mêmes Conditions 2.0
+                                Générique</commentaire>
+                        </valeur>
+                        <valeur nom="CCAttrib4" ref="ignore">
+                            <commentaire>Licence Creative Commons - Attribution 4.0
+                                International</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="reference_bibliographique" ref="ignore" type="corpus">
+                        <commentaire/>
+                        <valeur nom="texte" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="bibtex" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="contributeurs" type="corpus" ref="ignore">
+                        <commentaire>Liste de noms prénoms rôle</commentaire>
+                    </attribut>
+                    <attribut nom="date_publication" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="identifiant_perenne" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="handle" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="droits_d_utilisation" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="libre_sans_utilisation_commerciale" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="libre" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="type_corpus" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="ecrit" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="type_langue" type="corpus" ref="ignore">
+                        <commentaire>Liste fermée</commentaire>
+                        <valeur nom="monolingue" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="multilingue" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="parallele" ref="ignore"><commentaire/></valeur>
+                    </attribut>
+                    <attribut nom="langues_corpus" type="corpus" ref="ignore">
+                        <commentaire>Liste ouverte de langues dont</commentaire>
+                        <valeur nom="français" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="anglais" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="niveaux_annotations" type="corpus" ref="ignore">
+                        <commentaire>Liste fermée</commentaire>
+                        <valeur nom="morphosyntaxique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="syntaxique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="transcription_orthographique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="semantique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="transcription_phonologique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="annotation_phonetique" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="format" type="corpus" ref="ignore">
+                        <commentaire>Liste fermée de formats</commentaire>
+                        <valeur nom="TEI" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="texte" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="pdf" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="txm" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="word" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="CoNLL" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="type_encodage" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="UTF-8" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="lieux_de_creation" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="pays" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="date_origine" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="tranche_annees" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="type_donnees_linguistiques" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="primary_text" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="versions" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="genre_corpus" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="journalistique" ref="ignore">
+                            <commentaire>Presse</commentaire>
+                        </valeur>
+                        <valeur nom="nouveau_mode_com" ref="ignore">
+                            <commentaire>Nouveau mode de communication (Tweet, SMS,
+                                etc)</commentaire>
+                        </valeur>
+                        <valeur nom="litteraire" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="ecrits_professionnels" ref="ignore">
+                            <commentaire>Écritures ordinaires et écrits professionnels</commentaire>
+                        </valeur>
+                        <valeur nom="parole_naturelle" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="scientifique" ref="ignore"><commentaire/></valeur>
+                    </attribut>
+                    <attribut nom="nombre_de_mots" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name url="https://www.ortolang.fr/market/corpora/est_republicain"
+                        xml:id="estrep">Corpus journalistique issu de l'Est Républicain</name>
+                    <description>Corpus XML-TEI des journaux de 1999 à 2011 de l'Est
+                        Républicain</description>
+                    <auteur>ATILF, CLLE</auteur>
+                    <date type="creation">16-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="test" type="corpus" ref="ignore">
+                        <commentaire/>
                     </attribut>
                 </data_corpus>
             </corpus>
