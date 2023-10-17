@@ -769,28 +769,40 @@
                         données }, urldate = {2023-10-17}, } </refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="title" type="corpus" ref="ignore">
+                    <attribut nom="dc_title" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="authors" type="corpus" ref="ignore">
-                        <commentaire/>
+                    <attribut nom="dc_contributor_author" type="corpus" ref="ignore">
+                        <commentaire>1 balise par auteur</commentaire>
+                        <valeur nom="Nom_Prenom" ref="ignore">
+                            <commentaire>Nom, Prénom</commentaire>
+                        </valeur>
                     </attribut>
-                    <attribut nom="item_identifier" type="corpus" ref="ignore">
+                    <attribut nom="dc_identfier_uri" type="corpus" ref="ignore">
                         <commentaire/>
                         <valeur nom="handle" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="project_url" type="corpus" ref="ignore">
+                    <attribut nom="dc_source_uri" type="corpus" ref="ignore">
                         <commentaire/>
+                        <valeur nom="url_projet" ref="ignore">
+                            <commentaire/>
+                        </valeur>
                     </attribut>
-                    <attribut nom="project_identifier" type="corpus" ref="ignore">
+                    <attribut nom="dc_relation_isreferencedby" type="corpus" ref="ignore">
                         <commentaire/>
                         <valeur nom="handle" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="date_issued" type="corpus" ref="ignore">
+                    <attribut nom="dc_date_accessioned" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="dc_date_available" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="dc_date_issued" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
                     <attribut nom="type" type="corpus" ref="ignore">
@@ -814,35 +826,65 @@
                             <commentaire/>
                         </attribut>
                     </attribut>
-                    <attribut nom="languages" type="corpus" ref="ignore">
+                    <attribut nom="dc_language_iso" type="corpus" ref="ignore">
                         <commentaire>Peut être monolingue ou multilingue</commentaire>
-                        <valeur nom="ISO" ref="ignore">
+                        <valeur nom="ISO_639-1" ref="ignore">
                             <commentaire>Juste indiqué que norme iso suivie. Liste
                                 plate.</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="description" type="corpus" ref="ignore">
+                    <attribut nom="dc_rights" type="corpus" ref="ignore">
+                        <commentaire>Licence en toutes lettres</commentaire>
+                    </attribut>
+                    <attribut nom="dc_rights_uri" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="url" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="dc_rights_label" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <valeur nom="PUB" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="dc_description" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="publisher" type="corpus" ref="ignore">
+                    <attribut nom="dc_publisher" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="acknowledgement" type="corpus" ref="ignore">
+                    <attribut nom="sponsor" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="subjects" type="corpus" ref="ignore">
-                        <commentaire>Liste ouverte de mots clefs</commentaire>
+                    <attribut nom="dc_subject" type="corpus" ref="ignore">
+                        <commentaire>Liste ouverte de mots clefs 1 balise par mot clef</commentaire>
                     </attribut>
-                    <attribut nom="collections" type="corpus" ref="ignore">
+                    <attribut nom="branding" type="corpus" ref="ignore">
                         <commentaire>Structuration des corpus dans un/des surcorpus</commentaire>
+                    </attribut>
+                    <attribut nom="contact.person" type="corpus" ref="ignore">
+                        <commentaire>Contact Mail du producteur</commentaire>
                     </attribut>
                     <attribut nom="file" type="doc" ref="ignore">
                         <commentaire/>
                         <attribut nom="file_name" type="doc" ref="ignore">
                             <commentaire>Pour chaque fichier, titre.</commentaire>
                         </attribut>
-                        <attribut nom="file_size" type="doc" ref="ignore">
+                        <attribut nom="file_size_info" type="doc" ref="ignore">
                             <commentaire/>
+                            <valeur nom="texts" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="words" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="tokens" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="bytes" ref="ignore">
+                                <commentaire/>
+                            </valeur>
                         </attribut>
                         <attribut nom="file_format" type="doc" ref="ignore">
                             <commentaire/>
@@ -850,18 +892,19 @@
                         <attribut nom="file_description" type="doc" ref="ignore">
                             <commentaire/>
                         </attribut>
-
+                        <attribut nom="file_count" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
                     </attribut>
-
                 </data_corpus>
             </corpus>
             <corpus>
                 <head>
                     <name url="https://macocu.eu/" xml:id="macocu">Macocu</name>
                     <description>62 corpus pour des langues peu dotées européennes. (monolingue ou
-                        parallele) Données issues d'internet (crawlées) enrichies. Ici étude du
-                        corpus Albanais, tous construits sur le même principe. (corpus dans un
-                        corpus). Corpus accessibles dans Clarin.</description>
+                        parallele) Données issues d'internet (crawlées) enrichies. Monolingue en
+                        XML, Parallele en TXM. Métadonnées dans le site MAcocu, dans Clarin et dans
+                        le XML. 1 XML=1 corpus</description>
                     <auteur>Prompsit, Université d'Alicante, de Groningen et Jozef Stefan
                         Institute</auteur>
                     <date type="creation">17-10-2023</date>
@@ -878,8 +921,158 @@
                         year = {2023} }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="vide" type="corpus" ref="ignore">
+                    <attribut nom="language" type="corpus-doc" ref="ignore">
+                        <commentaire>Corpus organisé et documents nommés par Langue</commentaire>
+                        <valeur nom="ISO_639-1" ref="ignore">
+                            <commentaire>Norme employée pour Clarin et dans Macocu</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="type" type="doc" ref="ignore">
                         <commentaire/>
+                        <valeur nom="monolingual" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="parallel" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="version" ref="ignore" type="corpus-doc">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="release" ref="ignore" type="doc">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="size" ref="ignore" type="corpus-doc">
+                        <commentaire/>
+                        <valeur nom="tokens" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="bytes" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="sentences" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="words" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="entry" ref="ignore">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="corpus" type="corpus" ref="ignore">
+                        <commentaire>Métadonnées dans le XML</commentaire>
+                        <attribut nom="corpus_id" type="corpus" ref="ignore">
+                            <commentaire>Identifiant du corpus qui compose tout le fichier
+                                XML</commentaire>
+                            <valeur nom="Macocu-languageiso_version" ref="ignore">
+                                <commentaire>Exemple: MaCoCu-sq-1.0 pour l'albanais</commentaire>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="doc" type="doc" ref="ignore">
+                        <commentaire>Métadonnées pour le doc (1 page web)</commentaire>
+                        <attribut nom="doc_id" type="doc" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="macocu_languageiso_n" ref="ignore">
+                                <commentaire> Exemple: macocu.sq.1 pour le premier document du
+                                    corpus d'albanais</commentaire>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="doc_title" type="doc" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="doc_crawldate" type="doc" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="AAAA-MM-DD" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="doc_langdistr" ref="ignore" type="doc">
+                            <commentaire>Proportion de paragraphes de chaque langue présente dans le
+                                doc sous la forme [('lg_iso', distrib sur 1), (autre langue')].
+                                Exemple: [('sq', 0.96), ('en', 0.04)] </commentaire>
+                        </attribut>
+                        <attribut nom="doc_url" ref="ignore" type="doc">
+                            <commentaire>Url du site où a été crawlé le doc</commentaire>
+                        </attribut>
+                        <attribut nom="doc_domain" ref="ignore" type="doc">
+                            <commentaire>Domaine du site Exemple url:https://www.fav.al domain:
+                                fav.al</commentaire>
+                        </attribut>
+                        <attribut nom="doc_file_type" ref="ignore" type="doc">
+                            <commentaire>Type de doc du document original</commentaire>
+                            <valeur nom="html" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="txt" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="pdf" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="doc_lm_score" ref="ignore" type="doc">
+                            <commentaire>fluency score du paragraphe ente 0 et 1</commentaire>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="p" ref="ignore" type="structuration">
+                        <commentaire>Paragraphe</commentaire>
+                        <attribut nom="p_id" ref="ignore" type="structuration">
+                            <commentaire/>
+                            <valeur nom="macocu_langueiso_ndoc_np" ref="ignore">
+                                <commentaire>Exemple: macocu.sq.1.1 pour le premier paragraphe du
+                                    1er doc du corpus d'albanais.</commentaire>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="p_heading" type="structuration" ref="ignore">
+                            <commentaire>Titre ou non? Si oui l'attribut apparait est a pour valeur
+                                yes, sinon il n'apparait pas.</commentaire>
+                            <valeur nom="yes" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="p_quality" type="structuration" ref="ignore">
+                            <commentaire>qualité estimée du paragraphe selon des paramètres précis
+                                (taille, nombre de stopwords, ponctuation....</commentaire>
+                            <valeur nom="good" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="neargood" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="short" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="neargood_wo_punct" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="good_wo_ponct" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="bad" ref="ignore">
+                                <commentaire>Supprimés du corpus.</commentaire>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="p_lang" ref="ignore" type="structuration">
+                            <commentaire>langage estimé dans le paragraphe.</commentaire>
+                            <valeur nom="ISO-639-1" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="p_lm_score" ref="ignore" type="structuration">
+                            <commentaire>Fluency score pour le paragraphe</commentaire>
+                        </attribut>
+                        <attribut nom="p_sensitive" ref="ignore" type="structuration">
+                            <commentaire>Si le paragraphe contient des infos sensibles ( mail, num
+                                de tel, adresse ip...)</commentaire>
+                            <valeur nom="yes" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="no" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
                     </attribut>
                 </data_corpus>
             </corpus>
