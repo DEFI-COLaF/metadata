@@ -26,7 +26,10 @@
                         numériques sur 60 ans</description>
                     <auteur>Carnegie Mellon University Libraries</auteur>
                     <date type="creation">10-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{carnegie_mellon_university_librairies_index_2020,
+                        title = {Index of {DH} {Conferences} - {Home}}, url =
+                        {https://dh-abstracts.library.virginia.edu/}, urldate = {2023-10-17}, author
+                        = {{Carnegie Mellon University Librairies}}, year = {2020}, }</refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="work_id" type="doc" ref="ignore">
@@ -168,7 +171,13 @@
                         d'articlle, légende avec ABBYY Fine Reader.</description>
                     <auteur>Bibliothèque nationale de France</auteur>
                     <date type="creation">11-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{bibliotheque_nationale_de_france_documents_2019,
+                        title = {Documents de presse numérisés en mode « article » }, url =
+                        {https://api.bnf.fr/fr/documents-de-presse-numerises-en-mode-article},
+                        abstract = {Jeu de données contenant une sélection des collections de presse
+                        de presse de la BnF traitées avec une reconnaissance de la mise en page.},
+                        language = {fr}, urldate = {2023-10-17}, author = {{Bibliothèque nationale
+                        de France}}, year = {2019}, }</refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="ID" type="corpus-doc" ref="ignore">
@@ -254,7 +263,17 @@
                         produites par l'OBVIL depuis Gallica.</description>
                     <auteur>OBVIL/BNF</auteur>
                     <date type="creation">11-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{observatoire_de_la_vie_litteraire_documents_2018,
+                        title = {Documents de {Gallica} produits au format {TEI} par {OBVIL} }, url
+                        =
+                        {https://api.bnf.fr/fr/documents-de-gallica-produits-au-format-tei-par-obvil},
+                        abstract = {Jeu de données contenant le mode texte des documents de Gallica
+                        traités par l'Observatoire de la vie littéraire (Labex Obvil). Le corpus est
+                        en français, issu majoritairement de l'édition du XIXe siècle. Conversion au
+                        format TEI de l'OCR d'environ 130 000 monographies provenant de Gallica.},
+                        language = {fr}, urldate = {2023-10-17}, author = {{Observatoire de la vie
+                        littéraire} and {Bibliothèque nationale de France}}, year = {2018}, }
+                    </refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="dewey" type="corpus" ref="ignore">
@@ -348,7 +367,9 @@
                     <description>Framework pour l'annotation grammaticale.</description>
                     <auteur>Communautaire</auteur>
                     <date type="creation">13-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{noauthor_universal_nodate, title = {Universal
+                        {Dependencies}}, url = {https://universaldependencies.org/}, abstract =
+                        {Bibliothèque de treebanks}, urldate = {2023-10-17}, }</refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="genre" type="corpus" ref="ignore">
@@ -471,7 +492,12 @@
                     <description>Bibliothèque de corpus linguistiques</description>
                     <auteur/>
                     <date type="creation">16-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{noauthor_ortolang_nodate, title = {{ORTOLANG} –
+                        {Plate}-forme d'outils et de ressources linguistiques pour un traitement
+                        optimisé de la langue française}, url =
+                        {https://www.ortolang.fr/fr/accueil/}, abstract = {Plate-forme d'outils et
+                        de ressources linguistiques pour un traitement optimisé de la langue
+                        française}, urldate = {2023-10-17}, }</refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="titre" type="corpus" ref="ignore">
@@ -661,7 +687,13 @@
                         ortolang.</description>
                     <auteur>ATILF, CLLE</auteur>
                     <date type="creation">16-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{11403/est_republicain/v4, title = {Corpus
+                        journalistique issu de l'Est Républicain}, author = {ATILF and CLLE}, url =
+                        {https://hdl.handle.net/11403/est\_republicain/v4}, note = {{ORTOLANG}
+                        ({Open} {Resources} {and} {TOols} {for} {LANGuage}) \textendash
+                        www.ortolang.fr}, copyright = {Licence Creative Commons Attribution - Pas
+                        d'Utilisation Commerciale - Partage dans les Mêmes Conditions 2.0
+                        Générique}, year = {2020} }</refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="title" ref="ignore" type="corpus-doc">
@@ -732,7 +764,9 @@
                         autour du langage au niveau européen (dont Datasets).</description>
                     <auteur/>
                     <date type="creation">16-10-2023</date>
-                    <refbib type="bibtex"/>
+                    <refbib type="bibtex">@misc{noauthor_clarin_nodate, title = {{CLARIN}}, url =
+                        {https://www.clarin.eu/}, abstract = {Bibliothèque européenne de jeu de
+                        données }, urldate = {2023-10-17}, } </refbib>
                 </head>
                 <data_corpus>
                     <attribut nom="title" type="corpus" ref="ignore">
@@ -819,6 +853,34 @@
 
                     </attribut>
 
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name url="https://macocu.eu/" xml:id="macocu">Macocu</name>
+                    <description>62 corpus pour des langues peu dotées européennes. (monolingue ou
+                        parallele) Données issues d'internet (crawlées) enrichies. Ici étude du
+                        corpus Albanais, tous construits sur le même principe. (corpus dans un
+                        corpus). Corpus accessibles dans Clarin.</description>
+                    <auteur>Prompsit, Université d'Alicante, de Groningen et Jozef Stefan
+                        Institute</auteur>
+                    <date type="creation">17-10-2023</date>
+
+                    <refbib type="bibtex"> @misc{11356/1804, title = {MaCoCu}, author =
+                        {Ba{\~n}{\'o}n, Marta and Chichirau, Malina and Espl{\`a}-Gomis, Miquel and
+                        Forcada, Mikel L. and Galiano-Jim{\'e}nez, Aar{\'o}n and
+                        Garc{\'{\i}}a-Romero, Cristian and Kuzman, Taja and Ljube{\v s}i{\'c},
+                        Nikola and van Noord, Rik and Pla Sempere, Leopoldo and
+                        Ram{\'{\i}}rez-S{\'a}nchez, Gema and Rupnik, Peter and Suchomel, V{\'{\i}}t
+                        and Toral, Antonio and Zaragoza-Bernabeu, Jaume}, url =
+                        {https://macocu.eu/}, note = {Slovenian language resource repository
+                        {CLARIN}.{SI}}, copyright = {{CC0}-No Rights Reserved}, issn = {2820-4042},
+                        year = {2023} }</refbib>
+                </head>
+                <data_corpus>
+                    <attribut nom="vide" type="corpus" ref="ignore">
+                        <commentaire/>
+                    </attribut>
                 </data_corpus>
             </corpus>
         </grp-corpus>
