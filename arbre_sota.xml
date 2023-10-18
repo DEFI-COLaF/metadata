@@ -33,7 +33,11 @@
             </attribut>
             <attribut nom="genre" type="corpus-doc" xml:id="genre">
                 <description>Classifier les corpus/doc. Voc contrôlé existant structuré ou
-                    construction d'un voc contrôlé personnalisé? Nature//Domaine?</description>
+                    construction d'un voc contrôlé personnalisé? Domaine</description>
+            </attribut>
+            <attribut nom="type" type="corpus-doc" xml:id="type">
+                <description>Nature de document. Liste contrôlée déjà existante? Ou
+                    création?</description>
             </attribut>
 
             <!--Métadonnées administratives-->
@@ -58,7 +62,8 @@
                 <description>XML, TEI, TXT...</description>
             </attribut>
             <attribut nom="taille" type="corpus-doc" xml:id="taille">
-                <description>Quelle unité de mesure? Plusieurs unités: bytes, token, mots, etc...</description>
+                <description>Quelle unité de mesure? Plusieurs unités: bytes, token, mots,
+                    etc...</description>
             </attribut>
             <attribut nom="encodage" type="corpus-doc" xml:id="encodage">
                 <description>Encodage des fichiers</description>
@@ -94,7 +99,7 @@
                         = {{Carnegie Mellon University Librairies}}, year = {2020}, }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="work_id" type="doc" ref="ignore">
+                    <attribut nom="work_id" type="doc" ref="id">
                         <commentaire/>
                     </attribut>
                     <attribut nom="conference" type="corpus" ref="ignore">
@@ -138,13 +143,13 @@
                         </attribut>
                     </attribut>
 
-                    <attribut nom="work_title" type="doc" ref="ignore">
+                    <attribut nom="work_title" type="doc" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="work_authors" type="doc" ref="ignore">
+                    <attribut nom="work_authors" type="doc" ref="auteur">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="work_type" type="doc" ref="ignore">
+                    <attribut nom="work_type" type="doc" ref="type">
                         <commentaire>10 types de documents possibles</commentaire>
                         <valeur nom="multipaper session" ref="ignore">
                             <commentaire>Peut être parent d'autres papiers mais pas
@@ -179,7 +184,7 @@
                             </valeur>
                         </valeur>
                     </attribut>
-                    <attribut nom="full_text" type="structuration" ref="ignore">
+                    <attribut nom="full_text" type="structuration" ref="format">
                         <commentaire>En plein texte ou en xml</commentaire>
                     </attribut>
                     <attribut nom="full_text_type" type="attribut" ref="ignore">
@@ -191,7 +196,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="full_text_license" type="doc" ref="ignore">
+                    <attribut nom="full_text_license" type="doc" ref="droits">
                         <commentaire/>
                         <valeur nom="Creative Commons Attribution 2.0" ref="ignore">
                             <commentaire/>
@@ -211,14 +216,14 @@
                     <attribut nom="keywords" type="doc" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="languages" type="doc" ref="ignore">
+                    <attribut nom="languages" type="doc" ref="langue">
                         <commentaire/>
-                        <valeur nom="ISO 639-1" ref="ignore">
+                        <valeur nom="ISO 639-1" ref="langue">
                             <commentaire>Liste plate de langues sous la forme d'un code ISO 639-1.
                                 Plusieurs langues pour un document possible.</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="topics" type="doc" ref="ignore">
+                    <attribut nom="topics" type="doc" ref="genre">
                         <commentaire>Liste plate de topics.</commentaire>
                     </attribut>
                 </data_corpus>
@@ -243,17 +248,17 @@
                         de France}}, year = {2019}, }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="ID" type="corpus-doc" ref="ignore">
+                    <attribut nom="ID" type="corpus-doc" ref="id" repetition="yes">
                         <commentaire>1 ID pour le corpus (ici magazine), 1 ID par Document (ici
                             page)</commentaire>
                     </attribut>
-                    <attribut nom="mimetype" type="corpus-doc" ref="ignore">
+                    <attribut nom="mimetype" type="corpus-doc" ref="type">
                         <commentaire>Format de document</commentaire>
                         <valeur nom="text/xml" ref="ignore">
                             <commentaire>1 seule valeur existante dans le corpus</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="title" type="corpus-doc" ref="ignore">
+                    <attribut nom="title" type="corpus-doc" ref="format">
                         <commentaire>Metadonnées en Dublin Core</commentaire>
                         <valeur nom="date-numero" ref="ignore">
                             <commentaire>Stucture du titre du corpus sous la forme date - numéro
@@ -263,7 +268,7 @@
                             <commentaire/>
                         </attribut>
                     </attribut>
-                    <attribut nom="description" type="corpus-doc" ref="ignore">
+                    <attribut nom="description" type="corpus-doc" ref="description">
                         <commentaire>Brève description du corpus/doc</commentaire>
                         <valeur nom="entry" ref="ignore">
                             <commentaire>Dans le cas du document.</commentaire>
@@ -275,13 +280,13 @@
                             <commentaire>Dans le cas du corpus, exemeple: Numéro 54</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="type" type="corpus" ref="ignore">
+                    <attribut nom="type" type="corpus" ref="type">
                         <commentaire>Un seul type dans le corpus</commentaire>
                         <valeur nom="periodical" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="date" type="corpus" ref="ignore">
+                    <attribut nom="date" type="corpus" ref="date">
                         <commentaire/>
                         <valeur nom="AAAA-MM-DD" ref="ignore">
                             <commentaire/>
@@ -348,10 +353,10 @@
                         <commentaire>Organisation des documents dans le corpus par ordre
                             alphabétique</commentaire>
                     </attribut>
-                    <attribut nom="title" type="corpus-doc" ref="ignore">
+                    <attribut nom="title" type="corpus-doc" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="author" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="author" type="corpus" ref="auteur" repetition="yes">
                         <commentaire/>
                         <valeur nom="auteur_key_dates" ref="ignore">
                             <commentaire>Pour le corpus : Nom des auteurs avec dates de vie et clé
@@ -389,7 +394,7 @@
                             <attribut nom="publisher" type="doc" ref="ignore">
                                 <commentaire>Editeur du document physique</commentaire>
                             </attribut>
-                            <attribut nom="date" type="doc" ref="ignore">
+                            <attribut nom="date" type="doc" ref="date">
                                 <commentaire/>
                                 <attribut nom="when" type="attribut" ref="ignore">
                                     <commentaire/>
@@ -436,7 +441,7 @@
                         {Bibliothèque de treebanks}, urldate = {2023-10-17}, }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="genre" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="genre" type="corpus" ref="genre" repetition="yes">
                         <commentaire>Attribut non nommé mais décrit au niveau de chaque corpus de
                             langue puis de sous corpus</commentaire>
                         <valeur nom="academic" ref="ignore">
@@ -502,34 +507,34 @@
                             <commentaire>Tout ce qui a pour source un wiki</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="family" type="corpus" ref="ignore">
+                    <attribut nom="family" type="corpus" ref="langue">
                         <commentaire>Famille de la langue du corpus </commentaire>
-                        <valeur nom="family_WALS" ref="ignore">
+                        <valeur nom="family_WALS" ref="langue">
                             <commentaire>Sélectionné dans la colonne family ici
                                 https://wals.info/languoid</commentaire>
                         </valeur>
-                        <attribut nom="genus" type="corpus" ref="ignore">
+                        <attribut nom="genus" type="corpus" ref="langue">
                             <commentaire>Branche de la langue</commentaire>
-                            <valeur nom="genus_WALS" ref="ignore">
+                            <valeur nom="genus_WALS" ref="langue">
                                 <commentaire>Sélectionné dans la colonne genus ici
                                     https://wals.info/languoid</commentaire>
                             </valeur>
-                            <attribut nom="language" type="corpus" ref="ignore">
+                            <attribut nom="language" type="corpus" ref="langue">
                                 <commentaire>Corpus organisés par rapport à la langue</commentaire>
-                                <valeur nom="language_WALS" ref="ignore">
+                                <valeur nom="language_WALS" ref="langue">
                                     <commentaire>Langage écrit en toutes lettres</commentaire>
                                 </valeur>
                             </attribut>
                         </attribut>
                     </attribut>
-                    <attribut nom="quantite_dataset" type="corpus" ref="ignore">
+                    <attribut nom="quantite_dataset" type="corpus" ref="taille">
                         <commentaire>Nombre de datasets contenus dans le corpus de
                             langue</commentaire>
                     </attribut>
-                    <attribut nom="quantite_token" type="corpus" ref="ignore">
+                    <attribut nom="quantite_token" type="corpus" ref="taille">
                         <commentaire>Quantité de tokens contenus dans le corpus</commentaire>
                     </attribut>
-                    <attribut nom="title" type="corpus-doc" ref="ignore">
+                    <attribut nom="title" type="corpus-doc" ref="titre">
                         <commentaire/>
                     </attribut>
                     <attribut nom="content" type="corpus-doc" ref="ignore" repetition="yes">
@@ -544,7 +549,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="licence" type="corpus-doc" ref="ignore">
+                    <attribut nom="licence" type="corpus-doc" ref="droits">
                         <commentaire>Différents types de licence CCBY en général.</commentaire>
                     </attribut>
 
@@ -564,7 +569,7 @@
                         française}, urldate = {2023-10-17}, }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="titre" type="corpus" ref="ignore">
+                    <attribut nom="titre" type="corpus" ref="titre">
                         <commentaire/>
                     </attribut>
                     <attribut nom="laboratoires_producteurs" type="corpus" ref="ignore"
@@ -575,22 +580,22 @@
                         repetition="yes">
                         <commentaire>Université, institut de recherche....</commentaire>
                     </attribut>
-                    <attribut nom="description" type="corpus" ref="ignore">
+                    <attribut nom="description" type="corpus" ref="description">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="licence" type="corpus" ref="ignore">
+                    <attribut nom="licence" type="corpus" ref="droits">
                         <commentaire/>
-                        <valeur nom="CCAttrib2" ref="ignore">
+                        <valeur nom="CCAttrib2" ref="droits">
                             <commentaire>Licence Creative Commons Attribution - Pas d'Utilisation
                                 Commerciale - Partage dans les Mêmes Conditions 2.0
                                 Générique</commentaire>
                         </valeur>
-                        <valeur nom="CCAttrib4" ref="ignore">
+                        <valeur nom="CCAttrib4" ref="droits">
                             <commentaire>Licence Creative Commons - Attribution 4.0
                                 International</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="reference_bibliographique" ref="ignore" type="corpus">
+                    <attribut nom="reference_bibliographique" ref="refbib" type="corpus">
                         <commentaire/>
                         <valeur nom="texte" ref="ignore">
                             <commentaire/>
@@ -599,51 +604,51 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="contributeurs" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="contributeurs" type="corpus" ref="auteur" repetition="yes">
                         <commentaire>Liste de noms prénoms rôle</commentaire>
                     </attribut>
-                    <attribut nom="date_publication" type="corpus" ref="ignore">
+                    <attribut nom="date_publication" type="corpus" ref="date">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="identifiant_perenne" type="corpus" ref="ignore">
+                    <attribut nom="identifiant_perenne" type="corpus" ref="id">
                         <commentaire/>
                         <valeur nom="handle" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="droits_d_utilisation" type="corpus" ref="ignore">
+                    <attribut nom="droits_d_utilisation" type="corpus" ref="droits">
                         <commentaire/>
-                        <valeur nom="libre_sans_utilisation_commerciale" ref="ignore">
+                        <valeur nom="libre_sans_utilisation_commerciale" ref="droits">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="libre" ref="ignore">
+                        <valeur nom="libre" ref="droits">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="type_corpus" type="corpus" ref="ignore">
+                    <attribut nom="type_corpus" type="corpus" ref="type">
                         <commentaire/>
                         <valeur nom="ecrit" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="type_langue" type="corpus" ref="ignore">
+                    <attribut nom="type_langue" type="corpus" ref="langue">
                         <commentaire>Liste fermée</commentaire>
-                        <valeur nom="monolingue" ref="ignore">
+                        <valeur nom="monolingue" ref="langue">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="multilingue" ref="ignore">
+                        <valeur nom="multilingue" ref="langue">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="parallele" ref="ignore">
+                        <valeur nom="parallele" ref="langue">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="langues_corpus" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="langues_corpus" type="corpus" ref="langue" repetition="yes">
                         <commentaire>Liste ouverte de langues dont</commentaire>
-                        <valeur nom="français" ref="ignore">
+                        <valeur nom="français" ref="langue">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="anglais" ref="ignore">
+                        <valeur nom="anglais" ref="langue">
                             <commentaire/>
                         </valeur>
                     </attribut>
@@ -668,28 +673,28 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="format" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="format" type="corpus" ref="format" repetition="yes">
                         <commentaire>Liste fermée de formats</commentaire>
-                        <valeur nom="TEI" ref="ignore">
+                        <valeur nom="TEI" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="texte" ref="ignore">
+                        <valeur nom="texte" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="pdf" ref="ignore">
+                        <valeur nom="pdf" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="txm" ref="ignore">
+                        <valeur nom="txm" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="word" ref="ignore">
+                        <valeur nom="word" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="CoNLL" ref="ignore">
+                        <valeur nom="CoNLL" ref="format">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="type_encodage" type="corpus" ref="ignore">
+                    <attribut nom="type_encodage" type="corpus" ref="encodage">
                         <commentaire/>
                         <valeur nom="UTF-8" ref="ignore">
                             <commentaire/>
@@ -701,7 +706,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="date_origine" type="corpus" ref="ignore">
+                    <attribut nom="date_origine" type="corpus" ref="date">
                         <commentaire/>
                         <valeur nom="tranche_annees" ref="ignore">
                             <commentaire/>
@@ -716,29 +721,29 @@
                     <attribut nom="versions" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="genre_corpus" type="corpus" ref="ignore">
+                    <attribut nom="genre_corpus" type="corpus" ref="genre">
                         <commentaire/>
-                        <valeur nom="journalistique" ref="ignore">
+                        <valeur nom="journalistique" ref="genre">
                             <commentaire>Presse</commentaire>
                         </valeur>
-                        <valeur nom="nouveau_mode_com" ref="ignore">
+                        <valeur nom="nouveau_mode_com" ref="genre">
                             <commentaire>Nouveau mode de communication (Tweet, SMS,
                                 etc)</commentaire>
                         </valeur>
-                        <valeur nom="litteraire" ref="ignore">
+                        <valeur nom="litteraire" ref="genre">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="ecrits_professionnels" ref="ignore">
+                        <valeur nom="ecrits_professionnels" ref="genre">
                             <commentaire>Écritures ordinaires et écrits professionnels</commentaire>
                         </valeur>
-                        <valeur nom="parole_naturelle" ref="ignore">
+                        <valeur nom="parole_naturelle" ref="genre">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="scientifique" ref="ignore">
+                        <valeur nom="scientifique" ref="genre">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="nombre_de_mots" type="corpus" ref="ignore">
+                    <attribut nom="nombre_de_mots" type="corpus" ref="taille">
                         <commentaire/>
                     </attribut>
                 </data_corpus>
@@ -763,18 +768,18 @@
                         Générique}, year = {2020} }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="title" ref="ignore" type="corpus-doc">
+                    <attribut nom="title" ref="titre" type="corpus-doc">
                         <commentaire>Titre du corpus (dans TeiHeader)</commentaire>
                     </attribut>
-                    <attribut nom="respStmt" ref="ignore" type="corpus-doc">
+                    <attribut nom="respStmt" ref="auteur" type="corpus-doc">
                         <commentaire>Responsable du document</commentaire>
-                        <attribut nom="name" ref="ignore" type="corpus-doc" repetition="yes">
+                        <attribut nom="name" ref="auteur" type="corpus-doc" repetition="yes">
                             <commentaire/>
-                            <valeur nom="nom_auteur_doc" ref="ignore">
+                            <valeur nom="nom_auteur_doc" ref="auteur">
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="resp" ref="ignore" type="corpus-doc" repetition="yes">
+                        <attribut nom="resp" ref="auteur" type="corpus-doc" repetition="yes">
                             <commentaire/>
                             <valeur nom="role" ref="ignore">
                                 <commentaire>Exemple: conversion en TEI</commentaire>
@@ -793,7 +798,7 @@
                             <commentaire>Réutilisation</commentaire>
                         </attribut>
                     </attribut>
-                    <attribut nom="sourceDesc" ref="ignore" type="corpus-doc">
+                    <attribut nom="sourceDesc" ref="source" type="corpus-doc">
                         <commentaire>Journal titre</commentaire>
                     </attribut>
                     <attribut nom="change" ref="ignore" type="doc" repetition="yes">
@@ -839,13 +844,13 @@
                         données }, urldate = {2023-10-17}, } </refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="dc_title" type="corpus" ref="ignore">
+                    <attribut nom="dc_title" type="corpus" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_contributor_author" type="corpus" ref="ignore"
+                    <attribut nom="dc_contributor_author" type="corpus" ref="auteur"
                         repetition="yes">
                         <commentaire>1 balise par auteur</commentaire>
-                        <valeur nom="Nom_Prenom" ref="ignore">
+                        <valeur nom="Nom_Prenom" ref="auteur">
                             <commentaire>Nom, Prénom</commentaire>
                         </valeur>
                     </attribut>
@@ -855,7 +860,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_source_uri" type="corpus" ref="ignore">
+                    <attribut nom="dc_source_uri" type="corpus" ref="source">
                         <commentaire/>
                         <valeur nom="url_projet" ref="ignore">
                             <commentaire/>
@@ -867,59 +872,59 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_date_accessioned" type="corpus" ref="ignore">
+                    <attribut nom="dc_date_accessioned" type="corpus" ref="date">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_date_available" type="corpus" ref="ignore">
+                    <attribut nom="dc_date_available" type="corpus" ref="date">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_date_issued" type="corpus" ref="ignore">
+                    <attribut nom="dc_date_issued" type="corpus" ref="date">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="type" type="corpus" ref="ignore">
+                    <attribut nom="type" type="corpus" ref="format">
                         <commentaire/>
-                        <valeur nom="text" ref="ignore">
+                        <valeur nom="text" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="corpus" ref="ignore">
+                        <valeur nom="corpus" ref="format">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="xml" ref="ignore">
+                        <valeur nom="xml" ref="format">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="size" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="size" type="corpus" ref="taille" repetition="yes">
                         <commentaire/>
-                        <attribut nom="texts" type="corpus" ref="ignore">
+                        <attribut nom="texts" type="corpus" ref="taille">
                             <commentaire/>
                         </attribut>
-                        <attribut nom="words" type="corpus" ref="ignore">
+                        <attribut nom="words" type="corpus" ref="taille">
                             <commentaire/>
                         </attribut>
                     </attribut>
-                    <attribut nom="dc_language_iso" type="corpus" ref="ignore">
+                    <attribut nom="dc_language_iso" type="corpus" ref="langue">
                         <commentaire>Peut être monolingue ou multilingue</commentaire>
                         <valeur nom="ISO_639-1" ref="ignore">
                             <commentaire>Juste indiqué que norme iso suivie. Liste
                                 plate.</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_rights" type="corpus" ref="ignore">
+                    <attribut nom="dc_rights" type="corpus" ref="droits">
                         <commentaire>Licence en toutes lettres</commentaire>
                     </attribut>
-                    <attribut nom="dc_rights_uri" type="corpus" ref="ignore">
+                    <attribut nom="dc_rights_uri" type="corpus" ref="droits">
                         <commentaire/>
                         <valeur nom="url" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_rights_label" type="corpus" ref="ignore">
+                    <attribut nom="dc_rights_label" type="corpus" ref="droits">
                         <commentaire/>
                         <valeur nom="PUB" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_description" type="corpus" ref="ignore">
+                    <attribut nom="dc_description" type="corpus" ref="description">
                         <commentaire/>
                     </attribut>
                     <attribut nom="dc_publisher" type="corpus" ref="ignore" repetition="yes">
@@ -939,28 +944,28 @@
                     </attribut>
                     <attribut nom="file" type="doc" ref="ignore" repetition="yes">
                         <commentaire/>
-                        <attribut nom="file_name" type="doc" ref="ignore">
+                        <attribut nom="file_name" type="doc" ref="titre">
                             <commentaire>Pour chaque fichier, titre.</commentaire>
                         </attribut>
-                        <attribut nom="file_size_info" type="doc" ref="ignore">
+                        <attribut nom="file_size_info" type="doc" ref="taille">
                             <commentaire/>
-                            <valeur nom="texts" ref="ignore">
+                            <valeur nom="texts" ref="taille">
                                 <commentaire/>
                             </valeur>
-                            <valeur nom="words" ref="ignore">
+                            <valeur nom="words" ref="taille">
                                 <commentaire/>
                             </valeur>
-                            <valeur nom="tokens" ref="ignore">
+                            <valeur nom="tokens" ref="taille">
                                 <commentaire/>
                             </valeur>
-                            <valeur nom="bytes" ref="ignore">
+                            <valeur nom="bytes" ref="taille">
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="file_format" type="doc" ref="ignore">
+                        <attribut nom="file_format" type="doc" ref="format">
                             <commentaire/>
                         </attribut>
-                        <attribut nom="file_description" type="doc" ref="ignore">
+                        <attribut nom="file_description" type="doc" ref="description">
                             <commentaire/>
                         </attribut>
                         <attribut nom="file_count" type="corpus" ref="ignore">
@@ -992,18 +997,18 @@
                         year = {2023} }</refbib>
                 </head>
                 <data_corpus>
-                    <attribut nom="language" type="corpus-doc" ref="ignore" repetition="yes">
+                    <attribut nom="language" type="corpus-doc" ref="langue" repetition="yes">
                         <commentaire>Corpus organisé et documents nommés par Langue</commentaire>
-                        <valeur nom="ISO_639-1" ref="ignore">
+                        <valeur nom="ISO_639-1" ref="langue">
                             <commentaire>Norme employée pour Clarin et dans Macocu</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="type" type="doc" ref="ignore">
+                    <attribut nom="type" type="doc" ref="langue">
                         <commentaire/>
-                        <valeur nom="monolingual" ref="ignore">
+                        <valeur nom="monolingual" ref="langue">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="parallel" ref="ignore">
+                        <valeur nom="parallel" ref="langue">
                             <commentaire/>
                         </valeur>
                     </attribut>
@@ -1013,44 +1018,44 @@
                     <attribut nom="release" ref="ignore" type="doc" repetition="yes">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="size" ref="ignore" type="corpus-doc" repetition="yes">
+                    <attribut nom="size" ref="taille" type="corpus-doc" repetition="yes">
                         <commentaire/>
-                        <valeur nom="tokens" ref="ignore">
+                        <valeur nom="tokens" ref="taille">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="bytes" ref="ignore">
+                        <valeur nom="bytes" ref="taille">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="sentences" ref="ignore">
+                        <valeur nom="sentences" ref="taille">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="words" ref="ignore">
+                        <valeur nom="words" ref="taille">
                             <commentaire/>
                         </valeur>
-                        <valeur nom="entry" ref="ignore">
+                        <valeur nom="entry" ref="taille">
                             <commentaire/>
                         </valeur>
                     </attribut>
                     <attribut nom="corpus" type="corpus" ref="ignore">
                         <commentaire>Métadonnées dans le XML</commentaire>
-                        <attribut nom="corpus_id" type="attribut" ref="ignore">
+                        <attribut nom="corpus_id" type="attribut" ref="id">
                             <commentaire>Identifiant du corpus qui compose tout le fichier
                                 XML</commentaire>
-                            <valeur nom="Macocu-languageiso_version" ref="ignore">
+                            <valeur nom="Macocu-languageiso_version" ref="langue">
                                 <commentaire>Exemple: MaCoCu-sq-1.0 pour l'albanais</commentaire>
                             </valeur>
                         </attribut>
                     </attribut>
                     <attribut nom="doc" type="doc" ref="ignore" repetition="yes">
                         <commentaire>Métadonnées pour le doc (1 page web)</commentaire>
-                        <attribut nom="doc_id" type="attribut" ref="ignore">
+                        <attribut nom="doc_id" type="attribut" ref="id">
                             <commentaire/>
-                            <valeur nom="macocu_languageiso_n" ref="ignore">
+                            <valeur nom="macocu_languageiso_n" ref="langue">
                                 <commentaire> Exemple: macocu.sq.1 pour le premier document du
                                     corpus d'albanais</commentaire>
                             </valeur>
                         </attribut>
-                        <attribut nom="doc_title" type="attribut" ref="ignore">
+                        <attribut nom="doc_title" type="attribut" ref="titre">
                             <commentaire/>
                         </attribut>
                         <attribut nom="doc_crawldate" type="attribut" ref="ignore">
@@ -1059,27 +1064,27 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="doc_langdistr" ref="ignore" type="attribut">
+                        <attribut nom="doc_langdistr" ref="langue" type="attribut">
                             <commentaire>Proportion de paragraphes de chaque langue présente dans le
                                 doc sous la forme [('lg_iso', distrib sur 1), (autre langue')].
                                 Exemple: [('sq', 0.96), ('en', 0.04)] </commentaire>
                         </attribut>
-                        <attribut nom="doc_url" ref="ignore" type="attribut">
+                        <attribut nom="doc_url" ref="source" type="attribut">
                             <commentaire>Url du site où a été crawlé le doc</commentaire>
                         </attribut>
-                        <attribut nom="doc_domain" ref="ignore" type="attribut">
+                        <attribut nom="doc_domain" ref="source" type="attribut">
                             <commentaire>Domaine du site Exemple url:https://www.fav.al domain:
                                 fav.al</commentaire>
                         </attribut>
-                        <attribut nom="doc_file_type" ref="ignore" type="attribut">
+                        <attribut nom="doc_file_type" ref="type" type="attribut">
                             <commentaire>Type de doc du document original</commentaire>
-                            <valeur nom="html" ref="ignore">
+                            <valeur nom="html" ref="type">
                                 <commentaire/>
                             </valeur>
-                            <valeur nom="txt" ref="ignore">
+                            <valeur nom="txt" ref="type">
                                 <commentaire/>
                             </valeur>
-                            <valeur nom="pdf" ref="ignore">
+                            <valeur nom="pdf" ref="type">
                                 <commentaire/>
                             </valeur>
                         </attribut>
@@ -1089,9 +1094,9 @@
                     </attribut>
                     <attribut nom="p" ref="ignore" type="structuration" repetition="yes">
                         <commentaire>Paragraphe</commentaire>
-                        <attribut nom="p_id" ref="ignore" type="attribut">
+                        <attribut nom="p_id" ref="id" type="attribut">
                             <commentaire/>
-                            <valeur nom="macocu_langueiso_ndoc_np" ref="ignore">
+                            <valeur nom="macocu_langueiso_ndoc_np" ref="langue">
                                 <commentaire>Exemple: macocu.sq.1.1 pour le premier paragraphe du
                                     1er doc du corpus d'albanais.</commentaire>
                             </valeur>
@@ -1125,7 +1130,7 @@
                                 <commentaire>Supprimés du corpus.</commentaire>
                             </valeur>
                         </attribut>
-                        <attribut nom="p_lang" ref="ignore" type="attribut">
+                        <attribut nom="p_lang" ref="langue" type="attribut">
                             <commentaire>langage estimé dans le paragraphe.</commentaire>
                             <valeur nom="ISO-639-1" ref="ignore">
                                 <commentaire/>
