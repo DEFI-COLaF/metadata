@@ -52,7 +52,7 @@
                                 </oneOrMore>
                                 <zeroOrMore>
                                     <element name="docCorpus">
-                                        <attribute name="quant"/>
+
                                         <oneOrMore>
                                             <element name="docType">
                                                 <attribute name="type">
@@ -110,8 +110,14 @@
                     <value>structuration</value>
                     <value>corpus-doc</value>
                     <value>all</value>
+                    <value>attribut</value>
                 </choice>
             </attribute>
+            <optional>
+                <attribute name="repetition">
+                    <value>yes</value>
+                </attribute>
+            </optional>
             <choice>
                 <element name="description">
                     <text/>
