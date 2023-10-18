@@ -1,0 +1,29 @@
+Nom du corpus,url,Type,formats doc,etat
+"The RTBF Corpus: a dataset of 750,000 Belgian French news articles published between 2008 and 2021",https://dataverse.uclouvain.be/dataset.xhtml?persistentId=doi:10.14428/DVN/PEVSSI,Presse,,A TRAITER
+Doc de presse avec analyse de MAP BNF,https://api.bnf.fr/fr/documents-de-presse-numerises-en-mode-article,Presse,ALTO/METS,FAITE
+Europeana,https://api.bnf.fr/fr/documents-de-presse-numerises-en-mode-article-du-projet-europeana-newspapers,Presse,,A TRAITER
+OBVIL,https://api.bnf.fr/fr/documents-de-gallica-produits-au-format-tei-par-obvil,Monographies,XML-TEI/CSV,FAITE
+DH index conf,https://dh-abstracts.library.virginia.edu/,Conférences,WEB,FAITE
+OPUS,https://opus.nlpl.eu/,Sous titres,,A TRAITER
+Cremma,https://github.com/HTR-United/cremma-wikipedia,All,TEI,A TRAITER
+Universal Dependencies,https://universaldependencies.org/,Annotations grammaticales,,FAITE
+Hal,//,Doc scientifiques,,A TRAITER
+TALN,Corpus TALN // https://www.ortolang.fr/market/corpora/corpus-taln,Doc scientifiques,,A TRAITER
+jurinet,,Textes juridiques,,A TRAITER
+data french social mediabank,,,,A ETUDIER
+Corpus du projet Restaure,https://zenodo.org/communities/restaure?page=1&size=20,Textes en langues de france,,A TRAITER
+corpus de CLARIN,https://www.clarin.eu/content/data,,,A TRAITER
+corpus de European Language Grid ,https://live.european-language-grid.eu/catalogue/?entity_type__term=LanguageResource,,,A ETUDIER
+Corpus Middle English Prose and Verse,https://quod.lib.umich.edu/c/cme/,Romans/Poèmes,,A ETUDIER
+Womenn Writers Project,https://www.wwp.northeastern.edu/,Romans/?,,A ETUDIER
+The Shelley Godwin Archive,https://www.wwp.northeastern.edu/,Manuscrits,,A ETUDIER
+Nenufar,A trouver??,Dictionnaires,TEI,A ETUDIER
+TAPAS DH Collection,https://tapasproject.org/all_collections,,TEI,A FOUILLER
+American and French Research on the Treasury of the French Language,https://encyclopedie.uchicago.edu/,Dictionnaires/encyclopédies/Monographies,,A FOUILLER
+FranText,https://www.frantext.fr/,littéraires/Scientifiques/philosophiques/Techniques,TEI,A FOUILLER
+Débats parlementaires sur l'Europe à l'Assemblée nationale (2002-2012),https://www.ortolang.fr/market/corpora/fr-parl,Débats parlementaires,TEI,A TRAITER
+Interviews d'Alphonse Daudet dans la presse parisienne (1883-1897),https://www.ortolang.fr/market/corpora/interviewsdaudet,Entretiens,TEI,A TRAITER
+Corpus journalistique issu de l'Est Républicain,https://www.ortolang.fr/market/corpora/est_republicain,Presse,TEI,A TRAITER
+Corpus de tweets encodés en TEI,https://repository.ortolang.fr/api/content/comere/v3.1/cmr-polititweets.html,Tweets,TEI,A TRAITER
+Erudit,https://www.erudit.org/,Bibliothèque numérique,,A ETUDIER
+Constellation,https://constellation.uqac.ca/,Bibliothèque numérique,,A ETUDIER
