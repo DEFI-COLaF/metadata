@@ -12,6 +12,40 @@
     <body>
         <data_colaf>
             <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
+            <attribut nom="id" type="corpus-doc" xml:id="id">
+                <description>Produire un identifiant unique pour le corpus, un identifiant unique
+                    pour chaque doc? </description>
+            </attribut>
+            <attribut nom="titre" type="corpus-doc" xml:id="titre">
+                <description>Titre du corpus-doc. Décrire la division (sous-titre,
+                    etc)...</description>
+            </attribut>
+            <attribut nom="auteur" type="corpus-doc" xml:id="auteur" repetition="yes">
+                <description>Ajouter le contenu: nom, prénom, date? rôle? auteur du fichier, auteur
+                    du document.... mettre des types?</description>
+            </attribut>
+            <attribut nom="description" type="corpus-doc" xml:id="description">
+                <description>Description libre du corpus, doc.... A organiser? </description>
+            </attribut>
+            <attribut nom="licence" type="corpus-doc" xml:id="licence">
+                <description>Licence du corpus/doc. Ajouter des précisions comme dans les corpus
+                    étudiés? (nom de la licence, lien, description?)</description>
+            </attribut>
+            <attribut nom="date" type="corpus-doc" xml:id="date" repetition="yes">
+                <description>Dates à mentionner: creation du fichier/corpus? création du doc de
+                    base? ajout dans colaf? Quelle structure de date?</description>
+            </attribut>
+            <attribut nom="langue" type="all" xml:id="langue" repetition="yes">
+                <description>Quelle norme? Créer un voc contrôlé personnalisé avec des alignements
+                    avec la norme ISO et le WALS? Préciser famille de langue, nom de la langue,
+                    identifiant, lieu (du document).... Informations nécessaires sur le locuteur
+                    aussi (langue maternelle, apprentissage de la langue parlée dans le doc etc...).
+                    A quel niveau préciser: juste corpus/langue ou all? Quelles informations pour
+                    chaque niveau conserver?</description>
+            </attribut>
+            <attribut nom="genre" type="corpus-doc" xml:id="langue">
+                <description/>
+            </attribut>
             <attribut nom="ignore" type="all" xml:id="ignore">
                 <description/>
             </attribut>
@@ -297,7 +331,7 @@
                             <commentaire>Pour le corpus : Nom des auteurs avec dates de vie et clé
                                 dans Data.BnF</commentaire>
                         </valeur>
-                        <valeur nom="auteur_dates" ref="ignore" >
+                        <valeur nom="auteur_dates" ref="ignore">
                             <commentaire>Pour le document: Nom, Prénom (dates de vie)</commentaire>
                         </valeur>
                         <attribut nom="role" type="doc" ref="ignore">
@@ -507,10 +541,12 @@
                     <attribut nom="titre" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="laboratoires_producteurs" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="laboratoires_producteurs" type="corpus" ref="ignore"
+                        repetition="yes">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="soutien_institutionnel" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="soutien_institutionnel" type="corpus" ref="ignore"
+                        repetition="yes">
                         <commentaire>Université, institut de recherche....</commentaire>
                     </attribut>
                     <attribut nom="description" type="corpus" ref="ignore">
@@ -746,11 +782,13 @@
                     </attribut>
                     <attribut nom="div[part]" ref="ignore" type="structuration" repetition="yes">
                         <commentaire>Niveau 1 de division</commentaire>
-                        <attribut nom="div[article]" ref="ignore" type="structuration" repetition="yes">
+                        <attribut nom="div[article]" ref="ignore" type="structuration"
+                            repetition="yes">
                             <commentaire>Division par article</commentaire>
                             <attribut nom="div" ref="ignore" type="structuration" repetition="yes">
                                 <commentaire/>
-                                <attribut nom="head" ref="ignore" type="structuration" repetition="yes">
+                                <attribut nom="head" ref="ignore" type="structuration"
+                                    repetition="yes">
                                     <commentaire>Titre de l'article</commentaire>
                                 </attribut>
                                 <attribut nom="p" ref="ignore" type="structuration" repetition="yes">
@@ -778,7 +816,8 @@
                     <attribut nom="dc_title" type="corpus" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_contributor_author" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="dc_contributor_author" type="corpus" ref="ignore"
+                        repetition="yes">
                         <commentaire>1 balise par auteur</commentaire>
                         <valeur nom="Nom_Prenom" ref="ignore">
                             <commentaire>Nom, Prénom</commentaire>
@@ -832,7 +871,7 @@
                             <commentaire/>
                         </attribut>
                     </attribut>
-                    <attribut nom="dc_language_iso" type="corpus" ref="ignore" >
+                    <attribut nom="dc_language_iso" type="corpus" ref="ignore">
                         <commentaire>Peut être monolingue ou multilingue</commentaire>
                         <valeur nom="ISO_639-1" ref="ignore">
                             <commentaire>Juste indiqué que norme iso suivie. Liste
