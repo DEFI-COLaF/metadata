@@ -11,29 +11,17 @@
     </head>
     <body>
         <data_colaf>
-            <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
             <attribut nom="id" type="corpus-doc" xml:id="id">
                 <description>Produire un identifiant unique pour le corpus, un identifiant unique
                     pour chaque doc? </description>
             </attribut>
+            <!--Métadonnées descriptives du corpus/doc-->
             <attribut nom="titre" type="corpus-doc" xml:id="titre">
                 <description>Titre du corpus-doc. Décrire la division (sous-titre,
                     etc)...</description>
             </attribut>
-            <attribut nom="auteur" type="corpus-doc" xml:id="auteur" repetition="yes">
-                <description>Ajouter le contenu: nom, prénom, date? rôle? auteur du fichier, auteur
-                    du document.... mettre des types?</description>
-            </attribut>
             <attribut nom="description" type="corpus-doc" xml:id="description">
                 <description>Description libre du corpus, doc.... A organiser? </description>
-            </attribut>
-            <attribut nom="licence" type="corpus-doc" xml:id="licence">
-                <description>Licence du corpus/doc. Ajouter des précisions comme dans les corpus
-                    étudiés? (nom de la licence, lien, description?)</description>
-            </attribut>
-            <attribut nom="date" type="corpus-doc" xml:id="date" repetition="yes">
-                <description>Dates à mentionner: creation du fichier/corpus? création du doc de
-                    base? ajout dans colaf? Quelle structure de date?</description>
             </attribut>
             <attribut nom="langue" type="all" xml:id="langue" repetition="yes">
                 <description>Quelle norme? Créer un voc contrôlé personnalisé avec des alignements
@@ -43,9 +31,47 @@
                     A quel niveau préciser: juste corpus/langue ou all? Quelles informations pour
                     chaque niveau conserver?</description>
             </attribut>
-            <attribut nom="genre" type="corpus-doc" xml:id="langue">
-                <description/>
+            <attribut nom="genre" type="corpus-doc" xml:id="genre">
+                <description>Classifier les corpus/doc. Voc contrôlé existant structuré ou
+                    construction d'un voc contrôlé personnalisé? Nature//Domaine?</description>
             </attribut>
+
+            <!--Métadonnées administratives-->
+            <attribut nom="auteur" type="corpus-doc" xml:id="auteur" repetition="yes">
+                <description>Ajouter le contenu: nom, prénom, date? rôle? auteur du fichier, auteur
+                    du document.... mettre des types?</description>
+            </attribut>
+
+            <attribut nom="droits" type="corpus-doc" xml:id="droits">
+                <description>Droits d'accessibilité et de réutilisation. Licence du corpus/doc.
+                    Ajouter des précisions comme dans les corpus étudiés? (nom de la licence, lien,
+                    description?)</description>
+            </attribut>
+            <attribut nom="date" type="corpus-doc" xml:id="date" repetition="yes">
+                <description>Dates à mentionner: creation du fichier/corpus? création du doc de
+                    base? ajout dans colaf? Quelle structure de date?</description>
+            </attribut>
+
+            <!--Métadonnées techniques
+            Métadonnées techniques pour le corpus et pour le doc: format, taille, encodage, structure, méthode d'acquisition-->
+            <attribut nom="format" type="corpus-doc" xml:id="format">
+                <description>XML, TEI, TXT...</description>
+            </attribut>
+            <attribut nom="taille" type="corpus-doc" xml:id="taille">
+                <description>Quelle unité de mesure? Plusieurs unités: bytes, token, mots, etc...</description>
+            </attribut>
+            <attribut nom="encodage" type="corpus-doc" xml:id="encodage">
+                <description>Encodage des fichiers</description>
+            </attribut>
+            <!--Métadonnées de provenance-->
+            <attribut nom="source" type="corpus-doc" xml:id="source">
+                <description>détail sur l'origine du corpus/doc. Url, document original (si
+                    ocr....)</description>
+            </attribut>
+            <attribut nom="reference_bibliographique" type="corpus-doc" xml:id="refbib">
+                <description>Du corpus, des documents et du corpus récupéré?</description>
+            </attribut>
+            <!-- Métadonnées de balisage?-->
             <attribut nom="ignore" type="all" xml:id="ignore">
                 <description/>
             </attribut>
