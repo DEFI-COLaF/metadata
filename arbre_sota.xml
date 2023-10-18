@@ -29,7 +29,7 @@
                     identifiant, lieu (du document).... Informations nécessaires sur le locuteur
                     aussi (langue maternelle, apprentissage de la langue parlée dans le doc etc...).
                     A quel niveau préciser: juste corpus/langue ou all? Quelles informations pour
-                    chaque niveau conserver?</description>
+                    chaque niveau conserver? Question de la ditribution des langues.</description>
                 <valeur nom="langue_valeur" xml:id="langue_valeur">
                     <description>Type de valeur pour langues </description>
                 </valeur>
@@ -63,6 +63,7 @@
                     base? ajout dans colaf? Quelle structure de date?</description>
                 <valeur nom="date_valeur" xml:id="date_valeur"><description>Type de date</description></valeur>
             </attribut>
+            <attribut nom="version" type="corpus" xml:id="version"><description/></attribut>
 
             <!--Métadonnées techniques
             Métadonnées techniques pour le corpus et pour le doc: format, taille, encodage, structure, méthode d'acquisition-->
@@ -78,7 +79,7 @@
             <attribut nom="encodage" type="corpus-doc" xml:id="encodage">
                 <description>Encodage des fichiers</description>
             </attribut>
-            <!--Métadonnées de provenance-->
+            <!--Métadonnées de provenance à développer en fonction des éléments récupérés dans les corpus-->
             <attribut nom="source" type="corpus-doc" xml:id="source">
                 <description>détail sur l'origine du corpus/doc. Url, document original (si
                     ocr....)</description>
@@ -87,6 +88,7 @@
                 <description>Du corpus, des documents et du corpus récupéré?</description>
             </attribut>
             <!-- Métadonnées de balisage?-->
+            <attribut nom="balisage" type="structuration" xml:id="balisage"><description/></attribut>
             <attribut nom="ignore" type="all" xml:id="ignore">
                 <description/>
             </attribut>
@@ -393,7 +395,7 @@
                     </attribut>
                     <attribut nom="sourceDoc" type="doc" ref="ignore">
                         <commentaire>Référence bibliographique</commentaire>
-                        <attribut nom="bibl" type="doc" ref="source">
+                        <attribut nom="bibl" type="doc" ref="refbib">
                             <commentaire/>
                             <attribut nom="idno" type="doc" ref="ignore">
                                 <commentaire/>
@@ -728,7 +730,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="versions" type="corpus" ref="ignore">
+                    <attribut nom="version" type="corpus" ref="version">
                         <commentaire/>
                     </attribut>
                     <attribut nom="genre_corpus" type="corpus" ref="genre">
@@ -1022,10 +1024,10 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="version" ref="ignore" type="corpus-doc" repetition="yes">
+                    <attribut nom="version" ref="version" type="corpus-doc" repetition="yes">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="release" ref="ignore" type="doc" repetition="yes">
+                    <attribut nom="release" ref="version" type="doc" repetition="yes">
                         <commentaire/>
                     </attribut>
                     <attribut nom="size" ref="taille" type="corpus-doc" repetition="yes">
