@@ -46,7 +46,7 @@
                     création?</description>
                 <valeur nom="type_valeur" xml:id="type_valeur"><description>Valeurs pour type</description></valeur>
             </attribut>
-
+            <attribut nom="sujet" type="corpus-doc" xml:id="sujet"><description>Sujets/mots-clefs</description></attribut>
             <!--Métadonnées administratives-->
             <attribut nom="auteur" type="corpus-doc" xml:id="auteur" repetition="yes">
                 <description>Ajouter le contenu: nom, prénom, date? rôle? auteur du fichier, auteur
@@ -66,7 +66,7 @@
             <attribut nom="version" type="corpus" xml:id="version"><description/></attribut>
 
             <!--Métadonnées techniques
-            Métadonnées techniques pour le corpus et pour le doc: format, taille, encodage, structure, méthode d'acquisition-->
+            Métadonnées techniques pour le corpus et pour le doc: format, taille, encodage, structure, méthode d'acquisition (si OCR, logiciels employées, etc...)-->
             <attribut nom="format" type="corpus-doc" xml:id="format">
                 <description>XML, TEI, TXT...</description>
                 <valeur nom="format_valeur" xml:id="format_valeur"><description>Valeurs pour format</description></valeur>
@@ -89,6 +89,9 @@
             </attribut>
             <!-- Métadonnées de balisage?-->
             <attribut nom="balisage" type="structuration" xml:id="balisage"><description/></attribut>
+            <!--Métadonnées linguistiques à discuter-->
+            <attribut nom="linguistique" type="all" xml:id="linguistique"><description>Données spécifiques linguistiques.</description></attribut>
+            
             <attribut nom="ignore" type="all" xml:id="ignore">
                 <description/>
             </attribut>
@@ -225,7 +228,7 @@
                     <attribut nom="parent_work_id" type="doc" ref="ignore">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="keywords" type="doc" ref="ignore">
+                    <attribut nom="keywords" type="doc" ref="sujet">
                         <commentaire/>
                     </attribut>
                     <attribut nom="languages" type="doc" ref="langue">
@@ -417,7 +420,7 @@
                             </attribut>
                         </attribut>
                     </attribut>
-                    <attribut nom="pb" type="structuration" ref="ignore" repetition="yes">
+                    <attribut nom="pb" type="structuration" ref="balisage" repetition="yes">
                         <commentaire>Balise de structuration TEI qui indique les pages</commentaire>
                         <attribut nom="xml:id" type="attribut" ref="id">
                             <commentaire/>
@@ -432,10 +435,10 @@
                             </valeur>
                         </attribut>
                     </attribut>
-                    <attribut nom="div" type="structuration" ref="ignore" repetition="yes">
+                    <attribut nom="div" type="structuration" ref="balisage" repetition="yes">
                         <commentaire>Pour indiquer les paragraphes dans le texte </commentaire>
                     </attribut>
-                    <attribut nom="head" type="structuration" ref="ignore" repetition="yes">
+                    <attribut nom="head" type="structuration" ref="balisage" repetition="yes">
                         <commentaire>Pour les titres/débuts de paragraphes...</commentaire>
                     </attribut>
 
@@ -549,7 +552,7 @@
                     <attribut nom="title" type="corpus-doc" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="content" type="corpus-doc" ref="ignore" repetition="yes">
+                    <attribut nom="content" type="corpus-doc" ref="linguistique" repetition="yes">
                         <commentaire>Liste les types de contenus dans le corpus/doc</commentaire>
                         <valeur nom="lemmas" ref="ignore">
                             <commentaire/>
@@ -664,7 +667,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="niveaux_annotations" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="niveaux_annotations" type="corpus" ref="linguistique" repetition="yes">
                         <commentaire>Liste fermée</commentaire>
                         <valeur nom="morphosyntaxique" ref="ignore">
                             <commentaire/>
@@ -823,18 +826,18 @@
                             <commentaire>date du changement</commentaire>
                         </attribut>
                     </attribut>
-                    <attribut nom="div[part]" ref="ignore" type="structuration" repetition="yes">
+                    <attribut nom="div[part]" ref="balisage" type="structuration" repetition="yes">
                         <commentaire>Niveau 1 de division</commentaire>
-                        <attribut nom="div[article]" ref="ignore" type="structuration"
+                        <attribut nom="div[article]" ref="balisage" type="structuration"
                             repetition="yes">
                             <commentaire>Division par article</commentaire>
-                            <attribut nom="div" ref="ignore" type="structuration" repetition="yes">
+                            <attribut nom="div" ref="balisage" type="structuration" repetition="yes">
                                 <commentaire/>
-                                <attribut nom="head" ref="ignore" type="structuration"
+                                <attribut nom="head" ref="balisage" type="structuration"
                                     repetition="yes">
                                     <commentaire>Titre de l'article</commentaire>
                                 </attribut>
-                                <attribut nom="p" ref="ignore" type="structuration" repetition="yes">
+                                <attribut nom="p" ref="balisage" type="structuration" repetition="yes">
                                     <commentaire>Contenu de l'article par paragraphe</commentaire>
                                 </attribut>
                             </attribut>
@@ -1100,11 +1103,11 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="doc_lm_score" ref="ignore" type="attribut">
+                        <attribut nom="doc_lm_score" ref="linguistique" type="attribut">
                             <commentaire>fluency score du paragraphe ente 0 et 1</commentaire>
                         </attribut>
                     </attribut>
-                    <attribut nom="p" ref="ignore" type="structuration" repetition="yes">
+                    <attribut nom="p" ref="balisage" type="structuration" repetition="yes">
                         <commentaire>Paragraphe</commentaire>
                         <attribut nom="p_id" ref="id" type="attribut">
                             <commentaire/>
@@ -1113,14 +1116,14 @@
                                     1er doc du corpus d'albanais.</commentaire>
                             </valeur>
                         </attribut>
-                        <attribut nom="p_heading" type="attribut" ref="ignore">
+                        <attribut nom="p_heading" type="attribut" ref="balisage">
                             <commentaire>Titre ou non? Si oui l'attribut apparait est a pour valeur
                                 yes, sinon il n'apparait pas.</commentaire>
                             <valeur nom="yes" ref="ignore">
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="p_quality" type="attribut" ref="ignore">
+                        <attribut nom="p_quality" type="attribut" ref="linguistique">
                             <commentaire>qualité estimée du paragraphe selon des paramètres précis
                                 (taille, nombre de stopwords, ponctuation....</commentaire>
                             <valeur nom="good" ref="ignore">
@@ -1148,10 +1151,10 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="p_lm_score" ref="ignore" type="attribut">
+                        <attribut nom="p_lm_score" ref="linguistique" type="attribut">
                             <commentaire>Fluency score pour le paragraphe</commentaire>
                         </attribut>
-                        <attribut nom="p_sensitive" ref="ignore" type="attribut">
+                        <attribut nom="p_sensitive" ref="linguistique" type="attribut">
                             <commentaire>Si le paragraphe contient des infos sensibles ( mail, num
                                 de tel, adresse ip...)</commentaire>
                             <valeur nom="yes" ref="ignore">
