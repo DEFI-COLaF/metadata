@@ -52,12 +52,15 @@
                 <description>Sujets/mots-clefs</description>
             </attribut>
             <!--Métadonnées administratives-->
-            <attribut nom="meta_adm" type="corpus-doc" xml:id="meta_adm">
-                <commentaire/>
-            </attribut>
-            <attribut nom="auteur_doc" type="corpus-doc" xml:id="auteur_doc" repetition="yes">
-                <description>Ajouter le contenu: nom, prénom, date? rôle? auteur du fichier, auteur
-                    du document.... mettre des types?</description>
+            <attribut nom="admin_auteur" type="corpus-doc" xml:id="auteur_doc" repetition="yes">
+                <description>Auteurs du document XML</description>
+                <attribut nom="nom" type="corpus-doc" xml:id="auteur_admin_nom">
+                    <description>Nom de l'auteur</description>
+                </attribut>
+                <attribut nom="role" type="corpus-doc" xml:id="auteur_admin_role">
+                    <description>Rôle de l'auteur décrit dans la construction du document XML</description>
+                    <valeur nom="encoding" xml:id='auteur_admin_role_encoding'><description>Personne qui a encodé le texte</description></valeur>
+                </attribut>
             </attribut>
 
             <attribut nom="droits" type="corpus-doc" xml:id="droits">
@@ -65,12 +68,15 @@
                     Ajouter des précisions comme dans les corpus étudiés? (nom de la licence, lien,
                     description?)</description>
             </attribut>
-            <attribut nom="date" type="corpus-doc" xml:id="date" repetition="yes">
+            <attribut nom="admin_date" type="corpus-doc" xml:id="admin_date" repetition="yes">
                 <description>Dates à mentionner: creation du fichier/corpus? création du doc de
                     base? ajout dans colaf? Quelle structure de date?</description>
-                <valeur nom="date_valeur" xml:id="date_valeur">
+                <valeur nom="date_valeur" xml:id="admin_date_valeur">
                     <description>Type de date</description>
                 </valeur>
+            </attribut>
+            <attribut nom="admin_publisher" type="corpus-doc" xml:id="admin_publisher">
+                <description>Distributeur/Publisher du document/du corpus</description>
             </attribut>
             <attribut nom="version" type="corpus" xml:id="version">
                 <description/>
@@ -98,8 +104,17 @@
             <attribut nom="source" type="corpus-doc" xml:id="source">
                 <description>détail sur l'origine du corpus/doc. Url, document original (si
                     ocr....)</description>
+                <attribut nom="source_titre" type="corpus-doc" xml:id="source_titre"><description>Titre de la source</description></attribut>
                 <attribut nom="source_auteur" type="corpus-doc" xml:id="source_auteur">
                     <commentaire/>
+                </attribut>
+                <attribut nom="source_date" type="corpus-doc" xml:id="source_date">
+                    <description>Date de publication de la source</description>
+                </attribut>
+                <attribut nom="source_identifiant" type="corpus-doc" xml:id="source_identifiant">
+                    <description>Identifiant de la source: ark, doi...</description></attribut>
+                <attribut nom="source_publisher" type="corpus-doc" xml:id="source_publisher">
+                    <description/>
                 </attribut>
             </attribut>
             <attribut nom="reference_bibliographique" type="corpus-doc" xml:id="refbib">
@@ -108,6 +123,39 @@
             <!-- Métadonnées de balisage?-->
             <attribut nom="balisage" type="structuration" xml:id="balisage">
                 <description/>
+                <attribut nom="div" type="structuration" xml:id="balisage_div">
+                    <description>Division du contenu textuel</description>
+                    <attribut nom="type" type="attribut" xml:id="balisage_div_type">
+                        <description/>
+                        <valeur nom="chapitre" xml:id="balisage_div_type_chapitre">
+                            <description/>
+                        </valeur>
+                        <valeur nom="part" xml:id="balisage_div_type_part">
+                            <description/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="head" type="structuration" xml:id="balisage_div_head">
+                        <description/>
+                    </attribut>
+                    <attribut nom="p" type="structuration" xml:id="balisage_p">
+                        <description>Paragraphe pour prose</description>
+                    </attribut>
+                </attribut>
+                <attribut nom="pb" type="structuration" xml:id="balisage_pb">
+                    <description>Page</description>
+                </attribut>
+                <attribut nom="fw" type="structuration" xml:id="balisage_fw">
+                    <description/>
+                     <attribut nom="type" type="attribut" xml:id="balisage_fw_type">
+                        <description/>
+                        <valeur nom="numbering" xml:id="balisage_numbering">
+                            <description>Numérotation de page</description>
+                        </valeur>
+                        <valeur nom="runningTitle" xml:id="balisage_runningTitle">
+                            <description>Titre courant</description>
+                        </valeur>
+                    </attribut>
+                </attribut>
             </attribut>
             <!--Métadonnées d'ajout-->
             <attribut nom="linguistique" type="all" xml:id="linguistique">
@@ -150,7 +198,7 @@
                         <attribut nom="conference_theme_title" type="corpus" ref="titre">
                             <commentaire/>
                         </attribut>
-                        <attribut nom="conference_year" type="corpus" ref="date">
+                        <attribut nom="conference_year" type="corpus" ref="admin_date">
                             <commentaire/>
                             <valeur nom="0000" ref="ignore">
                                 <commentaire/>
@@ -183,10 +231,10 @@
                         </attribut>
                     </attribut>
 
-                    <attribut nom="work_title" type="doc" ref="titre">
+                    <attribut nom="work_title" type="doc" ref="source_titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="work_authors" type="doc" ref="auteur_doc">
+                    <attribut nom="work_authors" type="doc" ref="source_auteur">
                         <commentaire/>
                     </attribut>
                     <attribut nom="work_type" type="doc" ref="type">
@@ -326,18 +374,18 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="date" type="corpus" ref="date">
+                    <attribut nom="date" type="corpus" ref="admin_date">
                         <commentaire/>
                         <valeur nom="AAAA-MM-DD" ref="date_valeur">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="publisher" type="corpus" ref="ignore">
+                    <attribut nom="publisher" type="corpus" ref="admin_publisher">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="relation" type="corpus" ref="source">
+                    <attribut nom="relation" type="corpus" ref="source_identifiant">
                         <commentaire/>
-                        <valeur nom="ark" ref="ignore">
+                        <valeur nom="ark" ref="source_identifiant">
                             <commentaire/>
                         </valeur>
                     </attribut>
@@ -389,10 +437,6 @@
                         <commentaire>Organisation des documents dans le corpus avec la
                             classification Dewey</commentaire>
                     </attribut>
-                    <attribut nom="abc" type="corpus" ref="ignore">
-                        <commentaire>Organisation des documents dans le corpus par ordre
-                            alphabétique</commentaire>
-                    </attribut>
                     <attribut nom="title" type="corpus-doc" ref="titre">
                         <commentaire/>
                     </attribut>
@@ -418,25 +462,26 @@
                             </valeur>
                         </attribut>
                     </attribut>
-                    <attribut nom="publisher" type="doc" ref="ignore" repetition="yes">
+                    <attribut nom="publisher" type="doc" ref="admin_publisher" repetition="yes">
                         <commentaire>Editeur scientifique</commentaire>
                     </attribut>
-                    <attribut nom="sourceDoc" type="doc" ref="ignore">
+                    <attribut nom="sourceDoc" type="doc" ref="source">
                         <commentaire>Référence bibliographique</commentaire>
                         <attribut nom="bibl" type="doc" ref="refbib">
                             <commentaire/>
-                            <attribut nom="idno" type="doc" ref="ignore">
+                            <attribut nom="idno" type="doc" ref="source_identifiant">
                                 <commentaire/>
-                                <valeur nom="ark" ref="ignore">
+                                <valeur nom="ark" ref="source_identifiant">
                                     <commentaire/>
                                 </valeur>
                             </attribut>
-                            <attribut nom="publisher" type="doc" ref="ignore">
+                            
+                            <attribut nom="publisher" type="doc" ref="source_publisher">
                                 <commentaire>Editeur du document physique</commentaire>
                             </attribut>
-                            <attribut nom="date" type="doc" ref="date">
+                            <attribut nom="date" type="doc" ref="source_date">
                                 <commentaire/>
-                                <attribut nom="when" type="attribut" ref="date">
+                                <attribut nom="when" type="attribut" ref="source_date">
                                     <commentaire/>
                                     <valeur nom="annee" ref="date_valeur">
                                         <commentaire/>
@@ -445,28 +490,31 @@
                             </attribut>
                         </attribut>
                     </attribut>
-                    <attribut nom="pb" type="structuration" ref="balisage" repetition="yes">
+                    <attribut nom="pb" type="structuration" ref="balisage_pb" repetition="yes">
                         <commentaire>Balise de structuration TEI qui indique les pages</commentaire>
-                        <attribut nom="xml:id" type="attribut" ref="id">
+                        <attribut nom="xml:id" type="attribut" ref="balisage_pb">
                             <commentaire/>
-                            <valeur nom="nom_page" ref="ignore">
+                            <valeur nom="nom_page" ref="balisage_numbering">
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="corresp" type="attribut" ref="ignore">
+                        <attribut nom="corresp" type="attribut" ref="balisage">
                             <commentaire/>
-                            <valeur nom="ark" ref="ignore">
+                            <valeur nom="ark" ref="balisage">
                                 <commentaire/>
                             </valeur>
                         </attribut>
                     </attribut>
-                    <attribut nom="div" type="structuration" ref="balisage" repetition="yes">
+                    <attribut nom="div" type="structuration" ref="balisage_div" repetition="yes">
                         <commentaire>Pour indiquer les paragraphes dans le texte </commentaire>
                     </attribut>
-                    <attribut nom="head" type="structuration" ref="balisage" repetition="yes">
+                    <attribut nom="head" type="structuration" ref="balisage_div_head"
+                        repetition="yes">
                         <commentaire>Pour les titres/débuts de paragraphes...</commentaire>
                     </attribut>
-
+                    <attribut nom="p" type="structuration" ref="balisage_p" repetition="yes">
+                        <commentaire/>
+                    </attribut>
                 </data_corpus>
             </corpus>
             <corpus>
@@ -647,7 +695,7 @@
                     <attribut nom="contributeurs" type="corpus" ref="auteur_doc" repetition="yes">
                         <commentaire>Liste de noms prénoms rôle</commentaire>
                     </attribut>
-                    <attribut nom="date_publication" type="corpus" ref="date">
+                    <attribut nom="date_publication" type="corpus" ref="admin_date">
                         <commentaire/>
                     </attribut>
                     <attribut nom="identifiant_perenne" type="corpus" ref="id">
@@ -747,13 +795,13 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="date_origine" type="corpus" ref="date">
+                    <attribut nom="date_origine" type="corpus" ref="source_date">
                         <commentaire/>
                         <valeur nom="tranche_annees" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="type_donnees_linguistiques" type="corpus" ref="ignore">
+                    <attribut nom="type_donnees_linguistiques" type="corpus" ref="linguistique">
                         <commentaire/>
                         <valeur nom="primary_text" ref="ignore">
                             <commentaire/>
@@ -852,22 +900,24 @@
                             <commentaire>date du changement</commentaire>
                         </attribut>
                     </attribut>
-                    <attribut nom="div[part]" ref="balisage" type="structuration" repetition="yes">
-                        <commentaire>Niveau 1 de division</commentaire>
-                        <attribut nom="div[article]" ref="balisage" type="structuration"
-                            repetition="yes">
-                            <commentaire>Division par article</commentaire>
-                            <attribut nom="div" ref="balisage" type="structuration" repetition="yes">
+
+                    <attribut nom="div" ref="balisage_div" type="structuration" repetition="yes">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="balisage_div">
+                            <commentaire/>
+                            <valeur nom="part" ref="balisage_div_type_part">
                                 <commentaire/>
-                                <attribut nom="head" ref="balisage" type="structuration"
-                                    repetition="yes">
-                                    <commentaire>Titre de l'article</commentaire>
-                                </attribut>
-                                <attribut nom="p" ref="balisage" type="structuration"
-                                    repetition="yes">
-                                    <commentaire>Contenu de l'article par paragraphe</commentaire>
-                                </attribut>
-                            </attribut>
+                            </valeur>
+                            <valeur nom="chapter" ref="balisage_div_type_chapitre">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="head" ref="balisage_div_head" type="structuration"
+                            repetition="yes">
+                            <commentaire>Titre de l'article</commentaire>
+                        </attribut>
+                        <attribut nom="p" ref="balisage_p" type="structuration" repetition="yes">
+                            <commentaire>Contenu de l'article par paragraphe</commentaire>
                         </attribut>
                     </attribut>
                 </data_corpus>
@@ -896,31 +946,31 @@
                             <commentaire>Nom, Prénom</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_identfier_uri" type="corpus" ref="ignore">
+                    <attribut nom="dc_identfier_uri" type="corpus" ref="id">
                         <commentaire/>
                         <valeur nom="handle" ref="id">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_source_uri" type="corpus" ref="source">
+                    <attribut nom="dc_source_uri" type="corpus" ref="source_identifiant">
                         <commentaire/>
                         <valeur nom="url_projet" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_relation_isreferencedby" type="corpus" ref="source">
+                    <attribut nom="dc_relation_isreferencedby" type="corpus" ref="source_identifiant">
                         <commentaire/>
                         <valeur nom="handle" ref="ignore">
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_date_accessioned" type="corpus" ref="date">
+                    <attribut nom="dc_date_accessioned" type="corpus" ref="admin_date">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_date_available" type="corpus" ref="date">
+                    <attribut nom="dc_date_available" type="corpus" ref="admin_date">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_date_issued" type="corpus" ref="date">
+                    <attribut nom="dc_date_issued" type="corpus" ref="admin_date">
                         <commentaire/>
                     </attribut>
                     <attribut nom="type" type="corpus" ref="format">
@@ -969,13 +1019,13 @@
                     <attribut nom="dc_description" type="corpus" ref="description">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_publisher" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="dc_publisher" type="corpus" ref="admin_publisher" repetition="yes">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="sponsor" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="sponsor" type="corpus" ref="admin_publisher" repetition="yes">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_subject" type="corpus" ref="ignore" repetition="yes">
+                    <attribut nom="dc_subject" type="corpus" ref="sujet" repetition="yes">
                         <commentaire>Liste ouverte de mots clefs 1 balise par mot clef</commentaire>
                     </attribut>
                     <attribut nom="branding" type="corpus" ref="ignore">
@@ -1083,7 +1133,7 @@
                         <attribut nom="corpus_id" type="attribut" ref="id">
                             <commentaire>Identifiant du corpus qui compose tout le fichier
                                 XML</commentaire>
-                            <valeur nom="Macocu-languageiso_version" ref="ignore">
+                            <valeur nom="Macocu-languageiso_version" ref="id">
                                 <commentaire>Exemple: MaCoCu-sq-1.0 pour l'albanais</commentaire>
                             </valeur>
                         </attribut>
@@ -1134,9 +1184,9 @@
                             <commentaire>fluency score du paragraphe ente 0 et 1</commentaire>
                         </attribut>
                     </attribut>
-                    <attribut nom="p" ref="balisage" type="structuration" repetition="yes">
+                    <attribut nom="p" ref="balisage_p" type="structuration" repetition="yes">
                         <commentaire>Paragraphe</commentaire>
-                        <attribut nom="p_id" ref="id" type="attribut">
+                        <attribut nom="p_id" ref="balisage_p" type="attribut">
                             <commentaire/>
                             <valeur nom="macocu_langueiso_ndoc_np" ref="ignore">
                                 <commentaire>Exemple: macocu.sq.1.1 pour le premier paragraphe du
@@ -1261,13 +1311,13 @@
                             <commentaire>Nombre de documents longs</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="time_slot" type="corpus" ref="date">
+                    <attribut nom="time_slot" type="corpus" ref="source_date">
                         <commentaire>Classement des documents du corpus par période de
                             parution</commentaire>
                         <valeur nom="range_de_20_ans" ref="date_valeur">
                             <commentaire>Nombre de romans parus à cette période</commentaire>
                         </valeur>
-                        <attribut nom="date_slot" type="corpus-doc" ref="date">
+                        <attribut nom="date_slot" type="corpus-doc" ref="source_date">
                             <commentaire>Date précise de publication du roman dans la description
                                 visuelle de chaque document du corpus</commentaire>
                             <valeur nom="AAAA (TNum)" ref="date_valeur">
@@ -1309,7 +1359,7 @@
                                 ElTEC.</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="encoding" type="corpus-doc" ref="balisage">
+                    <attribut nom="encoding" type="corpus-doc" ref="encodage">
                         <commentaire>Quelle version de balisage du projet. Ici
                             Eltec-1.</commentaire>
                     </attribut>
@@ -1345,21 +1395,21 @@
                                     inexistent.</commentaire>
                             </attribut>
                         </attribut>
-                        <attribut nom="respStmt" type="doc" ref="auteur_doc">
+                        <attribut nom="respStmt" type="doc" ref="admin_auteur">
                             <commentaire>Responsables de la production des documents.</commentaire>
-                            <attribut nom="resp" type="doc" ref="auteur_doc">
+                            <attribut nom="resp" type="doc" ref="admin_auteur_role">
                                 <commentaire>Rôle</commentaire>
-                                <valeur nom="Encoding" ref="auteur_doc">
+                                <valeur nom="Encoding" ref="ignore">
                                     <commentaire/>
                                 </valeur>
-                                <valeur nom="Principal Investigator" ref="auteur_doc">
+                                <valeur nom="Principal Investigator" ref="ignore">
                                     <commentaire/>
                                 </valeur>
                                 <valeur nom="Original data capture" ref="source">
                                     <commentaire>Production du texte avant encoding</commentaire>
                                 </valeur>
                             </attribut>
-                            <attribut nom="name" type="doc" ref="auteur_doc">
+                            <attribut nom="name" type="doc" ref="admin_auteur_name">
                                 <commentaire>Nom de la personne ou organisation en charge du travail
                                     associé</commentaire>
                             </attribut>
@@ -1376,20 +1426,20 @@
                                 </valeur>
                             </attribut>
                         </attribut>
-                        <attribut nom="publicationStmt" type="doc" ref="meta_adm">
+                        <attribut nom="publicationStmt" type="doc" ref="ignore">
                             <commentaire>Métadonnées sur le document.</commentaire>
-                            <attribut nom="distributor" type="doc" ref="meta_adm">
+                            <attribut nom="distributor" type="doc" ref="admin_publisher">
                                 <commentaire>Projet nom</commentaire>
-                                <attribut nom="ref" type="attribut" ref="meta_adm">
+                                <attribut nom="ref" type="attribut" ref="ignore">
                                     <commentaire/>
-                                    <valeur nom="url" ref="meta_adm">
+                                    <valeur nom="url" ref="ignore">
                                         <commentaire/>
                                     </valeur>
                                 </attribut>
                             </attribut>
-                            <attribut nom="date" type="doc" ref="date">
+                            <attribut nom="date" type="doc" ref="admin_date">
                                 <commentaire>Date d'ajout du texte dans la collection</commentaire>
-                                <attribut nom="when" type="attribut" ref="date">
+                                <attribut nom="when" type="attribut" ref="ignore">
                                     <commentaire/>
                                     <valeur nom="AAAA-MM-DD" ref="date_valeur">
                                         <commentaire/>
@@ -1405,18 +1455,18 @@
                                     </valeur>
                                 </attribut>
                             </attribut>
-                            <attribut nom="ref" type="doc" ref="meta_adm">
+                            <attribut nom="ref" type="doc" ref="id">
                                 <commentaire>Référence à identifiant pérenne. (ici
                                     DOI)</commentaire>
-                                <attribut nom="type" type="attribut" ref="meta_adm">
+                                <attribut nom="type" type="attribut" ref="ignore">
                                     <commentaire/>
-                                    <valeur nom="doi" ref="meta_adm">
+                                    <valeur nom="doi" ref="ignore">
                                         <commentaire/>
                                     </valeur>
                                 </attribut>
-                                <attribut nom="target" type="attribut" ref="meta_adm">
+                                <attribut nom="target" type="attribut" ref="id">
                                     <commentaire/>
-                                    <valeur nom="url_doi" ref="meta_adm">
+                                    <valeur nom="url_doi" ref="ignore">
                                         <commentaire/>
                                     </valeur>
                                 </attribut>
@@ -1424,7 +1474,7 @@
                         </attribut>
                         <attribut nom="source" type="doc" ref="source">
                             <commentaire>Métadonnées sur la source</commentaire>
-                            <attribut nom="bibl" type="doc" ref="source">
+                            <attribut nom="bibl" type="doc" ref="bibtex">
                                 <commentaire>Citation bibliographique peu structurée</commentaire>
                                 <attribut nom="type" type="attribut" ref="source">
                                     <commentaire/>
@@ -1438,13 +1488,13 @@
                                         <commentaire/>
                                     </valeur>
                                 </attribut>
-                                <attribut nom="title" type="doc" ref="source">
+                                <attribut nom="title" type="doc" ref="source_titre">
                                     <commentaire/>
                                 </attribut>
-                                <attribut nom="author" type="doc" ref="source">
+                                <attribut nom="author" type="doc" ref="source_auteur">
                                     <commentaire/>
                                 </attribut>
-                                <attribut nom="publisher" type="doc" ref="source">
+                                <attribut nom="publisher" type="doc" ref="source_publisher">
                                     <commentaire/>
                                 </attribut>
                                 <attribut nom="pubPlace" type="doc" ref="source">
@@ -1453,7 +1503,7 @@
                                         <commentaire/>
                                     </valeur>
                                 </attribut>
-                                <attribut nom="ref" type="doc" ref="source">
+                                <attribut nom="ref" type="doc" ref="source_identifiant">
                                     <commentaire/>
                                     <attribut nom="target" type="attribut" ref="source">
                                         <commentaire/>
@@ -1462,7 +1512,7 @@
                                         </valeur>
                                     </attribut>
                                 </attribut>
-                                <attribut nom="idno" type="doc" ref="source">
+                                <attribut nom="idno" type="doc" ref="source_identifiant">
                                     <commentaire>Optionnel. Si identifiant standard comme
                                         ISBN.</commentaire>
                                 </attribut>
@@ -1549,24 +1599,26 @@
                                             <commentaire/>
                                             <attribut nom="key" type="attribut" ref="ajout">
                                                 <commentaire/>
-                                                <valeur nom="Tn" ref="ajout"><commentaire/></valeur>
+                                                <valeur nom="Tn" ref="ajout">
+                                                  <commentaire/>
+                                                </valeur>
                                             </attribut>
                                         </attribut>
                                     </attribut>
                                 </attribut>
                             </attribut>
                         </attribut>
-                        <attribut nom="pb" type="structuration" ref="balisage">
+                        <attribut nom="pb" type="structuration" ref="balisage_pb">
                             <commentaire>Page Break à chaque changement de page
                                 transcrite.</commentaire>
                             <attribut nom="n" type="attribut" ref="balisage">
                                 <commentaire>Numéro de page</commentaire>
                             </attribut>
                         </attribut>
-                        <attribut nom="div" type="structuration" ref="balisage">
+                        <attribut nom="div" type="structuration" ref="balisage_div">
                             <commentaire>Niveau de division: Pour titre, information complémentaire,
                                 chapitre...</commentaire>
-                            <attribut nom="type" type="attribut" ref="balisage">
+                            <attribut nom="type" type="attribut" ref="balisage_div_type">
                                 <commentaire/>
                                 <valeur nom="titlepage" ref="balisage">
                                     <commentaire>Enfant d'une balise front.</commentaire>
@@ -1579,17 +1631,23 @@
                                     <commentaire>Dans le cas d'une note, à associer avec la balise
                                         note</commentaire>
                                 </valeur>
+                                <valeur nom="chapter" ref="balisage_div_type_chapter">
+                                    <commentaire/>
+                                </valeur>
                             </attribut>
                             <attribut nom="n" type="attribut" ref="balisage">
                                 <commentaire>Numéro de division (chapitre, volume...)</commentaire>
                             </attribut>
-                            <attribut nom="head" type="structuration" ref="balisage">
+                            <attribut nom="head" type="structuration" ref="balisage_div_head">
                                 <commentaire>Title ou heading.</commentaire>
                             </attribut>
                             <attribut nom="quote" type="structuration" ref="balisage">
                                 <commentaire>Display block/Quotation</commentaire>
+                                <valeur nom="song" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
                             </attribut>
-                            <attribut nom="p" type="structuration" ref="balisage">
+                            <attribut nom="p" type="structuration" ref="balisage_p">
                                 <commentaire>paragraphe en prose ou item de liste.</commentaire>
                             </attribut>
                             <attribut nom="l" type="structuration" ref="balisage">
@@ -1629,8 +1687,86 @@
                     <attribut nom="corr" type="structuration" ref="balisage">
                         <commentaire>Correction Editoriale</commentaire>
                     </attribut>
-                    <attribut nom="back" type="structuration" ref="balisage"><commentaire/></attribut>
-                    <attribut nom="front" type="structuration" ref="balisage"><commentaire/></attribut>
+                    <attribut nom="back" type="structuration" ref="balisage">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="front" type="structuration" ref="balisage">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="s" type="structuration" ref="balisage">
+                        <commentaire>Optionnel et employé dans certains dépôts pour
+                            sentences.</commentaire>
+                        <attribut nom="xml:id" type="attribut" ref="balisage">
+                            <commentaire/>
+                            <valeur nom="NOMDOC_idal" ref="balisage">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="w" type="structuration" ref="balisage">
+                            <commentaire>Optionnel et employé dans certains dépôts pour
+                                words</commentaire>
+                            <attribut nom="pos" type="attribut" ref="balisage">
+                                <commentaire>PartofSpeech</commentaire>
+                                <valeur nom="adp" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="adp" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="det" ref="balisage">
+                                    <commentaire>déterminant</commentaire>
+                                </valeur>
+                                <valeur nom="num" ref="balisage">
+                                    <commentaire>nombre</commentaire>
+                                </valeur>
+                                <valeur nom="noun" ref="balisage">
+                                    <commentaire>nom commun</commentaire>
+                                </valeur>
+                                <valeur nom="abv" ref="balisage">
+                                    <commentaire>abverbe</commentaire>
+                                </valeur>
+                                <valeur nom="verb" ref="balisage">
+                                    <commentaire>verbe</commentaire>
+                                </valeur>
+                                <valeur nom="propn" ref="balisage">
+                                    <commentaire>nom propre</commentaire>
+                                </valeur>
+                                <valeur nom="adj" ref="balisage">
+                                    <commentaire>adjectif</commentaire>
+                                </valeur>
+                                <valeur nom="ccon" ref="balisage">
+                                    <commentaire>conjonction de coordination</commentaire>
+                                </valeur>
+                            </attribut>
+                            <attribut nom="lemma" ref="balisage" type="attribut">
+                                <commentaire/>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="pc" type="structuration" ref="balisage">
+                            <commentaire/>
+                            <attribut nom="pos" type="attribut" ref="balisage">
+                                <commentaire/>
+                                <valeur nom="PUNCT" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                            <attribut nom="lemma" type="attribut" ref="balisage">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="n" type="attribut" ref="balisage">
+                                <commentaire/>
+                                <valeur nom="SENT" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="PUN" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="PUQ" ref="balisage">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                    </attribut>
                 </data_corpus>
             </corpus>
         </grp-corpus>
