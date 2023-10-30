@@ -44,11 +44,18 @@
             <attribut nom="type" type="corpus-doc" xml:id="type">
                 <description>Nature de document. Liste contrôlée déjà existante? Ou
                     création?</description>
-                <valeur nom="type_valeur" xml:id="type_valeur"><description>Valeurs pour type</description></valeur>
+                <valeur nom="type_valeur" xml:id="type_valeur">
+                    <description>Valeurs pour type</description>
+                </valeur>
             </attribut>
-            <attribut nom="sujet" type="corpus-doc" xml:id="sujet"><description>Sujets/mots-clefs</description></attribut>
+            <attribut nom="sujet" type="corpus-doc" xml:id="sujet">
+                <description>Sujets/mots-clefs</description>
+            </attribut>
             <!--Métadonnées administratives-->
-            <attribut nom="auteur" type="corpus-doc" xml:id="auteur" repetition="yes">
+            <attribut nom="meta_adm" type="corpus-doc" xml:id="meta_adm">
+                <commentaire/>
+            </attribut>
+            <attribut nom="auteur_doc" type="corpus-doc" xml:id="auteur_doc" repetition="yes">
                 <description>Ajouter le contenu: nom, prénom, date? rôle? auteur du fichier, auteur
                     du document.... mettre des types?</description>
             </attribut>
@@ -61,20 +68,28 @@
             <attribut nom="date" type="corpus-doc" xml:id="date" repetition="yes">
                 <description>Dates à mentionner: creation du fichier/corpus? création du doc de
                     base? ajout dans colaf? Quelle structure de date?</description>
-                <valeur nom="date_valeur" xml:id="date_valeur"><description>Type de date</description></valeur>
+                <valeur nom="date_valeur" xml:id="date_valeur">
+                    <description>Type de date</description>
+                </valeur>
             </attribut>
-            <attribut nom="version" type="corpus" xml:id="version"><description/></attribut>
+            <attribut nom="version" type="corpus" xml:id="version">
+                <description/>
+            </attribut>
 
             <!--Métadonnées techniques
             Métadonnées techniques pour le corpus et pour le doc: format, taille, encodage, structure, méthode d'acquisition (si OCR, logiciels employées, etc...)-->
             <attribut nom="format" type="corpus-doc" xml:id="format">
                 <description>XML, TEI, TXT...</description>
-                <valeur nom="format_valeur" xml:id="format_valeur"><description>Valeurs pour format</description></valeur>
+                <valeur nom="format_valeur" xml:id="format_valeur">
+                    <description>Valeurs pour format</description>
+                </valeur>
             </attribut>
             <attribut nom="taille" type="corpus-doc" xml:id="taille">
                 <description>Quelle unité de mesure? Plusieurs unités: bytes, token, mots,
                     etc...</description>
-                <valeur nom="taille_valeur" xml:id="taille_valeur"><description>Valeurs pour taille</description></valeur>
+                <valeur nom="taille_valeur" xml:id="taille_valeur">
+                    <description>Valeurs pour taille</description>
+                </valeur>
             </attribut>
             <attribut nom="encodage" type="corpus-doc" xml:id="encodage">
                 <description>Encodage des fichiers</description>
@@ -83,15 +98,25 @@
             <attribut nom="source" type="corpus-doc" xml:id="source">
                 <description>détail sur l'origine du corpus/doc. Url, document original (si
                     ocr....)</description>
+                <attribut nom="source_auteur" type="corpus-doc" xml:id="source_auteur">
+                    <commentaire/>
+                </attribut>
             </attribut>
             <attribut nom="reference_bibliographique" type="corpus-doc" xml:id="refbib">
                 <description>Du corpus, des documents et du corpus récupéré?</description>
             </attribut>
             <!-- Métadonnées de balisage?-->
-            <attribut nom="balisage" type="structuration" xml:id="balisage"><description/></attribut>
-            <!--Métadonnées linguistiques à discuter-->
-            <attribut nom="linguistique" type="all" xml:id="linguistique"><description>Données spécifiques linguistiques.</description></attribut>
-            
+            <attribut nom="balisage" type="structuration" xml:id="balisage">
+                <description/>
+            </attribut>
+            <!--Métadonnées d'ajout-->
+            <attribut nom="linguistique" type="all" xml:id="linguistique">
+                <description>Données spécifiques linguistiques.</description>
+            </attribut>
+            <attribut nom="ajout" type="all" xml:id="ajout">
+                <description>Données spécifiques à un corpus</description>
+            </attribut>
+
             <attribut nom="ignore" type="all" xml:id="ignore">
                 <description/>
             </attribut>
@@ -131,7 +156,7 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="conference_organizers" type="corpus" ref="auteur">
+                        <attribut nom="conference_organizers" type="corpus" ref="auteur_doc">
                             <commentaire/>
                         </attribut>
                         <attribut nom="conference_series" type="corpus" ref="ignore">
@@ -161,7 +186,7 @@
                     <attribut nom="work_title" type="doc" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="work_authors" type="doc" ref="auteur">
+                    <attribut nom="work_authors" type="doc" ref="auteur_doc">
                         <commentaire/>
                     </attribut>
                     <attribut nom="work_type" type="doc" ref="type">
@@ -371,7 +396,7 @@
                     <attribut nom="title" type="corpus-doc" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="author" type="corpus" ref="auteur" repetition="yes">
+                    <attribut nom="author" type="corpus" ref="source_auteur" repetition="yes">
                         <commentaire/>
                         <valeur nom="auteur_key_dates" ref="ignore">
                             <commentaire>Pour le corpus : Nom des auteurs avec dates de vie et clé
@@ -386,9 +411,9 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="key" type="doc" ref="auteur">
+                        <attribut nom="key" type="doc" ref="source_auteur">
                             <commentaire/>
-                            <valeur nom="cle_data_bnf" ref="auteur">
+                            <valeur nom="cle_data_bnf" ref="source_auteur">
                                 <commentaire/>
                             </valeur>
                         </attribut>
@@ -619,7 +644,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="contributeurs" type="corpus" ref="auteur" repetition="yes">
+                    <attribut nom="contributeurs" type="corpus" ref="auteur_doc" repetition="yes">
                         <commentaire>Liste de noms prénoms rôle</commentaire>
                     </attribut>
                     <attribut nom="date_publication" type="corpus" ref="date">
@@ -667,7 +692,8 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="niveaux_annotations" type="corpus" ref="linguistique" repetition="yes">
+                    <attribut nom="niveaux_annotations" type="corpus" ref="linguistique"
+                        repetition="yes">
                         <commentaire>Liste fermée</commentaire>
                         <valeur nom="morphosyntaxique" ref="ignore">
                             <commentaire/>
@@ -786,7 +812,7 @@
                     <attribut nom="title" ref="titre" type="corpus-doc">
                         <commentaire>Titre du corpus (dans TeiHeader)</commentaire>
                     </attribut>
-                    <attribut nom="respStmt" ref="auteur" type="corpus-doc">
+                    <attribut nom="respStmt" ref="auteur_doc" type="corpus-doc">
                         <commentaire>Responsable du document</commentaire>
                         <attribut nom="name" ref="ignore" type="corpus-doc" repetition="yes">
                             <commentaire/>
@@ -794,7 +820,7 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="resp" ref="auteur" type="corpus-doc" repetition="yes">
+                        <attribut nom="resp" ref="auteur_doc" type="corpus-doc" repetition="yes">
                             <commentaire/>
                             <valeur nom="role" ref="ignore">
                                 <commentaire>Exemple: conversion en TEI</commentaire>
@@ -837,7 +863,8 @@
                                     repetition="yes">
                                     <commentaire>Titre de l'article</commentaire>
                                 </attribut>
-                                <attribut nom="p" ref="balisage" type="structuration" repetition="yes">
+                                <attribut nom="p" ref="balisage" type="structuration"
+                                    repetition="yes">
                                     <commentaire>Contenu de l'article par paragraphe</commentaire>
                                 </attribut>
                             </attribut>
@@ -862,7 +889,7 @@
                     <attribut nom="dc_title" type="corpus" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_contributor_author" type="corpus" ref="auteur"
+                    <attribut nom="dc_contributor_author" type="corpus" ref="auteur_doc"
                         repetition="yes">
                         <commentaire>1 balise par auteur</commentaire>
                         <valeur nom="Nom_Prenom" ref="ignore">
@@ -1165,6 +1192,445 @@
                             </valeur>
                         </attribut>
                     </attribut>
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name xml:id="eltec" url="https://distantreading.github.io/ELTeC/">European
+                        Literary Text Collection (ELTeC)</name>
+                    <description>Construit dans le cadre du projet Distant Reading, une collection
+                        multilingue de corpus de 2500 romans dans 10 langages différents en
+                        XML-TEI.</description>
+                    <auteur/>
+                    <date type="creation">30-10-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="language" type="corpus" ref="langue">
+                        <commentaire>Permet de classifier les corpus par langues.</commentaire>
+                        <valeur nom="ISO-639-3" ref="langue_valeur">
+                            <commentaire>Norme à trois lettres employée</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="last-update" type="corpus" ref="date">
+                        <commentaire/>
+                        <valeur nom="AAAA-MM-DD" ref="date_valeur">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="taille" type="corpus-doc" ref="taille">
+                        <commentaire>Deux descriptions différentes.</commentaire>
+                        <valeur nom="texts" ref="taille_valeur">
+                            <commentaire>Nombre de fichiers textes/romans dans le
+                                corpus</commentaire>
+                        </valeur>
+                        <valeur nom="words" ref="taille_valeur">
+                            <commentaire>Nombre de mots dans le corpus</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="authorship" type="corpus" ref="source">
+                        <commentaire/>
+                        <valeur nom="male" ref="source">
+                            <commentaire>Nombre d'auteurs hommes dans le corpus</commentaire>
+                        </valeur>
+                        <valeur nom="female" ref="source">
+                            <commentaire>Nombre d'auteurs femmes dans le corpus</commentaire>
+                        </valeur>
+                        <valeur nom="1-title" ref="source">
+                            <commentaire>Nombre d'auteurs qui ont 1 seul titre dans le
+                                corpus</commentaire>
+                        </valeur>
+                        <valeur nom="3-title" ref="source">
+                            <commentaire>Nombre d'auteurs qui ont 3 titres dans le
+                                corpus.</commentaire>
+                        </valeur>
+                        <attribut nom="sex" type="corpus-doc" ref="source">
+                            <commentaire>Description genre de l'auteur dans la présentation des
+                                documents du corpus.F ou M</commentaire>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="length" type="corpus-doc" ref="taille">
+                        <commentaire>Longueur des documents du corpus</commentaire>
+                        <valeur nom="short" ref="taille_valeur">
+                            <commentaire>Nombre de documents de petite taille.</commentaire>
+                        </valeur>
+                        <valeur nom="medium" ref="taille_valeur">
+                            <commentaire>Nombre de documents de longueur moyenne</commentaire>
+                        </valeur>
+                        <valeur nom="long" ref="taille_valeur">
+                            <commentaire>Nombre de documents longs</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="time_slot" type="corpus" ref="date">
+                        <commentaire>Classement des documents du corpus par période de
+                            parution</commentaire>
+                        <valeur nom="range_de_20_ans" ref="date_valeur">
+                            <commentaire>Nombre de romans parus à cette période</commentaire>
+                        </valeur>
+                        <attribut nom="date_slot" type="corpus-doc" ref="date">
+                            <commentaire>Date précise de publication du roman dans la description
+                                visuelle de chaque document du corpus</commentaire>
+                            <valeur nom="AAAA (TNum)" ref="date_valeur">
+                                <commentaire>Avec Tnuméro qui correspond au slot décrit pour les
+                                    corpus. Exemple un doc sorti en 1860 fait partie du T2
+                                    (1860-1879).</commentaire>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="reprint_count" type="corpus" ref="source">
+                        <commentaire>Nombre de documents dans le corpus qui ont été
+                            réimprimés.</commentaire>
+                        <valeur nom="frequent" ref="source">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="rare" ref="source">
+                            <commentaire/>
+                        </valeur>
+                        <attribut nom="reprints" type="corpus-doc" ref="source">
+                            <commentaire>Description des doc dans le corpus</commentaire>
+                            <valeur nom="low" ref="source">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="high" ref="source">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="E5C" type="corpus" ref="ignore">
+                        <commentaire>Score de Conformance sur 100 pour déterminer si le corpus suit
+                            bien toutes les prérogatives demandées par ELTeC.</commentaire>
+                    </attribut>
+                    <attribut nom="identifier" type="corpus-doc" ref="id">
+                        <commentaire>Identifier dans le tableur du corpus, xml:id dans le
+                            XML.</commentaire>
+                        <valeur nom="ISO_NUMAUTEUR_NUMDOC" ref="id">
+                            <commentaire>Exemple FRA00101 est un texte du corpus français (FRA), de
+                                l'auteur numéro 1 et est son 1er roman édité par
+                                ElTEC.</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="encoding" type="corpus-doc" ref="balisage">
+                        <commentaire>Quelle version de balisage du projet. Ici
+                            Eltec-1.</commentaire>
+                    </attribut>
+
+                    <attribut nom="title" type="corpus-doc" ref="titre">
+                        <commentaire>Titre du roman.</commentaire>
+                        <valeur nom="Titre_simple" ref="source">
+                            <commentaire>Dans la présentation visuelle du corpus, titre
+                                simple.</commentaire>
+                        </valeur>
+                        <attribut nom="ref_viaf" type="doc" ref="titre">
+                            <commentaire>Référence viaf dans le XML. Si existante num, sinon
+                                inexistent.</commentaire>
+                        </attribut>
+                        <attribut nom="wikidata" type="doc" ref="titre">
+                            <commentaire>Référence wikidata. Si non existante,
+                                inexistent.</commentaire>
+                        </attribut>
+                        <attribut nom="xml:lang" type="doc" ref="titre">
+                            <commentaire>Si traduction du titre</commentaire>
+                        </attribut>
+                        <attribut nom="author" type="corpus-doc" ref="source_auteur">
+                            <commentaire>Nom de l'auteur du roman</commentaire>
+                            <valeur nom="Nom, Prénom (Dates de vie)" ref="source_auteur">
+                                <commentaire>Exemple Adam, Juliette (1836-1936)</commentaire>
+                            </valeur>
+                            <attribut nom="ref_viaf" type="doc" ref="source_auteur">
+                                <commentaire>Référence viaf dans le XML. Si existante num, sinon
+                                    inexistent.</commentaire>
+                            </attribut>
+                            <attribut nom="wikidata" type="doc" ref="source_auteur">
+                                <commentaire>Référence wikidata. Si non existante,
+                                    inexistent.</commentaire>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="respStmt" type="doc" ref="auteur_doc">
+                            <commentaire>Responsables de la production des documents.</commentaire>
+                            <attribut nom="resp" type="doc" ref="auteur_doc">
+                                <commentaire>Rôle</commentaire>
+                                <valeur nom="Encoding" ref="auteur_doc">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="Principal Investigator" ref="auteur_doc">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="Original data capture" ref="source">
+                                    <commentaire>Production du texte avant encoding</commentaire>
+                                </valeur>
+                            </attribut>
+                            <attribut nom="name" type="doc" ref="auteur_doc">
+                                <commentaire>Nom de la personne ou organisation en charge du travail
+                                    associé</commentaire>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="measure" type="doc" ref="taille">
+                            <commentaire>Nombre de mots dans le document.</commentaire>
+                            <attribut nom="unit" type="attribut" ref="taille">
+                                <commentaire/>
+                                <valeur nom="words" ref="taille">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="pages" ref="taille">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="publicationStmt" type="doc" ref="meta_adm">
+                            <commentaire>Métadonnées sur le document.</commentaire>
+                            <attribut nom="distributor" type="doc" ref="meta_adm">
+                                <commentaire>Projet nom</commentaire>
+                                <attribut nom="ref" type="attribut" ref="meta_adm">
+                                    <commentaire/>
+                                    <valeur nom="url" ref="meta_adm">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                            <attribut nom="date" type="doc" ref="date">
+                                <commentaire>Date d'ajout du texte dans la collection</commentaire>
+                                <attribut nom="when" type="attribut" ref="date">
+                                    <commentaire/>
+                                    <valeur nom="AAAA-MM-DD" ref="date_valeur">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                            <attribut nom="licence" type="doc" ref="droits">
+                                <commentaire/>
+                                <attribut nom="target" type="attribut" ref="droits">
+                                    <commentaire/>
+                                    <valeur nom="CCBY4.0" ref="droits">
+                                        <commentaire>https://creativecommons.org/licenses/by/4.0/</commentaire>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                            <attribut nom="ref" type="doc" ref="meta_adm">
+                                <commentaire>Référence à identifiant pérenne. (ici
+                                    DOI)</commentaire>
+                                <attribut nom="type" type="attribut" ref="meta_adm">
+                                    <commentaire/>
+                                    <valeur nom="doi" ref="meta_adm">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                                <attribut nom="target" type="attribut" ref="meta_adm">
+                                    <commentaire/>
+                                    <valeur nom="url_doi" ref="meta_adm">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="source" type="doc" ref="source">
+                            <commentaire>Métadonnées sur la source</commentaire>
+                            <attribut nom="bibl" type="doc" ref="source">
+                                <commentaire>Citation bibliographique peu structurée</commentaire>
+                                <attribut nom="type" type="attribut" ref="source">
+                                    <commentaire/>
+                                    <valeur nom="printSource" ref="source">
+                                        <commentaire/>
+                                    </valeur>
+                                    <valeur nom="digitalSource" ref="source">
+                                        <commentaire/>
+                                    </valeur>
+                                    <valeur nom="firstEdition" ref="source">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                                <attribut nom="title" type="doc" ref="source">
+                                    <commentaire/>
+                                </attribut>
+                                <attribut nom="author" type="doc" ref="source">
+                                    <commentaire/>
+                                </attribut>
+                                <attribut nom="publisher" type="doc" ref="source">
+                                    <commentaire/>
+                                </attribut>
+                                <attribut nom="pubPlace" type="doc" ref="source">
+                                    <commentaire/>
+                                    <valeur nom="ville" ref="source">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                                <attribut nom="ref" type="doc" ref="source">
+                                    <commentaire/>
+                                    <attribut nom="target" type="attribut" ref="source">
+                                        <commentaire/>
+                                        <valeur nom="url" ref="source">
+                                            <commentaire>Url wikisource/Gallica...</commentaire>
+                                        </valeur>
+                                    </attribut>
+                                </attribut>
+                                <attribut nom="idno" type="doc" ref="source">
+                                    <commentaire>Optionnel. Si identifiant standard comme
+                                        ISBN.</commentaire>
+                                </attribut>
+                            </attribut>
+                            <attribut nom="encodingDesc" type="doc" ref="balisage">
+                                <commentaire/>
+                                <attribut nom="n" type="attribut" ref="balisage">
+                                    <commentaire/>
+                                    <valeur nom="eltec-n" ref="balisage">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="change" type="doc" ref="version">
+                            <commentaire>Modifications détaillées par date.</commentaire>
+                            <attribut nom="when" type="attribut" ref="version">
+                                <commentaire/>
+                                <valeur nom="AAAA-MM-DD" ref="version">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="profileDesc" type="doc" ref="ignore">
+                            <commentaire>Informations spécifiques au projet</commentaire>
+                            <attribut nom="langUsage" type="doc" ref="langue">
+                                <commentaire>Langues présentes dans le document</commentaire>
+                                <attribut nom="language" type="doc" ref="langue" repetition="yes">
+                                    <commentaire/>
+                                    <attribut nom="ident" type="attribut" ref="langue">
+                                        <commentaire/>
+                                        <valeur nom="ISO-639-1" ref="langue_valeur">
+                                            <commentaire/>
+                                        </valeur>
+                                    </attribut>
+                                    <attribut nom="usage" type="attribut" ref="langue">
+                                        <commentaire>Pourcentage de la langue dans le
+                                            document.</commentaire>
+                                    </attribut>
+                                </attribut>
+                                <attribut nom="textDesc" ref="ajout" type="doc">
+                                    <commentaire>Informations complémentaires spécifiques au projet
+                                        et balises créés de toutes pièces (avec un
+                                        namespace).</commentaire>
+                                    <attribut nom="e:authorGender" ref="ajout" type="doc">
+                                        <commentaire/>
+                                        <attribut nom="key" type="attribut" ref="ajout">
+                                            <commentaire/>
+                                            <valeur nom="M" ref="ajout">
+                                                <commentaire/>
+                                            </valeur>
+                                            <valeur nom="F" ref="ajout">
+                                                <commentaire/>
+                                            </valeur>
+                                        </attribut>
+                                    </attribut>
+                                    <attribut nom="e:canonicity" ref="ajout" type="doc">
+                                        <commentaire/>
+                                        <attribut nom="key" type="attribut" ref="ajout">
+                                            <commentaire/>
+                                            <valeur nom="low" ref="ajout">
+                                                <commentaire/>
+                                            </valeur>
+                                            <valeur nom="high" ref="ajout">
+                                                <commentaire/>
+                                            </valeur>
+                                        </attribut>
+                                        <attribut nom="e:size" ref="ajout" type="doc">
+                                            <commentaire/>
+                                            <attribut nom="key" type="attribut" ref="ajout">
+                                                <commentaire/>
+                                                <valeur nom="large" ref="ajout">
+                                                  <commentaire/>
+                                                </valeur>
+                                                <valeur nom="small" ref="ajout">
+                                                  <commentaire/>
+                                                </valeur>
+                                                <valeur nom="medium" ref="ajout">
+                                                  <commentaire/>
+                                                </valeur>
+                                            </attribut>
+                                        </attribut>
+                                        <attribut nom="e:timeSlot" ref="ajout" type="doc">
+                                            <commentaire/>
+                                            <attribut nom="key" type="attribut" ref="ajout">
+                                                <commentaire/>
+                                                <valeur nom="Tn" ref="ajout"><commentaire/></valeur>
+                                            </attribut>
+                                        </attribut>
+                                    </attribut>
+                                </attribut>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="pb" type="structuration" ref="balisage">
+                            <commentaire>Page Break à chaque changement de page
+                                transcrite.</commentaire>
+                            <attribut nom="n" type="attribut" ref="balisage">
+                                <commentaire>Numéro de page</commentaire>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="div" type="structuration" ref="balisage">
+                            <commentaire>Niveau de division: Pour titre, information complémentaire,
+                                chapitre...</commentaire>
+                            <attribut nom="type" type="attribut" ref="balisage">
+                                <commentaire/>
+                                <valeur nom="titlepage" ref="balisage">
+                                    <commentaire>Enfant d'une balise front.</commentaire>
+                                </valeur>
+                                <valeur nom="liminal" ref="balisage">
+                                    <commentaire>Enfant d'une balise front ou back. Non
+                                        obligatoire.</commentaire>
+                                </valeur>
+                                <valeur nom="notes" ref="balisage">
+                                    <commentaire>Dans le cas d'une note, à associer avec la balise
+                                        note</commentaire>
+                                </valeur>
+                            </attribut>
+                            <attribut nom="n" type="attribut" ref="balisage">
+                                <commentaire>Numéro de division (chapitre, volume...)</commentaire>
+                            </attribut>
+                            <attribut nom="head" type="structuration" ref="balisage">
+                                <commentaire>Title ou heading.</commentaire>
+                            </attribut>
+                            <attribut nom="quote" type="structuration" ref="balisage">
+                                <commentaire>Display block/Quotation</commentaire>
+                            </attribut>
+                            <attribut nom="p" type="structuration" ref="balisage">
+                                <commentaire>paragraphe en prose ou item de liste.</commentaire>
+                            </attribut>
+                            <attribut nom="l" type="structuration" ref="balisage">
+                                <commentaire>line de poésie</commentaire>
+                            </attribut>
+                            <attribut nom="note" type="structuration" ref="balisage">
+                                <commentaire>Note de bas de page, marge... Dans une balise
+                                    back.</commentaire>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="hi" type="structuration" ref="balisage">
+                            <commentaire>Changement de police</commentaire>
+                        </attribut>
+                        <attribut nom="gap" type="structuration" ref="balisage">
+                            <commentaire>Index, informations liminaires, images. Non traités.
+                                Indique seulement leur présence.</commentaire>
+                            <attribut nom="unit" type="attribut" ref="balisage">
+                                <commentaire>Description de l'élément non traité</commentaire>
+                                <valeur nom="graphic" ref="balisage">
+                                    <commentaire>Image. Non traitée.</commentaire>
+                                </valeur>
+                            </attribut>
+                            <attribut nom="quantity" type="attribut" ref="balisage">
+                                <commentaire/>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="milestone" type="structuration" ref="balisage">
+                            <commentaire>Marqueur de milieu de chapitre.</commentaire>
+                            <attribut nom="unit" type="attribut" ref="balisage">
+                                <commentaire>Description de l'élément non traité</commentaire>
+                            </attribut>
+                            <attribut nom="quantity" type="attribut" ref="balisage">
+                                <commentaire/>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="corr" type="structuration" ref="balisage">
+                        <commentaire>Correction Editoriale</commentaire>
+                    </attribut>
+                    <attribut nom="back" type="structuration" ref="balisage"><commentaire/></attribut>
+                    <attribut nom="front" type="structuration" ref="balisage"><commentaire/></attribut>
                 </data_corpus>
             </corpus>
         </grp-corpus>
