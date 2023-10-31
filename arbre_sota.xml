@@ -52,14 +52,17 @@
                 <description>Sujets/mots-clefs</description>
             </attribut>
             <!--Métadonnées administratives-->
-            <attribut nom="admin_auteur" type="corpus-doc" xml:id="auteur_doc" repetition="yes">
+            <attribut nom="admin_auteur" type="corpus-doc" xml:id="admin_auteur" repetition="yes">
                 <description>Auteurs du document XML</description>
                 <attribut nom="nom" type="corpus-doc" xml:id="auteur_admin_nom">
                     <description>Nom de l'auteur</description>
                 </attribut>
                 <attribut nom="role" type="corpus-doc" xml:id="auteur_admin_role">
-                    <description>Rôle de l'auteur décrit dans la construction du document XML</description>
-                    <valeur nom="encoding" xml:id='auteur_admin_role_encoding'><description>Personne qui a encodé le texte</description></valeur>
+                    <description>Rôle de l'auteur décrit dans la construction du document
+                        XML</description>
+                    <valeur nom="encoding" xml:id="auteur_admin_role_encoding">
+                        <description>Personne qui a encodé le texte</description>
+                    </valeur>
                 </attribut>
             </attribut>
 
@@ -104,7 +107,9 @@
             <attribut nom="source" type="corpus-doc" xml:id="source">
                 <description>détail sur l'origine du corpus/doc. Url, document original (si
                     ocr....)</description>
-                <attribut nom="source_titre" type="corpus-doc" xml:id="source_titre"><description>Titre de la source</description></attribut>
+                <attribut nom="source_titre" type="corpus-doc" xml:id="source_titre">
+                    <description>Titre de la source</description>
+                </attribut>
                 <attribut nom="source_auteur" type="corpus-doc" xml:id="source_auteur">
                     <commentaire/>
                 </attribut>
@@ -112,7 +117,8 @@
                     <description>Date de publication de la source</description>
                 </attribut>
                 <attribut nom="source_identifiant" type="corpus-doc" xml:id="source_identifiant">
-                    <description>Identifiant de la source: ark, doi...</description></attribut>
+                    <description>Identifiant de la source: ark, doi...</description>
+                </attribut>
                 <attribut nom="source_publisher" type="corpus-doc" xml:id="source_publisher">
                     <description/>
                 </attribut>
@@ -146,7 +152,7 @@
                 </attribut>
                 <attribut nom="fw" type="structuration" xml:id="balisage_fw">
                     <description/>
-                     <attribut nom="type" type="attribut" xml:id="balisage_fw_type">
+                    <attribut nom="type" type="attribut" xml:id="balisage_fw_type">
                         <description/>
                         <valeur nom="numbering" xml:id="balisage_numbering">
                             <description>Numérotation de page</description>
@@ -204,7 +210,7 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="conference_organizers" type="corpus" ref="auteur_doc">
+                        <attribut nom="conference_organizers" type="corpus" ref="admin_auteur">
                             <commentaire/>
                         </attribut>
                         <attribut nom="conference_series" type="corpus" ref="ignore">
@@ -475,7 +481,7 @@
                                     <commentaire/>
                                 </valeur>
                             </attribut>
-                            
+
                             <attribut nom="publisher" type="doc" ref="source_publisher">
                                 <commentaire>Editeur du document physique</commentaire>
                             </attribut>
@@ -692,7 +698,7 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="contributeurs" type="corpus" ref="auteur_doc" repetition="yes">
+                    <attribut nom="contributeurs" type="corpus" ref="admin_auteur" repetition="yes">
                         <commentaire>Liste de noms prénoms rôle</commentaire>
                     </attribut>
                     <attribut nom="date_publication" type="corpus" ref="admin_date">
@@ -860,7 +866,7 @@
                     <attribut nom="title" ref="titre" type="corpus-doc">
                         <commentaire>Titre du corpus (dans TeiHeader)</commentaire>
                     </attribut>
-                    <attribut nom="respStmt" ref="auteur_doc" type="corpus-doc">
+                    <attribut nom="respStmt" ref="admin_auteur" type="corpus-doc">
                         <commentaire>Responsable du document</commentaire>
                         <attribut nom="name" ref="ignore" type="corpus-doc" repetition="yes">
                             <commentaire/>
@@ -868,7 +874,7 @@
                                 <commentaire/>
                             </valeur>
                         </attribut>
-                        <attribut nom="resp" ref="auteur_doc" type="corpus-doc" repetition="yes">
+                        <attribut nom="resp" ref="admin_auteur" type="corpus-doc" repetition="yes">
                             <commentaire/>
                             <valeur nom="role" ref="ignore">
                                 <commentaire>Exemple: conversion en TEI</commentaire>
@@ -939,7 +945,7 @@
                     <attribut nom="dc_title" type="corpus" ref="titre">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_contributor_author" type="corpus" ref="auteur_doc"
+                    <attribut nom="dc_contributor_author" type="corpus" ref="admin_auteur"
                         repetition="yes">
                         <commentaire>1 balise par auteur</commentaire>
                         <valeur nom="Nom_Prenom" ref="ignore">
@@ -958,7 +964,8 @@
                             <commentaire/>
                         </valeur>
                     </attribut>
-                    <attribut nom="dc_relation_isreferencedby" type="corpus" ref="source_identifiant">
+                    <attribut nom="dc_relation_isreferencedby" type="corpus"
+                        ref="source_identifiant">
                         <commentaire/>
                         <valeur nom="handle" ref="ignore">
                             <commentaire/>
@@ -1019,7 +1026,8 @@
                     <attribut nom="dc_description" type="corpus" ref="description">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_publisher" type="corpus" ref="admin_publisher" repetition="yes">
+                    <attribut nom="dc_publisher" type="corpus" ref="admin_publisher"
+                        repetition="yes">
                         <commentaire/>
                     </attribut>
                     <attribut nom="sponsor" type="corpus" ref="admin_publisher" repetition="yes">
@@ -1150,7 +1158,7 @@
                         <attribut nom="doc_title" type="attribut" ref="titre">
                             <commentaire/>
                         </attribut>
-                        <attribut nom="doc_crawldate" type="attribut" ref="date">
+                        <attribut nom="doc_crawldate" type="attribut" ref="admin_date">
                             <commentaire/>
                             <valeur nom="AAAA-MM-DD" ref="date_valeur">
                                 <commentaire/>
@@ -1262,7 +1270,7 @@
                             <commentaire>Norme à trois lettres employée</commentaire>
                         </valeur>
                     </attribut>
-                    <attribut nom="last-update" type="corpus" ref="date">
+                    <attribut nom="last-update" type="corpus" ref="admin_date">
                         <commentaire/>
                         <valeur nom="AAAA-MM-DD" ref="date_valeur">
                             <commentaire/>
@@ -1397,7 +1405,7 @@
                         </attribut>
                         <attribut nom="respStmt" type="doc" ref="admin_auteur">
                             <commentaire>Responsables de la production des documents.</commentaire>
-                            <attribut nom="resp" type="doc" ref="admin_auteur_role">
+                            <attribut nom="resp" type="doc" ref="auteur_admin_role">
                                 <commentaire>Rôle</commentaire>
                                 <valeur nom="Encoding" ref="ignore">
                                     <commentaire/>
@@ -1409,7 +1417,7 @@
                                     <commentaire>Production du texte avant encoding</commentaire>
                                 </valeur>
                             </attribut>
-                            <attribut nom="name" type="doc" ref="admin_auteur_name">
+                            <attribut nom="name" type="doc" ref="auteur_admin_nom">
                                 <commentaire>Nom de la personne ou organisation en charge du travail
                                     associé</commentaire>
                             </attribut>
@@ -1474,7 +1482,7 @@
                         </attribut>
                         <attribut nom="source" type="doc" ref="source">
                             <commentaire>Métadonnées sur la source</commentaire>
-                            <attribut nom="bibl" type="doc" ref="bibtex">
+                            <attribut nom="bibl" type="doc" ref="refbib">
                                 <commentaire>Citation bibliographique peu structurée</commentaire>
                                 <attribut nom="type" type="attribut" ref="source">
                                     <commentaire/>
