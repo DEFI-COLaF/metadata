@@ -44,8 +44,7 @@
             <p>Prose<lb/></p>
             <!--lb pour indiquer la fin de la ligne-->
             <lg>
-               <l>Vers</l>
-               <l>Vers</l>
+               <l>Vers</l> <!--En général les lignes des vers sont récupérables sur une seule ligne donc l'utilisation de la balise l est peut être possible... Si pas possible: div type="poem" et lb?-->
                <l>Vers</l>
             </lg>
             <list>
@@ -55,17 +54,17 @@
                <p>Réplique de théâtre (avec nom des locuteurs, tirade, didascalies associées.)</p>
             </sp>
             <div type="other">
-               <p>Elements non déterminés</p>
+               <p>Elements non déterminés<lb/></p>
             </div>
             <div type="entry">
-               <p>Entrée de catalogue, dictionnaire...</p>
+               <p>Entrée de catalogue, dictionnaire...<lb/></p>
             </div>
             <!--L'encodage des éléments liminaux-->
             <fw type="numbering">Numéro de page </fw>
             <fw type="runningTitle">RunningTitle</fw>
             <fw type="quiremarks">Quiremarks</fw>
             <div type="notes">
-               <note>Notes de bas de page/de marges</note>
+               <note>Notes de bas de page/de marges<lb/></note>
             </div>
             <!--Données complémentaires dans le texte-->
             <div>
