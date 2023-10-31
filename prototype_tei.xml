@@ -59,6 +59,7 @@
             <div type="entry">
                <p>Entrée de catalogue, dictionnaire...<lb/></p>
             </div>
+            
             <!--L'encodage des éléments liminaux-->
             <fw type="numbering">Numéro de page </fw>
             <fw type="runningTitle">RunningTitle</fw>
@@ -88,6 +89,7 @@
                -->
             </div>
          </div>
+         <div type="post"><p>Tweet</p></div><!--Posts internet: tweets, blog, etc... ou bien employer la balise post https://tei-c.org/Activities/SIG/CMC/ -->
       </body>
    </text>
 </TEI>
