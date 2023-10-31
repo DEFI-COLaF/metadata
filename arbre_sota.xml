@@ -1777,6 +1777,230 @@
                     </attribut>
                 </data_corpus>
             </corpus>
+            <corpus>
+                <head>
+                    <name
+                        url="https://repository.ortolang.fr/api/content/comere/v3.3/cmr-polititweets.html"
+                        xml:id="comere">Corpus Comere cmr-polititweet, tweets provenant de comptes
+                        politiques influents </name>
+                    <description>Corpus qui rassemble les tweets de 7 personnalités de groupes
+                        politiques différents, extraits de twitter et converties en
+                        TEI.</description>
+                    <auteur>Longhi J</auteur>
+                    <date type="creation">2014-06-04</date>
+                    <date type="review-colaf">2023-10-31</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="title" type="corpus-doc" ref="description">
+                        <commentaire>Contient une description complète du projet dont le
+                            titre.</commentaire>
+                        <attribut nom="idno" type="corpus" ref="titre">
+                            <description/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="persName" type="corpus-doc" ref="ajout">
+                        <commentaire>Liste de personnes</commentaire>
+                        <attribut nom="xml:id" type="attribut" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="initiales-auteur" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="name" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="surname" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="email" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="orgName" type="corpus" ref="ignore">
+                            <commentaire/>
+                            <attribut nom="ref" type="attribut" ref="ignore">
+                                <commentaire/>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="resp" type="corpus" ref="auteur_admin_role" repetition="yes">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="persName" type="corpus" ref="auteur_admin_nom" repetition="yes">
+                        <commentaire/>
+                        <attribut nom="ref" type="attribut" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="sponsor" type="corpus" ref="ignore">
+                        <commentaire/>
+                        <attribut nom="ref" type="corpus" ref="ignore">
+                            <commentaire/>
+                            <attribut nom="target" type="attribut" ref="ignore">
+                                <commentaire/>
+                                <valeur nom="url-sponsor" ref="ignore">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="orgName" ref="ignore" type="corpus">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="extent" type="corpus" ref="taille">
+                        <commentaire/>
+                        <valeur nom="accounts" ref="taille_valeur">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="posts" ref="taille_valeur">
+                            <commentaire/>
+                        </valeur>
+                        <valeur nom="tokens" ref="taille_valeur">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="publisher" type="corpus" ref="admin_publisher">
+                        <commentaire/>
+                        <attribut nom="orgName" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="address" type="corpus" ref="ignore">
+                            <commentaire>Détaillée avec les balises correspondantes</commentaire>
+                        </attribut>
+                        <attribut nom="date" type="corpus" ref="admin_date">
+                            <commentaire/>
+                            <attribut nom="when" type="attribut" ref="ignore">
+                                <commentaire/>
+                                <valeur nom="AAAA-MM-DD" ref="date_valeur">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="idno" type="corpus" ref="ignore">
+                            <commentaire/>
+                            <attribut nom="type" type="attribut" ref="ignore" repetition="yes">
+                                <commentaire/>
+                                <valeur nom="uri" ref="ignore">
+                                    <commentaire/>
+                                </valeur>
+                                <valeur nom="url" ref="ignore">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="licence" type="corpus" ref="droits">
+                            <commentaire/>
+                            <attribut nom="target" type="attribut" ref="ignore">
+                                <commentaire/>
+                                <valeur nom="url" ref="ignore">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="series" type="corpus" ref="version">
+                        <commentaire>Liste des versions du corpus</commentaire>
+                        <attribut nom="title" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="idno" type="corpus" ref="ignore">
+                            <commentaire>Identifiant de la version</commentaire>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="bibl" type="corpus" ref="refbib">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="person" type="corpus" ref="ajout">
+                        <commentaire>Liste des Personnes productrices des tweets</commentaire>
+                        <attribut nom="xml:id" type="attribut" ref="ignore">
+                            <commentaire>Identifiant de chaque personne.</commentaire>
+                        </attribut>
+                        <attribut nom="persName" type="corpus" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="projectDesc" type="corpus" ref="ignore">
+                        <commentaire>Description détaillée du projet.</commentaire>
+                    </attribut>
+                    <attribut nom="keywords" type="corpus" ref="sujet">
+                        <commentaire/>
+                        <valeur nom="olac" ref="ignore">
+                            <commentaire>Keywords récupérés dans le voc contrôlé de
+                                l'OLAC.</commentaire>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="post" type="structuration" ref="balisage">
+                        <commentaire>Structuration du tweet/post</commentaire>
+                        <attribut nom="xml:id" type="attribut" ref="ignore">
+                            <commentaire>Identifiant du tweet</commentaire>
+                        </attribut>
+                        <attribut nom="who" type="attribut" ref="source_auteur">
+                            <commentaire>Auteur du tweet</commentaire>
+                        </attribut>
+                        <attribut nom="when" type="attribut" ref="source_date">
+                            <commentaire/>
+                            <valeur nom="AAAA-MM-DDTHH:MM:SS" ref="date_valeur">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="xml:lang" type="attribut" ref="langue">
+                            <commentaire/>
+                            <valeur nom="ISO639-3" ref="langue_valeur">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="p" type="structuration" ref="balisage_p">
+                            <commentaire/>
+                            <attribut nom="distinct" type="structuration" ref="balisage">
+                                <commentaire>Type de post</commentaire>
+                                <attribut nom="type" type="structuration" ref="balisage">
+                                    <commentaire/>
+                                    <valeur nom="twitter-retweet" ref="ignore">
+                                        <commentaire/>
+                                    </valeur>
+                                </attribut>
+                            </attribut>
+                            <attribut nom="ident" type="structuration" ref="balisage">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="adressingTerm" type="structuration" ref="balisage">
+                                <commentaire/>
+                                <attribut nom="adressMarker" type="structuration" ref="balisage">
+                                    <commentaire/>
+                                </attribut>
+                                <attribut nom="adressee" type="structuration" ref="balisage">
+                                    <commentaire>Compte mentionné</commentaire>
+                                    <attribut nom="ref" type="attribut" ref="ignore">
+                                        <commentaire>Identifiant de la personne
+                                            mentionnée</commentaire>
+                                    </attribut>
+                                </attribut>
+                            </attribut>
+                            <attribut nom="rs" type="structuration" ref="balisage">
+                                <commentaire/>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="f" type="structuration" ref="balisage">
+                        <commentaire>Informations sur le tweet </commentaire>
+                        <attribut nom="name" type="attribut" ref="ignore">
+                            <commentaire/>
+                            <valeur nom="medium" ref="type">
+                                <commentaire>Type du doc étudié. Ici web.</commentaire>
+                            </valeur>
+                            <valeur nom="retweetcount" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="isRetweet" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="retweetedstatus-id" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                </data_corpus>
+            </corpus>
         </grp-corpus>
     </body>
 </sota_meta>
