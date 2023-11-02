@@ -13,12 +13,10 @@
 <!--Proposition: Création de balises pour notre projet, comme c'est le cas sur des projets de TEI qui permettrait d'indiquer toutes ces informations-->
 <profileDesc>
     <langUsage>
-        <language ident="fra" usage="80"><!--Ajout de l'ISO 639-3 si existante-->
-            <name type="nom-langue"></name><!--A partir de la liste de langues COLAF (ajouté dans l'ODD) si existant-->
-            <name type="famille"></name><!--Si existant-->
-            <date when="1674"/> <date from='1600' to='1700'/>
+        <language ident="fra" usage="80"><!--Code Colaf interne récupéré dans un csv -->
+            <date when="1674"/> <date from='1600' to='1700'/> <!-- date détaillée ou non -->
             <location>
-                <geo>Corrdonnées géographiques</geo>
+                <geo>Coordonnées géographiques</geo> <!--Détaillé en fonction de ce que l'on a : si point précis ou bien région, etc...-->
                 <settlement>Ville</settlement>
                 <region>Région</region>
             </location>

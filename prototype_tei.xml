@@ -4,16 +4,16 @@
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="IDENTIFIANT">
    <teiHeader>
-      <fileDesc>
+      <fileDesc> <!--Minimum syndical pour le TEIHeader-->
          <titleStmt>
-            <title>Titre source: encoding COLAF</title>
-            <author>Auteur source</author>
-            <respStmt>
+            <title>Titre source: encoding COLAF</title><!--Titre de la source réduit + info encoding COLAF-->
+            <author>Auteur source</author><!--Auteur de la source-->
+            <respStmt><!--Auteurs du XML et role-->
                <resp>Rôle:encoding, récupération du texte, PI....</resp>
                <name>Nom de l'auteur du doc</name>
             </respStmt>
          </titleStmt>
-         <publicationStmt>
+         <publicationStmt><!--A ajouter: publisher, date d'ajout au corpus COLAF, licence du doc XML-->
             <publisher>COLAF</publisher>
             <date when="2023-10-30"/>
             <availability>
