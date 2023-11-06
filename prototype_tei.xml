@@ -12,6 +12,10 @@
                <resp>Rôle:encoding, récupération du texte, PI....</resp>
                <name>Nom de l'auteur du doc</name>
             </respStmt>
+            <respStmt>
+               <resp></resp>
+               <name></name>
+            </respStmt>
          </titleStmt>
          <publicationStmt><!--A ajouter: publisher, date d'ajout au corpus COLAF, licence du doc XML-->
             <publisher>COLAF</publisher>
