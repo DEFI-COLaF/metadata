@@ -1,99 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="../../Downloads/out/test.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="IDENTIFIANT">
-   <teiHeader>
-      <fileDesc> <!--Minimum syndical pour le TEIHeader-->
-         <titleStmt>
-            <title>Titre source: encoding COLAF</title><!--Titre de la source réduit + info encoding COLAF-->
-            <author>Auteur source</author><!--Auteur de la source-->
-            <respStmt><!--Auteurs du XML et role-->
-               <resp>Rôle:encoding, récupération du texte, PI....</resp>
-               <name>Nom de l'auteur du doc</name>
-            </respStmt>
-            <respStmt>
-               <resp></resp>
-               <name></name>
-            </respStmt>
-         </titleStmt>
-         <publicationStmt><!--A ajouter: publisher, date d'ajout au corpus COLAF, licence du doc XML-->
-            <publisher>COLAF</publisher>
-            <date when="2023-10-30"/>
-            <availability>
-               <licence target="url">URL de la licence</licence>
-            </availability>
-         </publicationStmt>
-         <sourceDesc>
-            <bibl><ref target="url">URL de la source.</ref></bibl>
-         </sourceDesc>
-      </fileDesc>
-      <revisionDesc>
-         <change when="2023-10-30">Description des changements faits</change>
-      </revisionDesc>
-   </teiHeader>
-   <text>
-      <front>
-         <div type="titlepage">
-            <p>Titre du document sur la page principale</p>
-         </div>
-      </front>
-      <body>
-         <!-- Indication de la page-->
-         <pb/>
-         <div type="chapitre" n="1">
-            <head>Titre du chapitre</head>
-            <!--L'encodage niveau 1 en fonction du type de document. Quand un paragraphe, entry, sp.... continue sur une autre page, 
+    <teiHeader>  
+        <fileDesc> <!--Minimum syndical pour le TEIHeader-->
+            <titleStmt>
+                <title type="main">Titre source: encoding COLAF</title><!--Titre de la source réduit + info encoding COLAF-->
+                <title type="collection"></title>
+                <author>Auteur source</author><!--Auteur de la source-->
+                <respStmt><!--Auteurs du XML et role-->
+                    <resp>Rôle:encoding, récupération du texte, PI....</resp>
+                    <name>Nom de l'auteur du doc</name>
+                </respStmt>
+                <respStmt><!--Auteurs du XML et role-->
+                    <resp>Rôle:encoding, récupération du texte, PI....</resp>
+                    <name>Nom de l'auteur du doc</name>
+                </respStmt>
+                <principal></principal>
+                <funder/>
+            </titleStmt>
+            <publicationStmt><!--A ajouter: publisher, date d'ajout au corpus COLAF, licence du doc XML-->
+                <publisher>COLAF</publisher>
+                <date when="2023-10-30"/>
+                <availability>
+                    <licence target="url">URL de la licence</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl>
+                    <ref target="url">URL de la source.</ref>
+                    <date></date>                
+                </bibl>
+                <list><!-- Stockage des métadonnées sur la source -->
+                    <item>
+                        <title></title>
+                        <val></val>
+                    </item>
+                </list>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="pic">
+                    <name>Picard</name>
+                    <date></date>
+                    <location></location>
+                </language>
+            </langUsage>
+        </profileDesc>
+        <revisionDesc>
+            <change when="2023-10-30">Description des changements faits</change>
+        </revisionDesc>
+    </teiHeader>
+    <text xml:lang="pic">
+        <front>
+            <div type="titlepage">
+                <p>Titre du document sur la page principale</p>
+            </div>
+        </front>
+        <body>
+            <!-- Indication de la page-->
+            <pb/>
+            <div type="chapter" n="1">
+                <head>Titre du chapitre</head>
+                <!--L'encodage niveau 1 en fonction du type de document. Quand un paragraphe, entry, sp.... continue sur une autre page, 
                on l'ajoute au sein même de la balise précédente.-->
-            <p>Prose<lb/></p>
-            <!--lb pour indiquer la fin de la ligne-->
-            <lg>
-               <l>Vers</l> <!--En général les lignes des vers sont récupérables sur une seule ligne donc l'utilisation de la balise l est peut être possible... Si pas possible: div type="poem" et lb?-->
-               <l>Vers</l>
-            </lg>
-            <list>
-               <item>Liste d'item</item>
-            </list>
-            <sp>
-               <p>Réplique de théâtre (avec nom des locuteurs, tirade, didascalies associées.)</p>
-            </sp>
-            <div type="other">
-               <p>Elements non déterminés<lb/></p>
-            </div>
-            <div type="entry">
-               <p>Entrée de catalogue, dictionnaire...<lb/></p>
-            </div>
-            
-            <!--L'encodage des éléments liminaux-->
-            <fw type="numbering">Numéro de page </fw>
-            <fw type="runningTitle">RunningTitle</fw>
-            <fw type="quiremarks">Quiremarks</fw>
-            <div type="notes">
-               <note>Notes de bas de page/de marges<lb/></note>
-            </div>
-            <!--Données complémentaires dans le texte-->
-            <div>
-               <ab type="date">date</ab>
-               <ab type="sign">Signature</ab>
-               <p><hi rend="dropCapital"/></p>
-            </div>
-            <!--Figure: sans type= neutre, avec type=math, stamp, table, decoration, stickers si on ne les traite pas!-->
-            <figure type="math">
-               <head>Légende si existante</head>
-               <p>Si texte dans l'image, possible de l'ajouter</p>
-            </figure>
-            <!--Notes manuscrites devraient elles être ajoutées? Si oui:-->
-            <gap reason="manuscrit"/>
-            <!--Niveau supérieure de description du texte-->
-            <div>
-               <p><s><w pos="NOUN" lemma="mot">mot</w><pc pos="SENT">.</pc></s></p>
-               <!--Où, dans les différentes balises d'encodage de niveau 1, on ajoute le niveau sentence (balise s) auquel on accole 
+                <p><lb/>Prose</p>
+                <!--lb pour indiquer la fin de la ligne-->
+                <lg>
+                    <l><lb />Vers</l> <!--En général les lignes des vers sont récupérables sur une seule ligne donc l'utilisation de la balise l est peut être possible... Si pas possible: div type="poem" et lb?-->
+                    <l>Vers</l>
+                </lg>
+                <list>
+                    <item></item>
+                </list>
+                <sp who="#IDENTIFIANT">
+                    
+                    <speaker></speaker>
+                    <stage></stage>
+                    <p>Réplique de théâtre (avec nom des locuteurs, tirade, didascalies associées.)</p>
+                </sp>
+                    <ab>Elements non déterminés<lb/></ab>
+                <div type="entry">
+                    <p>Entrée de catalogue, dictionnaire <foreign xml:lang="eng">with some english</foreign>...<lb/></p>
+                </div>
+                
+                <!--L'encodage des éléments liminaux-->
+                <fw type="numbering">Numéro de page </fw>
+                <fw type="runningTitle">RunningTitle</fw>
+                <fw type="quiremarks">Quiremarks</fw>
+                <note>Notes de bas de page/de marges<lb/></note>
+                
+                <!--Données complémentaires dans le texte-->
+                <div>
+                    <dateline>Date</dateline>
+                    <signed>Signature</signed>
+                    <p><hi rend="dropCapital"/><!-- A voir comment on arrive à le traiter en OCR ? --></p>
+                </div>
+                
+                <!--Figure: sans type= neutre, avec type=math, stamp, table, decoration, stickers si on ne les traite pas!-->
+                <figure type="math">
+                    <head>Légende si existante</head>
+                    <p>Si texte dans l'image, possible de l'ajouter</p>
+                </figure>
+                <!--Notes manuscrites devraient elles être ajoutées? Si oui:-->
+                <note type="manuscrit"/>
+                <!--Niveau supérieure de description du texte-->
+                <div>
+                    <p><s><w pos="NOUN" lemma="mot" msd="Morpho-syntactic data">mot</w><pc pos="SENT">.</pc></s></p>
+                    <!--Où, dans les différentes balises d'encodage de niveau 1, on ajoute le niveau sentence (balise s) auquel on accole 
                   un attribut xml:id pour un identifiant si souhaité et un attribut lang avec pour valeur la langue de la sentence. 
                   On peut y ajouter le niveau encore plus bas, w pour chaque mot et pc pour les ponctuations avec les attributs pos et lemma.
                -->
+                </div>
             </div>
-         </div>
-         <div type="post"><p>Tweet</p></div><!--Posts internet: tweets, blog, etc... ou bien employer la balise post https://tei-c.org/Activities/SIG/CMC/ -->
-      </body>
-   </text>
+            <div type="post"><p>Tweet</p></div><!--Posts internet: tweets, blog, etc... ou bien employer la balise post https://tei-c.org/Activities/SIG/CMC/ -->
+        </body>
+    </text>
 </TEI>
