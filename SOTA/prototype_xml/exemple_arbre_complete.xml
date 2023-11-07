@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="schema_sota_arbre.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<sota_meta>
+    <head>
+        <!--Metadonnées du document, auteurs, dates, description etc?-->
+        <titre></titre>
+        <auteur></auteur>
+        <date_creation></date_creation>
+        <description></description>
+    </head>
+    <body>
+        <data_colaf>
+            <!--Métadonnées pour la description de Colaf (de type corpus, document ou structuration (balise pour le texte))-->
+            <attribut nom="genre" xml:id="genre" type="doc">
+                <description>Décrit le genre du document</description>
+                <valeur nom="fiction" xml:id="genre_fiction">
+                    <description>Fiction</description>
+                    <valeur nom="roman" xml:id="genre_roman">
+                        <description>Romans</description>
+                    </valeur>              
+                    <valeur nom="theatre" xml:id="genre_theatre">
+                        <description>Théatre</description>
+                    </valeur>
+                </valeur>
+            </attribut>
+            <attribut nom="langue" xml:id="langue" type="corpus">
+                <description>langue du corpus</description>
+                <valeur nom="langue_français" xml:id="fr">
+                    <description/>
+                    <valeur nom="langue_français_picard" xml:id="pc"><description></description></valeur>
+                </valeur>       
+            </attribut>
+            <attribut nom="titre" xml:id="titre" type="doc">
+                <description>Titre du document</description>
+                <attribut nom="sous-titre" xml:id="titre_sous-titre" type="doc">
+                    <description/>
+                </attribut>
+            </attribut>
+            <attribut nom="ignore" xml:id="ignore" type="corpus">
+                <description>Quand pas de clé associable</description>
+            </attribut>
+        </data_colaf>
+        <grp-corpus>
+            <corpus>
+                <!--Pour chaque corpus étudié-->
+                <head>
+                    <!--Metadonnées brèves du corpus-->
+                    <name xml:id="identifiant_corpus" url="url">Nom du corpus</name>
+                    <description>Description rapide du corpus étudié</description>
+                    <auteur>Auteur du corpus</auteur>
+                    <date type="creation">2023-10-06</date>
+                    <docCorpus quant="quantité de doc totale">
+                        <docType type="documents" value="4"><description/></docType>
+                    </docCorpus>
+                    <refbib type="bibtex">Citation BibTeX</refbib>
+                    
+                </head>
+                <data_corpus>
+                    <!--Métadonnées utilisées par le corpus pour sa description (du corpus lui-même, des documents et du contenu des docs.-->
+                    <!-- On ajoute ici la langue décrite avant plus haut pour permettre de voir quelles sont les normes employées par les corpus-->
+                    <attribut nom="titre" ref="titre" type="doc">
+                        <commentaire/>
+                        <attribut nom="titre secondaire" ref="titre_sous-titre" type="doc">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="langage" ref="langue" type="all">
+                        <commentaire></commentaire>
+                        <attribut nom="type" ref="ignore" type="all">
+                            <commentaire/>
+                            <valeur nom="oc" ref="ignore">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                </data_corpus>
+            </corpus>
+        </grp-corpus>
+    </body>
+</sota_meta>
