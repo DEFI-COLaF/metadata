@@ -2301,6 +2301,165 @@
                     </attribut>
                 </data_corpus>
             </corpus>
+            <corpus>
+                <head>
+                    <name xml:id="methal" url="https://methal.pages.unistra.fr/en">Methal</name>
+                    <description>Macroanalyse du théâtre en alsacien.</description>
+                    <auteur>Strasbourg Université, Delphine Bernhard</auteur>
+                    <date type="creation">2022</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="title" type="doc" ref="titre">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="title_type">
+                            <commentaire/>
+                            <valeur nom="main" ref="title_type">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="sub" ref="title_type">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="principal" type="corpus-doc" ref="admin_organisme">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="responsable" type="corpus-doc" ref="admin_auteur">
+                        <commentaire/>
+                        <attribut nom="responsable_role" type="corpus-doc" ref="admin_auteur">
+                            <commentaire/>
+
+                        </attribut>
+                        <attribut nom="responsable_nom" type="corpus-doc" ref="admin_auteur">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="publisher" type="corpus-doc" ref="admin_editeur">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="licence" type="corpus-doc" ref="licence">
+                        <commentaire/>
+                        <attribut nom="ab" type="corpus-doc" ref="licence">
+                            <commentaire>Nom licence</commentaire>
+                        </attribut>
+                        <attribut nom="ref" type="corpus-doc" ref="licence_url">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="idno" type="corpus-doc" ref="id">
+                        <commentaire>Identifiants doi, methal et wikidata</commentaire>
+                    </attribut>
+                    <attribut nom="title" type="doc" ref="source_titre">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="source_titre">
+                            <commentaire/>
+                            <valeur nom="main" ref="source_titre">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="sub" ref="source_titre">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="author" type="doc" ref="source_auteur">
+                        <commentaire/>
+                        <attribut nom="persName" type="doc" ref="source_auteur">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="idno" type="doc" ref="source_auteur">
+                            <commentaire/>
+                            <valeur nom="wikidata" ref="source_auteur">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="editor" type="doc" ref="source_publisher">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="publisher" type="doc" ref="source_publisher">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="pubplace" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="note" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="date" type="doc" ref="source_date">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="source_date">
+                            <commentaire/>
+                            <valeur nom="written" ref="source_date">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="print" ref="source_date">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="particDesc_person" type="doc" ref="ignore">
+                        <commentaire/>
+                        <attribut nom="xml:id" type="attribut" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="sex" type="attribut" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="persName" type="doc" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="listrelation_relation" type="doc" ref="ignore">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="keywords_term" type="doc" ref="descr_genre">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="descr_genre">
+                            <commentaire/>
+                            <valeur nom="genreTitle" ref="descr_genre">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="id_genre" type="doc" ref="descr_genre">
+                            <commentaire/>
+                            <valeur nom="wikidata_entity" ref="descr_genre">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="encodingdesc" type="doc" ref="tec_encodage">
+                        <commentaire>Description en prose de l'encodage</commentaire>
+                    </attribut>
+                    <attribut nom="div" type="structuration" ref="structuration_division">
+                        <commentaire/>
+                        <attribut nom="div_type" type="attribut" ref="structuration_division_type">
+                            <commentaire/>
+                            <valeur nom="act" ref="structuration_division_type">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="scene" ref="structuration_division_type">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="div_head" type="structuration" ref="structuration_head">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="div_stage" type="structuration"
+                            ref="structuration_sp_speaker">
+                            <commentaire>Liste des personnages dans la scène</commentaire>
+                        </attribut>
+                        <attribut nom="div_sp" type="structuration" ref="structuration_sp">
+                            <commentaire/>
+                            <attribut nom="who" type="attribut" ref="structuration_sp">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="div_sp_speaker" type="structuration" ref="structuration_sp_speaker"><commentaire/></attribut>
+                            <attribut nom="div_sp_l" type="structuration" ref="structuration_lb"><commentaire/></attribut>
+                        </attribut>
+                    </attribut>
+                </data_corpus>
+            </corpus>
         </grp-corpus>
     </body>
 </sota_meta>
