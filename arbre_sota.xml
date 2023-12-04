@@ -2454,8 +2454,13 @@
                             <attribut nom="who" type="attribut" ref="structuration_sp">
                                 <commentaire/>
                             </attribut>
-                            <attribut nom="div_sp_speaker" type="structuration" ref="structuration_sp_speaker"><commentaire/></attribut>
-                            <attribut nom="div_sp_l" type="structuration" ref="structuration_lb"><commentaire/></attribut>
+                            <attribut nom="div_sp_speaker" type="structuration"
+                                ref="structuration_sp_speaker">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="div_sp_l" type="structuration" ref="structuration_lb">
+                                <commentaire/>
+                            </attribut>
                         </attribut>
                     </attribut>
                 </data_corpus>
