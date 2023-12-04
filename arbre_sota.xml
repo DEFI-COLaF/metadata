@@ -17,21 +17,21 @@
             </attribut>
             <attribut nom="source" type="all" xml:id="source">
                 <description> Métadonnées sur la source</description>
-                    <attribut nom="source_titre" type="corpus-doc" xml:id="source_titre">
-                        <description>Titre de la source</description>
-                    </attribut>
-                    <attribut nom="source_auteur" type="corpus-doc" xml:id="source_auteur">
-                        <commentaire/>
-                    </attribut>
-                    <attribut nom="source_date" type="corpus-doc" xml:id="source_date">
-                        <description>Date de publication de la source</description>
-                    </attribut>
-                    <attribut nom="source_identifiant" type="corpus-doc" xml:id="source_identifiant">
-                        <description>Identifiant de la source: ark, doi...</description>
-                    </attribut>
-                    <attribut nom="source_publisher" type="corpus-doc" xml:id="source_publisher">
-                        <description/>
-                    </attribut>
+                <attribut nom="source_titre" type="corpus-doc" xml:id="source_titre">
+                    <description>Titre de la source</description>
+                </attribut>
+                <attribut nom="source_auteur" type="corpus-doc" xml:id="source_auteur">
+                    <commentaire/>
+                </attribut>
+                <attribut nom="source_date" type="corpus-doc" xml:id="source_date">
+                    <description>Date de publication de la source</description>
+                </attribut>
+                <attribut nom="source_identifiant" type="corpus-doc" xml:id="source_identifiant">
+                    <description>Identifiant de la source: ark, doi...</description>
+                </attribut>
+                <attribut nom="source_publisher" type="corpus-doc" xml:id="source_publisher">
+                    <description/>
+                </attribut>
                 <attribut nom="reference_bibliographique" type="corpus-doc" xml:id="source_refbib">
                     <description>Du corpus, des documents et du corpus récupéré?</description>
                 </attribut>
@@ -55,7 +55,9 @@
                 <attribut nom="sujet" type="corpus-doc" xml:id="descr_sujet">
                     <description>Sujets/mots-clefs</description>
                 </attribut>
-                <attribut nom="description" type="corpus-doc" xml:id="descr_description"><description/></attribut>
+                <attribut nom="description" type="corpus-doc" xml:id="descr_description">
+                    <description/>
+                </attribut>
             </attribut>
             <attribut nom="technique" type="all" xml:id="tec">
                 <description> Métadonnées techniques</description>
@@ -79,8 +81,10 @@
             <attribut nom="use" type="all" xml:id="use">
                 <description> Métadonnées de réutilisation/licence</description>
             </attribut>
-            <attribut nom="linguistique" type="all" xml:id="linguistique"><description/></attribut>
-            
+            <attribut nom="linguistique" type="all" xml:id="linguistique">
+                <description/>
+            </attribut>
+
             <!--Métadonnées employées par le modèle actuel TEI-->
             <!--Métadonnées descriptives-->
             <attribut nom="id" type="corpus-doc" xml:id="id">
@@ -301,7 +305,9 @@
                         <description/>
                     </attribut>
                 </attribut>
-                <attribut nom="note_page" type="structuration" xml:id="structuration_note"><description>Note de bas de page</description></attribut>
+                <attribut nom="note_page" type="structuration" xml:id="structuration_note">
+                    <description>Note de bas de page</description>
+                </attribut>
             </attribut>
 
             <attribut nom="ignore" type="all" xml:id="ignore">
@@ -644,7 +650,8 @@
                             </valeur>
                         </attribut>
                     </attribut>
-                    <attribut nom="div" type="structuration" ref="structuration_division" repetition="yes">
+                    <attribut nom="div" type="structuration" ref="structuration_division"
+                        repetition="yes">
                         <commentaire>Pour indiquer les paragraphes dans le texte </commentaire>
                     </attribut>
                     <attribut nom="head" type="structuration" ref="structuration_head"
@@ -1040,7 +1047,8 @@
                         </attribut>
                     </attribut>
 
-                    <attribut nom="div" ref="structuration_division" type="structuration" repetition="yes">
+                    <attribut nom="div" ref="structuration_division" type="structuration"
+                        repetition="yes">
                         <commentaire/>
                         <attribut nom="type" type="attribut" ref="structuration_division_type">
                             <commentaire/>
@@ -1055,7 +1063,8 @@
                             repetition="yes">
                             <commentaire>Titre de l'article</commentaire>
                         </attribut>
-                        <attribut nom="p" ref="structuration_p" type="structuration" repetition="yes">
+                        <attribut nom="p" ref="structuration_p" type="structuration"
+                            repetition="yes">
                             <commentaire>Contenu de l'article par paragraphe</commentaire>
                         </attribut>
                     </attribut>
@@ -1159,8 +1168,7 @@
                     <attribut nom="dc_description" type="corpus" ref="descr_description">
                         <commentaire/>
                     </attribut>
-                    <attribut nom="dc_publisher" type="corpus" ref="admin_editeur"
-                        repetition="yes">
+                    <attribut nom="dc_publisher" type="corpus" ref="admin_editeur" repetition="yes">
                         <commentaire/>
                     </attribut>
                     <attribut nom="sponsor" type="corpus" ref="admin_editeur" repetition="yes">
@@ -2130,6 +2138,165 @@
                             <valeur nom="retweetedstatus-id" ref="ignore">
                                 <commentaire/>
                             </valeur>
+                        </attribut>
+                    </attribut>
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name url="https://github.com/Gallicorpora" xml:id="gallicorpora"
+                        >Gallicorpora</name>
+                    <description>Chaîne de traitement du document ancien dans Gallica au fichier
+                        TEI. Travail en diachronie longue (premiers manuscrits en français aux
+                        imprimés révolutionnaires.</description>
+                    <auteur>Cremma, Inria</auteur>
+                    <date type="creation">2022</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="title" type="doc" ref="titre">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="author" type="doc" ref="auteur">
+                        <commentaire>Auteur du texte</commentaire>
+                        <attribut nom="author_forename" type="doc" ref="auteur">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="author_surname" type="doc" ref="auteur">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="author_identifiant" type="doc" ref="auteur">
+                            <commentaire/>
+                            <valeur nom="isni" ref="auteur">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="responsable" type="doc" ref="admin_auteur">
+                        <commentaire/>
+                        <attribut nom="responsable_role" type="doc" ref="admin_auteur">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="responsable_nom" type="doc" ref="admin_auteur">
+                            <commentaire/>
+                            <attribut nom="responsable_forename" type="doc" ref="admin_auteur">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="responsable_surname" type="doc" ref="admin_auteur">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="responsable_id" type="doc" ref="admin_auteur">
+                                <commentaire>Identifiant orcid</commentaire>
+                                <valeur nom="orcid" ref="admin_auteur">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="mesure" type="doc" ref="tec_taille">
+                        <commentaire>Extent/Taille du document</commentaire>
+                        <attribut nom="unit" type="attribut" ref="tec_taille">
+                            <commentaire>Type</commentaire>
+                        </attribut>
+                        <attribut nom="n" type="attribut" ref="tec_taille">
+                            <commentaire>Quantité</commentaire>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="publisher" type="corpus-doc" ref="admin_editeur">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="authority" type="corpus-doc" ref="admin_financeur">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="licence" type="corpus-doc" ref="licence">
+                        <commentaire/>
+                        <valeur nom="licence_url" ref="licence_url">
+                            <commentaire/>
+                        </valeur>
+                    </attribut>
+                    <attribut nom="publication_date" type="doc" ref="admin_date">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="bibl_identifiant" type="doc" ref="source_identifiant">
+                        <commentaire>URL source</commentaire>
+                    </attribut>
+                    <attribut nom="bibl_author" type="doc" ref="source_auteur">
+                        <commentaire/>
+                        <attribut nom="bibl_author_forename" type="doc" ref="source_auteur">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="bibl_author_surname" type="doc" ref="source_auteur">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="bibl_auteur_id" type="doc" ref="source_auteur">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="bibl_title" type="doc" ref="source_titre">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="bibl_pubplace" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="bibl_publisher" type="doc" ref="source_publisher">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="bibl_date" type="doc" ref="source_date">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="msDesc_country" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="msDesc_settlement" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="msDesc_repository" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="msDesc_idno" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="msDesc_physDesc" type="doc" ref="source">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="language" type="doc" ref="langue">
+                        <commentaire/>
+                        <attribut nom="ident" type="attribut" ref="langue_type">
+                            <commentaire/>
+                            <valeur nom="ISO639-2" ref="langue">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="application" type="doc" ref="tec">
+                        <commentaire>Nom des logiciels qui ont permis la création du
+                            document</commentaire>
+                        <attribut nom="ident" type="attribut" ref="tec">
+                            <commentaire>Nom du logiciel</commentaire>
+                        </attribut>
+                        <attribut nom="version" type="attribut" ref="tec">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="ptr" type="doc" ref="tec">
+                            <commentaire>url</commentaire>
+                        </attribut>
+                        <attribut nom="taxonomy" type="doc" ref="tec_encodage">
+                            <commentaire>Détail sur SegmOnto</commentaire>
+                            <attribut nom="title" type="doc" ref="tec_encodage">
+                                <commentaire>Nom</commentaire>
+                            </attribut>
+                            <attribut nom="ptr" type="doc" ref="tec_encodage">
+                                <commentaire>url</commentaire>
+                            </attribut>
+                            <attribut nom="catDesc" type="doc" ref="tec_encodage">
+                                <commentaire>Description avec label et ptr de chaque zone segmonto
+                                    employée</commentaire>
+                            </attribut>
+
+                        </attribut>
+                        <attribut nom="structure" type="structuration" ref="ignore">
+                            <commentaire>Description du manuscrit avec Surface, graphic, zone et
+                                ligne</commentaire>
                         </attribut>
                     </attribut>
                 </data_corpus>
