@@ -176,7 +176,7 @@
                 </classSpec>
                 <!--Checking module core-->
                 <moduleRef key="core"
-                    include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage"/>
+                    include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure"/>
                 <elementSpec ident="p" mode="change">
                     <content>
                         <sequence preserveOrder="false">
@@ -339,7 +339,7 @@
                 </elementSpec>
                 <!--Checking module header-->
                 <moduleRef key="header"
-                    include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change"/>
+                    include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent"/>
                 <elementSpec ident="teiHeader" mode="change">
                     <content>
                         <sequence preserveOrder="true">
@@ -355,6 +355,7 @@
                             <elementRef key="titleStmt"/>
                             <elementRef key="publicationStmt"/>
                             <elementRef key="sourceDesc"/>
+                            <elementRef key="extent"/>
                         </sequence>
                     </content>
                 </elementSpec>
