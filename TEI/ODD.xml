@@ -37,7 +37,7 @@
                 <classRef key="model.physDescPart"/>
                 <!--Checking module namesdates-->
                 <classRef key="model.persNamePart"/>
-                <moduleRef key="namesdates" include="location"/>
+                <moduleRef key="namesdates" include="location settlement region geo country"/>
                 <elementSpec ident="location" mode="change">
                     <attList>
                         <attDef ident="type" mode="delete"/>
@@ -176,7 +176,7 @@
                 </classSpec>
                 <!--Checking module core-->
                 <moduleRef key="core"
-                    include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure"/>
+                    include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace"/>
                 <elementSpec ident="p" mode="change">
                     <content>
                         <sequence preserveOrder="false">
@@ -187,17 +187,11 @@
                             <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
                             <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
                             <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
+                            <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
                         </sequence>
                     </content>
                 </elementSpec>
                 <elementSpec ident="name" mode="change">
-                    <constraintSpec scheme="schematron" ident="respname">
-                        <constraint>
-                            <s:rule context="tei:respStmt//tei:name">
-                                <s:assert test="@xml:id">Obligation d'ajouter un xml:id aux resp.</s:assert>
-                            </s:rule>
-                        </constraint>
-                    </constraintSpec>
                     <attList>
                         <attDef ident="when" mode="delete"/>
                         <attDef ident="type" mode="delete"/>
@@ -206,6 +200,7 @@
                 <elementSpec ident="date" mode="change">
                     <attList>
                         <attDef ident="type" mode="delete"/>
+                        <attDef ident="when" mode="change" usage="rec"/>
                     </attList>
                 </elementSpec>
                 <elementSpec ident="ref" mode="change">
@@ -333,9 +328,23 @@
                 </elementSpec>
                 <elementSpec ident="bibl" mode="change">
                     <content>
-                        <elementRef key="ref" minOccurs="1"/>
+                        <sequence preserveOrder="false">
+                            <elementRef key="ptr" minOccurs="0"/>
+                        <elementRef key="title" minOccurs="1"/>
+                        <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
+                        <elementRef key="pubPlace" minOccurs="0"/>
+                        <elementRef key="publisher" minOccurs="1"/>                        
                         <elementRef key="date" minOccurs="1"/>
+                        </sequence>
                     </content>
+                    <attList>
+                        <attDef ident="type" mode="change">
+                            <valList>
+                                <valItem ident="printSource"/>
+                                <valItem ident="digitalSource"/>
+                            </valList>
+                        </attDef>
+                    </attList>
                 </elementSpec>
                 <!--Checking module header-->
                 <moduleRef key="header"
@@ -382,8 +391,8 @@
                 </elementSpec>
                 <elementSpec ident="sourceDesc" mode="change">
                     <content>
-                        <elementRef key="bibl" minOccurs="1"/>
-                        <elementRef key="list" minOccurs="1"/>
+                        <elementRef key="bibl" minOccurs="1" maxOccurs="2"/>
+                        <elementRef key="list" minOccurs="0"/>
                     </content>
                 </elementSpec>
                 <elementSpec ident="funder" mode="change">
