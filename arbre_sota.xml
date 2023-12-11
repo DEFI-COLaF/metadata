@@ -1551,7 +1551,7 @@
                                 <valeur nom="Encoding" ref="ignore">
                                     <commentaire/>
                                 </valeur>
-                                <valeur nom="Principal Investigator" ref="ignore">
+                                <valeur nom="Principal Investigator" ref="admin_organisme">
                                     <commentaire/>
                                 </valeur>
                                 <valeur nom="Original data capture" ref="source">
@@ -2460,6 +2460,208 @@
                             </attribut>
                             <attribut nom="div_sp_l" type="structuration" ref="structuration_lb">
                                 <commentaire/>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                </data_corpus>
+            </corpus>
+            <corpus>
+                <head>
+                    <name xml:id="cligs" url="https://github.com/cligs">Computergestutze
+                        literarische Gattungsstilistik</name>
+                    <description>Projet d'édition XML TEI de romans et pièces de théâtres français,
+                        anglais, espagnols et portugais du 17eme au 19eme siècle à des fins d'études
+                        stylistiques.</description>
+                    <auteur>Christophe Schoch</auteur>
+                    <date type="creation">2016</date>
+                    <date type="derniere-maj">2023</date>
+                    <date type="review-colaf">11-12-2023</date>
+                    <refbib type="bibtex"/>
+                </head>
+                <data_corpus>
+                    <attribut nom="title" type="doc" ref="titre" repetition="yes">
+                        <commentaire>Nom du document encodé</commentaire>
+                        <attribut nom="type" type="attribut" ref="title_type">
+                            <commentaire/>
+                            <valeur nom="main" ref="title_type">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="sub" ref="title_type">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="short" ref="title_type">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="idno" ref="title_type">
+                                <commentaire>Balise idno avec viaf</commentaire>
+                            </valeur>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="author" type="doc" ref="auteur">
+                        <commentaire/>
+                        <attribut nom="idno" type="doc" ref="auteur">
+                            <commentaire/>
+                            <attribut nom="type" type="attribut" ref="auteur">
+                                <commentaire/>
+                                <valeur nom="viaf" ref="auteur">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="name" type="doc" ref="auteur" repetition="yes">
+                            <commentaire/>
+                            <attribut nom="type" type="attribut" ref="auteur">
+                                <commentaire/>
+                                <valeur nom="short" ref="auteur">
+                                    <commentaire>Juste nom de famille</commentaire>
+                                </valeur>
+                                <valeur nom="full" ref="auteur">
+                                    <commentaire/>
+                                </valeur>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="principal" type="corpus-doc" ref="admin_organisme">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="publisher" type="corpus-doc" ref="admin_editeur">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="availability" type="corpus-doc" ref="licence">
+                        <commentaire>Informations dans un paragraphe</commentaire>
+                    </attribut>
+                    <attribut nom="date" type="corpus-doc" ref="admin_date">
+                        <commentaire/>
+                    </attribut>
+                    <attribut nom="idno" type="doc" ref="id">
+                        <commentaire>Identifiant du document numérique</commentaire>
+                    </attribut>
+                    <attribut nom="bibl" type="doc" ref="source">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="source">
+                            <commentaire/>
+                            <valeur nom="digitalsource" ref="source">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="printsource" ref="source">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="editionfirst" ref="source">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="source_date" type="doc" ref="source_date">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="source_idno" type="doc" ref="source_identifiant">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="source_ref" type="doc" ref="source_ref">
+                            <commentaire/>
+                            <attribut nom="target" type="attribut" ref="source_ref_url">
+                                <commentaire/>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="textclass_keywords" type="doc" ref="descr_genre">
+                        <commentaire/>
+                        <attribut nom="scheme" type="attribut" ref="descr_genre">
+                            <commentaire>Lien vers le fichier qui catégorise les
+                                genres</commentaire>
+                        </attribut>
+                        <attribut nom="term" type="doc" ref="descr_genre">
+                            <commentaire>Genre cité dans le fichier des genres</commentaire>
+                            <attribut nom="type" type="attribut" ref="descr_genre">
+                                <commentaire>Ref à l'id du genre dans le fichier des
+                                    genres</commentaire>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="change" type="doc" ref="changement">
+                        <commentaire/>
+                        <attribut nom="when" type="attribut" ref="changement_date">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="who" type="attribut" ref="changement">
+                            <commentaire/>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="taxonomy" type="corpus-doc" ref="descr_genre">
+                        <commentaire>Construction dans un autre fichier des mots clefs sous la forme
+                            de taxonomies listes fermées pour les données de l'auteur (continent et
+                            pays de naissance, genre, type de publication, genre, sous genre,
+                            langue, caractéristiques des personnages....</commentaire>
+                        <attribut nom="category" type="corpus" ref="descr_genre">
+                            <commentaire>Mot clef dans liste hiérarchisée de category</commentaire>
+                            <attribut nom="xml:id" type="attribut" ref="descr_genre">
+                                <commentaire>Identifiant de la liste de mots clefs//du mot
+                                    clef</commentaire>
+                            </attribut>
+                            <attribut nom="catdesc" type="corpus" ref="descr_genre">
+                                <commentaire>Nom de la liste//du mot clef</commentaire>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+
+                    <attribut nom="div" type="structuration" ref="structuration_division">
+                        <commentaire/>
+                        <attribut nom="type" type="attribut" ref="structuration_division_type">
+                            <commentaire/>
+                            <valeur nom="dedication" ref="structuration_division_type">
+                                <commentaire/>
+                            </valeur>
+                            <valeur nom="act" ref="structuration_division_type">
+                                <commentaire/>
+                            </valeur>
+                        </attribut>
+                        <attribut nom="n" type="attribut" ref="structuration_division">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="head" type="structuration" ref="structuration_head">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="p" type="structuration" ref="structuration_p">
+                            <commentaire/>
+                            <attribut nom="seg" type="structuration" ref="ignore">
+                                <commentaire>Pour indiquer l'emphase (italique ou
+                                    gras)</commentaire>
+                            </attribut>
+                        </attribut>
+                        <attribut nom="quote" type="structuration" ref="ignore">
+                            <commentaire/>
+                        </attribut>
+                        <attribut nom="floatingText" type="structuration" ref="ignore">
+                            <commentaire>Pour les lettres</commentaire>
+                        </attribut>
+                        <attribut nom="sp" type="structuration" ref="structuration_sp">
+                            <commentaire/>
+                            <attribut nom="who" type="attribut" ref="structuration_sp">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="sp_speaker" type="structuration"
+                                ref="structuration_sp_speaker">
+                                <commentaire/>
+                            </attribut>
+                            <attribut nom="l" type="structuration" ref="structuration_lg_l">
+                                <commentaire/>
+                                <attribut nom="n" type="attribut" ref="structuration_lg_l">
+                                    <commentaire/>
+                                </attribut>
+                                <attribut nom="part" type="attribut" ref="structuration_lg_l">
+                                    <commentaire/>
+                                </attribut>
+                            </attribut>
+                        </attribut>
+                    </attribut>
+                    <attribut nom="castList" type="structuration" ref="ignore">
+                        <commentaire/>
+                        <attribut nom="castItem" type="structuration" ref="ignore">
+                            <commentaire/>
+                            <attribut nom="role" type="structuration" ref="ignore">
+                                <commentaire/>
+                                <attribut nom="xml:id" type="attribut" ref="ignore">
+                                    <commentaire/>
+                                </attribut>
                             </attribut>
                         </attribut>
                     </attribut>
