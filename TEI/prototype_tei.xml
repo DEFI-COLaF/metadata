@@ -1,78 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="IDENTIFIANT">
+<?xml-model href="out/ODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>  
-        <fileDesc> <!--Minimum syndical pour le TEIHeader-->
+        <fileDesc>
             <titleStmt>
-                <title type="main">Titre source: encoding COLAF</title><!--Titre de la source réduit + info encoding COLAF-->
-                <title type="collection"></title>
-                <author>Auteur source</author><!--Auteur de la source-->
-                <respStmt><!--Auteurs du XML et role-->
-                    <resp>Rôle:encoding, récupération du texte, PI....</resp>
-                    <name>Nom de l'auteur du doc</name>                    
+                <idno>Identifiant du document</idno><!--Récupération de l'identifiant dans le corpus extrait voir même NomCollection_identifiantCollection-->
+                <title type="main">Titre du document</title>
+                <title type="collection">Titre de la collection extraite</title>
+                <author>Auteur de la source</author>
+                <respStmt><!--Responsables du document (avec nom, prénom et identifiant orcid et rôle dans la construction du document)-->
+                    <resp>Récupération du texte</resp>
+                    <persName xml:id="InitialeNom">
+                        <surName>Nom</surName>
+                        <forename>Prénom</forename>
+                        <idno type="orcid" ref="orcid_detail"/>
+                    </persName>                 
                 </respStmt>
-                <respStmt><!--Auteurs du XML et role-->
-                    <resp>Rôle:encoding, récupération du texte, PI....</resp>
-                    <name>Nom de l'auteur du doc</name>
+                <respStmt>
+                    <resp>Encoding</resp>
+                    <persName xml:id="JJANES">
+                        <surName>Janès</surName>
+                        <foreName>Juliette</foreName>
+                        <idno type="orcid" ref="0000-0002-8971-6173"/>
+                    </persName>
                 </respStmt>
-                <principal></principal>
-                <funder/>
+                <principal><!--Ou bien infos (principal et funder) dans le publisher du publicationstmt-->
+                    <persName xml:id="BSAGOT">
+                        <surName>Sagot</surName>
+                        <foreName>Benoît</foreName>
+                        <idno type="orcid" ref="0000-0001-8957-9503"/>
+                    </persName>
+                </principal>
+                <funder>ALMANaCH - Inria</funder><!--Développer les informations comme les autres?-->
             </titleStmt>
-            <publicationStmt><!--A ajouter: publisher, date d'ajout au corpus COLAF, licence du doc XML-->
-                <publisher>COLAF</publisher>
-                <date when="2023-10-30"/>
+            <publicationStmt>
+                <publisher ref="https://colaf.huma-num.fr/">Corpus et Outils pour les Langues de France (COLaF)</publisher><!--Conserver l'url du site?-->
+                <date when="2023-10-30"/><!--Date de la création du fichier-->
                 <availability>
-                    <licence target="url">URL de la licence</licence>
+                    <licence target="url">Nom de la licence COLAF</licence>
                 </availability>
             </publicationStmt>
-            <sourceDesc>
+            <sourceDesc><!--Informations bibliographiques sur la source traitée. Si source au départ imprimé, 2 informations bibliographiques distinctes: celles sur la source imprimée et celle sur la donnée récupérée-->
                 <bibl type="printSource">
                     <ptr target=""/>
                     <title></title>
                     <author></author>
                     <pubPlace></pubPlace>
                     <publisher></publisher>
-                    <date when="2022"/>
+                    <date></date><!--Si date unique, attribut when, si siècle ou laps de temps, from et to-->
                 </bibl>
                 <bibl type="digitalSource">
                     <ptr target=""/>
                     <title></title>
-                    <author>responsables de l'édition numérique</author>
-                    
-                    <date when="2022"/>
-                    
+                    <author>responsable de l'édition numérique</author>
+                    <publisher ref="url"></publisher>
+                    <date when="2022"/>                  
                 </bibl>
-                <list><!-- Stockage des métadonnées sur la source -->
+                <list><!-- Stockage des métadonnées complémentaires non placées sur la source -->
                     <item>
                         <title></title>
                         <val></val>
                     </item>
                 </list>
             </sourceDesc>
+            <extent><!--Taille du document: par mots, token, sentences? -->
+                <measure unit="words">Nombre</measure>
+            </extent>
         </fileDesc>
         <profileDesc>
             <langUsage>
-                <language ident="pic">
+                <language>
+                    <idno type="language" ref=""></idno> Niveau de description//
+                    <idno type="language" ref=""></idno>
+                    <idno type="script" ref=""/>
                     <name>Picard</name>
-                    <date></date>
-                    <location>Paris</location>
+                    <date>Avec les attributs when et not before not after en fonction de s'il s'agit d'une date précise ou non</date>
+                    <location>
+                        <!--A compléter en fonction de ce qui est fourni-->
+                        <country></country>
+                        <region></region>
+                        <settlement></settlement>
+                        <geo></geo>
+                    </location>
                 </language>
             </langUsage>
+            <textClass>
+                <keywords>
+                    <term type="genre">genre défini dans catRef, voir csv</term>
+                </keywords>
+            </textClass>
         </profileDesc>
+        <encodingDesc n="level1"><!--Description de l'obtention du fichier et de la profondeur de structuration du fichier où level 1 est juste division et p, level 2 s, level 3 w ... utile?-->
+            <appInfo>
+                <application version="XX" ident="NomAppli"><!--Pour les applications utilisées par exemple Kraken-->
+                    <label>Nom appli</label>
+                    <ptr target="url"/>
+                </application>
+            </appInfo>
+        </encodingDesc>
         <revisionDesc>
-            <change when="2023-10-30">Description des changements faits</change>
+            <change when="2023-10-30" who="#Nom de la personne">Création du fichier</change>
+            <change when="2023-11-23" who="#JJANES">Transformation en template du fichier</change>
         </revisionDesc>
     </teiHeader>
-    <text xml:lang="pic">
-        <front>
-            <div type="titlepage">
-                <p>Titre du document sur la page principale</p>
-            </div>
-        </front>
+    <text xml:lang="">
+  
         <body>
             <!-- Indication de la page-->
             <pb/>
+            <div type="titlepage">
+                <p>Titre du document sur la page principale</p>
+            </div>
             <div type="chapter" n="1">
                 <head>Titre du chapitre</head>
                 <!--L'encodage niveau 1 en fonction du type de document. Quand un paragraphe, entry, sp.... continue sur une autre page, 

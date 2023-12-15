@@ -490,7 +490,7 @@
                     </attList>
                 </classSpec>
                 <!--Checking module textstructure-->
-                <moduleRef key="textstructure" include="TEI text body div dateline signed front"/>
+                <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
                 <elementSpec ident="TEI" mode="change">
                     <attList>
                         <attDef ident="version" mode="delete"/>
