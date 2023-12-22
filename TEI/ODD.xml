@@ -248,56 +248,124 @@
                         </egXML>
                     </div3>
                     <div3>
-                        <head>La gestion des langues dans COLaF</head>
-                        <p>Le projet COLaF s'intéressant particulièrement aux langues de France, il
-                            était nécessaire de les représenter de la fa_on la plus exhaustive
-                            possible. Outre le problème de l'absence de certains codes ISO/Glottolog
-                            pour décrire les langues de France, celles-ci varient en fonction de la
-                            période, le corpus COLaF étant diachronique et de l'endroit. Comment
-                            représenter ces informations en TEI?</p>
-                        <p>Pour chaque langue présente dans le texte encodé, il a été décidé de
-                            créer une balise <gi> language</gi> structurée comme suit:</p>
-                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <language>
-                                <idno type="language"/>
-                                <!--Niveau de description-->
-                                <idno type="language"/>
-                                <idno type="script"/>
-                                <name>Nom de la langue décrite</name>
-                                <date>Avec les attributs when et not before not after en fonction de
-                                    s'il s'agit d'une date précise ou non</date>
-                                <location>
-                                    <!--A compléter en fonction de ce qui est fourni-->
-                                    <country/>
-                                    <region/>
-                                    <settlement/>
-                                    <geo/>
-                                </location>
-                            </language>
-                        </egXML>
-                        <p>Pour structurer une langue dont le code iso n'est pas connu, on
-                            fonctionne par niveau de description avec les balises <gi>idno</gi> qui
-                            se refèrent aux codes construits par COLaF.</p>
-                        <p>On indique la date du texte, qui peut différer de sa publication, dans la
-                            balise dédiée.</p>
-                        <p>La localisation de la rédaction du texte, quand c'est possible, est
-                            indiqué dans la balise dédiée et détaillée en plusieurs balises plus
-                            précises. En effet, il est possible que lieu de publication diffère de
-                            l'endroit où est parlée la langue et qu'entre deux lieux la langue soit
-                            différente (à l'instar de l'occitan).</p>
-                        <!--Ajouter un identifiant de langue lambda pour s'y référer dans le corps du texte?-->
-                    </div3>
-                    <div3>
-                        <head>Représenter le genre textuel dans COLaF</head>
-                        <p>A rédiger mercredi</p>
-                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <textClass>
-                                <keywords>
-                                    <term type="genre">Fiction</term>
-                                    <term type="sous-genre">Prose</term>
-                                </keywords>
-                            </textClass>
-                        </egXML>
+                        <head>ProfileDesc</head>
+                        <div4>
+                            <head>La gestion des langues dans COLaF</head>
+                            <p>Le projet COLaF s'intéressant particulièrement aux langues de France,
+                                il était nécessaire de les représenter de la fa_on la plus
+                                exhaustive possible. Outre le problème de l'absence de certains
+                                codes ISO/Glottolog pour décrire les langues de France, celles-ci
+                                varient en fonction de la période, le corpus COLaF étant
+                                diachronique et de l'endroit. Comment représenter ces informations
+                                en TEI?</p>
+                            <p>Pour chaque langue présente dans le texte encodé, il a été décidé de
+                                créer une balise <gi> language</gi> structurée comme suit et située
+                                dans le <gi>ProfileDesc</gi>:</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <language>
+                                    <idno type="language"/>
+                                    <!--Niveau de description-->
+                                    <idno type="language"/>
+                                    <idno type="script"/>
+                                    <name>Nom de la langue décrite</name>
+                                    <date>Avec les attributs when et not before not after en
+                                        fonction de s'il s'agit d'une date précise ou non</date>
+                                    <location>
+                                        <!--A compléter en fonction de ce qui est fourni-->
+                                        <country/>
+                                        <region/>
+                                        <settlement/>
+                                        <geo/>
+                                    </location>
+                                </language>
+                            </egXML>
+                            <p>Pour structurer une langue, on fonctionne par niveau de description
+                                avec les balises <gi>idno</gi> qui se refèrent aux codes construits
+                                par COLaF <ref
+                                    target="https://docs.google.com/spreadsheets/d/1qDCYXatqf-SjL9TQ51KK7s5bv59Nw-wamSAZufuOZlw/edit#gid=1709095818"
+                                    >ici</ref>. </p>
+                            <p>On indique la date du texte, qui peut différer de sa publication,
+                                dans la balise dédiée.</p>
+                            <p>La localisation de la rédaction du texte, quand c'est possible, est
+                                indiqué dans la balise dédiée et détaillée en plusieurs balises plus
+                                précises. En effet, il est possible que lieu de publication diffère
+                                de l'endroit où est parlée la langue et qu'entre deux lieux la
+                                langue soit différente (à l'instar de l'occitan).</p>
+                        </div4>
+                        <div4>
+                            <head>Représenter le genre textuel dans COLaF</head>
+                            <p>Au vu de la quantité et de la variété de documents que le projet
+                                COLaF va traiter, il est nécessaire d'organiser le corpus en
+                                indiquant le type de document traité et le genre. Pour cela on
+                                utilise une série de mots clefs, issus d'un vocabulaire contrôlé en
+                                cours de construction et disponible <ref
+                                    target="https://docs.google.com/spreadsheets/d/1wWpF5E0GKJOte4ukrI69c-tgRGc9G5NfxMMuC0mOYS4/edit#gid=469046068"
+                                    >ici</ref>.</p>
+                            <p>ce vocabulaire fonctionne sur plusieurs niveaux: Supergenre, genre et
+                                mots-clefs. Supergenre et genre sont des listes fermées tandis que
+                                mots-clefs acceptent l'ajout de nouveaux termes. Il faut combiner
+                                ces informations pour définir au mieux le document traité. Par
+                                exemple, un article de journal d'informatique sur internet sera
+                                décrit par les supergenres Nonfiction et Web, le genre Press et le
+                                mot-clef Technology computing engineering.</p>
+                            <p>Ces informations se trouvent, à l'instar des langues, dans le
+                                    <gi>ProfileDesc</gi>. En suivant l'exemple plus bas, chaque
+                                    <gi>term</gi> correspond à un mot clef. L'attribut <gi>type</gi>
+                                renseigne sur le niveau de description du terme:
+                                <hi>supergenre</hi>, <hi>genre</hi> ou mot-clef. Le terme est à
+                                inscrire en toutes lettres entre les deux balises.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <textClass>
+                                    <keywords>
+                                        <term type="supergenre">Non Fiction</term>
+                                        <term type="supergenre">Web</term>
+                                        <term type="genre">Press</term>
+                                        <term type="motclef">Technology computing engineering</term>
+                                    </keywords>
+                                </textClass>
+                            </egXML>
+                        </div4>
+                        <div4>
+                            <head>Représenter les participants -OPTIONNEL</head>
+                            <p>Contrairement aux autres métadonnées, cette métadonnée est
+                                optionnelle et est employable uniquement dans des cas précis de
+                                locuteurs différents de l'auteur. C'est par exemple le cas pour des
+                                discussions sur internet de type Forum ou commentaires. L'idée est
+                                de pouvoir présenter les informations que l'on a sur les différents
+                                personnages qui participent au texte.</p>
+                            <p>Pour ce faire, on utilise une balise <gi>ParticDesc</gi> qui contient
+                                une liste de personnes <gi>Listperson</gi>.Chaque personne est
+                                décrite avec une balise <gi>person</gi> qui contient les diverses
+                                informations disponibles sur elle, qui peuvent être (la liste est
+                                exhaustif, il n'est pas nécessaire d'avoir tout mais cela permet
+                                cependant de récupérer les informations que l'on a):</p>
+                            <list>
+                                <item>Nom, prénom, pseudonym</item>
+                                <item>age, lieu de naissance, de vie, niveau social</item>
+                                <item>Langues parlées, niveau (langues maternelles ou non)</item>
+                            </list>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <particDesc>
+                                    <listPerson>
+                                        <person xml:id="P-0001" gender="F" age="adult">
+                                            <persName>Juliette Janès</persName>
+                                            <langKnowledge tags="en fr">
+                                                <langKnown level="first" tag="fr"
+                                                  >Français</langKnown>
+                                                <langKnown level="second" tag="en"
+                                                  >Anglais</langKnown>
+                                            </langKnowledge>
+                                        </person>
+                                    </listPerson>
+                                </particDesc>
+                            </egXML>
+
+                            <p>Chaque personne a un identifiant choisi numériquement afin d'associer
+                                les textes qu'il a écrit à son auteur à l'aide d'un
+                                ref="#identifiant". Il s'agit d'un exemple à retravailler sur un
+                                premier corpus de forums afin de définir exactement quelles balises
+                                conserver.</p>
+                        </div4>
                     </div3>
                 </div2>
                 <div2>
@@ -333,11 +401,15 @@
 
                         <div4>
                             <head>Texte en prose</head>
-                            <p>L'encodage du texte en prose s'effectue avec la balise p.</p>
-                            <p>L'exemple suivant décrit la structure que doivent prendre les
-                                documents en prose qui ne font pas partis des cas particuliers
-                                décrits plus bas.</p>
-
+                            <p>L'encodage du texte en prose s'effectue avec la balise
+                                <gi>p</gi>.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <p>L'esprit vers le passé, je revois, au plus lointain de l'enfance,
+                                    si loin, en un climat brumeux, mouillé, sous un ciel gris voilé
+                                    comme de larmes, une ville, longues rues sans passants, toutes
+                                    droites, et au milieu, isolée par sa hauteur, une très ancienne
+                                    cathédrale.</p>
+                            </egXML>
 
                         </div4>
                         <div4>
@@ -575,25 +647,6 @@
                         </div4>
 
                     </div3>
-                    <div3>
-                        <head>Description de l'encodage par type de document</head>
-                        <p>Dans tous les cas, encoder au plus simple. Certaines balises existent
-                            dans le schéma au cas où ces informations sont déjà indiquées/encodées
-                            dans les données qu'on récupère. Pour le reste, il n'est pas nécessaire
-                            d'ajouter autre chose, sauf si cela a été encodé dans le document que
-                            l'on récupère. Si les données morphosyntaxiques sont déjà indiquées, on
-                            peut les récupérer.</p>
-                        <div4>
-                            <head>Documents en prose basiques: fiction en prose, article de journal,
-                                thèse....</head>
-                            <p>La structure de base emploie les <gi>div</gi>, <gi>head</gi> et
-                                    <gi>p</gi>. Si des informations supplémentaires sont présentes,
-                                penser à ajouter les données liminaires. </p>
-                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                
-                            </egXML>
-                        </div4>
-                    </div3>
 
                 </div2>
             </div1>
@@ -616,7 +669,7 @@
                     <!--Checking module namesdates-->
                     <classRef key="model.persNamePart"/>
                     <moduleRef key="namesdates"
-                        include="location settlement region geo country persName surname forename"/>
+                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson "/>
                     <elementSpec ident="location" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
@@ -628,14 +681,26 @@
                             <sequence preserveOrder="false">
                                 <elementRef key="surname"/>
                                 <elementRef key="forename"/>
-                                <elementRef key="idno"/>
+                                <elementRef key="idno" minOccurs="0"/>
                             </sequence>
                         </content>
                         <attList>
                             <attDef ident="xml:id" mode="change" usage="rec"/>
                         </attList>
                     </elementSpec>
-
+                    <elementSpec ident="person" mode="change">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <elementRef key="persName"/>
+                                <elementRef key="langKnowledge"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="xml:id" mode="change" usage="req"/>
+                        </attList>
+                    </elementSpec>
+                  <!-- Checking module corpus-->
+                    <moduleRef key="corpus" include="particDesc"/>
                     <!--Checking module tagdocs-->
                     <!--Checking module core-->
                     <moduleRef key="core"
@@ -909,6 +974,7 @@
                             <sequence>
                                 <elementRef key="langUsage" minOccurs="1" maxOccurs="1"/>
                                 <elementRef key="textClass" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="particDesc" minOccurs="0" maxOccurs="1"/>
                             </sequence>
                         </content>
                     </elementSpec>
