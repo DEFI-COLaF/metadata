@@ -1,539 +1,1012 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en" xmlns:s="http://purl.oclc.org/dsdl/schematron">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en"
+    xmlns:s="http://purl.oclc.org/dsdl/schematron">
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title type="short">oddbyexample</title>
-                <title>ODD by Example customization</title>
+                <title>Corpus et Outils pour les Langues de France</title>
+                <title type="short">COLaF</title>
+                <author>Juliette Janès</author>
+                <author>Thibault Clérice</author>
+                <author>Benoît Sagot</author>
             </titleStmt>
             <publicationStmt>
-                <p>Unpublished first draft </p>
+                <authority ref="https://colaf.huma-num.fr/">COLaF</authority>
+                <date when="2023"/>
             </publicationStmt>
             <sourceDesc>
-                <p>Derived from <ref
-                        target="https://www.tei-c.org/Vault/P5/current/xml/tei/odd/p5subset.xml"
-                        >base odd</ref> after an analysis of 1 files in
-                    file:/Users/jjanes/Documents/metadata/TEI/</p>
+                <p>born-digital</p>
             </sourceDesc>
         </fileDesc>
     </teiHeader>
     <text>
+        <front>
+            <divGen type="toc"/>
+        </front>
         <body>
-            <schemaSpec ident="oddbyexample" start="TEI ">
-                <moduleRef key="tei"/>
-                <!--Checking module textcrit-->
-                <classRef key="att.textCritical"/>
-                <classRef key="model.rdgLike"/>
-                <classRef key="model.rdgPart"/>
-                <classSpec ident="att.textCritical" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="cause" mode="delete"/>
-                        <attDef ident="varSeq" mode="delete"/>
-                        <attDef ident="require" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <!--Checking module msdescription-->
-                <classRef key="model.physDescPart"/>
-                <!--Checking module namesdates-->
-                <classRef key="model.persNamePart"/>
-                <moduleRef key="namesdates" include="location settlement region geo country"/>
-                <elementSpec ident="location" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <!--Checking module dictionaries-->
-                <classRef key="att.lexicographic"/>
-                <classRef key="model.entryLike"/>
-                <classRef key="model.formPart"/>
-                <classRef key="model.gramPart"/>
-                <classRef key="model.lexicalRefinement"/>
-                <classRef key="model.morphLike"/>
-                <classRef key="model.ptrLike.form"/>
-                <classSpec ident="att.lexicographic" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="expand" mode="delete"/>
-                        <attDef ident="split" mode="delete"/>
-                        <attDef ident="value" mode="delete"/>
-                        <attDef ident="location" mode="delete"/>
-                        <attDef ident="mergedIn" mode="delete"/>
-                        <attDef ident="opt" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <!--Checking module tagdocs-->
-                <classRef key="att.combinable"/>
-                <classRef key="att.identified"/>
-                <classRef key="model.contentPart"/>
-                <moduleRef key="tagdocs" include="val"/>
-                <classSpec ident="att.combinable" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="mode" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.identified" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="ident" mode="delete"/>
-                        <attDef ident="predeclare" mode="delete"/>
-                        <attDef ident="module" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.ascribed.directed" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="toWhom" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.dimensions" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="unit" mode="delete"/>
-                        <attDef ident="quantity" mode="delete"/>
-                        <attDef ident="extent" mode="delete"/>
-                        <attDef ident="precision" mode="delete"/>
-                        <attDef ident="scope" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.damaged" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="agent" mode="delete"/>
-                        <attDef ident="degree" mode="delete"/>
-                        <attDef ident="group" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.datable.w3c" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="notBefore" mode="delete"/>
-                        <attDef ident="notAfter" mode="delete"/>
-                        <attDef ident="from" mode="delete"/>
-                        <attDef ident="to" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.datable" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="calendar" mode="delete"/>
-                        <attDef ident="period" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.divLike" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="org" mode="delete"/>
-                        <attDef ident="sample" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.media" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="width" mode="delete"/>
-                        <attDef ident="height" mode="delete"/>
-                        <attDef ident="scale" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.naming" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="role" mode="delete"/>
-                        <attDef ident="nymRef" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.typed" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="subtype" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.pointing" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="targetLang" mode="delete"/>
-                        <attDef ident="evaluate" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.pointing.group" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="domains" mode="delete"/>
-                        <attDef ident="targFunc" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.segLike" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="function" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.timed" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="start" mode="delete"/>
-                        <attDef ident="end" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.transcriptional" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="status" mode="delete"/>
-                        <attDef ident="cause" mode="delete"/>
-                        <attDef ident="seq" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <classSpec ident="att.personal" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="full" mode="delete"/>
-                        <attDef ident="sort" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <!--Checking module core-->
-                <moduleRef key="core"
-                    include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace"/>
-                <elementSpec ident="p" mode="change">
-                    <content>
-                        <sequence preserveOrder="false">
-                            <textNode/>
-                            <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
-                        </sequence>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="name" mode="change">
-                    <attList>
-                        <attDef ident="when" mode="delete"/>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="date" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="when" mode="change" usage="rec"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="ref" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="target" mode="change" usage="req"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="list" mode="change">
-                    <content>
-                        <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
-                    </content>
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="head" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="note" mode="change">
-                    <attList>
-                        <attDef ident="target" mode="delete"/>
-                        <attDef ident="type" mode="change">
-                            <valList mode="add" type="closed">
-                                <valItem ident="manuscrit"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="pb" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="lb" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="author" mode="change">
-                    <attList>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="resp" mode="change">
-                    <attList>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="title" mode="change">
-                    <attList>
-                        <attDef ident="level" mode="delete"/>
-                        <attDef ident="type" mode="change">
-                            <valList mode="add" type="closed">
-                                <valItem ident="collection"/>
-                                <valItem ident="main"/>
-                            </valList>
-                        </attDef>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="lg" mode="change">
-                    <content>
-                        <elementRef key="l" minOccurs="1" maxOccurs="unbounded"/>
-                    </content>
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="stage" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="who" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="sp" mode="change">
-                    <content>
-                        <sequence preserveOrder="true">
-                            <elementRef key="speaker" minOccurs="0" maxOccurs="1"/>
-                            <elementRef key="stage" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
-                        </sequence>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="hi" mode="change">
-                    <attList>
-                        <attDef ident="rend" mode="change" usage="req">
-                            <valList>
-                                <valItem ident="dropCapital"/>
-                                <valItem ident="bold"/>
-                                <valItem ident="italic"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="respStmt" mode="change">
-                    <content>
-                        <elementRef key="resp" minOccurs="1"/>
-                        <elementRef key="name" minOccurs="1"/>
-                    </content>
-                </elementSpec>               
-                <!--Checking module figures-->
-                <moduleRef key="figures" include="figure"/>
-                <elementSpec ident="figure" mode="change">
-                    <content>
-                        <sequence preserveOrder="false">
-                            <elementRef key="head" minOccurs="0"/>
-                            <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                        </sequence>
-                    </content>
-                    <attList>
-                        <attDef ident="type" mode="change">
-                            <valList mode="add" type="closed">
-                                <valItem ident="math"/>
-                                <valItem ident="decoration"/>
-                                <valItem ident="stamp"/>
-                                <valItem ident="sticker"/>
-                                <valItem ident="table"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="bibl" mode="change">
-                    <content>
-                        <sequence preserveOrder="false">
-                            <elementRef key="ptr" minOccurs="0"/>
-                        <elementRef key="title" minOccurs="1"/>
-                        <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
-                        <elementRef key="pubPlace" minOccurs="0"/>
-                        <elementRef key="publisher" minOccurs="1"/>                        
-                        <elementRef key="date" minOccurs="1"/>
-                        </sequence>
-                    </content>
-                    <attList>
-                        <attDef ident="type" mode="change">
-                            <valList>
-                                <valItem ident="printSource"/>
-                                <valItem ident="digitalSource"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <!--Checking module header-->
-                <moduleRef key="header"
-                    include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent"/>
-                <elementSpec ident="teiHeader" mode="change">
-                    <content>
-                        <sequence preserveOrder="true">
-                            <elementRef key="fileDesc"/>
-                            <elementRef key="profileDesc"/>
-                            <elementRef key="revisionDesc"/>
-                        </sequence>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="fileDesc" mode="change">
-                    <content>
-                        <sequence preserveOrder="true">
-                            <elementRef key="titleStmt"/>
-                            <elementRef key="publicationStmt"/>
-                            <elementRef key="sourceDesc"/>
-                            <elementRef key="extent"/>
-                        </sequence>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="titleStmt" mode="change">
-                    <content>
-                        <sequence preserveOrder="true">
-                            <elementRef key="title" minOccurs="1" maxOccurs="unbounded"/>
-                            <elementRef key="author" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="respStmt" minOccurs="1" maxOccurs="unbounded"/>
-                            <elementRef key="principal" minOccurs="1" maxOccurs="unbounded"/>
-                            <elementRef key="funder" minOccurs="1" maxOccurs="unbounded"/>
-                        </sequence>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="publicationStmt" mode="change">
-                    <content>
-                        <sequence preserveOrder="true">
-                            <elementRef key="publisher" minOccurs="1"/>
-                            <elementRef key="idno" minOccurs="1"/>
-                            <elementRef key="date" minOccurs="1"/>
-                            <elementRef key="availability" minOccurs="1"/>
-                        </sequence>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="sourceDesc" mode="change">
-                    <content>
-                        <elementRef key="bibl" minOccurs="1" maxOccurs="2"/>
-                        <elementRef key="list" minOccurs="0"/>
-                    </content>
-                </elementSpec>
-                <elementSpec ident="funder" mode="change">
-                    <attList>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="principal" mode="change">
-                    <attList>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="availability" mode="change">
-                    <content>
-                        <elementRef key="licence"/>
-                    </content>
-                    <attList>
-                        <attDef ident="status" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="licence" mode="change">
-                    <attList>
-                        <attDef ident="when" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="language" mode="change">
-                    <content>
-                        <sequence>
-                            <elementRef key="name" minOccurs="1" maxOccurs="1"/>
-                            <elementRef key="date" minOccurs="0" maxOccurs="1"/>
-                            <elementRef key="location" minOccurs="0" maxOccurs="1"/>
-                        </sequence>
-                    </content>
-                    <attList>
-                        <attDef ident="usage" mode="delete"/>
-                        <attDef ident="ident" mode="change" usage="req"
-                            ><!--Valeurs à compléter--></attDef>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="change" mode="change">
-                    <attList>
-                        <attDef ident="target" mode="delete"/>
-                        <attDef ident="who" mode="change" usage="req"/>
-                        <attDef ident="when" mode="change" usage="req"/>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <!--Checking module gaiji-->
-                <!--Checking module verse-->
-                <!--Checking module transcr-->
-                <moduleRef key="transcr" include="fw"/>
-                <elementSpec ident="fw" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="change">
-                            <valList mode="add" type="closed">
-                                <valItem ident="numbering"/>
-                                <valItem ident="quiremarks"/>
-                                <valItem ident="runningTitle"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-                <!--Checking module linking-->
-                <moduleRef key="linking" include="ab"/>
-                <elementSpec ident="ab" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <!--Checking module analysis-->
-                <classRef key="att.linguistic"/>
-                <moduleRef key="analysis" include="s w pc"/>
-                <elementSpec ident="s" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="w" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="pc" mode="change">
-                    <attList>
-                        <attDef ident="force" mode="delete"/>
-                        <attDef ident="unit" mode="delete"/>
-                        <attDef ident="pre" mode="delete"/>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <classSpec ident="att.linguistic" type="atts" mode="change">
-                    <attList>
-                        <attDef ident="lemmaRef" mode="delete"/>
-                        <attDef ident="join" mode="delete"/>
-                    </attList>
-                </classSpec>
-                <!--Checking module textstructure-->
-                <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
-                <elementSpec ident="TEI" mode="change">
-                    <attList>
-                        <attDef ident="version" mode="delete"/>
-                        <attDef ident="type" mode="delete"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="text" mode="change">
-                    <attList>
-                        <attDef ident="type" mode="delete"/>
-                        <attDef ident="xml:lang" mode='change' usage="req"/>
-                    </attList>
-                </elementSpec>
-                <elementSpec ident="div" mode="change">
-                    <content>
-                        <sequence preserveOrder="false">
-                            <elementRef key="head" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="sp" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="div" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="ab" minOccurs="0" maxOccurs="unbounded"/>
-                        </sequence>
-                    </content>
-                    <attList>
-                        <attDef ident="type" mode="change">
-                            <valList mode="add" type="closed">
-                                <valItem ident="chapter"/>
-                                <valItem ident="entry"/>
-                                <valItem ident="post"/>
-                                <valItem ident="titlepage"/>
-                                <valItem ident="act"/>
-                                <valItem ident="scene"/>
-                            </valList>
-                        </attDef>
-                    </attList>
-                </elementSpec>
-            </schemaSpec>
+            <div1>
+                <head>Guide l'encodage du projet COLaF</head>
+                <div2>
+                    <head>Introduction</head>
+                    <p>À travers le projet COLaF (Corpus et Outils pour les Langues de France), <ref
+                            target="https://www.inria.fr/fr">Inria</ref> a pour objectif de
+                        contribuer au développement de corpus et d’outils libres pour le français et
+                        les autres langues de France, en étroite collaboration avec des partenaires
+                        académiques et institutionnels.</p>
+                    <p>Le périmètre de COLaF inclut à la fois :</p>
+                    <list>
+                        <item>les données textuelles (<ref
+                                target="https://almanach.inria.fr/index-fr.html">ALMAnaCH</ref>,
+                            Centre Inria de Paris),</item>
+                        <item>les données de parole et de langue des signes (<ref
+                                target="https://team.inria.fr/multispeech/">MULTISPEECH</ref>,
+                            Centre Inria de l’Université de Lorraine).</item>
+                    </list>
+                    <p>COLaF vise à couvrir la diversité du français et des langues de France :</p>
+                    <list>
+                        <item>il a pour ambition de couvrir un échantillon aussi divers que
+                            possible: français de France et d’ailleurs, langues régionales, créoles
+                            à base française (y compris hors de France), langues autochtones,
+                            langues d’immigration, langue des signes française;</item>
+                        <item>l’ensemble des axes de variation seront étudiés, au-delà de l’état
+                            standard de la langue, et notamment les langues de spécialité, la
+                            diachronie, les états non standard (réseaux sociaux, langue
+                            d’apprenants, etc.).</item>
+                    </list>
+                    <p>Les travaux au sein du projet couvrent notamment l’acquisition et
+                        structuration de textes à partir de sources non textuelles (livres,
+                        enregistrements audio, etc.), la classification par langues et par variétés
+                        linguistiques de gros volumes de textes (en lien étroit avec le projet <ref
+                            target="https://oscar-project.org/">OSCAR</ref>), le développement de
+                        modèles d’annotation et de transformation (traduction, normalisation,
+                        synthèse vocale, génération de langue des signes) au service du
+                        développement de corpus et de l’exploitation des ressources nouvellement
+                        créées.</p>
+                    <p>COLaF est un <ref
+                            target="https://www.inria.fr/fr/defis-inria-repondre-des-grands-enjeux"
+                            >DEFI</ref> Inria porté par <ref
+                            target="http://pauillac.inria.fr/~sagot/">Benoît Sagot</ref>
+                        (responsable de l’équipe-projet ALMAnaCH) et <ref
+                            target="https://members.loria.fr/SOuni/">Slim Ouni</ref> (membre de
+                        l’équipe-projet MULTISPEECH).</p>
+
+                </div2>
+                <div2>
+                    <head>Métadonnées</head>
+                    <div3>
+                        <head>Identification du document</head>
+                        <p>Le <gi>titleStmt</gi> doit permettre l'identification du document. Il
+                            doit être complété avec les balises suivantes:</p>
+                        <list>
+                            <item><gi>idno</gi>: l'identifiant du document. Dans le cas d'un corpus
+                                déjà existant, il est à récupérer dessus sous la forme
+                                NomCollection_identifiantCollection.</item>
+                            <item><gi>title</gi>:Titre du document (type-main) et de la collection
+                                dont il est extrait (type-collection)</item>
+                            <item><gi>author</gi>: Auteur du texte encodé quand il y en a un</item>
+                            <item><gi>respStmt</gi>: Réponsables de l'édition TEI du document.
+                                    <gi>resp</gi> indique le rôle que la personne a joué dans
+                                l'encodage de l'édition TEI (Encoding, Récupération du texte...).
+                                    <gi>persName</gi> contient le nom de la personne structuré sous
+                                la forme <gi>surname</gi>, <gi>forename</gi> et <gi>idno</gi> où
+                                idno correspond à l'orcid. Chaque <gi>persName</gi> a un
+                                    <gi>xml:id</gi> qui est construit sous la forme
+                                Initialeduprenom_Nom. </item>
+                            <item><gi>principal</gi>: Nom du chercheur qui est principalement
+                                responsable de la création d'un texte électronique. Ici Benoît. Se
+                                structure de la même façon que les personnes responsables avec
+                                    <gi>persName</gi>.</item>
+                            <item><gi>funder</gi>: Nom de l'organisme financeur du projet. Ici
+                                l'INRIA.</item>
+                        </list>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <titleStmt>
+                                <idno>FRA07001</idno>
+                                <title type="main">Lucignole</title>
+                                <title type="collection">ELteC Collection</title>
+                                <author>Mendès, Catulle (1841-1909)</author>
+                                <respStmt>
+                                    <resp>Encoding</resp>
+                                    <persName xml:id="JJANES">
+                                        <surName>Janès</surName>
+                                        <foreName>Juliette</foreName>
+                                        <idno type="orcid" ref="0000-0002-8971-6173"/>
+                                    </persName>
+                                </respStmt>
+                                <principal>
+                                    <persName xml:id="BSAGOT">
+                                        <surName>Sagot</surName>
+                                        <foreName>Benoît</foreName>
+                                        <idno type="orcid" ref="0000-0001-8957-9503"/>
+                                    </persName>
+                                </principal>
+                                <funder>ALMANaCH - Inria</funder>
+                            </titleStmt>
+                        </egXML>
+                    </div3>
+                    <div3>
+                        <head>Informations de publication du document</head>
+
+                        <p>Le <gi>publicationStmt</gi> détaille les informations associées à la
+                            publication du document XML-TEI.</p>
+                        <list>
+                            <item><gi>publisher</gi>: Nom de l'éditeur scientifique de l'édition.
+                                Ici COLaF. Un attribut <gi>ref</gi> fait le lien avec le site
+                                internet du projet.</item>
+                            <item><gi>date</gi> date d'ajout du document dans COLaF</item>
+                            <item><gi>licence</gi> licence du document récupéré ou bien celle de
+                                COLaF</item>
+                        </list>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <publicationStmt>
+                                <publisher ref="https://colaf.huma-num.fr/">Corpus et Outils pour
+                                    les Langues de France (COLaF)</publisher>
+                                <date when="2023-11-24"/>
+                                <availability>
+                                    <licence target="https://creativecommons.org/licenses/by/4.0/"
+                                        >CC BY 4.0</licence>
+                                </availability>
+                            </publicationStmt>
+                        </egXML>
+                    </div3>
+                    <div3>
+                        <head>Bibliographie du texte encodé</head>
+                        <p>Le <gi>sourceDesc</gi>:Informations bibliographiques sur le texte encodé.
+                            Les données bibliographiques sont contenues dans une balise
+                                <gi>bibl</gi>. En fonction du format dans lequel est récupéré le
+                            texte encodé, plusieurs <gi>bibl</gi> peuvent coexister avec des
+                                <gi>type</gi> différents. Si le document est une source imprimée de
+                            base, l'attribut <gi>type</gi> va avoir pour valeur
+                            <hi>printSource</hi>. Si il a une version numérique, qu'il s'agisse d'un
+                            document nativement numérique ou déjà traité par la collection dont il
+                            est issu, le <gi>type</gi> aura pour valeur <hi>digitalSource</hi>.
+                            L'idée est de récupérer le plus d'informations possibles, si elles sont
+                            déjà indiquées, en se référant aux balises pouvant être contenus dans la
+                            balise <gi>bibl</gi>. Dans tous les cas, il est nécessaire d'avoir, pour
+                            chaque <gi>bibl</gi> au moins les balises suivantes: </p>
+                        <list>
+                            <item><gi>ptr</gi>avec l'attribut <gi>target</gi> pointant vers le lien
+                                d'où le texte a été récupéré/la collection est issus.</item>
+                            <item><gi>title</gi></item>
+                            <item><gi>author</gi></item>
+                            <item><gi>publisher</gi></item>
+                            <item><gi>date</gi> avec l'attribut <gi>when</gi></item>
+                        </list>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <sourceDesc>
+                                <bibl type="printSource">
+                                    <title>Lucignole</title>
+                                    <author>Mendès, Catulle (1841-1909)</author>
+                                    <pubPlace>Paris</pubPlace>
+                                    <publisher>E. Dentu</publisher>
+                                    <date when="1892"/>
+                                </bibl>
+                                <bibl type="digitalSource">
+                                    <ptr target="https://zenodo.org/communities/eltec/"/>
+                                    <title>Lucignole : édition ELTeC</title>
+                                    <author>Christof Schöch</author>
+                                    <author>BnF</author>
+                                    <publisher ref="https://distant-reading.net">COST Action
+                                        "Distant Reading for European Literary History"
+                                        (CA16204)</publisher>
+                                    <date when="2021-04-09"/>
+                                </bibl>
+                            </sourceDesc>
+                        </egXML>
+                    </div3>
+                    <div3>
+                        <head>Mesures du document</head>
+                        <p><gi>extent</gi> indique les dimensions du texte encodé sous la forme
+                            d'une balise <gi>measure</gi>. Plusieurs balises <gi>measure</gi>
+                            peuvent coexister les unes après les autres en fonction de ce qui est
+                            indiqué dans la collection extraite. Un attribut <gi>unit</gi> prend
+                            pour valeur l'unité décrite pouvant être <hi>tokens</hi>,
+                            <hi>words</hi>, <hi>sentences</hi>, <hi>pages</hi>. Une balise
+                                <gi>measure</gi> dont l'attribut <gi>unit</gi> a pour valeur
+                                <hi>token_colaf</hi> doit obligatoirement être présente.</p>
+                        <p>Pour ajouter la valeur de token_colaf, une feuille XSLT/ un programme
+                            python est disponible dans le dépôt github des métadonnées du projet (à
+                            faire).</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <extent>
+                                <measure unit="words">29772</measure>
+                            </extent>
+                        </egXML>
+
+                    </div3>
+                    <div3>
+                        <head>Applications employées</head>
+                        <p>L'<gi>encodingDesc</gi> décrit les étapes d'obtention du fichier. Chaque
+                            application employée pour obtenir le fichier est rapporté dans une
+                            balise <gi>application</gi> qui détaille le nom de l'application, sa
+                            version utilisée, son nom dans une balise <gi>label</gi> et un lien qui
+                            pointe vers l'appli avec la balise <gi>ptr</gi>.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <application version="XX" ident="NomAppli">
+                                <label>Nom appli</label>
+                                <ptr target="url"/>
+                            </application>
+                        </egXML>
+                        <p>Dans le cas d'un document obtenu en OCRisant un PDF, on peut ainsi
+                            indiquer une première application pour le Layout, une deuxième type
+                            Kraken...</p>
+
+                    </div3>
+                    <div3>
+                        <head>Enregistrement des modifications</head>
+                        <p>Le <gi>revisionDesc</gi> permet de conserver les modifications effectuées
+                            sur le document XML. Pour chaque modification une balise <gi>change</gi>
+                            est créée. Elle indique la date de la modification avec l'attribut
+                                <gi>when</gi>, la personne qui l'a modifié avec <gi>who</gi> qui
+                            renvoie à l'identifiant du responsable créé dans le <gi>respStmt</gi> et
+                            donne une brève information de la modification</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <revisionDesc>
+                                <change when="2023-12-19" who="#JJANES">Création du fichier
+                                    TEI</change>
+                            </revisionDesc>
+                        </egXML>
+                    </div3>
+                    <div3>
+                        <head>La gestion des langues dans COLaF</head>
+                        <p>Le projet COLaF s'intéressant particulièrement aux langues de France, il
+                            était nécessaire de les représenter de la fa_on la plus exhaustive
+                            possible. Outre le problème de l'absence de certains codes ISO/Glottolog
+                            pour décrire les langues de France, celles-ci varient en fonction de la
+                            période, le corpus COLaF étant diachronique et de l'endroit. Comment
+                            représenter ces informations en TEI?</p>
+                        <p>Pour chaque langue présente dans le texte encodé, il a été décidé de
+                            créer une balise <gi> language</gi> structurée comme suit:</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <language>
+                                <idno type="language"/>
+                                <!--Niveau de description-->
+                                <idno type="language"/>
+                                <idno type="script"/>
+                                <name>Nom de la langue décrite</name>
+                                <date>Avec les attributs when et not before not after en fonction de
+                                    s'il s'agit d'une date précise ou non</date>
+                                <location>
+                                    <!--A compléter en fonction de ce qui est fourni-->
+                                    <country/>
+                                    <region/>
+                                    <settlement/>
+                                    <geo/>
+                                </location>
+                            </language>
+                        </egXML>
+                        <p>Pour structurer une langue dont le code iso n'est pas connu, on
+                            fonctionne par niveau de description avec les balises <gi>idno</gi> qui
+                            se refèrent aux codes construits par COLaF.</p>
+                        <p>On indique la date du texte, qui peut différer de sa publication, dans la
+                            balise dédiée.</p>
+                        <p>La localisation de la rédaction du texte, quand c'est possible, est
+                            indiqué dans la balise dédiée et détaillée en plusieurs balises plus
+                            précises. En effet, il est possible que lieu de publication diffère de
+                            l'endroit où est parlée la langue et qu'entre deux lieux la langue soit
+                            différente (à l'instar de l'occitan).</p>
+                        <!--Ajouter un identifiant de langue lambda pour s'y référer dans le corps du texte?-->
+                    </div3>
+                    <div3>
+                        <head>Représenter le genre textuel dans COLaF</head>
+                        <p>A rédiger mercredi</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <textClass>
+                                <keywords>
+                                    <term type="genre">Fiction</term>
+                                    <term type="sous-genre">Prose</term>
+                                </keywords>
+                            </textClass>
+                        </egXML>
+                    </div3>
+                </div2>
+                <div2>
+                    <head>Structuration du texte</head>
+                    <p>Le texte est encodé dans une balise <gi>text</gi> pour laquelle est indiqué
+                        la langue principale du texte avec un attribut <gi>xml:lang</gi> qui prend
+                        pour valeur l'identifiant de la langue déterminé au niveau du teiHeader
+                        (Language).</p>
+                    <p>Le texte est entièrement contenu dans une balise <gi>body</gi>.</p>
+                    <div3>
+                        <head>Divisions</head>
+                        <p>Les divisions principales du texte sont indiquées et structurées avec la
+                            balise <gi>div</gi> qui peut être typée. Actuellement, les différentes
+                            valeurs que peut prendre l'attribut <gi>type</gi> dans le cadre de la
+                            division de base sont:</p>
+                        <list>
+                            <item>chapter</item>
+                            <item>act</item>
+                            <item>scene</item>
+                        </list>
+                        <p> Dans le cas d'une page de titre, la balise <gi>div</gi> est typée avec
+                            la valeur <hi>titlepage</hi>, sous la forme:</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <div type="titlepage">
+                                <p>Titre du document sur la page principale</p>
+                            </div>
+                        </egXML>
+
+
+                    </div3>
+                    <div3>
+                        <head>Encodage des éléments au niveau paragraphe</head>
+
+                        <div4>
+                            <head>Texte en prose</head>
+                            <p>L'encodage du texte en prose s'effectue avec la balise p.</p>
+                            <p>L'exemple suivant décrit la structure que doivent prendre les
+                                documents en prose qui ne font pas partis des cas particuliers
+                                décrits plus bas.</p>
+
+
+                        </div4>
+                        <div4>
+                            <head>Texte en vers</head>
+                            <p>Dans le cas où le texte n'est pas en prose mais en vers, on structure
+                                le texte avec les balises <gi>lg</gi> pour les strophes et
+                                    <gi>l</gi> pour les vers. </p>
+                            <p>Exemple issu des TEI Guidelines</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <div>
+                                    <lg>
+                                        <l>Les amoureux fervents et les savants austères</l>
+                                        <l>Aiment également, dans leur mûre saison,</l>
+                                        <l>Les chats puissants et doux, orgueil de la maison,</l>
+                                        <l>Qui comme eux sont frileux et comme eux sédentaires.</l>
+                                    </lg>
+                                </div>
+                            </egXML>
+                        </div4>
+                        <div4>
+                            <head>Texte parlé</head>
+                            <p>Dans le cas d'un texte parlé, par exemple dans une pièce de théâtre
+                                ou dans une transcription de monologue, on utilise la balise
+                                    <gi>sp</gi> pour encadrer le texte parlé, le locuteur du texte
+                                et les informations complémentaires de type didascalies. Le texte
+                                parlé est encadré par des <gi>p</gi> si il s'agit de prose ou par
+                                des <gi>l</gi> s'il s'agit de vers. La personne qui parle est
+                                indiqué par la balise <gi>speaker</gi> et, si possible, par la
+                                valeur de l'attribut <gi>who</gi> qui renvoie à un identifiant
+                                défini dans les métadonnées au niveau du <gi>particDesc</gi> décrit
+                                dans les métadonnées. Les didascalies sont indiquées par la balise
+                                    <gi>stage</gi>.</p>
+                            <p> Tous les éléments indiqués ne pourront pas être forcément détaillés
+                                dans le fichier TEI, le plus important est de conserver la balise
+                                    <gi>stage</gi>, <gi>p</gi> ou <gi>l</gi> et dans une moindre
+                                mesure <gi>speaker</gi> et <gi>stage</gi>.</p>
+                            <p>Exemple issu des TEI guidelines</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <sp who="#VALERE">
+                                    <speaker> Valère.</speaker>
+                                    <p>Hé bien ! Sabine, quel conseil me donneras-tu ?</p>
+                                </sp>
+                                <sp who="#SABINE">
+                                    <speaker> Sabine.</speaker>
+                                    <p>Vraiment, il y a bien des nouvelles. Mon oncle veut
+                                        résolûment que ma cousine épouse Villebrequin, et les
+                                        affaires sont tellement avancées, que je crois qu'ils
+                                        eussent été mariés dès aujourd'hui, si vous n'étiez aimé ...
+                                        Le bonhomme ne manquera pas de faire loger ma cousine à ce
+                                        pavillon qui est au bout de notre jardin, et par ce moyen
+                                        vous pourriez l'entretenir à l'insu de notre vieillard,
+                                        l'épouser, et le laisser pester tout son soûl avec
+                                        Villebrequin.</p>
+                                </sp>
+                            </egXML>
+                        </div4>
+                        <div4>
+                            <head>Listes</head>
+                            <p>Lorsque des listes sont présentes dans le fichier à encoder, il est
+                                nécessaire de les structurer de telle façon:</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <list>
+                                    <item>Point 1</item>
+                                    <item>Point 2</item>
+                                    <item>Point 3</item>
+                                </list>
+                            </egXML>
+                            <p>Les listes non ordonnées, numérotées ou non sont toutes
+                                concernées.</p>
+                        </div4>
+                        <div4>
+                            <head>Entrées</head>
+                            <p>Les entrées correspondent aux paragraphes structurés de type entrées
+                                de dictionnaires ou de catalogues, citations bibliographiques,
+                                etc... Il ne s'agit pas de phrases mais d'informations structurées
+                                dans un ordre précis qui en général se répètent.</p>
+                            <p>Deux niveaux d'encodage sont acceptés pour traiter ces données. Soit
+                                on encode dans une division <gi>div</gi> typée avec <hi>entry</hi>
+                                et <gi>p</gi>, soit on détaille un peu plus l'information avec les
+                                balises dédiées ci-dessous:</p>
+                            <p>Le texte exemple est issu de LADaS, du subset
+                                Persée:hiper_2284-5666_2015_num_2_1_892_0283.jpg et des TEI
+                                Guidelines.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <!--Exemple d'entrée non détaillée-->
+                                <div type="entry">
+                                    <p>Diaconu, Luminita (dir.) Orient et Occident. Construction des
+                                        identités en Europe médiévale. EUB. colectia " Mediaevalia",
+                                        n°5/ 2014, 225 p.</p>
+                                </div>
+                                <entry>
+                                    <form>
+                                        <orth>poussin</orth>
+                                        <pron>[pusë]</pron>
+                                    </form>
+                                    <gramGrp>
+                                        <pos>n.</pos>
+                                        <gen>m.</gen>
+                                    </gramGrp>
+                                    <sense n="1">Jeune poulet, nouvellement sorti de l'oeuf, encore
+                                        couvert de duvet. La poule et ses poussins.</sense>
+                                    <sense n="2">Zool. Jeune oiseau (par rapport aux adultes, aux
+                                        parents). </sense>
+                                    <sense n="3"> (êtres humains) <def n="1">Fam. Terme d'affection
+                                            (enfant). </def>
+                                        <def n="2"> Sports. Catégorie d'âge (9 ans) qui précède
+                                            celle des benjamins.</def>
+                                        <def n="3">Elève de première année dans certaines écoles
+                                            (Air, Aéronautique).</def>
+                                    </sense>
+                                </entry>
+                            </egXML>
+                            <p>Il s'agit d'une version détaillée au maximum. Il n'est pas obligé de
+                                décrire aussi profondément l'entrée la balise <gi>form</gi> pour
+                                l'élément décrit et la balise <gi>sense</gi> pour la définition
+                                peuvent suffire.</p>
+                        </div4>
+
+
+                    </div3>
+                    <div3>
+                        <head>Informations supplémentaires optionnelles</head>
+                        <div4>
+                            <head>Pages et lignes</head>
+                            <p> Dans le cas où les pages sont indiquées, il faut les reporter avec
+                                la balise autofermante <gi>pb</gi>. Si les retours à la ligne ou
+                                tout simplement les lignes sont indiquées, il faut les reporter avec
+                                la balise autofermante <gi>lb</gi> pour line beginning, donc au
+                                début de chaque ligne.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <p><lb/>L'esprit vers le passé, je revois au plus loin de l'enfance,
+                                    si loin, en un climat brumeux, mouillé, <lb/>sous un ciel gris
+                                    voilé comme de larmes, une ville, rues sans passants, toutes
+                                    droites, et, au <pb n="2" facs="page2.png"/>
+                                    <lb/>milieu, isolés par sa hauteur, une très ancienne
+                                    cathédrale, lourd dôme rond, avec le triple <lb/>étirement,
+                                    grêle dans l'air d'une croix où le blanc brouillard opaque, qui
+                                    s'effiloque met les <lb/>lambaux d'une robe de martyre....</p>
+                            </egXML>
+                            <p>Où <gi>pb</gi> a pour attribut non obligatoire <gi>n</gi> qui indique
+                                le numéro de page et <gi>facs</gi> qui renvoie vers la page décrite
+                                dans la suite du document (en général un url).</p>
+                        </div4>
+
+                        <div4>
+                            <head>Données liminaires</head>
+                            <p>Les données liminaires correspondent aux informations qui ne font pas
+                                parties du texte principale. C'est le cas de la numérotation de
+                                page, des notes de bas de page, du titre courant, c'est à dire le
+                                titre du document/chapitre, le nom de l'auteur qui peuvent être
+                                répétés en haut ou bas d'une page....</p>
+                            <p>Les titres de sections, livres et chapitres sont encodés avec une
+                                balise <gi>head</gi>. Les notes de bas de page ou de marge sont
+                                annotées avec une balise <gi>note</gi> à l'intérieur du paragraphe
+                                qu'elles décrivent, au niveau du mot qui a la note. Les
+                                numérotations de page sont encodées avec la balise <gi>fw</gi> typée
+                                avec la valeur <hi>numberin</hi> et les titres courant avec même
+                                balise mais typée <hi>runningTitle</hi>. Les informations
+                                complémentaires en marge non classables utilisent un typage
+                                    <hi>quiremarks</hi>.</p>
+                            <p>Pour ce qui est des éléments sémantiques, il est possible d'encoder
+                                un date avec la balise <gi>dateline</gi>, une signature avec une
+                                balise <gi>signed</gi> et une initiale avec la balise <gi>hi</gi>
+                                typée <hi>dropCapital</hi></p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <head>LIVRE PREMIER</head>
+                                <note>informations complémentaires</note>
+                                <fw type="numbering">123</fw>
+                                <fw type="runningTitle">LUCIGNOLE</fw>
+                                <fw type="quiremarks"/>
+                                <dateline>Date</dateline>
+                                <signed>Signature</signed>
+                                <p><hi rend="dropCapital"/></p>
+                            </egXML>
+
+                        </div4>
+                        <div4>
+                            <head>Images et tableaux</head>
+                            <p>Les images et tableaux sont tous décrits au sein d'une balise
+                                    <gi>figure</gi> qui peut être typée en fonction de l'élément
+                                décrit: </p>
+                            <list>
+                                <item>Maths: pour les formules mathématiques séparées du reste du
+                                    texte </item>
+                                <item>Decoration: pour les éléments ornementaux</item>
+                                <item>Stamp: pour les tampons, notamment de bibliothèques</item>
+                                <item>Sticker: pour les stickers de bibliothèques</item>
+                                <item>Table: pour les tableaux</item>
+                            </list>
+                            <p>Chaque figure peut être décrite par un titre avec la balise
+                                    <gi>head</gi>, une brève description avec la balise
+                                    <gi>figdesc</gi>, un lien vers l'image décrite avec la balise
+                                    <gi>graphic</gi> et son attribut <gi>facs</gi>. La balise
+                                    <gi>figure</gi>peut également contenir des balises <gi>p</gi> si
+                                du texte supplémentaire se trouve dans l'image.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <figure type="math">
+                                    <head>Légende si existante</head>
+                                    <graphic facs="page2;jpg"/>
+                                    <figdesc/>
+                                    <p>Si texte dans l'image, possible de l'ajouter</p>
+                                </figure>
+                            </egXML>
+                        </div4>
+                        <div4>
+                            <head>Données morphosyntaxiques</head>
+                            <p>Les données morphosyntaxiques sont représentées avec les balises
+                                    <gi>s</gi> pour encoder une phrase, <gi>w</gi> pour un mot/token
+                                et <gi>pc</gi> pour de la ponctuation. Les attributs de base de
+                                description morphosyntaxiques y sont associés: <gi>pos</gi> pour le
+                                part of speech, <gi>lemma</gi> pour les lemmes, <gi>n</gi>...</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <p>
+                                    <s>
+                                        <w pos="DET" lemma="le">L'</w>
+                                        <w pos="NOUN" lemma="esprit">esprit</w>
+                                        <w pos="ADP" lemma="vers">vers</w>
+                                        <w pos="DET" lemma="le">le</w>
+                                        <w pos="NOUN" lemma="passé">passé</w>
+                                        <w pos="PUNCT" lemma="," n="PUN">,</w>
+                                        <w pos="PRON" lemma="je">je</w>
+                                        <w pos="VERB" lemma="revoir">revois</w>
+                                        <w pos="PUNCT" lemma="," n="PUN">,</w>
+                                        <w pos="ADP" lemma="au">au</w>
+                                        <w pos="ADV" lemma="plus">plus</w>
+                                        <w pos="ADJ" lemma="lointain">lointain</w>
+                                        <w pos="ADP" lemma="de">de</w>
+                                        <w pos="DET" lemma="le">l'</w>
+                                        <w pos="NOUN" lemma="enfance">enfance</w>
+                                        <w pos="PUNCT" lemma="," n="PUN">,</w>
+                                        <!---....-->
+                                    </s>
+                                </p>
+                            </egXML>
+                        </div4>
+
+                    </div3>
+                    <div3>
+                        <head>Description de l'encodage par type de document</head>
+                        <p>Dans tous les cas, encoder au plus simple. Certaines balises existent
+                            dans le schéma au cas où ces informations sont déjà indiquées/encodées
+                            dans les données qu'on récupère. Pour le reste, il n'est pas nécessaire
+                            d'ajouter autre chose, sauf si cela a été encodé dans le document que
+                            l'on récupère. Si les données morphosyntaxiques sont déjà indiquées, on
+                            peut les récupérer.</p>
+                        <div4>
+                            <head>Documents en prose basiques: fiction en prose, article de journal,
+                                thèse....</head>
+                            <p>La structure de base emploie les <gi>div</gi>, <gi>head</gi> et
+                                    <gi>p</gi>. Si des informations supplémentaires sont présentes,
+                                penser à ajouter les données liminaires. </p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                
+                            </egXML>
+                        </div4>
+                    </div3>
+
+                </div2>
+            </div1>
+            <div1>
+                <head>Tableau des attributs</head>
+                <schemaSpec ident="oddbyexample" start="TEI ">
+                    <moduleRef key="tei"/>
+                    <!--Checking module textcrit-->
+                    <classRef key="att.textCritical"/>
+                    <classRef key="model.rdgLike"/>
+                    <classRef key="model.rdgPart"/>
+                    <classSpec ident="att.textCritical" type="atts" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="cause" mode="delete"/>
+                            <attDef ident="varSeq" mode="delete"/>
+                            <attDef ident="require" mode="delete"/>
+                        </attList>
+                    </classSpec>
+                    <!--Checking module namesdates-->
+                    <classRef key="model.persNamePart"/>
+                    <moduleRef key="namesdates"
+                        include="location settlement region geo country persName surname forename"/>
+                    <elementSpec ident="location" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="persName" mode="change">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <elementRef key="surname"/>
+                                <elementRef key="forename"/>
+                                <elementRef key="idno"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="xml:id" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
+
+                    <!--Checking module tagdocs-->
+                    <!--Checking module core-->
+                    <moduleRef key="core"
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term"/>
+                    <elementSpec ident="p" mode="change">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <textNode/>
+                                <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="name" mode="change">
+                        <attList>
+                            <attDef ident="when" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="date" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="when" mode="change" usage="rec"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="ref" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="target" mode="change" usage="req"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="list" mode="change">
+                        <content>
+                            <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="head" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="note" mode="change">
+                        <attList>
+                            <attDef ident="target" mode="delete"/>
+                            <attDef ident="type" mode="change">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="manuscrit"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="pb" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="lb" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="author" mode="change">
+                        <attList>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="resp" mode="change">
+                        <attList>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="title" mode="change">
+                        <attList>
+                            <attDef ident="level" mode="delete"/>
+                            <attDef ident="type" mode="change">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="collection"/>
+                                    <valItem ident="main"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="lg" mode="change">
+                        <content>
+                            <elementRef key="l" minOccurs="1" maxOccurs="unbounded"/>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="stage" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="who" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="sp" mode="change">
+                        <content>
+                            <sequence preserveOrder="true">
+                                <elementRef key="speaker" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="stage" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="hi" mode="change">
+                        <attList>
+                            <attDef ident="rend" mode="change" usage="req">
+                                <valList>
+                                    <valItem ident="dropCapital"/>
+                                    <valItem ident="bold"/>
+                                    <valItem ident="italic"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="respStmt" mode="change">
+                        <content>
+                            <elementRef key="resp" minOccurs="1"/>
+                            <elementRef key="persName" minOccurs="1"/>
+                        </content>
+                    </elementSpec>
+                    <!--Checking module figures-->
+                    <moduleRef key="figures" include="figure"/>
+                    <elementSpec ident="figure" mode="change">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <elementRef key="head" minOccurs="0"/>
+                                <elementRef key="graphic" minOccurs="0"/>
+                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="change">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="math"/>
+                                    <valItem ident="decoration"/>
+                                    <valItem ident="stamp"/>
+                                    <valItem ident="sticker"/>
+                                    <valItem ident="table"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="bibl" mode="change">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <elementRef key="ptr" minOccurs="0"/>
+                                <elementRef key="title" minOccurs="1"/>
+                                <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="pubPlace" minOccurs="0"/>
+                                <elementRef key="publisher" minOccurs="1"/>
+                                <elementRef key="date" minOccurs="1"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="change">
+                                <valList>
+                                    <valItem ident="printSource"/>
+                                    <valItem ident="digitalSource"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    <!--Checking module header-->
+                    <moduleRef key="header"
+                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application graphic"/>
+                    <elementSpec ident="teiHeader" mode="change">
+                        <content>
+                            <sequence preserveOrder="true">
+                                <elementRef key="fileDesc"/>
+                                <elementRef key="profileDesc"/>
+                                <elementRef key="encodingDesc" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="revisionDesc"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="fileDesc" mode="change">
+                        <content>
+                            <sequence preserveOrder="true">
+                                <elementRef key="titleStmt"/>
+                                <elementRef key="publicationStmt"/>
+                                <elementRef key="sourceDesc"/>
+                                <elementRef key="extent"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="titleStmt" mode="change">
+                        <content>
+                            <sequence preserveOrder="true">
+                                <elementRef key="idno" minOccurs="1"/>
+                                <elementRef key="title" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="author" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="respStmt" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="principal" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="funder" minOccurs="1" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="publicationStmt" mode="change">
+                        <content>
+                            <sequence preserveOrder="true">
+                                <elementRef key="publisher" minOccurs="1"/>
+                                <elementRef key="date" minOccurs="1"/>
+                                <elementRef key="availability" minOccurs="1"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="sourceDesc" mode="change">
+                        <content>
+                            <elementRef key="bibl" minOccurs="1" maxOccurs="2"/>
+                            <elementRef key="list" minOccurs="0"/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="funder" mode="change">
+                        <attList>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="principal" mode="change">
+                        <attList>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="availability" mode="change">
+                        <content>
+                            <elementRef key="licence"/>
+                        </content>
+                        <attList>
+                            <attDef ident="status" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="licence" mode="change">
+                        <attList>
+                            <attDef ident="when" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="language" mode="change">
+                        <content>
+                            <sequence>
+                                <elementRef key="idno" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="name" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="date" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="location" minOccurs="0" maxOccurs="1"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="ident" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="change" mode="change">
+                        <attList>
+                            <attDef ident="target" mode="delete"/>
+                            <attDef ident="who" mode="change" usage="req"/>
+                            <attDef ident="when" mode="change" usage="req"/>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="profileDesc" mode="change">
+                        <content>
+                            <sequence>
+                                <elementRef key="langUsage" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="textClass" minOccurs="1" maxOccurs="1"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <!--Checking module gaiji-->
+                    <!--Checking module verse-->
+                    <!--Checking module transcr-->
+                    <moduleRef key="transcr" include="fw"/>
+                    <elementSpec ident="fw" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="change">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="numbering"/>
+                                    <valItem ident="quiremarks"/>
+                                    <valItem ident="runningTitle"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    <!--Checking module linking-->
+                    <moduleRef key="linking" include="ab"/>
+                    <elementSpec ident="ab" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <!--Checking module analysis-->
+                    <classRef key="att.linguistic"/>
+                    <moduleRef key="analysis" include="s w pc"/>
+                    <elementSpec ident="s" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="w" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="pc" mode="change">
+                        <attList>
+                            <attDef ident="force" mode="delete"/>
+                            <attDef ident="unit" mode="delete"/>
+                            <attDef ident="pre" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <classSpec ident="att.linguistic" type="atts" mode="change">
+                        <attList>
+                            <attDef ident="lemmaRef" mode="delete"/>
+                            <attDef ident="join" mode="delete"/>
+                        </attList>
+                    </classSpec>
+                    <!--Checking module textstructure-->
+                    <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
+                    <elementSpec ident="TEI" mode="change">
+                        <attList>
+                            <attDef ident="version" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="text" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="xml:lang" mode="change" usage="req"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="div" mode="change">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <elementRef key="head" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="sp" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="div" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="ab" minOccurs="0" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="type" mode="change">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="chapter"/>
+                                    <valItem ident="entry"/>
+                                    <valItem ident="post"/>
+                                    <valItem ident="titlepage"/>
+                                    <valItem ident="act"/>
+                                    <valItem ident="scene"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                </schemaSpec>
+            </div1>
         </body>
     </text>
 </TEI>
