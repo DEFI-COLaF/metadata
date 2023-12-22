@@ -330,6 +330,7 @@
                             <p>Contrairement aux autres métadonnées, cette métadonnée est
                                 optionnelle et est employable uniquement dans des cas précis de
                                 locuteurs différents de l'auteur. C'est par exemple le cas pour des
+                                pièces de théâtres, de participants à un débat transcrit ou des
                                 discussions sur internet de type Forum ou commentaires. L'idée est
                                 de pouvoir présenter les informations que l'on a sur les différents
                                 personnages qui participent au texte.</p>
@@ -699,7 +700,7 @@
                             <attDef ident="xml:id" mode="change" usage="req"/>
                         </attList>
                     </elementSpec>
-                  <!-- Checking module corpus-->
+                    <!-- Checking module corpus-->
                     <moduleRef key="corpus" include="particDesc"/>
                     <!--Checking module tagdocs-->
                     <!--Checking module core-->
@@ -833,6 +834,22 @@
                             <elementRef key="persName" minOccurs="1"/>
                         </content>
                     </elementSpec>
+                    <elementSpec ident="measure" mode="change">
+                        <attList>
+                            <attDef ident="unit" mode="change" usage="req"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="term" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="change" usage="req">
+                                <valList>
+                                    <valItem ident="supergenre"/>
+                                    <valItem ident="genre"/>
+                                    <valItem ident="motclef"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
                     <!--Checking module figures-->
                     <moduleRef key="figures" include="figure"/>
                     <elementSpec ident="figure" mode="change">
@@ -902,11 +919,11 @@
                         <content>
                             <sequence preserveOrder="true">
                                 <elementRef key="idno" minOccurs="1"/>
-                                <elementRef key="title" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="title" minOccurs="1" maxOccurs="2"/>
                                 <elementRef key="author" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="respStmt" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="principal" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="funder" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="principal" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="funder" minOccurs="1" maxOccurs="1"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -921,8 +938,7 @@
                     </elementSpec>
                     <elementSpec ident="sourceDesc" mode="change">
                         <content>
-                            <elementRef key="bibl" minOccurs="1" maxOccurs="2"/>
-                            <elementRef key="list" minOccurs="0"/>
+                            <elementRef key="bibl" minOccurs="1" maxOccurs="unbounded"/>
                         </content>
                     </elementSpec>
                     <elementSpec ident="funder" mode="change">
@@ -1056,6 +1072,7 @@
                                 <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ab" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="entry" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1071,6 +1088,9 @@
                             </attDef>
                         </attList>
                     </elementSpec>
+                    <!--Checking module dictionaries-->
+                    <moduleRef key="dictionaries"
+                        include="entry form sense orth pron gramGrp pos gen def"/>
                 </schemaSpec>
             </div1>
         </body>

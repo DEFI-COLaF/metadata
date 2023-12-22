@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
-	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model href="out/ODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>  
@@ -13,24 +11,24 @@
                 <respStmt><!--Responsables du document (avec nom, prénom et identifiant orcid et rôle dans la construction du document)-->
                     <resp>Récupération du texte</resp>
                     <persName xml:id="InitialeNom">
-                        <surName>Nom</surName>
+                        <surname>Nom</surname>
                         <forename>Prénom</forename>
-                        <idno type="orcid" ref="orcid_detail"/>
-                    </persName>                 
+                        <idno type="orcid"></idno>
+                  </persName>                 
                 </respStmt>
                 <respStmt>
                     <resp>Encoding</resp>
                     <persName xml:id="JJANES">
-                        <surName>Janès</surName>
-                        <foreName>Juliette</foreName>
-                        <idno type="orcid" ref="0000-0002-8971-6173"/>
+                        <surname>Janès</surname>
+                        <forename>Juliette</forename>
+                        <idno type="orcid"></idno>
                     </persName>
                 </respStmt>
                 <principal><!--Ou bien infos (principal et funder) dans le publisher du publicationstmt-->
                     <persName xml:id="BSAGOT">
-                        <surName>Sagot</surName>
-                        <foreName>Benoît</foreName>
-                        <idno type="orcid" ref="0000-0001-8957-9503"/>
+                        <surname>Sagot</surname>
+                        <forename>Benoît</forename>
+                        <idno type="orcid"></idno>
                     </persName>
                 </principal>
                 <funder>ALMANaCH - Inria</funder><!--Développer les informations comme les autres?-->
@@ -58,12 +56,6 @@
                     <publisher ref="url"></publisher>
                     <date when="2022"/>                  
                 </bibl>
-                <list><!-- Stockage des métadonnées complémentaires non placées sur la source -->
-                    <item>
-                        <title></title>
-                        <val></val>
-                    </item>
-                </list>
             </sourceDesc>
             <extent><!--Taille du document: par mots, token, sentences? -->
                 <measure unit="words">Nombre</measure>
@@ -72,10 +64,10 @@
         <profileDesc>
             <langUsage>
                 <language>
-                    <idno type="language" ref=""></idno> Niveau de description//
-                    <idno type="language" ref=""></idno>
-                    <idno type="script" ref=""/>
-                    <name>Picard</name>
+                    <idno type="language"></idno> <!--Niveau de description//-->
+                    <idno type="language"></idno>
+                    <idno type="script"></idno>
+                  <name>Picard</name>
                     <date>Avec les attributs when et not before not after en fonction de s'il s'agit d'une date précise ou non</date>
                     <location>
                         <!--A compléter en fonction de ce qui est fourni-->
@@ -92,7 +84,7 @@
                 </keywords>
             </textClass>
         </profileDesc>
-        <encodingDesc n="level1"><!--Description de l'obtention du fichier et de la profondeur de structuration du fichier où level 1 est juste division et p, level 2 s, level 3 w ... utile?-->
+        <encodingDesc><!--Description de l'obtention du fichier et de la profondeur de structuration du fichier où level 1 est juste division et p, level 2 s, level 3 w ... utile?-->
             <appInfo>
                 <application version="XX" ident="NomAppli"><!--Pour les applications utilisées par exemple Kraken-->
                     <label>Nom appli</label>
