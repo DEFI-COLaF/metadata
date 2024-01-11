@@ -711,6 +711,7 @@
                             <sequence preserveOrder="false">
                                 <textNode/>
                                 <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
