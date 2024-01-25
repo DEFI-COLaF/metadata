@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="out/ODD.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>  
+        <fileDesc>
+            <titleStmt>
+                <idno>Identifiant du document</idno><!--Récupération de l'identifiant dans le corpus extrait voir même NomCollection_identifiantCollection-->
+                <title type="main">Titre du document</title>
+                <title type="collection">Titre de la collection extraite</title>
+                <author>Auteur de la source</author>
+                <respStmt><!--Responsables du document (avec nom, prénom et identifiant orcid et rôle dans la construction du document)-->
+                    <resp>Récupération du texte</resp>
+                    <persName xml:id="InitialeNom">
+                        <surname>Nom</surname>
+                        <forename>Prénom</forename>
+                        <idno type="orcid"></idno>
+                  </persName>                 
+                </respStmt>
+                <respStmt>
+                    <resp>Encoding</resp>
+                    <persName xml:id="JJANES">
+                        <surname>Janès</surname>
+                        <forename>Juliette</forename>
+                        <idno type="orcid"></idno>
+                    </persName>
+                </respStmt>
+                <principal><!--Ou bien infos (principal et funder) dans le publisher du publicationstmt-->
+                    <persName xml:id="BSAGOT">
+                        <surname>Sagot</surname>
+                        <forename>Benoît</forename>
+                        <idno type="orcid"></idno>
+                    </persName>
+                </principal>
+                <funder>ALMANaCH - Inria</funder><!--Développer les informations comme les autres?-->
+            </titleStmt>
+            <publicationStmt>
+                <publisher ref="https://colaf.huma-num.fr/">Corpus et Outils pour les Langues de France (COLaF)</publisher><!--Conserver l'url du site?-->
+                <date when="2023-10-30"/><!--Date de la création du fichier-->
+                <availability>
+                    <licence target="url">Nom de la licence COLAF</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc><!--Informations bibliographiques sur la source traitée. Si source au départ imprimé, 2 informations bibliographiques distinctes: celles sur la source imprimée et celle sur la donnée récupérée-->
+                <bibl type="printSource">
+                    <ptr target=""/>
+                    <title></title>
+                    <author></author>
+                    <pubPlace></pubPlace>
+                    <publisher></publisher>
+                    <date></date><!--Si date unique, attribut when, si siècle ou laps de temps, from et to-->
+                </bibl>
+                <bibl type="digitalSource">
+                    <ptr target=""/>
+                    <title></title>
+                    <author>responsable de l'édition numérique</author>
+                    <publisher ref="url"></publisher>
+                    <date when="2022"/>                  
+                </bibl>
+            </sourceDesc>
+            <extent><!--Taille du document: par mots, token, sentences? -->
+                <measure unit="words">Nombre</measure>
+            </extent>
+        </fileDesc>
+        <profileDesc>
+            <langUsage>
+                <language>
+                    <idno type="language"></idno> <!--Niveau de description//-->
+                    <idno type="language"></idno>
+                    <idno type="script"></idno>
+                  <name>Picard</name>
+                    <date>Avec les attributs when et not before not after en fonction de s'il s'agit d'une date précise ou non</date>
+                    <location>
+                        <!--A compléter en fonction de ce qui est fourni-->
+                        <country></country>
+                        <region></region>
+                        <settlement></settlement>
+                        <geo></geo>
+                    </location>
+                </language>
+            </langUsage>
+            <textClass>
+                <keywords>
+                    <term type="genre">genre défini dans catRef, voir csv</term>
+                </keywords>
+            </textClass>
+        </profileDesc>
+        <encodingDesc><!--Description de l'obtention du fichier et de la profondeur de structuration du fichier où level 1 est juste division et p, level 2 s, level 3 w ... utile?-->
+            <appInfo>
+                <application version="XX" ident="NomAppli"><!--Pour les applications utilisées par exemple Kraken-->
+                    <label>Nom appli</label>
+                    <ptr target="url"/>
+                </application>
+            </appInfo>
+        </encodingDesc>
+        <revisionDesc>
+            <change when="2023-10-30" who="#Nom de la personne">Création du fichier</change>
+            <change when="2023-11-23" who="#JJANES">Transformation en template du fichier</change>
+        </revisionDesc>
+    </teiHeader>
+    <text xml:lang="">
+  
+        <body>
+            <!-- Indication de la page-->
+            <pb/>
+            <div type="titlepage">
+                <p>Titre du document sur la page principale</p>
+            </div>
+            <div type="chapter" n="1">
+                <head>Titre du chapitre</head>
+                <!--L'encodage niveau 1 en fonction du type de document. Quand un paragraphe, entry, sp.... continue sur une autre page, 
+               on l'ajoute au sein même de la balise précédente.-->
+                <p><lb/>Prose</p>
+                <!--lb pour indiquer la fin de la ligne-->
+                <lg>
+                    <l><lb />Vers</l> <!--En général les lignes des vers sont récupérables sur une seule ligne donc l'utilisation de la balise l est peut être possible... Si pas possible: div type="poem" et lb?-->
+                    <l>Vers</l>
+                </lg>
+                <list>
+                    <item></item>
+                </list>
+                <sp who="#IDENTIFIANT">
+                    
+                    <speaker></speaker>
+                    <stage></stage>
+                    <p>Réplique de théâtre (avec nom des locuteurs, tirade, didascalies associées.)</p>
+                </sp>
+                    <ab>Elements non déterminés<lb/></ab>
+                <div type="entry">
+                    <p>Entrée de catalogue, dictionnaire <foreign xml:lang="eng">with some english</foreign>...<lb/></p>
+                </div>
+                
+                <!--L'encodage des éléments liminaux-->
+                <fw type="numbering">Numéro de page </fw>
+                <fw type="runningTitle">RunningTitle</fw>
+                <fw type="quiremarks">Quiremarks</fw>
+                <note>Notes de bas de page/de marges<lb/></note>
+                
+                <!--Données complémentaires dans le texte-->
+                <div>
+                    <dateline>Date</dateline>
+                    <signed>Signature</signed>
+                    <p><hi rend="dropCapital"/><!-- A voir comment on arrive à le traiter en OCR ? --></p>
+                </div>
+                
+                <!--Figure: sans type= neutre, avec type=math, stamp, table, decoration, stickers si on ne les traite pas!-->
+                <figure type="math">
+                    <head>Légende si existante</head>
+                    <p>Si texte dans l'image, possible de l'ajouter</p>
+                </figure>
+                <!--Notes manuscrites devraient elles être ajoutées? Si oui:-->
+                <note type="manuscrit"/>
+                <!--Niveau supérieure de description du texte-->
+                <div>
+                    <p><s><w pos="NOUN" lemma="mot" msd="Morpho-syntactic data">mot</w><pc pos="SENT">.</pc></s></p>
+                    <!--Où, dans les différentes balises d'encodage de niveau 1, on ajoute le niveau sentence (balise s) auquel on accole 
+                  un attribut xml:id pour un identifiant si souhaité et un attribut lang avec pour valeur la langue de la sentence. 
+                  On peut y ajouter le niveau encore plus bas, w pour chaque mot et pc pour les ponctuations avec les attributs pos et lemma.
+               -->
+                </div>
+            </div>
+            <div type="post"><p>Tweet</p></div><!--Posts internet: tweets, blog, etc... ou bien employer la balise post https://tei-c.org/Activities/SIG/CMC/ -->
+        </body>
+    </text>
+</TEI>
