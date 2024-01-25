@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en"
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="fr"
     xmlns:s="http://purl.oclc.org/dsdl/schematron">
     <teiHeader>
         <fileDesc>
@@ -155,22 +155,22 @@
                             Les données bibliographiques sont contenues dans une balise
                                 <gi>bibl</gi>. En fonction du format dans lequel est récupéré le
                             texte encodé, plusieurs <gi>bibl</gi> peuvent coexister avec des
-                                <gi>type</gi> différents. Si le document est une source imprimée de
-                            base, l'attribut <gi>type</gi> va avoir pour valeur
+                                <hi>type</hi> différents. Si le document est une source imprimée de
+                            base, l'attribut <hi>type</hi> va avoir pour valeur
                             <hi>printSource</hi>. Si il a une version numérique, qu'il s'agisse d'un
                             document nativement numérique ou déjà traité par la collection dont il
-                            est issu, le <gi>type</gi> aura pour valeur <hi>digitalSource</hi>.
+                            est issu, le <hi>type</hi> aura pour valeur <hi>digitalSource</hi>.
                             L'idée est de récupérer le plus d'informations possibles, si elles sont
                             déjà indiquées, en se référant aux balises pouvant être contenus dans la
                             balise <gi>bibl</gi>. Dans tous les cas, il est nécessaire d'avoir, pour
                             chaque <gi>bibl</gi> au moins les balises suivantes: </p>
                         <list>
-                            <item><gi>ptr</gi>avec l'attribut <gi>target</gi> pointant vers le lien
+                            <item><gi>ptr</gi>avec l'attribut <hi>target</hi> pointant vers le lien
                                 d'où le texte a été récupéré/la collection est issus.</item>
                             <item><gi>title</gi></item>
                             <item><gi>author</gi></item>
                             <item><gi>publisher</gi></item>
-                            <item><gi>date</gi> avec l'attribut <gi>when</gi></item>
+                            <item><gi>date</gi> avec l'attribut <hi>when</hi></item>
                         </list>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                             <sourceDesc>
@@ -199,14 +199,14 @@
                         <p><gi>extent</gi> indique les dimensions du texte encodé sous la forme
                             d'une balise <gi>measure</gi>. Plusieurs balises <gi>measure</gi>
                             peuvent coexister les unes après les autres en fonction de ce qui est
-                            indiqué dans la collection extraite. Un attribut <gi>unit</gi> prend
+                            indiqué dans la collection extraite. Un attribut <hi>unit</hi> prend
                             pour valeur l'unité décrite pouvant être <hi>tokens</hi>,
                             <hi>words</hi>, <hi>sentences</hi>, <hi>pages</hi>. Une balise
-                                <gi>measure</gi> dont l'attribut <gi>unit</gi> a pour valeur
+                                <gi>measure</gi> dont l'attribut <hi>unit</hi> a pour valeur
                                 <hi>token_colaf</hi> doit obligatoirement être présente.</p>
                         <p>Pour ajouter la valeur de token_colaf, une feuille XSLT/ un programme
-                            python est disponible dans le dépôt github des métadonnées du projet (à
-                            faire).</p>
+                            python est disponible dans le dépôt github des métadonnées du
+                            projet.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                             <extent>
                                 <measure unit="words">29772</measure>
@@ -237,7 +237,7 @@
                         <p>Le <gi>revisionDesc</gi> permet de conserver les modifications effectuées
                             sur le document XML. Pour chaque modification une balise <gi>change</gi>
                             est créée. Elle indique la date de la modification avec l'attribut
-                                <gi>when</gi>, la personne qui l'a modifié avec <gi>who</gi> qui
+                                <hi>when</hi>, la personne qui l'a modifié avec <hi>who</hi> qui
                             renvoie à l'identifiant du responsable créé dans le <gi>respStmt</gi> et
                             donne une brève information de la modification</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
@@ -251,22 +251,17 @@
                         <head>ProfileDesc</head>
                         <div4>
                             <head>La gestion des langues dans COLaF</head>
-                            <p>Le projet COLaF s'intéressant particulièrement aux langues de France,
-                                il était nécessaire de les représenter de la fa_on la plus
-                                exhaustive possible. Outre le problème de l'absence de certains
-                                codes ISO/Glottolog pour décrire les langues de France, celles-ci
-                                varient en fonction de la période, le corpus COLaF étant
-                                diachronique et de l'endroit. Comment représenter ces informations
-                                en TEI?</p>
-                            <p>Pour chaque langue présente dans le texte encodé, il a été décidé de
-                                créer une balise <gi> language</gi> structurée comme suit et située
-                                dans le <gi>ProfileDesc</gi>:</p>
+                            <p>Pour représenter la ou les langue(s) du document dans les
+                                métadonnées, on utilise, pour chaque langue, la balise
+                                    <gi>language</gi> située dans la balise <gi>langUsage</gi> qui
+                                se trouve elle-même dans le <gi>profileDesc</gi>.Une balise
+                                    <gi>language</gi> est présentée comme suit:</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <language>
-                                    <idno type="language"/>
+                                <language ident="lang-01" usage="100">
+                                    <idno type="language" xml:id="fr"/>
                                     <!--Niveau de description-->
-                                    <idno type="language"/>
-                                    <idno type="script"/>
+                                    <idno type="language" xml:id="fr-std"/>
+                                    <idno type="script" xml:id="latin"/>
                                     <name>Nom de la langue décrite</name>
                                     <date>Avec les attributs when et not before not after en
                                         fonction de s'il s'agit d'une date précise ou non</date>
@@ -279,11 +274,25 @@
                                     </location>
                                 </language>
                             </egXML>
+                            <p>La balise <gi>language</gi> a pour attributs obligatoires
+                                    <hi>ident</hi> qui permet de nommer la langue afin de la
+                                réutiliser dans le texte. La première langue décrite sera appelée
+                                "lang-01", la deuxième "lang-02" et ainsi de suite... L'attribut
+                                    <hi>usage</hi> indique le taux d'utilisation de la langue dans
+                                le texte du document. Si seule cette langue est employée, elle sera
+                                de <hi>100</hi>, si une autre langue est employée autant de fois, de
+                                    <hi>50</hi>, si elle apparait de temps en temps mais reste
+                                fréquente <hi>25</hi>, si elle apparait épisodiquement <hi>10</hi>
+                                et ainsi de suite. La somme des valeurs d'usage doit être de 100. Si
+                                le texte est traduit entièrement d'une autre langue, on peut ajouter
+                                cette langue et la décrire ici dans une balise <gi>language</gi> qui
+                                aurait pour valeur de l'attribut <hi>usage</hi> 0.</p>
                             <p>Pour structurer une langue, on fonctionne par niveau de description
-                                avec les balises <gi>idno</gi> qui se refèrent aux codes construits
-                                par COLaF <ref
+                                avec les balises <gi>idno</gi> avec pour valeur d'attribut
+                                    <hi>xml:id</hi> les codes construits par COLaF <ref
                                     target="https://docs.google.com/spreadsheets/d/1qDCYXatqf-SjL9TQ51KK7s5bv59Nw-wamSAZufuOZlw/edit#gid=1709095818"
-                                    >ici</ref>. </p>
+                                    >ici</ref>. On indique à la fois la langue et le script (latin
+                                la plupart du temps). </p>
                             <p>On indique la date du texte, qui peut différer de sa publication,
                                 dans la balise dédiée.</p>
                             <p>La localisation de la rédaction du texte, quand c'est possible, est
@@ -317,13 +326,16 @@
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <textClass>
                                     <keywords>
-                                        <term type="supergenre">Non Fiction</term>
-                                        <term type="supergenre">Web</term>
-                                        <term type="genre">Press</term>
-                                        <term type="motclef">Technology computing engineering</term>
+                                        <term type="supergenre" rend="nonfiction">Non Fiction</term>
+                                        <term type="supergenre" rend="web">Web</term>
+                                        <term type="genre" rend="nonfiction-press">Press</term>
+                                        <term type="motclef"
+                                            rend="nonfiction-press-technology-engineering"
+                                            >Technology computing engineering</term>
                                     </keywords>
                                 </textClass>
                             </egXML>
+
                         </div4>
                         <div4>
                             <head>Représenter les participants -OPTIONNEL</head>
@@ -338,12 +350,28 @@
                                 une liste de personnes <gi>Listperson</gi>.Chaque personne est
                                 décrite avec une balise <gi>person</gi> qui contient les diverses
                                 informations disponibles sur elle, qui peuvent être (la liste est
-                                exhaustif, il n'est pas nécessaire d'avoir tout mais cela permet
+                                exhaustive, il n'est pas nécessaire d'avoir tout mais cela permet
                                 cependant de récupérer les informations que l'on a):</p>
                             <list>
-                                <item>Nom, prénom, pseudonym</item>
-                                <item>age, lieu de naissance, de vie, niveau social</item>
-                                <item>Langues parlées, niveau (langues maternelles ou non)</item>
+                                <item>Nom, prénom, pseudonym: dans la balise
+                                    <gi>persName</gi></item>
+                                <item>Age: dans l'attribut <hi>age</hi>, à sélectionner entre les
+                                    valeurs <hi>adult</hi>, <hi>teenager</hi>, <hi>child</hi> et
+                                        <hi>senior</hi>.</item>
+                                <item>Gender: dans l'attribut optionnel<hi>gender</hi>, à
+                                    sélectionner entre les valeurs <hi>F</hi> et <hi>M</hi>.</item>
+                                <item>Lieu de naissance:dans la balise <gi>birth</gi>
+                                        et<gi>placeName</gi></item>
+                                <item>Lieu de vie: dans la balise <gi>residence</gi></item>
+                                <item>Niveau social: dans la balise <gi>socecStatut</gi> et
+                                    l'attribut <hi>rend</hi> en sélectionnant dans la liste de
+                                    valeurs suivantes:<hi>high</hi>,<hi>middle</hi> et
+                                    <hi>low</hi></item>
+                                <item>Langues parlées: où l'attribut <hi>level</hi> indique le
+                                    niveau du locuteur: <hi>maternal</hi>, <hi>fluent</hi> ou
+                                        <hi>basic</hi> et <hi>tag</hi> indique la langue parlée, la
+                                    valeur correspondant à <hi>ident</hi> de la langue
+                                    correspondant.</item>
                             </list>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <particDesc>
@@ -371,16 +399,13 @@
                 </div2>
                 <div2>
                     <head>Structuration du texte</head>
-                    <p>Le texte est encodé dans une balise <gi>text</gi> pour laquelle est indiqué
-                        la langue principale du texte avec un attribut <gi>xml:lang</gi> qui prend
-                        pour valeur l'identifiant de la langue déterminé au niveau du teiHeader
-                        (Language).</p>
-                    <p>Le texte est entièrement contenu dans une balise <gi>body</gi>.</p>
+                    <p>Le texte est encodé dans une balise <gi>text</gi> et est entièrement contenu
+                        dans une balise <gi>body</gi>.</p>
                     <div3>
                         <head>Divisions</head>
                         <p>Les divisions principales du texte sont indiquées et structurées avec la
                             balise <gi>div</gi> qui peut être typée. Actuellement, les différentes
-                            valeurs que peut prendre l'attribut <gi>type</gi> dans le cadre de la
+                            valeurs que peut prendre l'attribut <hi>type</hi> dans le cadre de la
                             division de base sont:</p>
                         <list>
                             <item>chapter</item>
@@ -396,6 +421,24 @@
                         </egXML>
 
 
+                    </div3>
+                    <div3>
+                        <head>Définition de la langue</head>
+                        <p>Les identifiants employées pour décrire les langues dans le corps du
+                            texte correspondent aux identifiants créés dans les métadonnées de
+                            langue (balise language, attribut ident). Pour les appeler dans le corps
+                            du texte on ajoute un dièse (#) devant cet identifiant.</p>
+                        <p>La langue principale du document est indiquée dans la balise
+                                <gi>text</gi> avec l'attribut <hi>xml:lang</hi>. Dans le cas où la
+                            langue employée change dans le texte, on réutilise cet attribut avec la
+                            valeur qui correspond sur la balise qui encadre la langue. Par exemple,
+                            dans un texte en français, un paragraphe est en alsacien, on utilisera
+                            donc la balise <gi>p</gi> avec l'attribut <hi>xml:lang</hi> et la valeur
+                                <hi>#lang-02</hi>pour encadrer le paragraphe en alsacien. L'attribut
+                                <hi>xml:lang</hi> est autorisé sur toutes les balises.</p>
+                        <p>Dans le cas d'un code switching au sein même d'une phrase, on utilise la
+                            balise <gi>foreign</gi> avec l'attribut <hi>xml:lang</hi> pour encadrer
+                            le ou les mots dans une langue différente.</p>
                     </div3>
                     <div3>
                         <head>Encodage des éléments au niveau paragraphe</head>
@@ -526,7 +569,7 @@
                             <p>Il s'agit d'une version détaillée au maximum. Il n'est pas obligé de
                                 décrire aussi profondément l'entrée la balise <gi>form</gi> pour
                                 l'élément décrit et la balise <gi>sense</gi> pour la définition
-                                peuvent suffire.</p>
+                                peuvent suffire. </p>
                         </div4>
 
 
@@ -655,10 +698,11 @@
                 <head>Tableau des attributs</head>
                 <schemaSpec ident="oddbyexample" start="TEI ">
                     <moduleRef key="tei"/>
-                    <!--Checking module textcrit-->
                     <classRef key="att.textCritical"/>
                     <classRef key="model.rdgLike"/>
                     <classRef key="model.rdgPart"/>
+                    <classRef key="att.linguistic"/>
+                    <classRef key="model.persNamePart"/>
                     <classSpec ident="att.textCritical" type="atts" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
@@ -667,10 +711,26 @@
                             <attDef ident="require" mode="delete"/>
                         </attList>
                     </classSpec>
-                    <!--Checking module namesdates-->
-                    <classRef key="model.persNamePart"/>
+
+                    <!--Checking modules-->
+
                     <moduleRef key="namesdates"
-                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson "/>
+                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
+                    <moduleRef key="corpus" include="particDesc"/>
+                    <moduleRef key="core"
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term"/>
+                    <moduleRef key="figures" include="figure"/>
+                    <moduleRef key="analysis" include="s w pc"/>
+                    <moduleRef key="header"
+                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application graphic"/>
+                    <moduleRef key="transcr" include="fw"/>
+                    <moduleRef key="linking" include="ab"/>
+                    <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
+                    <moduleRef key="dictionaries"
+                        include="entry form sense orth pron gramGrp pos gen def"/>
+
+
+                    <!-- namesdates -->
                     <elementSpec ident="location" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
@@ -691,21 +751,54 @@
                     </elementSpec>
                     <elementSpec ident="person" mode="change">
                         <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="persName"/>
-                                <elementRef key="langKnowledge"/>
-                            </sequence>
+                            <elementRef key="persName"/>
+                            <elementRef key="langKnowledge"/>
+                            <elementRef key="birth" minOccurs="0"/>
+                            <elementRef key="residence" minOccurs="0"/>
+                            <elementRef key="socecStatut" minOccurs="0"/>
                         </content>
                         <attList>
                             <attDef ident="xml:id" mode="change" usage="req"/>
+                            <attDef ident="gender" mode="change" usage="opt">
+                                <valList change="add" type="semi">
+                                    <valItem ident="F"/>
+                                    <valItem ident="M"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="age" mode="change" usage="opt">
+                                <valList change="add" type="closed">
+                                    <valItem ident="child"/>
+                                    <valItem ident="teenager"/>
+                                    <valItem ident="adult"/>
+                                    <valItem ident="senior"/>
+                                </valList>
+                            </attDef>
                         </attList>
                     </elementSpec>
-                    <!-- Checking module corpus-->
-                    <moduleRef key="corpus" include="particDesc"/>
-                    <!--Checking module tagdocs-->
-                    <!--Checking module core-->
-                    <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term"/>
+                    <elementSpec ident="langKnown" mode="change">
+                        <attList>
+                            <attDef ident="level" mode="change" usage="req">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="maternal"/>
+                                    <valItem ident="fluent"/>
+                                    <valItem ident="basic"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="tag" mode="change" usage="req"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="socecStatut" mode="change">
+                        <attList>
+                            <attDef ident="rend" change="add" usage="req">
+                                <valList change="add" type="closed">
+                                    <valItem ident="high"/>
+                                    <valItem ident="middle"/>
+                                    <valItem ident="low"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+
                     <elementSpec ident="p" mode="change">
                         <content>
                             <sequence preserveOrder="false">
@@ -766,11 +859,13 @@
                     <elementSpec ident="pb" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
+                            <attDef ident="n" mode="change" usage="req"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="lb" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
+                            <attDef ident="n" mode="change" usage="req"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="author" mode="change">
@@ -837,22 +932,93 @@
                     </elementSpec>
                     <elementSpec ident="measure" mode="change">
                         <attList>
-                            <attDef ident="unit" mode="change" usage="req"/>
+                            <attDef ident="unit" mode="change" usage="req">
+                                <valList change="add" type="semi">
+                                    <valItem ident="words"/>
+                                    <valItem ident="pages"/>
+                                    <valItem ident="sentences"/>
+                                    <valItem ident="token"/>
+                                    <valItem ident="token_colaf"/>
+                                </valList>
+                                <!--A faire: forcer la présence de token_colaf.-->
+                            </attDef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="term" mode="change">
                         <attList>
                             <attDef ident="type" mode="change" usage="req">
-                                <valList>
+                                <valList mode="add" type="closed">
                                     <valItem ident="supergenre"/>
                                     <valItem ident="genre"/>
                                     <valItem ident="motclef"/>
                                 </valList>
                             </attDef>
+                            <!--A faire: trouver un attribut qui permet de spécifier la valeur, xml:id ne fonctionne pas-->
+                            <attDef ident="rend" mode="change" usage="req">
+                                <valList mode="add" type="semi">
+                                    <!--Supergenres-->
+                                    <valItem ident="fiction"/>
+                                    <valItem ident="nonfiction"/>
+                                    <valItem ident="web"/>
+                                    <valItem ident="spoken"/>
+                                    <!--Genres-->
+                                    <valItem ident="fiction-prose"/>
+                                    <valItem ident="fiction-poetry"/>
+                                    <valItem ident="fiction-drama"/>
+                                    <valItem ident="fiction-bible"/>
+                                    <valItem ident="nonfiction-press"/>
+                                    <valItem ident="nonfiction-academic"/>
+                                    <valItem ident="nonfiction-administrative"/>
+                                    <valItem ident="nonfiction-legal"/>
+                                    <valItem ident="nonfiction-reference"/>
+                                    <valItem ident="nonfiction-interractive"/>
+                                    <valItem ident="nonfiction-learningmaterials"/>
+                                    <valItem ident="nonfiction-instructional"/>
+                                    <valItem ident="web-blog"/>
+                                    <valItem ident="web-social"/>
+                                    <valItem ident="web-wiki"/>
+                                    <valItem ident="spoken-interview"/>
+                                    <valItem ident="spoken-transcript"/>
+                                    <valItem ident="spoken-script"/>
+                                    <valItem ident="spoken-lyrics"/>
+                                    <valItem ident="spoken-other"/>
+                                    <!--Mots-clefs-->
+                                    <valItem ident="fiction-prose-short-stories"/>
+                                    <valItem ident="fiction-prose-novels"/>
+                                    <valItem ident="nonfiction-press-local"/>
+                                    <valItem ident="nonfiction-press-national"/>
+                                    <valItem ident="nonfiction-press-finance-commerce"/>
+                                    <valItem ident="nonfiction-press-science"/>
+                                    <valItem ident="nonfiction-press-sports"/>
+                                    <valItem ident="nonfiction-press-news"/>
+                                    <valItem ident="nonfiction-press-tabloid"/>
+                                    <valItem ident="nonfiction-academic-thesis"/>
+                                    <valItem ident="nonfiction-academic-article"/>
+                                    <valItem ident="nonfiction-academic-abstract"/>
+                                    <valItem ident="nonfiction-academic-medecine"/>
+                                    <valItem ident="nonfiction-academic-humanities"/>
+                                    <valItem ident="nonfiction-academic-sciences"/>
+                                    <valItem ident="nonfiction-academic-technology-engineering"/>
+                                    <valItem ident="nonfiction-administrative-report"/>
+                                    <valItem ident="nonfiction-administrative-parliamentary-debates"/>
+                                    <valItem ident="nonfiction-reference-dictionary"/>
+                                    <valItem ident="nonfiction-reference-encyclopedia"/>
+                                    <valItem ident="nonfiction-reference-catalog"/>
+                                    <valItem ident="nonfiction-interractive-letter"/>
+                                    <valItem ident="nonfiction-interractive-comments"/>
+                                    <valItem ident="nonfiction-interractive-email"/>
+                                    <valItem ident="nonfiction-learningmaterials-learners-essays"/>
+                                    <valItem ident="nonfiction-learningmaterials-grammar-examples"/>
+                                    <valItem ident="nonfiction-instructional-recipe"/>
+                                    <valItem ident="nonfiction-instructional-how-to"/>
+                                    <valItem ident="nonfiction-instructional-instructions"/>
+                                    <valItem ident="--spoken-intended"/>
+                                </valList>
+                            </attDef>
                         </attList>
                     </elementSpec>
                     <!--Checking module figures-->
-                    <moduleRef key="figures" include="figure"/>
+
                     <elementSpec ident="figure" mode="change">
                         <content>
                             <sequence preserveOrder="false">
@@ -864,7 +1030,7 @@
                         <attList>
                             <attDef ident="type" mode="change">
                                 <valList mode="add" type="closed">
-                                    <valItem ident="math"/>
+                                    <valItem ident="maths"/>
                                     <valItem ident="decoration"/>
                                     <valItem ident="stamp"/>
                                     <valItem ident="sticker"/>
@@ -875,14 +1041,12 @@
                     </elementSpec>
                     <elementSpec ident="bibl" mode="change">
                         <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="ptr" minOccurs="0"/>
-                                <elementRef key="title" minOccurs="1"/>
-                                <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="pubPlace" minOccurs="0"/>
-                                <elementRef key="publisher" minOccurs="1"/>
-                                <elementRef key="date" minOccurs="1"/>
-                            </sequence>
+                            <elementRef key="ptr" minOccurs="0"/>
+                            <elementRef key="title" minOccurs="1"/>
+                            <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
+                            <elementRef key="pubPlace" minOccurs="0"/>
+                            <elementRef key="publisher" minOccurs="1"/>
+                            <elementRef key="date" minOccurs="1"/>
                         </content>
                         <attList>
                             <attDef ident="type" mode="change">
@@ -894,8 +1058,6 @@
                         </attList>
                     </elementSpec>
                     <!--Checking module header-->
-                    <moduleRef key="header"
-                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application graphic"/>
                     <elementSpec ident="teiHeader" mode="change">
                         <content>
                             <sequence preserveOrder="true">
@@ -942,6 +1104,21 @@
                             <elementRef key="bibl" minOccurs="1" maxOccurs="unbounded"/>
                         </content>
                     </elementSpec>
+
+                    <elementSpec ident="idno" mode="change">
+                        <attList>
+                            <attDef ident="type" mode="change" usage="rec">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="orcid"/>
+                                    <valItem ident="langue"/>
+                                    <valItem ident="script"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="xml:id" mode="change" usage="rec">
+                                <!--A faire: Ajouter les codes langues et script-->
+                            </attDef>
+                        </attList>
+                    </elementSpec>
                     <elementSpec ident="funder" mode="change">
                         <attList>
                             <attDef ident="when" mode="delete"/>
@@ -969,13 +1146,22 @@
                         <content>
                             <sequence>
                                 <elementRef key="idno" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="name" minOccurs="1" maxOccurs="1"/>
+                                <elementRef key="name" minOccurs="0" maxOccurs="1"/>
                                 <elementRef key="date" minOccurs="0" maxOccurs="1"/>
                                 <elementRef key="location" minOccurs="0" maxOccurs="1"/>
                             </sequence>
                         </content>
                         <attList>
-                            <attDef ident="ident" mode="delete"/>
+                            <attDef ident="ident" mode="change" usage="req">
+                                <valList mode="add" type="open">
+                                    <valItem ident="lang-numéro"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="usage" mode="change" usage="req">
+                                <datatype>
+                                    <dataRef key="teidata.count"/>
+                                </datatype>
+                            </attDef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="change" mode="change">
@@ -998,7 +1184,7 @@
                     <!--Checking module gaiji-->
                     <!--Checking module verse-->
                     <!--Checking module transcr-->
-                    <moduleRef key="transcr" include="fw"/>
+
                     <elementSpec ident="fw" mode="change">
                         <attList>
                             <attDef ident="type" mode="change">
@@ -1011,15 +1197,13 @@
                         </attList>
                     </elementSpec>
                     <!--Checking module linking-->
-                    <moduleRef key="linking" include="ab"/>
+
                     <elementSpec ident="ab" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <!--Checking module analysis-->
-                    <classRef key="att.linguistic"/>
-                    <moduleRef key="analysis" include="s w pc"/>
+
                     <elementSpec ident="s" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
@@ -1045,7 +1229,7 @@
                         </attList>
                     </classSpec>
                     <!--Checking module textstructure-->
-                    <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
+
                     <elementSpec ident="TEI" mode="change">
                         <attList>
                             <attDef ident="version" mode="delete"/>
@@ -1055,7 +1239,6 @@
                     <elementSpec ident="text" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
-                            <attDef ident="xml:lang" mode="change" usage="req"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="div" mode="change">
@@ -1085,13 +1268,14 @@
                                     <valItem ident="titlepage"/>
                                     <valItem ident="act"/>
                                     <valItem ident="scene"/>
+                                    <valItem ident="liminal"/>
+                                    <valItem ident="part"/>
                                 </valList>
                             </attDef>
                         </attList>
                     </elementSpec>
                     <!--Checking module dictionaries-->
-                    <moduleRef key="dictionaries"
-                        include="entry form sense orth pron gramGrp pos gen def"/>
+
                 </schemaSpec>
             </div1>
         </body>
