@@ -20,9 +20,6 @@
         </fileDesc>
     </teiHeader>
     <text>
-        <front>
-            <divGen type="toc"/>
-        </front>
         <body>
             <div1>
                 <head>Guide l'encodage du projet COLaF</head>
