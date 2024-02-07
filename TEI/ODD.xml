@@ -426,9 +426,13 @@
                             valeurs que peut prendre l'attribut <hi>type</hi> dans le cadre de la
                             division de base sont:</p>
                         <list>
+                            <item>part</item>
                             <item>chapter</item>
                             <item>act</item>
                             <item>scene</item>
+                            <item>forum</item>
+                            <item>topic</item>
+                            <item>letter</item>
                         </list>
                         <p> Dans le cas d'une page de titre, la balise <gi>div</gi> est typée avec
                             la valeur <hi>titlepage</hi>, sous la forme:</p>
