@@ -257,11 +257,10 @@
                                 se trouve elle-même dans le <gi>profileDesc</gi>.Une balise
                                     <gi>language</gi> est présentée comme suit:</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <language xml:id="lang-01" usage="100">
-                                    <idno type="language" xml:id="fr"/>
+                                <language ident="met-fra-std" usage="100">
+                                    <idno type="language">met-fra-std</idno>
                                     <!--Niveau de description-->
-                                    <idno type="language" xml:id="fr-std"/>
-                                    <idno type="script" xml:id="latin"/>
+                                    <idno type="script">latin</idno>
                                     <name>Nom de la langue décrite</name>
                                     <date>Avec les attributs when et not before not after en
                                         fonction de s'il s'agit d'une date précise ou non</date>
@@ -288,8 +287,8 @@
                                 cette langue et la décrire ici dans une balise <gi>language</gi> qui
                                 aurait pour valeur de l'attribut <hi>usage</hi> 0.</p>
                             <p>Pour structurer une langue, on fonctionne par niveau de description
-                                avec les balises <gi>idno</gi> avec pour valeur d'attribut
-                                    <hi>xml:id</hi> les codes construits par COLaF <ref
+                                avec les balises <gi>idno</gi> indiquant les codes construits par
+                                COLaF <ref
                                     target="https://docs.google.com/spreadsheets/d/1qDCYXatqf-SjL9TQ51KK7s5bv59Nw-wamSAZufuOZlw/edit#gid=1709095818"
                                     >ici</ref>. On indique à la fois la langue et le script (latin
                                 la plupart du temps). </p>
@@ -361,13 +360,16 @@
                                     (30-60) et <hi>senior</hi>.</item>
                                 <item>Gender: dans l'attribut optionnel<hi>gender</hi>, à
                                     sélectionner entre les valeurs <hi>F</hi> et <hi>M</hi>.</item>
-                                <item>Lieu de naissance:dans la balise <gi>birth</gi>
-                                        et<gi>placeName</gi></item>
-                                <item>Lieu de vie: dans la balise <gi>residence</gi></item>
+                                <item>Lieu et date de naissance:dans la balise <gi>birth</gi>
+                                        et<gi>placeName</gi> (qui peut être détaillé). L'attribut
+                                        <hi>when</hi> permet d'indiquer la date de naissance.</item>
+                                <item>Lieu de vie: dans la balise <gi>residence</gi> qui peut être
+                                    détaillée en fonction des nécessités en utilisant les
+                                    différentes balises de lieux.</item>
                                 <item>Niveau social: dans la balise <gi>socecStatut</gi> et
                                     l'attribut <hi>rend</hi> en sélectionnant dans la liste de
                                     valeurs suivantes:<hi>high</hi>,<hi>middle</hi> et
-                                    <hi>low</hi></item>
+                                    <hi>low</hi>.</item>
                                 <item>Langues parlées: où l'attribut <hi>level</hi> indique le
                                     niveau du locuteur: <hi>fluent</hi>, <hi>intermediate</hi> ou
                                         <hi>basic</hi> et <hi>tag</hi> indique la langue parlée, la
@@ -377,14 +379,25 @@
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <particDesc>
                                     <listPerson>
-                                        <person xml:id="P-0001" gender="F" age="adult">
+                                        <person xml:id="P-0001" gender="F" age="young-adult">
                                             <persName>Juliette Janès</persName>
-                                            <langKnowledge tags="en fr">
-                                                <langKnown level="fluent" tag="fr"
+                                            <langKnowledge>
+                                                <langKnown level="fluent" tag="met-fra-std"
                                                   >Français</langKnown>
-                                                <langKnown level="intermediate" tag="en"
-                                                  >Anglais</langKnown>
+                                                <langKnown level="basic" tag="met-oïl-pic"
+                                                  >Picard</langKnown>
                                             </langKnowledge>
+                                            <birth when="1998">
+                                                <placeName>Amiens</placeName>
+                                                <placeName xml:lang="met-oïl-pic">Anmien</placeName>
+                                            </birth>
+                                            <residence>
+                                                <settlement>Asnières sur Seine</settlement>
+                                                <region type="departement">Hauts de Seine</region>
+                                                <region type="admin">Ile de France</region>
+                                                <country>France</country>
+                                            </residence>
+                                            <socecStatut rend="middle"/>
                                         </person>
                                     </listPerson>
                                 </particDesc>
@@ -395,6 +408,10 @@
                                 ref="#identifiant". Il s'agit d'un exemple à retravailler sur un
                                 premier corpus de forums afin de définir exactement quelles balises
                                 conserver.</p>
+                            <p> On considère que les métadonnées sont en français standard. Ainsi,
+                                si une information géographique est dans une autre langue, il faudra
+                                uniquement indiquer cette langue là avec l'attribut
+                                    <hi>xml:lang</hi> comme dans l'exemple.</p>
                         </div4>
                     </div3>
                 </div2>
@@ -572,6 +589,59 @@
                                 l'élément décrit et la balise <gi>sense</gi> pour la définition
                                 peuvent suffire. </p>
                         </div4>
+                        <div4>
+                            <head>Posts de réseaux sociaux</head>
+                            <p>Pour encoder les posts de réseaux sociaux et autres commentaires web
+                                de type forum, un parti pris a été choisi d'utiliser une balise
+                                    <gi>post</gi>, en cours d'étude par le consortium TEI et pas
+                                encore ajouté au schéma actuelle de la TEI. En effet, cette balise
+                                nous semble la plus apte à indiquer toutes les informations
+                                nécessaires à chaque post à encoder.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <post who="#P-0002" when="2010-12-27" xml:id="post-t2208-22920">
+                                    <figure type="emoji">
+                                        <head>Poce Levat</head>
+                                        <graphic url="/users/2712/43/79/49/smiles/536853.gif"/>
+                                    </figure>
+                                    <p><lb/>E dab un chic de mèu mesclat a la pasta, cambias lo tot
+                                        en pancake (chic o mic), çò qu'es pas maishant per lo matin
+                                        !</p>
+                                </post>
+                            </egXML>
+                            <p>Ici un exemple extrait d'un forum d'occitan traité par COLaF. La
+                                balise <gi>post</gi> indique donc qu'il s'agit d'un objet de type
+                                micro-blogging ou commentaire web. L'attribut <hi>who</hi> indique
+                                le rédacteur du commentaire en faisant référence à l'identifiant de
+                                la personne tel qu'il a été déterminé dans le ParticDesc (voir la
+                                documentation sur les participants). L'attribut <hi>when</hi> encode
+                                la date d'écriture du commentaire. L'attribut <hi>xml:id</hi>
+                                indique l'identifiant choisi pour le post ici sous la forme
+                                Identifiant du forum - identifiant du post dans le HTML. La balise
+                                peut contenir des paragraphes, listes, images... </p>
+                            <p>Un type <hi>emoji</hi> a été ajouté à la liste des types de figure
+                                afin d'encoder les emojis, fréquents dans ce type de document. La
+                                balise head contient le head du HTML et on conserve également l'url
+                                de l'image.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <post who="#P-0001" when="2010-12-28" xml:id="post-t2208-22939">
+                                    <p><lb/>… e fait lo tarama ? Qui òme ! </p>
+                                    <figure type="emoji">
+                                        <head>Ironic</head>
+                                        <graphic url="/users/2712/43/79/49/smiles/220742.gif"/>
+                                    </figure>
+                                </post>
+                                <post who="#P-0004" when="2010-12-28" xml:id="post-t2208-22940">
+                                    <ref target="#post-t2208-22939">… e fait lo tarama ? Qui òme ! </ref>
+                                    <!--Quand citation d'un autre post, avec contenu textuel cité-->
+                                    <p><lb/>Mine de rien, i pensi</p>
+                                </post>
+                            </egXML>
+                            <p>Dans le cas d'une citation d'un autre commentaire/posts, on utilise
+                                la balise <gi>ref</gi> et l'attribut <hi>target</hi> qui pointe vers
+                                l'identifiant du post mentionné. Le contenu de la balise
+                                    <gi>ref</gi> correspond au contenu commentée, celui-ci pouvant
+                                être modifié par l'utilisateur.</p>
+                        </div4>
 
 
                     </div3>
@@ -741,11 +811,11 @@
                     <elementSpec ident="persName" mode="change">
                         <content>
                             <alternate>
-                            <sequence preserveOrder="false">
-                                <elementRef key="surname" minOccurs="0"/>
-                                <elementRef key="forename" minOccurs="0"/>
-                                <elementRef key="idno" minOccurs="0"/>
-                            </sequence>
+                                <sequence preserveOrder="false">
+                                    <elementRef key="surname" minOccurs="0"/>
+                                    <elementRef key="forename" minOccurs="0"/>
+                                    <elementRef key="idno" minOccurs="0"/>
+                                </sequence>
                                 <sequence>
                                     <textNode/>
                                 </sequence>
@@ -1270,33 +1340,35 @@
                                 <valList mode="add" type="closed">
                                     <valItem ident="chapter"/>
                                     <valItem ident="entry"/>
-                                    <valItem ident="post"/>
                                     <valItem ident="titlepage"/>
                                     <valItem ident="act"/>
                                     <valItem ident="scene"/>
                                     <valItem ident="liminal"/>
                                     <valItem ident="part"/>
+                                    <valItem ident="forum"/>
+                                    <valItem ident="topic"/>
+                                    <valItem ident="letter"/>
                                 </valList>
                             </attDef>
                         </attList>
                     </elementSpec>
                     <!--Création de la balise post à partir du travail TEI consortium (non ajouté pour le moment)-->
-                <elementSpec ident="post" mode="add">
-                    <content>
-                        <sequence preserveOrder="false">
-                            <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
-                        </sequence>
-                    </content>
-                    <attList>
-                        <attDef ident="who" mode='add'/>
-                        <attDef ident="when" mode="add"/>
-                        <attDef ident="xml:id" mode='add'/>
-                        <attDef ident="xml:lang" mode="add"/>
-                    </attList>
-                </elementSpec>
+                    <elementSpec ident="post" mode="add">
+                        <content>
+                            <sequence preserveOrder="false">
+                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                        <attList>
+                            <attDef ident="who" mode="add"/>
+                            <attDef ident="when" mode="add"/>
+                            <attDef ident="xml:id" mode="add"/>
+                            <attDef ident="xml:lang" mode="add"/>
+                        </attList>
+                    </elementSpec>
                 </schemaSpec>
             </div1>
         </body>
