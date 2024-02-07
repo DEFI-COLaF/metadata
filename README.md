@@ -1,6 +1,6 @@
 # TEI scheme and metadata
 
-This repository houses the TEI scheme and documentation for the text portion of the COLaF project, led by [Inria](https://www.inria.fr/fr). It is managed by the [Almanach Team](https://almanach.inria.fr/index-en.html). 
+This repository houses the TEI scheme and documentation for the text portion of the COLaF project, led by [Inria](https://www.inria.fr/fr). It is managed by the [ALMAnaCH Team](https://almanach.inria.fr/index-en.html). 
 
 Within this repository, you will find:
 
