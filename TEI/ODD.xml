@@ -120,7 +120,7 @@
                                         <idno type="orcid" ref="0000-0001-8957-9503"/>
                                     </persName>
                                 </principal>
-                                <funder>ALMANaCH - Inria</funder>
+                                <funder>Inria</funder>
                             </titleStmt>
                         </egXML>
                     </div3>
@@ -257,7 +257,7 @@
                                 se trouve elle-même dans le <gi>profileDesc</gi>.Une balise
                                     <gi>language</gi> est présentée comme suit:</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <language ident="lang-01" usage="100">
+                                <language xml:id="lang-01" usage="100">
                                     <idno type="language" xml:id="fr"/>
                                     <!--Niveau de description-->
                                     <idno type="language" xml:id="fr-std"/>
@@ -275,7 +275,7 @@
                                 </language>
                             </egXML>
                             <p>La balise <gi>language</gi> a pour attributs obligatoires
-                                    <hi>ident</hi> qui permet de nommer la langue afin de la
+                                    <hi>xml:id</hi> qui permet de nommer la langue afin de la
                                 réutiliser dans le texte. La première langue décrite sera appelée
                                 "lang-01", la deuxième "lang-02" et ainsi de suite... L'attribut
                                     <hi>usage</hi> indique le taux d'utilisation de la langue dans
@@ -356,8 +356,9 @@
                                 <item>Nom, prénom, pseudonym: dans la balise
                                     <gi>persName</gi></item>
                                 <item>Age: dans l'attribut <hi>age</hi>, à sélectionner entre les
-                                    valeurs <hi>adult</hi>, <hi>teenager</hi>, <hi>child</hi> et
-                                        <hi>senior</hi>.</item>
+                                    valeurs <hi>child</hi> (jusqu'à 12 ans), <hi>teenager</hi>
+                                    (12-18 ans), <hi>young-adult</hi> (18-30 ans), <hi>adult</hi>
+                                    (30-60) et <hi>senior</hi>.</item>
                                 <item>Gender: dans l'attribut optionnel<hi>gender</hi>, à
                                     sélectionner entre les valeurs <hi>F</hi> et <hi>M</hi>.</item>
                                 <item>Lieu de naissance:dans la balise <gi>birth</gi>
@@ -368,7 +369,7 @@
                                     valeurs suivantes:<hi>high</hi>,<hi>middle</hi> et
                                     <hi>low</hi></item>
                                 <item>Langues parlées: où l'attribut <hi>level</hi> indique le
-                                    niveau du locuteur: <hi>maternal</hi>, <hi>fluent</hi> ou
+                                    niveau du locuteur: <hi>fluent</hi>, <hi>intermediate</hi> ou
                                         <hi>basic</hi> et <hi>tag</hi> indique la langue parlée, la
                                     valeur correspondant à <hi>ident</hi> de la langue
                                     correspondant.</item>
@@ -379,9 +380,9 @@
                                         <person xml:id="P-0001" gender="F" age="adult">
                                             <persName>Juliette Janès</persName>
                                             <langKnowledge tags="en fr">
-                                                <langKnown level="first" tag="fr"
+                                                <langKnown level="fluent" tag="fr"
                                                   >Français</langKnown>
-                                                <langKnown level="second" tag="en"
+                                                <langKnown level="intermediate" tag="en"
                                                   >Anglais</langKnown>
                                             </langKnowledge>
                                         </person>
@@ -718,11 +719,11 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote"/>
                     <moduleRef key="figures" include="figure"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
-                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application graphic"/>
+                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application "/>
                     <moduleRef key="transcr" include="fw"/>
                     <moduleRef key="linking" include="ab"/>
                     <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
@@ -739,11 +740,16 @@
                     </elementSpec>
                     <elementSpec ident="persName" mode="change">
                         <content>
+                            <alternate>
                             <sequence preserveOrder="false">
-                                <elementRef key="surname"/>
-                                <elementRef key="forename"/>
+                                <elementRef key="surname" minOccurs="0"/>
+                                <elementRef key="forename" minOccurs="0"/>
                                 <elementRef key="idno" minOccurs="0"/>
                             </sequence>
+                                <sequence>
+                                    <textNode/>
+                                </sequence>
+                            </alternate>
                         </content>
                         <attList>
                             <attDef ident="xml:id" mode="change" usage="rec"/>
@@ -769,6 +775,7 @@
                                 <valList change="add" type="closed">
                                     <valItem ident="child"/>
                                     <valItem ident="teenager"/>
+                                    <valItem ident="young-adult"/>
                                     <valItem ident="adult"/>
                                     <valItem ident="senior"/>
                                 </valList>
@@ -779,7 +786,7 @@
                         <attList>
                             <attDef ident="level" mode="change" usage="req">
                                 <valList mode="add" type="closed">
-                                    <valItem ident="maternal"/>
+                                    <valItem ident="intermediate"/>
                                     <valItem ident="fluent"/>
                                     <valItem ident="basic"/>
                                 </valList>
@@ -811,6 +818,7 @@
                                 <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -859,13 +867,13 @@
                     <elementSpec ident="pb" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
-                            <attDef ident="n" mode="change" usage="req"/>
+                            <attDef ident="n" mode="change" usage="rec"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="lb" mode="change">
                         <attList>
                             <attDef ident="type" mode="delete"/>
-                            <attDef ident="n" mode="change" usage="req"/>
+                            <attDef ident="n" mode="change" usage="rec"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="author" mode="change">
@@ -915,7 +923,7 @@
                     </elementSpec>
                     <elementSpec ident="hi" mode="change">
                         <attList>
-                            <attDef ident="rend" mode="change" usage="req">
+                            <attDef ident="rend" mode="change" usage="rec">
                                 <valList>
                                     <valItem ident="dropCapital"/>
                                     <valItem ident="bold"/>
@@ -1023,7 +1031,7 @@
                         <content>
                             <sequence preserveOrder="false">
                                 <elementRef key="head" minOccurs="0"/>
-                                <elementRef key="graphic" minOccurs="0"/>
+                                <elementRef key="graphic" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
@@ -1152,12 +1160,7 @@
                             </sequence>
                         </content>
                         <attList>
-                            <attDef ident="ident" mode="change" usage="req">
-                                <valList mode="add" type="open">
-                                    <valItem ident="lang-numéro"/>
-                                </valList>
-                            </attDef>
-                            <attDef ident="usage" mode="change" usage="req">
+                            <attDef ident="usage" mode="change" usage="rec">
                                 <datatype>
                                     <dataRef key="teidata.count"/>
                                 </datatype>
@@ -1257,6 +1260,9 @@
                                 <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ab" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="entry" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="post" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1274,8 +1280,23 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    <!--Checking module dictionaries-->
-
+                    <!--Création de la balise post à partir du travail TEI consortium (non ajouté pour le moment)-->
+                <elementSpec ident="post" mode="add">
+                    <content>
+                        <sequence preserveOrder="false">
+                            <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                            <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
+                            <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
+                            <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
+                        </sequence>
+                    </content>
+                    <attList>
+                        <attDef ident="who" mode='add'/>
+                        <attDef ident="when" mode="add"/>
+                        <attDef ident="xml:id" mode='add'/>
+                        <attDef ident="xml:lang" mode="add"/>
+                    </attList>
+                </elementSpec>
                 </schemaSpec>
             </div1>
         </body>
