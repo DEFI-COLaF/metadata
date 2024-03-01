@@ -828,8 +828,8 @@
                     </elementSpec>
                     <elementSpec ident="person" mode="change">
                         <content>
-                            <elementRef key="persName"/>
-                            <elementRef key="langKnowledge"/>
+                            <elementRef key="persName" minOccurs="0"/>
+                            <elementRef key="langKnowledge" minOccurs="0"/>
                             <elementRef key="birth" minOccurs="0"/>
                             <elementRef key="residence" minOccurs="0"/>
                             <elementRef key="socecStatut" minOccurs="0"/>
@@ -855,7 +855,7 @@
                     </elementSpec>
                     <elementSpec ident="langKnown" mode="change">
                         <attList>
-                            <attDef ident="level" mode="change" usage="req">
+                            <attDef ident="level" mode="change" usage="rec">
                                 <valList mode="add" type="closed">
                                     <valItem ident="intermediate"/>
                                     <valItem ident="fluent"/>
@@ -890,6 +890,7 @@
                                 <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -907,8 +908,12 @@
                     </elementSpec>
                     <elementSpec ident="ref" mode="change">
                         <attList>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="target" mode="change" usage="req"/>
+                            <attDef ident="type" mode="change" usage="rec">
+                                <valList mode='add' type="open">
+                                    <valItem ident="quote"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="target" mode="change" usage="rec"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="list" mode="change">
@@ -1033,7 +1038,7 @@
                                 </valList>
                             </attDef>
                             <!--A faire: trouver un attribut qui permet de spécifier la valeur, xml:id ne fonctionne pas-->
-                            <attDef ident="rend" mode="change" usage="req">
+                            <attDef ident="rend" mode="change" usage="rec">
                                 <valList mode="add" type="semi">
                                     <!--Supergenres-->
                                     <valItem ident="fiction"/>
@@ -1114,6 +1119,7 @@
                                     <valItem ident="stamp"/>
                                     <valItem ident="sticker"/>
                                     <valItem ident="table"/>
+                                    <valItem ident="emoji"/>
                                 </valList>
                             </attDef>
                         </attList>
@@ -1334,6 +1340,7 @@
                                 <elementRef key="post" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1361,6 +1368,7 @@
                                 <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
