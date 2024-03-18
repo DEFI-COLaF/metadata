@@ -107,14 +107,14 @@
                                     <persName xml:id="JJANES">
                                         <surName>Janès</surName>
                                         <foreName>Juliette</foreName>
-                                        <idno type="orcid" ref="0000-0002-8971-6173"/>
+                                        <idno type="orcid">0000-0002-8971-6173</idno>
                                     </persName>
                                 </respStmt>
                                 <principal>
                                     <persName xml:id="BSAGOT">
                                         <surName>Sagot</surName>
                                         <foreName>Benoît</foreName>
-                                        <idno type="orcid" ref="0000-0001-8957-9503"/>
+                                        <idno type="orcid">0000-0001-8957-9503</idno>
                                     </persName>
                                 </principal>
                                 <funder>Inria</funder>
@@ -258,7 +258,7 @@
                                     <idno type="language">met-fra-std</idno>
                                     <!--Niveau de description-->
                                     <idno type="script">latin</idno>
-                                    <name>Nom de la langue décrite</name>
+                                    <name>Nom de la langue décrite</name><!--Il est possible d'ajouter deux balises name avec un xml:lang différent pour indiquer le nom de la langue en français et dans la langue même-->
                                     <date>Avec les attributs when et not before not after en
                                         fonction de s'il s'agit d'une date précise ou non</date>
                                     <location>
@@ -458,6 +458,49 @@
                         <p>Dans le cas d'un code switching au sein même d'une phrase, on utilise la
                             balise <gi>foreign</gi> avec l'attribut <hi>xml:lang</hi> pour encadrer
                             le ou les mots dans une langue différente.</p>
+                        <p>Si on applique un modèle du type FastText sur le document afin de prédire
+                            les langues présentes dans le document et donc compléter l'attribut
+                                <hi>xml:lang</hi>, il est possible d'en indiquer les résultats avec
+                            la balise <gi>certainty</gi>.L'attribut <hi>match</hi> pointe vers
+                            l'élément que le modèle prédit et qui n'est donc pas sûr avec un XPATH
+                            (ici l'attribut xml:lang de la balise post). <hi>Locus</hi> indique que
+                            l'on prédit la valeur de cet attribut. <hi>Source</hi> donne une
+                            information sur le modèle qui a été utilisé pour prédire cette valeur et
+                            correspond au titre du modèle. <hi>degree</hi> donne le score de
+                            confidence de la valeur résultat. Si jamais on a plusieurs résultats,
+                            comme ici, on peut employer l'attribut <hi>assertedValue</hi> qui permet
+                            de d'indiquer le résultat précis décrit, ici la langue suivant les codes
+                            COLAF.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <post when="2008-04-30T7:58:00" who="#P-024" xml:id="post-t00662-05704"
+                                xml:lang="met-occ">
+                                <certainty match="@xml:lang" source="model.bin" locus="value"
+                                    degree="0.6"/>
+                                <certainty match="@xml:lang" source="model.bin" locus="value"
+                                    degree="0.5" assertedValue="all-fra"/>
+                                <p>Texte en occitan</p>
+                            </post>
+                        </egXML>
+                        <p>L'exemple est extrait de la structuration COLaF d'un forum Occitania
+                            spécialisé en occitan. Il a été décidé que dans le cas où le locuteur a
+                            donné de plus amples informations sur son dialecte, et si le modèle
+                            prédit comme résultat la langue la plus proche, d'indiquer comme langue
+                            du post, paragraphe, de la division décrit(e), le dialecte du locuteur.
+                            Ainsi, dans le cas où, pour un post de forum, le modèle prédit qu'il
+                            s'agit d'un texte en occitan et le locuteur a indiqué qu'il parlait de
+                            l'occitan limousin on indique comme suit: (où xml:lang prend la valeur
+                            met-occ-lim pour limousin et les balises certainty ont toutes deux un
+                            attribut assertedValue qui indique la langue prédite par le modèle.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <post when="2008-04-30T7:58:00" who="#P-024" xml:id="post-t00662-05704"
+                                xml:lang="met-occ-lim">
+                                <certainty match="@xml:lang" source="model.bin" locus="value"
+                                    degree="0.6" assertedValue="met-occ"/>
+                                <certainty match="@xml:lang" source="model.bin" locus="value"
+                                    degree="0.5" assertedValue="all-fra"/>
+                                <p>Texte en occitan</p>
+                            </post>
+                        </egXML>
                     </div3>
                     <div3>
                         <head>Encodage des éléments au niveau paragraphe</head>
@@ -669,7 +712,6 @@
                                 le numéro de page et <gi>facs</gi> qui renvoie vers la page décrite
                                 dans la suite du document (en général un url).</p>
                         </div4>
-
                         <div4>
                             <head>Données liminaires</head>
                             <p>Les données liminaires correspondent aux informations qui ne font pas
@@ -724,7 +766,7 @@
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <figure type="math">
                                     <head>Légende si existante</head>
-                                    <graphic facs="page2;jpg"/>
+                                    <graphic facs="page2.jpg"/>
                                     <figdesc/>
                                     <p>Si texte dans l'image, possible de l'ajouter</p>
                                 </figure>
@@ -762,6 +804,134 @@
                             </egXML>
                         </div4>
 
+                    </div3>
+                    <div3>
+                        <head>Exemples de structuration par typologie de document</head>
+                        <div4>
+                            <head> Forum - espaces de discussions web</head>
+                            <p>Le premier forum traité par COLAF est Forum Occitania. Les exemples
+                                ci-dessous ont été produits par Oriane Nedey et Juliette Janès.</p>
+                            <p>Métadonnées utilisées en plus de celles de base: [FileDesc,
+                                SourceDesc...]</p>
+                            <list>
+                                <item>Description des locuteurs participants aux discussions (dans
+                                    ListPerson): <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                        <person xml:id="P-289">
+                                            <persName>NOM ANONYME</persName>
+                                            <langKnowledge>
+                                                <langKnown tag="met-occ-lan">Occitan - Languedocien
+                                                </langKnown>
+                                            </langKnowledge>
+                                            <birth when="1979"/>
+                                        </person>
+                                    </egXML></item>
+                                <item>Description du langage: <egXML
+                                        xmlns="http://www.tei-c.org/ns/Examples"><language
+                                            ident="met-occ-lan">
+                                            <idno type="langue">met-occ-lan</idno>
+                                            <idno type="script">latin</idno>
+                                            <name> Occitan - Languedocien</name>
+                                            <name xml:lang="met-occ">Lengadocian</name>
+                                            <date from="2007" to="2012"/>
+                                            <location/>
+                                        </language></egXML></item>
+                                <item>Description du genre: <egXML
+                                        xmlns="http://www.tei-c.org/ns/Examples">
+                                        <textClass>
+                                            <keywords>
+                                                <term rend="web" type="supergenre">Web</term>
+                                                <term rend="web-social" type="genre">Social</term>
+                                                <term rend="web-social-forum" type="motclef"
+                                                  >Forum</term>
+                                            </keywords>
+                                        </textClass></egXML></item>
+                            </list>
+                            <p>Structuration du texte:</p>
+                            <p>Tout le forum est encodé dans le même document XML. Les forums sont
+                                structurés en sous forums eux même structurés en topics. Ainsi, une
+                                balise <gi>div</gi> typée <hi>forum</hi> indique cette première
+                                division et une deuxième balise <gi>div</gi> typée <hi>topic</hi>
+                                indique la deuxième. Des attributs <hi>n</hi> pour numéroter les
+                                divisions et <hi>facs</hi> pour lier la balise à la page qu'elle
+                                encode peuvent être employées mais ne sont pas obligatoires. Les
+                                titres des forums et topics sont indiqués dans des balises
+                                    <gi>head</gi>.</p>
+                            <p>Chaque post est encodé par une balise <gi>post</gi> dont
+                                l'utilisation est décrite dans le 1.3.3.6. La langue, décrite dans
+                                l'attribut <hi>xml:lang</hi> de cette balise, est prédite par un
+                                modèle d'où la balise <gi>certainty</gi> intégrée dans la balise
+                                post (voir 1.3.2.). Les paragraphes sont structurés par des
+                                    <gi>p</gi>, les listes par des <gi>list</gi> et <gi>items</gi>.
+                                Ici, les débuts de lignes sont indiqués avec <gi>lb</gi>. Les images
+                                et emojis sont indiqués par <gi>figure</gi> et typés (voir
+                                1.3.4.3.). Les url sont encodés par la balise <gi>ref</gi>.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <div facs="https://occitania.forumactif.com//f1-discari" n="1"
+                                    type="forum">
+                                    <head>DISCARI</head>
+                                    <div facs="https://occitania.forumactif.com//t16-nadau"
+                                        type="topic">
+                                        <head>Nadau ...</head>
+                                        <post when="2007-03-03T21:23" who="#P-001"
+                                            xml:id="post-t00016-00041" xml:lang="met-occ">
+                                            <certainty degree="1.0" locus="value" match="@xml:id"
+                                                source="lid218e.bin"/>
+                                            <p><lb/>Jo, qu'èi un chepicòt dab ua cançon de Nadau.
+                                                <lb/> Aquèra cançon s'apèra "La pòrta dab lo pè".
+                                                Aquèra, qu'es ua sòrta de "rap", mes ei sustot
+                                                l'impression qu'es ua parodia. Que pòdetz escotar un
+                                                tròç suu sití de Nadau, aicí :</p>
+                                            <p><lb/><ref
+                                                  target="http://perso.orange.fr/nadau/la%20porta.mp3"
+                                                  >http://perso.orange.fr/nadau/la%20porta.mp3</ref></p>
+                                            <p><lb/>Mes çò que me truca mei, n'es pas tant la
+                                                parodia, mes las paraulas.</p>
+                                        </post>
+                                        <post when="2007-03-04T20:50" who="#P-002"
+                                            xml:id="post-t00016-00043" xml:lang="met-occ-lim">
+                                            <certainty assertedValue="met-occ" degree="1.0"
+                                                locus="value" match="@xml:id" source="lid218e.bin"/>
+                                            <p><lb/>Ai pas las paraulas jos la man e me soveni pas
+                                                plan, nos porias rapelar de qué parla aquèla chançon
+                                                ?</p>
+                                        </post>
+                                        <post when="2007-03-04T20:57" who="#P-001"
+                                            xml:id="post-t00016-00044" xml:lang="met-occ">
+                                            <certainty degree="1.0" locus="value" match="@xml:id"
+                                                source="lid218e.bin"/>
+                                            <p><lb/>Espèras un chic, qu'ei hicat las paraulas au
+                                                solèr ...</p>
+                                        </post>
+                                        <!--....-->
+                                    </div>
+                                </div>
+                            </egXML>
+                            <p>Les réponses à un post, sous la forme d'une citation, typiques des
+                                forums, qui reprennent le post, sont encodés par un <gi>quote</gi>
+                                avec un attribut <hi>corresp</hi> qui pointe vers l'identifiant du
+                                post correspondant. Dans le cas où la citation n'est pas retrouvée
+                                dans la conversation, il n'y a pas d'attribut <hi>corresp</hi> et on
+                                ajoute une balise <gi>label</gi> qui encode l'élément <hi>Personne a
+                                    écrit/dit</hi></p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <post when="2009-07-04T10:19" who="#P-024"
+                                    xml:id="post-t00037-14170" xml:lang="met-occ-lim">
+                                    <certainty assertedValue="met-occ" degree="0.9" locus="value"
+                                        match="@xml:id" source="lid218e.bin"/>
+                                    <quote corresp="#post-t00037-14169">
+                                        <p><lb/>Ben, mei qu'aquò : Miquèl volèva crompar l'Ostal
+                                            d'Occitània de Tolosa.</p>
+                                    </quote>
+                                    <p><lb/>e merda! Occitania auria 'gut 500 000 000 de fans,
+                                        minimum! <figure type="emoji">
+                                            <head> Content </head>
+                                            <graphic
+                                                url="https://2img.net/i/fa/i/smiles/icon_razz.gif"/>
+                                        </figure>
+                                    </p>
+                                </post>
+                            </egXML>
+                        </div4>
                     </div3>
 
                 </div2>
@@ -1365,26 +1535,31 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    
+
                     <elementSpec ident="certainty" mode="change">
-                        <desc>Balise qui permet d'indiquer les résultats incertains - utilisé notamment pour les langues prédites par des modèles types fasttext</desc>
+                        <desc>Balise qui permet d'indiquer les résultats incertains - utilisé
+                            notamment pour les langues prédites par des modèles types
+                            fasttext</desc>
                         <attList>
                             <attDef ident="match" mode="change" usage="req">
                                 <desc>Pointe vers l'attribut langue prédit (XPATH)</desc>
                             </attDef>
                             <attDef ident="source" mode="change" usage="req">
-                                <desc>Indique le modèle qui a permis d'obtenir ce résultat (fichier)</desc>
+                                <desc>Indique le modèle qui a permis d'obtenir ce résultat
+                                    (fichier)</desc>
                             </attDef>
                             <attDef ident="locus" mode="change" usage="req">
                                 <valList mode="add" type="closed">
                                     <valItem ident="value"/>
-                                </valList>                                
+                                </valList>
                             </attDef>
                             <attDef ident="degree" mode="change" usage="req">
                                 <desc>valeur de certainty du modèle</desc>
                             </attDef>
                             <attDef ident="assertedValue" mode="change" usage="rec">
-                                <desc>Si il ne s'agit pas de la valeur choisie finalement, indique les autres valeurs prédites par le modèle (ici les autres langues)</desc>
+                                <desc>Si il ne s'agit pas de la valeur choisie finalement, indique
+                                    les autres valeurs prédites par le modèle (ici les autres
+                                    langues)</desc>
                             </attDef>
                         </attList>
                     </elementSpec>
@@ -1407,8 +1582,8 @@
                             <attDef ident="xml:lang" mode="add"/>
                         </attList>
                     </elementSpec>
-                    
-                   
+
+
                 </schemaSpec>
             </div1>
         </body>
