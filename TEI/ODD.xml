@@ -790,7 +790,7 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label"/>
                     <moduleRef key="figures" include="figure"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
@@ -800,6 +800,7 @@
                     <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
                     <moduleRef key="dictionaries"
                         include="entry form sense orth pron gramGrp pos gen def"/>
+                    <moduleRef key="certainty" include="certainty"/>
 
 
                     <!-- namesdates -->
@@ -894,6 +895,14 @@
                             </sequence>
                         </content>
                     </elementSpec>
+                    <elementSpec ident="quote" mode="change">
+                        <content>
+                            <sequence preserveOrder="true">
+                                <elementRef key="label" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
                     <elementSpec ident="name" mode="change">
                         <attList>
                             <attDef ident="when" mode="delete"/>
@@ -908,11 +917,6 @@
                     </elementSpec>
                     <elementSpec ident="ref" mode="change">
                         <attList>
-                            <attDef ident="type" mode="change" usage="rec">
-                                <valList mode='add' type="open">
-                                    <valItem ident="quote"/>
-                                </valList>
-                            </attDef>
                             <attDef ident="target" mode="change" usage="rec"/>
                         </attList>
                     </elementSpec>
@@ -1231,7 +1235,7 @@
                         <content>
                             <sequence>
                                 <elementRef key="idno" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="name" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="name" minOccurs="0" maxOccurs="2"/>
                                 <elementRef key="date" minOccurs="0" maxOccurs="1"/>
                                 <elementRef key="location" minOccurs="0" maxOccurs="1"/>
                             </sequence>
@@ -1341,6 +1345,7 @@
                                 <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="certainty" minOccurs="1" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1360,6 +1365,29 @@
                             </attDef>
                         </attList>
                     </elementSpec>
+                    
+                    <elementSpec ident="certainty" mode="change">
+                        <desc>Balise qui permet d'indiquer les résultats incertains - utilisé notamment pour les langues prédites par des modèles types fasttext</desc>
+                        <attList>
+                            <attDef ident="match" mode="change" usage="req">
+                                <desc>Pointe vers l'attribut langue prédit (XPATH)</desc>
+                            </attDef>
+                            <attDef ident="source" mode="change" usage="req">
+                                <desc>Indique le modèle qui a permis d'obtenir ce résultat (fichier)</desc>
+                            </attDef>
+                            <attDef ident="locus" mode="change" usage="req">
+                                <valList mode="add" type="closed">
+                                    <valItem ident="value"/>
+                                </valList>                                
+                            </attDef>
+                            <attDef ident="degree" mode="change" usage="req">
+                                <desc>valeur de certainty du modèle</desc>
+                            </attDef>
+                            <attDef ident="assertedValue" mode="change" usage="rec">
+                                <desc>Si il ne s'agit pas de la valeur choisie finalement, indique les autres valeurs prédites par le modèle (ici les autres langues)</desc>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
                     <!--Création de la balise post à partir du travail TEI consortium (non ajouté pour le moment)-->
                     <elementSpec ident="post" mode="add">
                         <content>
@@ -1369,6 +1397,7 @@
                                 <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1378,6 +1407,8 @@
                             <attDef ident="xml:lang" mode="add"/>
                         </attList>
                     </elementSpec>
+                    
+                   
                 </schemaSpec>
             </div1>
         </body>
