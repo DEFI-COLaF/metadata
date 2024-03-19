@@ -666,25 +666,6 @@
                                 afin d'encoder les emojis, fréquents dans ce type de document. La
                                 balise head contient le head du HTML et on conserve également l'url
                                 de l'image.</p>
-                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <post who="#P-0001" when="2010-12-28" xml:id="post-t2208-22939">
-                                    <p><lb/>… e fait lo tarama ? Qui òme ! </p>
-                                    <figure type="emoji">
-                                        <head>Ironic</head>
-                                        <graphic url="/users/2712/43/79/49/smiles/220742.gif"/>
-                                    </figure>
-                                </post>
-                                <post who="#P-0004" when="2010-12-28" xml:id="post-t2208-22940">
-                                    <ref target="#post-t2208-22939">… e fait lo tarama ? Qui òme ! </ref>
-                                    <!--Quand citation d'un autre post, avec contenu textuel cité-->
-                                    <p><lb/>Mine de rien, i pensi</p>
-                                </post>
-                            </egXML>
-                            <p>Dans le cas d'une citation d'un autre commentaire/posts, on utilise
-                                la balise <gi>ref</gi> et l'attribut <hi>target</hi> qui pointe vers
-                                l'identifiant du post mentionné. Le contenu de la balise
-                                    <gi>ref</gi> correspond au contenu commentée, celui-ci pouvant
-                                être modifié par l'utilisateur.</p>
                         </div4>
 
 
@@ -811,8 +792,9 @@
                             <head> Forum - espaces de discussions web</head>
                             <p>Le premier forum traité par COLAF est Forum Occitania. Les exemples
                                 ci-dessous ont été produits par Oriane Nedey et Juliette Janès.</p>
-                            <p>Métadonnées utilisées en plus de celles de base: [FileDesc,
-                                SourceDesc...]</p>
+                            <list>
+                            <item>Métadonnées utilisées en plus de celles de base: [FileDesc,
+                                SourceDesc...]
                             <list>
                                 <item>Description des locuteurs participants aux discussions (dans
                                     ListPerson): <egXML xmlns="http://www.tei-c.org/ns/Examples">
@@ -845,8 +827,8 @@
                                                   >Forum</term>
                                             </keywords>
                                         </textClass></egXML></item>
-                            </list>
-                            <p>Structuration du texte:</p>
+                            </list></item>
+                            <item>Structuration du texte:
                             <p>Tout le forum est encodé dans le même document XML. Les forums sont
                                 structurés en sous forums eux même structurés en topics. Ainsi, une
                                 balise <gi>div</gi> typée <hi>forum</hi> indique cette première
@@ -902,7 +884,7 @@
                                             <p><lb/>Espèras un chic, qu'ei hicat las paraulas au
                                                 solèr ...</p>
                                         </post>
-                                        <!--....-->
+                                       
                                     </div>
                                 </div>
                             </egXML>
@@ -912,7 +894,7 @@
                                 post correspondant. Dans le cas où la citation n'est pas retrouvée
                                 dans la conversation, il n'y a pas d'attribut <hi>corresp</hi> et on
                                 ajoute une balise <gi>label</gi> qui encode l'élément <hi>Personne a
-                                    écrit/dit</hi></p>
+                                    écrit/dit</hi>.</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <post when="2009-07-04T10:19" who="#P-024"
                                     xml:id="post-t00037-14170" xml:lang="met-occ-lim">
@@ -931,6 +913,8 @@
                                     </p>
                                 </post>
                             </egXML>
+                            </item>
+                            </list>
                         </div4>
                     </div3>
 
