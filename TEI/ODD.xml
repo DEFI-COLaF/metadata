@@ -1052,9 +1052,10 @@
                     </elementSpec>
                     <elementSpec ident="quote" mode="change">
                         <content>
-                            <sequence preserveOrder="true">
+                            <sequence preserveOrder="false">
                                 <elementRef key="label" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
