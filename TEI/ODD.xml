@@ -944,7 +944,7 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc"/>
                     <moduleRef key="figures" include="figure table row cell"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
@@ -1154,10 +1154,12 @@
                     </elementSpec>
                     <elementSpec ident="sp" mode="change">
                         <content>
-                            <sequence preserveOrder="true">
+                            <sequence preserveOrder="false">
                                 <elementRef key="speaker" minOccurs="0" maxOccurs="1"/>
                                 <elementRef key="stage" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="l" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -1294,7 +1296,7 @@
                             <elementRef key="title" minOccurs="1"/>
                             <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
                             <elementRef key="pubPlace" minOccurs="0"/>
-                            <elementRef key="publisher" minOccurs="1"/>
+                            <elementRef key="publisher" minOccurs="0"/>
                             <elementRef key="date" minOccurs="1"/>
                         </content>
                         <attList>
@@ -1493,6 +1495,7 @@
                                 <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="sp" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="stage" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="div" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
@@ -1532,14 +1535,14 @@
                             notamment pour les langues prédites par des modèles types
                             fasttext</desc>
                         <attList>
-                            <attDef ident="match" mode="change" usage="req">
+                            <attDef ident="match" mode="change" usage="rec">
                                 <desc>Pointe vers l'attribut langue prédit (XPATH)</desc>
                             </attDef>
-                            <attDef ident="source" mode="change" usage="req">
+                            <attDef ident="source" mode="change" usage="rec">
                                 <desc>Indique le modèle qui a permis d'obtenir ce résultat
                                     (fichier)</desc>
                             </attDef>
-                            <attDef ident="locus" mode="change" usage="req">
+                            <attDef ident="locus" mode="change" usage="rec">
                                 <valList mode="add" type="closed">
                                     <valItem ident="value"/>
                                 </valList>

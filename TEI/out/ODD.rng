@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-04-04T13:37:30Z. .
+Schema generated from ODD source 2024-05-14T12:47:44Z. .
 TEI Edition: Version 4.6.0. Last updated on
         4th April 2023, revision f18deffba
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
@@ -25,6 +25,15 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
          <choice>
             <text/>
             <ref name="model.paraPart"/>
+         </choice>
+      </zeroOrMore>
+   </define>
+   <define name="macro.limitedContent">
+      <zeroOrMore>
+         <choice>
+            <text/>
+            <ref name="model.limitedPhrase"/>
+            <ref name="model.inter"/>
          </choice>
       </zeroOrMore>
    </define>
@@ -1992,28 +2001,40 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
    </define>
    <define name="model.labelLike">
       <choice>
+         <ref name="desc"/>
          <ref name="label"/>
       </choice>
    </define>
    <define name="model.labelLike_alternation">
       <choice>
+         <ref name="desc"/>
          <ref name="label"/>
       </choice>
    </define>
    <define name="model.labelLike_sequence">
+      <ref name="desc"/>
       <ref name="label"/>
    </define>
    <define name="model.labelLike_sequenceOptional">
+      <optional>
+         <ref name="desc"/>
+      </optional>
       <optional>
          <ref name="label"/>
       </optional>
    </define>
    <define name="model.labelLike_sequenceOptionalRepeatable">
       <zeroOrMore>
+         <ref name="desc"/>
+      </zeroOrMore>
+      <zeroOrMore>
          <ref name="label"/>
       </zeroOrMore>
    </define>
    <define name="model.labelLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="desc"/>
+      </oneOrMore>
       <oneOrMore>
          <ref name="label"/>
       </oneOrMore>
@@ -2332,7 +2353,9 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
       </choice>
    </define>
    <define name="model.descLike">
-      <notAllowed/>
+      <choice>
+         <ref name="desc"/>
+      </choice>
    </define>
    <define name="model.quoteLike">
       <choice>
@@ -2857,6 +2880,43 @@ Suggested values include: 1] full (full form); 2] pref (prefix); 3] suff (suffix
          <empty/>
       </element>
    </define>
+   <define name="desc">
+      <element name="desc">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description) contains a short description of the purpose, function, or use of its parent element, or when the parent is a documentation element, describes or defines the object being documented.  [22.4.1. Description of Components]</a:documentation>
+         <ref name="macro.limitedContent"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="oddbyexample-desc-deprecationInfo-only-in-deprecated-constraint-rule-10">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:s="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:desc[ @type eq 'deprecationInfo']">
+               <sch:assert test="../@validUntil">Information about a
+        deprecation should only be present in a specification element
+        that is being deprecated: that is, only an element that has a
+        @validUntil attribute should have a child &lt;desc
+        type="deprecationInfo"&gt;.</sch:assert>
+            </sch:rule>
+         </pattern>
+         <ref name="att.global.attributes"/>
+         <ref name="att.typed.attribute.subtype"/>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology.
+Suggested values include: 1] deprecationInfo (deprecation information)</a:documentation>
+               <choice>
+                  <value>deprecationInfo</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(deprecation
+          information) This element describes why or how its parent element is being deprecated, typically including recommendations for alternate encoding.</a:documentation>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
    <define name="term">
       <element name="term">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(term) contains a single-word, multi-word, or symbolic designation which is regarded as a technical term. [3.4.1. Terms and Glosses]</a:documentation>
@@ -3240,7 +3300,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
             <ref name="item"/>
          </oneOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-list-gloss-list-must-have-labels-constraint-rule-10">
+                  id="oddbyexample-list-gloss-list-must-have-labels-constraint-rule-11">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -3545,7 +3605,9 @@ Elements 7.2.5. Speech Contents]</a:documentation>
          <optional>
             <ref name="pubPlace"/>
          </optional>
-         <ref name="publisher"/>
+         <optional>
+            <ref name="publisher"/>
+         </optional>
          <ref name="date"/>
          <ref name="att.global.attributes"/>
          <ref name="att.declarable.attributes"/>
@@ -3610,7 +3672,7 @@ Elements 7.2.5. Speech Contents]</a:documentation>
             </zeroOrMore>
          </interleave>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-lg-atleast1oflggapl-constraint-assert-6">
+                  id="oddbyexample-lg-atleast1oflggapl-constraint-assert-7">
             <rule context="tei:lg">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -3642,17 +3704,23 @@ Elements 7.2.5. Speech Contents]</a:documentation>
    <define name="sp">
       <element name="sp">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(speech) contains an individual speech in a performance text, or a passage presented as such in a prose or verse text. [3.13.2. Core Tags for Drama 3.13. Passages of Verse or Drama 7.2.2. Speeches and Speakers]</a:documentation>
-         <group>
+         <interleave>
             <optional>
                <ref name="speaker"/>
             </optional>
             <zeroOrMore>
                <ref name="stage"/>
             </zeroOrMore>
-            <oneOrMore>
+            <zeroOrMore>
                <ref name="p"/>
-            </oneOrMore>
-         </group>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="l"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="note"/>
+            </zeroOrMore>
+         </interleave>
          <ref name="att.global.attributes"/>
          <ref name="att.ascribed.directed.attributes"/>
          <empty/>
@@ -4100,6 +4168,9 @@ Sample values include: 1] listening; 2] speaking; 3] reading; 4] writing</a:docu
          <group>
             <zeroOrMore>
                <ref name="model.headLike"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="desc"/>
             </zeroOrMore>
             <zeroOrMore>
                <empty/>
@@ -5407,6 +5478,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
                <ref name="sp"/>
             </zeroOrMore>
             <zeroOrMore>
+               <ref name="stage"/>
+            </zeroOrMore>
+            <zeroOrMore>
                <ref name="div"/>
             </zeroOrMore>
             <zeroOrMore>
@@ -5944,18 +6018,20 @@ Suggested values include: 1] simple; 2] lemma; 3] variant; 4] compound; 5] deriv
                </choice>
             </attribute>
          </optional>
-         <attribute name="source">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indique le modèle qui a permis d'obtenir ce résultat (fichier)</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI">
-                     <param name="pattern">\S+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
+         <optional>
+            <attribute name="source">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indique le modèle qui a permis d'obtenir ce résultat (fichier)</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI">
+                        <param name="pattern">\S+</param>
+                     </data>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="oddbyexample-certainty-source-only_1_ODD_source-constraint-rule-11">
+                  id="oddbyexample-certainty-source-only_1_ODD_source-constraint-rule-12">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
                       xmlns:s="http://purl.oclc.org/dsdl/schematron"
@@ -5970,10 +6046,12 @@ Suggested values include: 1] simple; 2] lemma; 3] variant; 4] compound; 5] deriv
             </sch:report>
             </sch:rule>
          </pattern>
-         <attribute name="match">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Pointe vers l'attribut langue prédit (XPATH)</a:documentation>
-            <text/>
-         </attribute>
+         <optional>
+            <attribute name="match">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Pointe vers l'attribut langue prédit (XPATH)</a:documentation>
+               <text/>
+            </attribute>
+         </optional>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology; sample categorization of annotations of uncertainty might use following values:
@@ -5983,13 +6061,15 @@ Sample values include: 1] ignorance; 2] incompleteness; 3] credibility; 4] impre
                </data>
             </attribute>
          </optional>
-         <attribute name="locus">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates more exactly the aspect concerning which certainty is being expressed: specifically, whether the markup is correctly located, whether the correct element or attribute name has been used, or whether the content of the element or attribute is correct, etc.</a:documentation>
-            <choice>
-               <value>value</value>
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-            </choice>
-         </attribute>
+         <optional>
+            <attribute name="locus">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates more exactly the aspect concerning which certainty is being expressed: specifically, whether the markup is correctly located, whether the correct element or attribute name has been used, or whether the content of the element or attribute is correct, etc.</a:documentation>
+               <choice>
+                  <value>value</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
          <optional>
             <attribute name="assertedValue">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Si il ne s'agit pas de la valeur choisie finalement, indique les autres valeurs prédites par le modèle (ici les autres langues)</a:documentation>
