@@ -304,7 +304,7 @@
                                 indiquant le type de document traité et le genre. Pour cela on
                                 utilise une série de mots clefs, issus d'un vocabulaire contrôlé en
                                 cours de construction et disponible <ref
-                                    target="https://docs.google.com/spreadsheets/d/1wWpF5E0GKJOte4ukrI69c-tgRGc9G5NfxMMuC0mOYS4/edit#gid=469046068"
+                                    target="https://github.com/DEFI-COLaF/metadata/TEI/Documentation_Genres/"
                                     >ici</ref>.</p>
                             <p>ce vocabulaire fonctionne sur plusieurs niveaux: Supergenre, genre et
                                 mots-clefs. Supergenre et genre sont des listes fermées tandis que

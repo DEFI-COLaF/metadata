@@ -1,0 +1,40 @@
+ID,Supergenre,Genre,Type de sous-genre,SousGenre,Commentaires
+fiction-prose-short-stories,Fiction,Prose,type,Short-stories,
+fiction-prose-novels,Fiction,Prose,type,Novels,
+nonfiction-press-local,NonFiction,Press,type,local,
+nonfiction-press-national,NonFiction,Press,type,national,
+nonfiction-press-art-cultural,NonFiction,Press,domaine,art-cultural,
+nonfiction-press-finance-commerce,NonFiction,Press,domaine,finance-commerce,
+nonfiction-press-science,NonFiction,Press,domaine,science,
+nonfiction-press-sports,NonFiction,Press,domaine,sports,
+nonfiction-press-news,NonFiction,Press,domaine,news,
+nonfiction-press-tabloid,NonFiction,Press,domaine,tabloid,
+nonfiction-academic-thesis,NonFiction,Academic,type,thesis,
+nonfiction-academic-article,NonFiction,Academic,type,article,
+nonfiction-academic-abstract,NonFiction,Academic,type,abstract,
+nonfiction-academic-medecine,NonFiction,Academic,domaine,medecine,
+nonfiction-academic-humanities,NonFiction,Academic,domaine,humanities,
+nonfiction-academic-sciences,NonFiction,Academic,domaine,sciences,
+nonfiction-academic-technology-engineering,NonFiction,Academic,domaine,technology-engineering,
+nonfiction-administrative-report,NonFiction,Administrative,type,report,
+nonfiction-administrative-parliamentary-debates,NonFiction,Administrative,type,parliamentary-debates,"Si document rédigé en vue d'être dit: spoken-intended, si transcription, spoken supergenre"
+nonfiction-reference-dictionary,NonFiction,Reference,type,dictionary,
+nonfiction-reference-encyclopedia,NonFiction,Reference,type,encyclopedia,
+nonfiction-reference-catalog,NonFiction,Reference,type,catalog,
+nonfiction-interractive-email,NonFiction,Interractive,type,email,Associé à Web
+nonfiction-interractive-letter,NonFiction,Interractive,type,letter,
+nonfiction-interractive-comments,NonFiction,Interractive,type,comments,
+nonfiction-learningmaterials-learners-essays,NonFiction,LearningMaterials,type,learners-essays,
+nonfiction-learningmaterials-grammar-examples,NonFiction,LearningMaterials,type,grammar-examples,
+nonfiction-instructional-recipe,NonFiction,Instructional,type,recipe,
+nonfiction-instructional-how-to,NonFiction,Instructional,type,how-to,Associé à web en général
+nonfiction-instructional-instructions,NonFiction,Instructional,type,instructions,
+web-social-forum,Web,Social,type,Forum,Associé à interractive
+web-social-tweets,Web,social,type,Tweets,Associé à interractive
+--spoken-intended,,,autre,spoken-intended,Si le texte écrit a été rédigé en vue d'être parlé
+spoken-interview-linguistic-survey,Spoken,Interview,type,linguistic-survey,
+spoken-transcript-subtitles,Spoken,Transcript,type,subtitles,
+spoken--serie,Spoken,,domaine,serie,Utilisable sur Transcript et Script
+spoken--radio,Spoken,,domaine,radio,Utilisable sur Transcript et Script
+spoken--movie,Spoken,,domaine,movie,Utilisable sur Transcript et Script
+spoken--tv-other,Spoken,,domaine,Tv-other,Utilisable sur Transcript et Script

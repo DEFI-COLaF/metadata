@@ -1,0 +1,27 @@
+ID,Supergenre,Genre,SousGenre avec liste ouverte,Commentaires
+fiction,Fiction,,,
+fiction-prose,Fiction,Prose,"Type: Short Stories, Novels",
+fiction-poetry,Fiction,Poetry,,
+fiction-drama,Fiction,Drama,,
+fiction-bible,Fiction,Bible,,
+nonfiction,NonFiction,,,
+nonfiction-press,NonFiction,Press,"Type: local, national",
+nonfiction-press,NonFiction,Press,"Domaine: arts, science, tabloid, popular...",
+nonfiction-academic,NonFiction,Academic,"Type: thesis, article",
+nonfiction-academic,NonFiction,Academic,"Domaine: medecine, humanities, natural science...",
+nonfiction-administrative,NonFiction,Administrative,"Type: Report, ",
+nonfiction-legal,NonFiction,Legal,,
+nonfiction-reference,NonFiction,Reference,"Type: dictionnary, encylopedia, catalog",
+nonfiction-interractive,NonFiction,Interractive,"Type: email, letters, comments",
+nonfiction-learningmaterials,NonFiction,LearningMaterials,"Type: Learners essays, grammar example...",
+nonfiction-instructional,NonFiction,Instructional,"Type: recipe, how-to, instructions....",
+web,Web,,,
+web-blog,Web,Blog,,Genre spécifique à Web
+web-social,Web,Social,,Genre spécifique à Web
+web-wiki,Web,Wiki,,Genre spécifique à Web
+spoken,Spoken,,,
+spoken-interview,Spoken,Interview,,Genre spécifique à Spoken
+spoken-transcript,Spoken,Transcript of video/audio,,Genre spécifique à Spoken
+spoken-script,Spoken,TV/movie script,,Genre spécifique à Spoken
+spoken-other,Spoken,Other,,Genre spécifique à Spoken
+spoken-lyrics,Spoken,Lyrics,,Genre spécifique à Spoken
