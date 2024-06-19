@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-06-07T09:21:29Z. .
+Schema generated from ODD source 2024-06-19T09:39:57Z. .
 TEI Edition: Version 4.6.0. Last updated on
         4th April 2023, revision f18deffba
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
@@ -6077,7 +6077,7 @@ Suggested values include: 1] simple; 2] lemma; 3] variant; 4] compound; 5] deriv
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">characterizes the element in some sense, using any convenient classification scheme or typology; sample categorization of annotations of uncertainty might use following values:
-Sample values include: 1] ignorance; 2] incompleteness; 3] credibility; 4] imprecision</a:documentation>
+Sample values include: 1] ignorance</a:documentation>
                <data type="token">
                   <param name="pattern">[^\p{C}\p{Z}]+</param>
                </data>
@@ -6112,10 +6112,12 @@ Sample values include: 1] ignorance; 2] incompleteness; 3] credibility; 4] impre
                </list>
             </attribute>
          </optional>
-         <attribute name="degree">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">valeur de certainty du modèle</a:documentation>
-            <data type="double"/>
-         </attribute>
+         <optional>
+            <attribute name="degree">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">valeur de certainty du modèle</a:documentation>
+               <data type="double"/>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
