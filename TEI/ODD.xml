@@ -990,7 +990,9 @@
                             <elementRef key="socecStatut" minOccurs="0"/>
                         </content>
                         <attList>
-                            <attDef ident="xml:id" mode="change" usage="req"/>
+                            <attDef ident="xml:id" mode="change" usage="req">
+                                <datatype><dataRef key="teidata.text"/></datatype>
+                            </attDef>
                             <attDef ident="gender" mode="change" usage="opt">
                                 <valList change="add" type="semi">
                                     <valItem ident="F"/>
@@ -1047,6 +1049,8 @@
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -1056,6 +1060,10 @@
                                 <elementRef key="label" minOccurs="0" maxOccurs="1"/>
                                 <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
+                                <textNode/>
+                                <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -1078,6 +1086,7 @@
                     </elementSpec>
                     <elementSpec ident="list" mode="change">
                         <content>
+                            <elementRef key="head" minOccurs="0" maxOccurs="1"/>
                             <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
                         </content>
                         <attList>
@@ -1511,6 +1520,7 @@
                                 <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="table" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="other" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1548,13 +1558,18 @@
                                     <valItem ident="value"/>
                                 </valList>
                             </attDef>
-                            <attDef ident="degree" mode="change" usage="req">
+                            <attDef ident="degree" mode="change" usage="rec">
                                 <desc>valeur de certainty du modèle</desc>
                             </attDef>
                             <attDef ident="assertedValue" mode="change" usage="rec">
                                 <desc>Si il ne s'agit pas de la valeur choisie finalement, indique
                                     les autres valeurs prédites par le modèle (ici les autres
                                     langues)</desc>
+                            </attDef>
+                            <attDef ident="type" mode="change" usage="opt">
+                                <valList mode="add" type="open">
+                                    <valItem ident="ignorance"/>
+                                </valList>
                             </attDef>
                         </attList>
                     </elementSpec>
