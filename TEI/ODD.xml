@@ -944,7 +944,7 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media"/>
                     <moduleRef key="figures" include="figure table row cell"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
@@ -1062,6 +1062,7 @@
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
                                 <textNode/>
                                 <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
@@ -1277,7 +1278,8 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    <!--Checking module figures-->
+  
+                        <!--Checking module figures-->
 
                     <elementSpec ident="figure" mode="change">
                         <content>
@@ -1302,12 +1304,14 @@
                     </elementSpec>
                     <elementSpec ident="bibl" mode="change">
                         <content>
-                            <elementRef key="ptr" minOccurs="0"/>
+                            <sequence preserveOrder="false">                            
+                                <elementRef key="ptr" minOccurs="0"/>
                             <elementRef key="title" minOccurs="1"/>
                             <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
                             <elementRef key="pubPlace" minOccurs="0"/>
                             <elementRef key="publisher" minOccurs="0"/>
                             <elementRef key="date" minOccurs="1"/>
+                                <elementRef key="ptr" minOccurs="0" maxOccurs="1"/></sequence>
                         </content>
                         <attList>
                             <attDef ident="type" mode="change">
@@ -1583,6 +1587,7 @@
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="media" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>

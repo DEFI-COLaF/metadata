@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-06-19T09:39:57Z. .
+Schema generated from ODD source 2024-06-24T13:26:36Z. .
 TEI Edition: Version 4.6.0. Last updated on
         4th April 2023, revision f18deffba
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
@@ -1310,6 +1310,30 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
          </sch:assert>
       </sch:rule>
    </pattern>
+   <define name="att.timed.attributes">
+      <ref name="att.timed.attribute.start"/>
+      <ref name="att.timed.attribute.end"/>
+   </define>
+   <define name="att.timed.attribute.start">
+      <optional>
+         <attribute name="start">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the location within a temporal alignment at which this element begins.</a:documentation>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
+   <define name="att.timed.attribute.end">
+      <optional>
+         <attribute name="end">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the location within a temporal alignment at which this element ends.</a:documentation>
+            <data type="anyURI">
+               <param name="pattern">\S+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
    <define name="model.nameLike.agent">
       <choice>
          <ref name="name"/>
@@ -1610,28 +1634,40 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
    </define>
    <define name="model.graphicLike">
       <choice>
+         <ref name="media"/>
          <ref name="graphic"/>
       </choice>
    </define>
    <define name="model.graphicLike_alternation">
       <choice>
+         <ref name="media"/>
          <ref name="graphic"/>
       </choice>
    </define>
    <define name="model.graphicLike_sequence">
+      <ref name="media"/>
       <ref name="graphic"/>
    </define>
    <define name="model.graphicLike_sequenceOptional">
+      <optional>
+         <ref name="media"/>
+      </optional>
       <optional>
          <ref name="graphic"/>
       </optional>
    </define>
    <define name="model.graphicLike_sequenceOptionalRepeatable">
       <zeroOrMore>
+         <ref name="media"/>
+      </zeroOrMore>
+      <zeroOrMore>
          <ref name="graphic"/>
       </zeroOrMore>
    </define>
    <define name="model.graphicLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="media"/>
+      </oneOrMore>
       <oneOrMore>
          <ref name="graphic"/>
       </oneOrMore>
@@ -2888,6 +2924,9 @@ Suggested values include: 1] full (full form); 2] pref (prefix); 3] suff (suffix
             <zeroOrMore>
                <ref name="ref"/>
             </zeroOrMore>
+            <zeroOrMore>
+               <ref name="list"/>
+            </zeroOrMore>
             <text/>
             <zeroOrMore>
                <ref name="lb"/>
@@ -3401,6 +3440,33 @@ attributes @target and @cRef may be supplied on <name/>.</report>
          <empty/>
       </element>
    </define>
+   <define name="media">
+      <element name="media">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the location of any form of external media such as an audio or video clip etc. [3.10. Graphics and Other Non-textual Components]</a:documentation>
+         <zeroOrMore>
+            <ref name="model.descLike"/>
+         </zeroOrMore>
+         <ref name="att.typed.attributes"/>
+         <ref name="att.global.attributes"/>
+         <ref name="att.media.attribute.width"/>
+         <ref name="att.media.attribute.height"/>
+         <ref name="att.media.attribute.scale"/>
+         <ref name="att.resourced.attributes"/>
+         <ref name="att.declaring.attributes"/>
+         <ref name="att.timed.attributes"/>
+         <attribute name="mimeType">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(MIME media type) specifies the applicable multimedia internet mail extension (MIME) media type</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+         <empty/>
+      </element>
+   </define>
    <define name="graphic">
       <element name="graphic">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(graphic) indicates the location of a graphic or illustration, either forming part of a text, or providing an image of it. [3.10. Graphics and Other Non-textual Components 11.1. Digital Facsimiles]</a:documentation>
@@ -3617,20 +3683,25 @@ Elements 7.2.5. Speech Contents]</a:documentation>
    <define name="bibl">
       <element name="bibl">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(bibliographic citation) contains a loosely-structured bibliographic citation of which the sub-components may or may not be explicitly tagged. [3.12.1. Methods of Encoding Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2. Declarable Elements]</a:documentation>
-         <optional>
-            <ref name="ptr"/>
-         </optional>
-         <ref name="title"/>
-         <oneOrMore>
-            <ref name="author"/>
-         </oneOrMore>
-         <optional>
-            <ref name="pubPlace"/>
-         </optional>
-         <optional>
-            <ref name="publisher"/>
-         </optional>
-         <ref name="date"/>
+         <interleave>
+            <optional>
+               <ref name="ptr"/>
+            </optional>
+            <ref name="title"/>
+            <oneOrMore>
+               <ref name="author"/>
+            </oneOrMore>
+            <optional>
+               <ref name="pubPlace"/>
+            </optional>
+            <optional>
+               <ref name="publisher"/>
+            </optional>
+            <ref name="date"/>
+            <optional>
+               <ref name="ptr"/>
+            </optional>
+         </interleave>
          <ref name="att.global.attributes"/>
          <ref name="att.declarable.attributes"/>
          <ref name="att.typed.attribute.subtype"/>
@@ -6214,6 +6285,9 @@ Sample values include: 1] ignorance</a:documentation>
             </zeroOrMore>
             <zeroOrMore>
                <ref name="certainty"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="media"/>
             </zeroOrMore>
          </interleave>
          <optional>
