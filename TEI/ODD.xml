@@ -1277,7 +1277,8 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    <!--Checking module figures-->
+  
+                        <!--Checking module figures-->
 
                     <elementSpec ident="figure" mode="change">
                         <content>
@@ -1302,12 +1303,14 @@
                     </elementSpec>
                     <elementSpec ident="bibl" mode="change">
                         <content>
-                            <elementRef key="ptr" minOccurs="0"/>
+                            <sequence preserveOrder="false">                            
+                                <elementRef key="ptr" minOccurs="0"/>
                             <elementRef key="title" minOccurs="1"/>
                             <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
                             <elementRef key="pubPlace" minOccurs="0"/>
                             <elementRef key="publisher" minOccurs="0"/>
                             <elementRef key="date" minOccurs="1"/>
+                                <elementRef key="ptr" minOccurs="0" maxOccurs="1"/></sequence>
                         </content>
                         <attList>
                             <attDef ident="type" mode="change">
