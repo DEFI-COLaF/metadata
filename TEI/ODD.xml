@@ -1310,8 +1310,7 @@
                             <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
                             <elementRef key="pubPlace" minOccurs="0"/>
                             <elementRef key="publisher" minOccurs="0"/>
-                            <elementRef key="date" minOccurs="1"/>
-                                <elementRef key="ptr" minOccurs="0" maxOccurs="1"/></sequence>
+                            <elementRef key="date" minOccurs="1"/></sequence>
                         </content>
                         <attList>
                             <attDef ident="type" mode="change">
