@@ -1171,6 +1171,7 @@
                                 <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="l" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
