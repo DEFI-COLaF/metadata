@@ -793,127 +793,129 @@
                             <p>Le premier forum traité par COLAF est Forum Occitania. Les exemples
                                 ci-dessous ont été produits par Oriane Nedey et Juliette Janès.</p>
                             <list>
-                            <item>Métadonnées utilisées en plus de celles de base: [FileDesc,
-                                SourceDesc...]
-                            <list>
-                                <item>Description des locuteurs participants aux discussions (dans
-                                    ListPerson): <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                        <person xml:id="P-289">
-                                            <persName>NOM ANONYME</persName>
-                                            <langKnowledge>
-                                                <langKnown tag="met-occ-lan">Occitan - Languedocien
-                                                </langKnown>
-                                            </langKnowledge>
-                                            <birth when="1979"/>
-                                        </person>
-                                    </egXML></item>
-                                <item>Description du langage: <egXML
-                                        xmlns="http://www.tei-c.org/ns/Examples"><language
-                                            ident="met-occ-lan">
-                                            <idno type="langue">met-occ-lan</idno>
-                                            <idno type="script">latin</idno>
-                                            <name> Occitan - Languedocien</name>
-                                            <name xml:lang="met-occ">Lengadocian</name>
-                                            <date from="2007" to="2012"/>
-                                            <location/>
-                                        </language></egXML></item>
-                                <item>Description du genre: <egXML
-                                        xmlns="http://www.tei-c.org/ns/Examples">
-                                        <textClass>
-                                            <keywords>
-                                                <term rend="web" type="supergenre">Web</term>
-                                                <term rend="web-social" type="genre">Social</term>
-                                                <term rend="web-social-forum" type="motclef"
+                                <item>Métadonnées utilisées en plus de celles de base: [FileDesc,
+                                    SourceDesc...] <list>
+                                        <item>Description des locuteurs participants aux discussions
+                                            (dans ListPerson): <egXML
+                                                xmlns="http://www.tei-c.org/ns/Examples">
+                                                <person xml:id="P-289">
+                                                  <persName>NOM ANONYME</persName>
+                                                  <langKnowledge>
+                                                  <langKnown tag="met-occ-lan">Occitan -
+                                                  Languedocien </langKnown>
+                                                  </langKnowledge>
+                                                  <birth when="1979"/>
+                                                </person>
+                                            </egXML></item>
+                                        <item>Description du langage: <egXML
+                                                xmlns="http://www.tei-c.org/ns/Examples"><language
+                                                  ident="met-occ-lan">
+                                                  <idno type="langue">met-occ-lan</idno>
+                                                  <idno type="script">latin</idno>
+                                                  <name> Occitan - Languedocien</name>
+                                                  <name xml:lang="met-occ">Lengadocian</name>
+                                                  <date from="2007" to="2012"/>
+                                                  <location/>
+                                                </language></egXML></item>
+                                        <item>Description du genre: <egXML
+                                                xmlns="http://www.tei-c.org/ns/Examples">
+                                                <textClass>
+                                                  <keywords>
+                                                  <term rend="web" type="supergenre">Web</term>
+                                                  <term rend="web-social" type="genre">Social</term>
+                                                  <term rend="web-social-forum" type="motclef"
                                                   >Forum</term>
-                                            </keywords>
-                                        </textClass></egXML></item>
-                            </list></item>
-                            <item>Structuration du texte:
-                            <p>Tout le forum est encodé dans le même document XML. Les forums sont
-                                structurés en sous forums eux même structurés en topics. Ainsi, une
-                                balise <gi>div</gi> typée <hi>forum</hi> indique cette première
-                                division et une deuxième balise <gi>div</gi> typée <hi>topic</hi>
-                                indique la deuxième. Des attributs <hi>n</hi> pour numéroter les
-                                divisions et <hi>facs</hi> pour lier la balise à la page qu'elle
-                                encode peuvent être employées mais ne sont pas obligatoires. Les
-                                titres des forums et topics sont indiqués dans des balises
-                                    <gi>head</gi>.</p>
-                            <p>Chaque post est encodé par une balise <gi>post</gi> dont
-                                l'utilisation est décrite dans le 1.3.3.6. La langue, décrite dans
-                                l'attribut <hi>xml:lang</hi> de cette balise, est prédite par un
-                                modèle d'où la balise <gi>certainty</gi> intégrée dans la balise
-                                post (voir 1.3.2.). Les paragraphes sont structurés par des
-                                    <gi>p</gi>, les listes par des <gi>list</gi> et <gi>items</gi>.
-                                Ici, les débuts de lignes sont indiqués avec <gi>lb</gi>. Les images
-                                et emojis sont indiqués par <gi>figure</gi> et typés (voir
-                                1.3.4.3.). Les url sont encodés par la balise <gi>ref</gi>.</p>
-                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <div facs="https://occitania.forumactif.com//f1-discari" n="1"
-                                    type="forum">
-                                    <head>DISCARI</head>
-                                    <div facs="https://occitania.forumactif.com//t16-nadau"
-                                        type="topic">
-                                        <head>Nadau ...</head>
-                                        <post when="2007-03-03T21:23" who="#P-001"
-                                            xml:id="post-t00016-00041" xml:lang="met-occ">
-                                            <certainty degree="1.0" locus="value" match="@xml:id"
-                                                source="lid218e.bin"/>
-                                            <p><lb/>Jo, qu'èi un chepicòt dab ua cançon de Nadau.
-                                                <lb/> Aquèra cançon s'apèra "La pòrta dab lo pè".
-                                                Aquèra, qu'es ua sòrta de "rap", mes ei sustot
-                                                l'impression qu'es ua parodia. Que pòdetz escotar un
-                                                tròç suu sití de Nadau, aicí :</p>
-                                            <p><lb/><ref
+                                                  </keywords>
+                                                </textClass></egXML></item>
+                                    </list></item>
+                                <item>Structuration du texte: <p>Tout le forum est encodé dans le
+                                        même document XML. Les forums sont structurés en sous forums
+                                        eux même structurés en topics. Ainsi, une balise
+                                            <gi>div</gi> typée <hi>forum</hi> indique cette première
+                                        division et une deuxième balise <gi>div</gi> typée
+                                            <hi>topic</hi> indique la deuxième. Des attributs
+                                            <hi>n</hi> pour numéroter les divisions et <hi>facs</hi>
+                                        pour lier la balise à la page qu'elle encode peuvent être
+                                        employées mais ne sont pas obligatoires. Les titres des
+                                        forums et topics sont indiqués dans des balises
+                                            <gi>head</gi>.</p>
+                                    <p>Chaque post est encodé par une balise <gi>post</gi> dont
+                                        l'utilisation est décrite dans le 1.3.3.6. La langue,
+                                        décrite dans l'attribut <hi>xml:lang</hi> de cette balise,
+                                        est prédite par un modèle d'où la balise <gi>certainty</gi>
+                                        intégrée dans la balise post (voir 1.3.2.). Les paragraphes
+                                        sont structurés par des <gi>p</gi>, les listes par des
+                                            <gi>list</gi> et <gi>items</gi>. Ici, les débuts de
+                                        lignes sont indiqués avec <gi>lb</gi>. Les images et emojis
+                                        sont indiqués par <gi>figure</gi> et typés (voir 1.3.4.3.).
+                                        Les url sont encodés par la balise <gi>ref</gi>.</p>
+                                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                        <div facs="https://occitania.forumactif.com//f1-discari"
+                                            n="1" type="forum">
+                                            <head>DISCARI</head>
+                                            <div facs="https://occitania.forumactif.com//t16-nadau"
+                                                type="topic">
+                                                <head>Nadau ...</head>
+                                                <post when="2007-03-03T21:23" who="#P-001"
+                                                  xml:id="post-t00016-00041" xml:lang="met-occ">
+                                                  <certainty degree="1.0" locus="value"
+                                                  match="@xml:id" source="lid218e.bin"/>
+                                                  <p><lb/>Jo, qu'èi un chepicòt dab ua cançon de
+                                                  Nadau. <lb/> Aquèra cançon s'apèra "La pòrta dab
+                                                  lo pè". Aquèra, qu'es ua sòrta de "rap", mes ei
+                                                  sustot l'impression qu'es ua parodia. Que pòdetz
+                                                  escotar un tròç suu sití de Nadau, aicí :</p>
+                                                  <p><lb/><ref
                                                   target="http://perso.orange.fr/nadau/la%20porta.mp3"
                                                   >http://perso.orange.fr/nadau/la%20porta.mp3</ref></p>
-                                            <p><lb/>Mes çò que me truca mei, n'es pas tant la
-                                                parodia, mes las paraulas.</p>
-                                        </post>
-                                        <post when="2007-03-04T20:50" who="#P-002"
-                                            xml:id="post-t00016-00043" xml:lang="met-occ-lim">
-                                            <certainty assertedValue="met-occ" degree="1.0"
+                                                  <p><lb/>Mes çò que me truca mei, n'es pas tant la
+                                                  parodia, mes las paraulas.</p>
+                                                </post>
+                                                <post when="2007-03-04T20:50" who="#P-002"
+                                                  xml:id="post-t00016-00043" xml:lang="met-occ-lim">
+                                                  <certainty assertedValue="met-occ" degree="1.0"
+                                                  locus="value" match="@xml:id" source="lid218e.bin"/>
+                                                  <p><lb/>Ai pas las paraulas jos la man e me soveni
+                                                  pas plan, nos porias rapelar de qué parla aquèla
+                                                  chançon ?</p>
+                                                </post>
+                                                <post when="2007-03-04T20:57" who="#P-001"
+                                                  xml:id="post-t00016-00044" xml:lang="met-occ">
+                                                  <certainty degree="1.0" locus="value"
+                                                  match="@xml:id" source="lid218e.bin"/>
+                                                  <p><lb/>Espèras un chic, qu'ei hicat las paraulas
+                                                  au solèr ...</p>
+                                                </post> </div>
+                                        </div>
+                                    </egXML>
+                                    <p>Les réponses à un post, sous la forme d'une citation,
+                                        typiques des forums, qui reprennent le post, sont encodés
+                                        par un <gi>quote</gi> avec un attribut <hi>corresp</hi> qui
+                                        pointe vers l'identifiant du post correspondant. Dans le cas
+                                        où la citation n'est pas retrouvée dans la conversation, il
+                                        n'y a pas d'attribut <hi>corresp</hi> et on ajoute une
+                                        balise <gi>label</gi> qui encode l'élément <hi>Personne a
+                                            écrit/dit</hi>.</p>
+                                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                        <post when="2009-07-04T10:19" who="#P-024"
+                                            xml:id="post-t00037-14170" xml:lang="met-occ-lim">
+                                            <certainty assertedValue="met-occ" degree="0.9"
                                                 locus="value" match="@xml:id" source="lid218e.bin"/>
-                                            <p><lb/>Ai pas las paraulas jos la man e me soveni pas
-                                                plan, nos porias rapelar de qué parla aquèla chançon
-                                                ?</p>
+                                            <quote corresp="#post-t00037-14169">
+                                                <p><lb/>Ben, mei qu'aquò : Miquèl volèva crompar
+                                                  l'Ostal d'Occitània de Tolosa.</p>
+                                            </quote>
+                                            <p><lb/>e merda! Occitania auria 'gut 500 000 000 de
+                                                fans, minimum! <figure type="emoji">
+                                                  <head> Content </head>
+                                                  <graphic
+                                                  url="https://2img.net/i/fa/i/smiles/icon_razz.gif"
+                                                  />
+                                                </figure>
+                                            </p>
                                         </post>
-                                        <post when="2007-03-04T20:57" who="#P-001"
-                                            xml:id="post-t00016-00044" xml:lang="met-occ">
-                                            <certainty degree="1.0" locus="value" match="@xml:id"
-                                                source="lid218e.bin"/>
-                                            <p><lb/>Espèras un chic, qu'ei hicat las paraulas au
-                                                solèr ...</p>
-                                        </post>
-                                       
-                                    </div>
-                                </div>
-                            </egXML>
-                            <p>Les réponses à un post, sous la forme d'une citation, typiques des
-                                forums, qui reprennent le post, sont encodés par un <gi>quote</gi>
-                                avec un attribut <hi>corresp</hi> qui pointe vers l'identifiant du
-                                post correspondant. Dans le cas où la citation n'est pas retrouvée
-                                dans la conversation, il n'y a pas d'attribut <hi>corresp</hi> et on
-                                ajoute une balise <gi>label</gi> qui encode l'élément <hi>Personne a
-                                    écrit/dit</hi>.</p>
-                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <post when="2009-07-04T10:19" who="#P-024"
-                                    xml:id="post-t00037-14170" xml:lang="met-occ-lim">
-                                    <certainty assertedValue="met-occ" degree="0.9" locus="value"
-                                        match="@xml:id" source="lid218e.bin"/>
-                                    <quote corresp="#post-t00037-14169">
-                                        <p><lb/>Ben, mei qu'aquò : Miquèl volèva crompar l'Ostal
-                                            d'Occitània de Tolosa.</p>
-                                    </quote>
-                                    <p><lb/>e merda! Occitania auria 'gut 500 000 000 de fans,
-                                        minimum! <figure type="emoji">
-                                            <head> Content </head>
-                                            <graphic
-                                                url="https://2img.net/i/fa/i/smiles/icon_razz.gif"/>
-                                        </figure>
-                                    </p>
-                                </post>
-                            </egXML>
-                            </item>
+                                    </egXML>
+                                </item>
                             </list>
                         </div4>
                     </div3>
@@ -991,7 +993,9 @@
                         </content>
                         <attList>
                             <attDef ident="xml:id" mode="change" usage="req">
-                                <datatype><dataRef key="teidata.text"/></datatype>
+                                <datatype>
+                                    <dataRef key="teidata.text"/>
+                                </datatype>
                             </attDef>
                             <attDef ident="gender" mode="change" usage="opt">
                                 <valList change="add" type="semi">
@@ -1065,6 +1069,7 @@
                                 <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
                                 <textNode/>
                                 <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="media" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -1147,9 +1152,9 @@
                     <elementSpec ident="lg" mode="change">
                         <content>
                             <sequence preserveOrder="false">
-                            <elementRef key="l" minOccurs="1" maxOccurs="unbounded"/>
-                            <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
-                            <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="l" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
@@ -1279,8 +1284,8 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-  
-                        <!--Checking module figures-->
+
+                    <!--Checking module figures-->
 
                     <elementSpec ident="figure" mode="change">
                         <content>
@@ -1305,13 +1310,14 @@
                     </elementSpec>
                     <elementSpec ident="bibl" mode="change">
                         <content>
-                            <sequence preserveOrder="false">                            
+                            <sequence preserveOrder="false">
                                 <elementRef key="ptr" minOccurs="0"/>
-                            <elementRef key="title" minOccurs="1"/>
-                            <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
-                            <elementRef key="pubPlace" minOccurs="0"/>
-                            <elementRef key="publisher" minOccurs="0"/>
-                            <elementRef key="date" minOccurs="1"/></sequence>
+                                <elementRef key="title" minOccurs="1"/>
+                                <elementRef key="author" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="pubPlace" minOccurs="0"/>
+                                <elementRef key="publisher" minOccurs="0"/>
+                                <elementRef key="date" minOccurs="1"/>
+                            </sequence>
                         </content>
                         <attList>
                             <attDef ident="type" mode="change">
