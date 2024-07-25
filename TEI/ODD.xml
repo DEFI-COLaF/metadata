@@ -1594,6 +1594,7 @@
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="media" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="table" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>

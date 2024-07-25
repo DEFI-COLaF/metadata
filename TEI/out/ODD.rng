@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-07-10T14:22:30Z. .
+Schema generated from ODD source 2024-07-25T12:25:06Z. .
 TEI Edition: Version 4.6.0. Last updated on
         4th April 2023, revision f18deffba
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
@@ -6291,6 +6291,9 @@ Sample values include: 1] ignorance</a:documentation>
             </zeroOrMore>
             <zeroOrMore>
                <ref name="media"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="table"/>
             </zeroOrMore>
          </interleave>
          <optional>
