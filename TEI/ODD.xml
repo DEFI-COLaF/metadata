@@ -1067,6 +1067,7 @@
                                 <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
                                 <textNode/>
                                 <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="media" minOccurs="0" maxOccurs="unbounded"/>
