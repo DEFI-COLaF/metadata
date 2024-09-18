@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-08-28T14:04:43Z. .
+Schema generated from ODD source 2024-09-18T09:20:03Z. .
 TEI Edition: Version 4.6.0. Last updated on
         4th April 2023, revision f18deffba
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.6.0/
@@ -1459,6 +1459,7 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
          <ref name="foreign"/>
          <ref name="term"/>
          <ref name="title"/>
+         <ref name="code"/>
       </choice>
    </define>
    <define name="model.emphLike_alternation">
@@ -1466,12 +1467,14 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
          <ref name="foreign"/>
          <ref name="term"/>
          <ref name="title"/>
+         <ref name="code"/>
       </choice>
    </define>
    <define name="model.emphLike_sequence">
       <ref name="foreign"/>
       <ref name="term"/>
       <ref name="title"/>
+      <ref name="code"/>
    </define>
    <define name="model.emphLike_sequenceOptional">
       <optional>
@@ -1482,6 +1485,9 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
       </optional>
       <optional>
          <ref name="title"/>
+      </optional>
+      <optional>
+         <ref name="code"/>
       </optional>
    </define>
    <define name="model.emphLike_sequenceOptionalRepeatable">
@@ -1494,6 +1500,9 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
       <zeroOrMore>
          <ref name="title"/>
       </zeroOrMore>
+      <zeroOrMore>
+         <ref name="code"/>
+      </zeroOrMore>
    </define>
    <define name="model.emphLike_sequenceRepeatable">
       <oneOrMore>
@@ -1504,6 +1513,9 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
       </oneOrMore>
       <oneOrMore>
          <ref name="title"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="code"/>
       </oneOrMore>
    </define>
    <define name="model.highlighted">
@@ -2824,6 +2836,12 @@ Suggested values include: 1] full (full form); 2] pref (prefix); 3] suff (suffix
             <zeroOrMore>
                <ref name="quote"/>
             </zeroOrMore>
+            <zeroOrMore>
+               <ref name="label"/>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="code"/>
+            </zeroOrMore>
          </interleave>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   id="oddbyexample-p-abstractModel-structure-p-in-ab-or-p-constraint-report-6">
@@ -2919,6 +2937,9 @@ Suggested values include: 1] full (full form); 2] pref (prefix); 3] suff (suffix
                <ref name="quote"/>
             </zeroOrMore>
             <zeroOrMore>
+               <ref name="code"/>
+            </zeroOrMore>
+            <zeroOrMore>
                <ref name="lg"/>
             </zeroOrMore>
             <zeroOrMore>
@@ -2963,6 +2984,7 @@ Suggested values include: 1] full (full form); 2] pref (prefix); 3] suff (suffix
             </sch:rule>
          </pattern>
          <ref name="att.global.attributes"/>
+         <ref name="att.translatable.attributes"/>
          <ref name="att.typed.attribute.subtype"/>
          <optional>
             <attribute name="type">
@@ -4587,6 +4609,9 @@ Suggested values include: 1] label; 2] data</a:documentation>
             <optional>
                <ref name="head"/>
             </optional>
+            <optional>
+               <ref name="figDesc"/>
+            </optional>
             <zeroOrMore>
                <ref name="graphic"/>
             </zeroOrMore>
@@ -4617,6 +4642,14 @@ Suggested values include: 1] label; 2] data</a:documentation>
                </choice>
             </attribute>
          </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="figDesc">
+      <element name="figDesc">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description of figure) contains a brief prose description of the appearance or content of a graphic figure, for use when documenting an image without displaying it. [14.4. Specific Elements for Graphic Images]</a:documentation>
+         <ref name="macro.limitedContent"/>
+         <ref name="att.global.attributes"/>
          <empty/>
       </element>
    </define>
@@ -6193,6 +6226,40 @@ Sample values include: 1] ignorance</a:documentation>
             <attribute name="degree">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">valeur de certainty du modèle</a:documentation>
                <data type="double"/>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="att.translatable.attributes">
+      <ref name="att.translatable.attribute.versionDate"/>
+   </define>
+   <define name="att.translatable.attribute.versionDate">
+      <optional>
+         <attribute name="versionDate">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the date on which the source text was extracted and sent to the translator</a:documentation>
+            <choice>
+               <data type="date">
+                  <param name="pattern">(19[789][0-9]|[2-9][0-9]{3}).*</param>
+               </data>
+               <data type="dateTime">
+                  <param name="pattern">(19[789][0-9]|[2-9][0-9]{3}).*</param>
+               </data>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="code">
+      <element name="code">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains literal code from some formal language such as a programming language. [22.1.1. Phrase Level Terms]</a:documentation>
+         <text/>
+         <ref name="att.global.attributes"/>
+         <optional>
+            <attribute name="lang">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(formal language) a name identifying the formal language in which the code is expressed</a:documentation>
+               <data type="token">
+                  <param name="pattern">[^\p{C}\p{Z}]+</param>
+               </data>
             </attribute>
          </optional>
          <empty/>
