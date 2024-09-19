@@ -947,7 +947,7 @@
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
                         include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media"/>
-                    <moduleRef key="figures" include="figure table row cell"/>
+                    <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
                         include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application "/>
@@ -957,6 +957,7 @@
                     <moduleRef key="dictionaries"
                         include="entry form sense orth pron gramGrp pos gen def"/>
                     <moduleRef key="certainty" include="certainty"/>
+                    <moduleRef key="tagdocs" include="eg egXML"/>
 
 
                     <!-- namesdates -->
@@ -1055,6 +1056,9 @@
                                 <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="label" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="eg" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="egXML" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -1064,6 +1068,8 @@
                                 <elementRef key="label" minOccurs="0" maxOccurs="1"/>
                                 <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="eg" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="egXML" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
@@ -1292,6 +1298,7 @@
                         <content>
                             <sequence preserveOrder="false">
                                 <elementRef key="head" minOccurs="0"/>
+                                <elementRef key="figDesc" minOccurs="0"/>
                                 <elementRef key="graphic" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
@@ -1532,6 +1539,8 @@
                                 <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="table" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="other" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="eg" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="egXML" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
