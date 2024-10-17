@@ -931,14 +931,6 @@
                     <classRef key="model.rdgPart"/>
                     <classRef key="att.linguistic"/>
                     <classRef key="model.persNamePart"/>
-                    <classSpec ident="att.textCritical" type="atts" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="cause" mode="delete"/>
-                            <attDef ident="varSeq" mode="delete"/>
-                            <attDef ident="require" mode="delete"/>
-                        </attList>
-                    </classSpec>
 
                     <!--Checking modules-->
 
@@ -958,6 +950,7 @@
                         include="entry form sense orth pron gramGrp pos gen def"/>
                     <moduleRef key="certainty" include="certainty"/>
                     <moduleRef key="tagdocs" include="code"/>
+                    <moduleRef key="cmc" include="post"/>
 
 
                     <!-- namesdates -->
@@ -1590,27 +1583,7 @@
                             </attDef>
                         </attList>
                     </elementSpec>
-                    <!--Création de la balise post à partir du travail TEI consortium (non ajouté pour le moment)-->
-                    <elementSpec ident="post" mode="add">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="media" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="table" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
-                        <attList>
-                            <attDef ident="who" mode="add"/>
-                            <attDef ident="when" mode="add"/>
-                            <attDef ident="xml:id" mode="add"/>
-                            <attDef ident="xml:lang" mode="add"/>
-                        </attList>
-                    </elementSpec>
+
 
 
                 </schemaSpec>
