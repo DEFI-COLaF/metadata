@@ -938,7 +938,7 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del"/>
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
@@ -1043,6 +1043,7 @@
                                 <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
