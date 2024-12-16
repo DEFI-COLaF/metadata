@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2024-12-16T15:41:06Z. . 
+Schema generated from ODD source 2024-12-16T16:05:04Z. . 
 TEI Edition: P5 Version 4.8.0. Last updated on 8th July 2024, revision 1f9891a87 
 TEI Edition Location: https://www.tei-c.org/Vault/P5/4.8.0/ 
   
@@ -2944,7 +2944,7 @@ Suggested values include: 1] full (full form); 2] pref (prefix); 3] suff (suffix
                <ref name="hi"/>
             </zeroOrMore>
             <zeroOrMore>
-               <ref name="p"/>
+               <ref name="del"/>
             </zeroOrMore>
             <zeroOrMore>
                <ref name="w"/>

@@ -1043,7 +1043,7 @@
                                 <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="del" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
