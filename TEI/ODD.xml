@@ -145,12 +145,8 @@
                             présente dans les métadonnées.Pour la langue, nous utilisons la norme
                                 <ref target="https://glottolog.org">Glottolog</ref> une base de
                             données de langues et dialectes associant à chacun un identifiant unique
-                            et stable et développé par l'Institut Max Planck. Il s'agit de la norme
-                            la plus complète pour décrire des langues et dialectes très précis comme
-                            nous le souhaitons. Dans le cas où Glottolog ne suffit pas, il faut
-                            décrire la langue du document avec un système d'imbrication des langues
-                            les plus proches hiérarchiquement. Le script est décrit avec la norme
-                            ISO 15924, bien que sa valeur sera dans la plupart des cas
+                            et stable et développé par l'Institut Max Planck. Le script est décrit
+                            avec la norme ISO 15924, bien que sa valeur sera dans la plupart des cas
                                 <val>latn</val>.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                             <language ident="stan1290" usage="100">
@@ -461,12 +457,8 @@
                                     <item><gi>idno</gi>: <list>
                                             <item>Avec une valeur <val>language</val> de
                                                   <att>type</att>:code de langue, récupéré dans <ref
-                                                  target="https://glottolog.org">Glottolog</ref>.
-                                                Quand il ne s'agit pas d'une langue mais d'un
-                                                dialecte d'après Glottolog ou bien quand le dialecte
-                                                n'est pas contenu dans Glottolog, on procède en
-                                                listant les codes de langues associés avec plusieurs
-                                                  <gi>idno</gi>.</item>
+                                                  target="https://glottolog.org">Glottolog</ref>, le
+                                                plus proche possible de la variété traitée.</item>
                                             <item>Avec une valeur <val>script</val> de
                                                   <att>type</att>: code de script, récupéré dans
                                                   <ref
@@ -782,16 +774,11 @@
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <sp who="#FRELINGUE">
                                     <speaker>FRELINGUE.</speaker>
-                                    <l>Elle a le mal de mer, elle a le mal de
-                                        terre,</l>
-                                    <l>Elle a... Que sais-je enfin ? Elle n'est
-                                        pas trop bien ;</l>
-                                    <l>Cent drogues qu'on lui fait, ne lui servent
-                                        de rien.</l>
-                                    <l>Si l'on la peut sauver, la cure sera
-                                        belle.</l>
-                                    <l>Taisons nous ; ces gens-là sont je crois de
-                                        chez elle.</l>
+                                    <l>Elle a le mal de mer, elle a le mal de terre,</l>
+                                    <l>Elle a... Que sais-je enfin ? Elle n'est pas trop bien ;</l>
+                                    <l>Cent drogues qu'on lui fait, ne lui servent de rien.</l>
+                                    <l>Si l'on la peut sauver, la cure sera belle.</l>
+                                    <l>Taisons nous ; ces gens-là sont je crois de chez elle.</l>
                                 </sp>
                             </egXML>
                         </div4>
@@ -978,11 +965,12 @@
                         </div4>
                         <div4>
                             <head>Données d'annotation linguistique</head>
-                            <p>Les données d'annotation linguistique sont représentées avec les balises
-                                    <gi>s</gi> pour encoder une phrase, <gi>w</gi> pour un mot/token
-                                et <gi>pc</gi> pour de la ponctuation. Les attributs de base de
-                                description morphosyntaxiques y sont associés: <att>pos</att> pour le
-                                part of speech, <att>lemma</att> pour les lemmes, <att>n</att>...</p>
+                            <p>Les données d'annotation linguistique sont représentées avec les
+                                balises <gi>s</gi> pour encoder une phrase, <gi>w</gi> pour un
+                                mot/token et <gi>pc</gi> pour de la ponctuation. Les attributs de
+                                base de description morphosyntaxiques y sont associés:
+                                    <att>pos</att> pour le part of speech, <att>lemma</att> pour les
+                                lemmes, <att>n</att>...</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <p>
                                     <s>
@@ -1204,11 +1192,11 @@
                     <elementSpec ident="person" mode="change">
                         <content>
                             <sequence preserveOrder="false">
-                            <elementRef key="persName" minOccurs="0"/>
-                            <elementRef key="langKnowledge" minOccurs="0"/>
-                            <elementRef key="birth" minOccurs="0"/>
-                            <elementRef key="residence" minOccurs="0"/>
-                            <elementRef key="socecStatut" minOccurs="0"/>
+                                <elementRef key="persName" minOccurs="0"/>
+                                <elementRef key="langKnowledge" minOccurs="0"/>
+                                <elementRef key="birth" minOccurs="0"/>
+                                <elementRef key="residence" minOccurs="0"/>
+                                <elementRef key="socecStatut" minOccurs="0"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1317,8 +1305,8 @@
                     <elementSpec ident="list" mode="change">
                         <content>
                             <sequence preserveOrder="false">
-                            <elementRef key="head" minOccurs="0" maxOccurs="1"/>
-                            <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
+                                <elementRef key="head" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1420,8 +1408,8 @@
                     <elementSpec ident="respStmt" mode="change">
                         <content>
                             <sequence preserveOrder="false">
-                            <elementRef key="resp" minOccurs="1"/>
-                            <elementRef key="persName" minOccurs="1"/>
+                                <elementRef key="resp" minOccurs="1"/>
+                                <elementRef key="persName" minOccurs="1"/>
                             </sequence>
                         </content>
                     </elementSpec>
