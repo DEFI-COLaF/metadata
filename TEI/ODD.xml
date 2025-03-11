@@ -4,20 +4,34 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Corpus et Outils pour les Langues de France</title>
-                <title type="short">COLaF</title>
-                <author>Juliette Janès</author>
-                <author>Thibault Clérice</author>
-                <author>Benoît Sagot</author>
+                <title>ODD pour COLaF</title>
+                <author xml:id="JJANES">
+                    <persName>Juliette Janès</persName>
+                    <affiliation>Almanach, Inria</affiliation>
+                </author>
             </titleStmt>
             <publicationStmt>
-                <authority ref="https://colaf.huma-num.fr/">COLaF</authority>
-                <date when="2023"/>
+                <authority>
+                    <ref target="https://colaf.huma-num.fr/">Corpus et Outils pour les Langues de
+                        France</ref>
+                </authority>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0
+                        International (CC BY 4.0)</licence>
+                </availability>
             </publicationStmt>
             <sourceDesc>
-                <p>born-digital</p>
+                <p>ODD créée <ref target="https://github.com/TEIC/romajs">RomaJS</ref> et customisée
+                    pour les besoins du projet COLaF.</p>
             </sourceDesc>
         </fileDesc>
+        <revisionDesc>
+            <change when="2025-02-10" who="#JJANES">Correction des coquilles suite au rapport de
+                Lucence</change>
+            <change when="2024-11" who="#JJANES">Correction de la Documentation</change>
+            <change when="2024-08" who="JJANES">Ajout de la nouvelle balise post </change>
+            <change when="2023-11" who="#JJANES">Generation de l'ODD</change>
+        </revisionDesc>
     </teiHeader>
     <text>
         <body>
@@ -67,238 +81,422 @@
                             target="https://members.loria.fr/SOuni/">Slim Ouni</ref> (membre de
                         l’équipe-projet MULTISPEECH).</p>
 
+                    <p> Ce guide d'encodage vise à uniformiser les encodages des documents produits
+                        dans le cadre du projet COLaF. A partir des guidelines TEI, deux éditeurs
+                        peuvent faire pour encoder un même document des choix complètement
+                        différents. Ce fichier permet de pallier à cela en fournissant une
+                        description détaillée des choix d'encodage réalisés dans le cadre du projet
+                        et une ODD permettant de vérifier si les encodages réalisés se calquent bien
+                        sur cette documentation. Dû à la nature du projet, plusieurs difficultés se
+                        sont présentées à nous: la variété des documents différents à encoder et la
+                        représentation détaillée de langues parfois non décrites par les normes.
+                        Pour remédier à cela, les structures décrites pour chaque type de documents
+                        traité sont assez simple et la customization de l'ODD se concentre sur la
+                        représentation de la langue dans les métadonnées et le texte, à plusieurs
+                        niveaux de granularité et avec la possibilité de fournir des informations
+                        sur les prédictions de modèles de détection de langue.</p>
+
                 </div2>
                 <div2>
-                    <head>Métadonnées</head>
+                    <head>Règles de base</head>
                     <div3>
-                        <head>Identification du document</head>
-                        <p>Le <gi>titleStmt</gi> doit permettre l'identification du document. Il
-                            doit être complété avec les balises suivantes:</p>
-                        <list>
-                            <item><gi>idno</gi>: l'identifiant du document. Dans le cas d'un corpus
-                                déjà existant, il est à récupérer dessus sous la forme
-                                NomCollection_identifiantCollection.</item>
-                            <item><gi>title</gi>:Titre du document (type-main) et de la collection
-                                dont il est extrait (type-collection)</item>
-                            <item><gi>author</gi>: Auteur du texte encodé quand il y en a un</item>
-                            <item><gi>respStmt</gi>: Réponsables de l'édition TEI du document.
-                                    <gi>resp</gi> indique le rôle que la personne a joué dans
-                                l'encodage de l'édition TEI (Encoding, Récupération du texte...).
-                                    <gi>persName</gi> contient le nom de la personne structuré sous
-                                la forme <gi>surname</gi>, <gi>forename</gi> et <gi>idno</gi> où
-                                idno correspond à l'orcid. Chaque <gi>persName</gi> a un
-                                    <gi>xml:id</gi> qui est construit sous la forme
-                                Initialeduprenom_Nom. </item>
-                            <item><gi>principal</gi>: Nom du chercheur qui est principalement
-                                responsable de la création d'un texte électronique. Ici Benoît. Se
-                                structure de la même façon que les personnes responsables avec
-                                    <gi>persName</gi>.</item>
-                            <item><gi>funder</gi>: Nom de l'organisme financeur du projet. Ici
-                                l'INRIA.</item>
-                        </list>
+                        <head>Identifiant de fichier et organisation de corpus</head>
+                        <p> Le corpus COLaF est composé de Sous-corpus (ou collection) construits en
+                            fonction d'une provenance commune et/ou contenant des documents
+                            similaires. Il est possible de classer les fichiers d'une collection
+                            dans des dossiers thématiques (Par exemple, Molyé est organisé par genre
+                            littéraire car contenant des pièces de théâtre, de la prose et des
+                            poèmes.)</p>
+                        <p>L'identifiant du fichier apparait dans un element <gi>idno</gi> dans les
+                            métadonnées et nomme le fichier. Il doit avoir pour structure
+                            "{NomCollection}_{Identifiant}". Le nom de la collection doit être une
+                            réduction en un ou deux mots du nom du sous corpus sans espace ni accent
+                            (Par exemple Molyé devient molye, forum Occitania ForumOccitania....).
+                            Dans le cas d'un document qui a déjà été édité et possédant un
+                            identifiant, on reprend cet identifiant pour la partie Identifiant. Dans
+                            le cas d'un élément provenant du web, on récupère l'identifiant associé
+                            (URI). Autrement, l'identifiant sera un numéro incrémenté.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <titleStmt>
-                                <idno>FRA07001</idno>
-                                <title type="main">Lucignole</title>
-                                <title type="collection">ELteC Collection</title>
-                                <author>Mendès, Catulle (1841-1909)</author>
-                                <respStmt>
-                                    <resp>Encoding</resp>
-                                    <persName xml:id="JJANES">
-                                        <surName>Janès</surName>
-                                        <foreName>Juliette</foreName>
-                                        <idno type="orcid">0000-0002-8971-6173</idno>
-                                    </persName>
-                                </respStmt>
-                                <principal>
-                                    <persName xml:id="BSAGOT">
-                                        <surName>Sagot</surName>
-                                        <foreName>Benoît</foreName>
-                                        <idno type="orcid">0000-0001-8957-9503</idno>
-                                    </persName>
-                                </principal>
-                                <funder>Inria</funder>
-                            </titleStmt>
+                            <idno>PicConcours_01</idno>
                         </egXML>
                     </div3>
                     <div3>
-                        <head>Informations de publication du document</head>
+                        <head>Format des valeurs d'attributs et dates</head>
+                        <p>Toute valeur d'attribut ne doit pas contenir d'espace ou d'accent.</p>
+                        <p>Le format des dates est prédéfini et nécessite d'utiliser l'attribut
+                                <att>when</att>. Si on souhaite ajouter le temps en heure, dans le
+                            cas de contenu obtenu sur internet notamment, il est nécessaire de la
+                            formater sous la forme YYYY-MM-DDTHH:SS:00Z.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <date when="1890-03-16"/>
+                            <post when="2011-12-06T22:45:00Z"/>
+                            <post when="2012-03-28T03:12:00Z"/>
+                        </egXML>
+                    </div3>
+                    <div3>
+                        <head>Représentation de la langue</head>
+                        <p>La représentation de la langue est au coeur du travail du projet COLaF.
+                            Le but est de représenter la variation linguistique de chaque texte le
+                            mieux possible au niveau dialectal, géographique, chronologique et même
+                            social.</p>
 
-                        <p>Le <gi>publicationStmt</gi> détaille les informations associées à la
-                            publication du document XML-TEI.</p>
-                        <list>
-                            <item><gi>publisher</gi>: Nom de l'éditeur scientifique de l'édition.
-                                Ici COLaF. Un attribut <gi>ref</gi> fait le lien avec le site
-                                internet du projet.</item>
-                            <item><gi>date</gi> date d'ajout du document dans COLaF</item>
-                            <item><gi>licence</gi> licence du document récupéré ou bien celle de
-                                COLaF</item>
-                        </list>
+                        <p>Pour ce faire, il faut décrire de la façon la plus précise possible les
+                            langues présentes dans les documents, via la balise <gi>language</gi>
+                            présente dans les métadonnées.Pour la langue, nous utilisons la norme
+                                <ref target="https://glottolog.org">Glottolog</ref> une base de
+                            données de langues et dialectes associant à chacun un identifiant unique
+                            et stable et développé par l'Institut Max Planck. Le script est décrit
+                            avec la norme ISO 15924, bien que sa valeur sera dans la plupart des cas
+                                <val>latn</val>.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <publicationStmt>
-                                <publisher ref="https://colaf.huma-num.fr/">Corpus et Outils pour
-                                    les Langues de France (COLaF)</publisher>
-                                <date when="2023-11-24"/>
-                                <availability>
-                                    <licence target="https://creativecommons.org/licenses/by/4.0/"
-                                        >CC BY 4.0</licence>
-                                </availability>
-                            </publicationStmt>
+                            <language ident="stan1290" usage="100">
+                                <idno type="langue" xml:id="stan1290"/>
+                                <idno type="script" xml:id="latn"/>
+                                <name>Français</name>
+                                <date when="1860">1860</date>
+                                <location>
+                                    <settlement>Paris</settlement>
+                                </location>
+                            </language>
+                        </egXML>
+                        <p>La langue de base des documents encodés est le français moderne de
+                            métropole. Sans contre-indication claire, toutes les métadonnées et le
+                            texte sont dans cette langue. Dans le cas où une autre langue est
+                            présente dans le document, il est nécessaire de l'indiquer avec
+                            l'attribut <att>xml:lang</att> sur la balise qui encode cet élément au
+                            niveau le plus haut. La valeur de cet attribut sera l'identifiant de la
+                            langue - valeur de <att>ident</att> de la balise <gi>language</gi>. Par
+                            exemple, un document en picard aura un titre et un texte en picard. Sur
+                            la balise décrivant le titre dans les métadonnées, comme il s'agit d'un
+                            titre en picard, faut ajouter cette information.Comme tout le texte est
+                            en picard, on ajoute cette information au niveau le plus haut dans sur
+                            la balise <gi>text</gi>.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <text xml:lang="stan1290"/>
+                            <title xml:lang="pica1241">Ch'viux bertcheux</title>
                         </egXML>
                     </div3>
+                </div2>
+                <div2>
+                    <head>Le TEIHeader</head>
+                    <p> Le TeiHeader contient les métadonnées du document. Il est divisé en quatre
+                        zones principales: <list>
+                            <item>fileDesc: description électronique du fichier</item>
+                            <item>encodingDesc: description de l'encodage</item>
+                            <item>profileDesc: description de données non bibliographiques</item>
+                            <item>revisionDesc: détail des modifications du fichier</item>
+                        </list></p>
                     <div3>
-                        <head>Bibliographie du texte encodé</head>
-                        <p>Le <gi>sourceDesc</gi>:Informations bibliographiques sur le texte encodé.
-                            Les données bibliographiques sont contenues dans une balise
-                                <gi>bibl</gi>. En fonction du format dans lequel est récupéré le
-                            texte encodé, plusieurs <gi>bibl</gi> peuvent coexister avec des
-                                <hi>type</hi> différents. Si le document est une source imprimée de
-                            base, l'attribut <hi>type</hi> va avoir pour valeur
-                            <hi>printSource</hi>. Si il a une version numérique, qu'il s'agisse d'un
-                            document nativement numérique ou déjà traité par la collection dont il
-                            est issu, le <hi>type</hi> aura pour valeur <hi>digitalSource</hi>.
-                            L'idée est de récupérer le plus d'informations possibles, si elles sont
-                            déjà indiquées, en se référant aux balises pouvant être contenus dans la
-                            balise <gi>bibl</gi>. Dans tous les cas, il est nécessaire d'avoir, pour
-                            chaque <gi>bibl</gi> au moins les balises suivantes: </p>
-                        <list>
-                            <item><gi>ptr</gi>avec l'attribut <hi>target</hi> pointant vers le lien
-                                d'où le texte a été récupéré/la collection est issus.</item>
-                            <item><gi>title</gi></item>
-                            <item><gi>author</gi></item>
-                            <item><gi>publisher</gi></item>
-                            <item><gi>date</gi> avec l'attribut <hi>when</hi></item>
-                        </list>
-                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <sourceDesc>
-                                <bibl type="printSource">
-                                    <title>Lucignole</title>
-                                    <author>Mendès, Catulle (1841-1909)</author>
-                                    <pubPlace>Paris</pubPlace>
-                                    <publisher>E. Dentu</publisher>
-                                    <date when="1892"/>
-                                </bibl>
-                                <bibl type="digitalSource">
-                                    <ptr target="https://zenodo.org/communities/eltec/"/>
-                                    <title>Lucignole : édition ELTeC</title>
-                                    <author>Christof Schöch</author>
-                                    <author>BnF</author>
-                                    <publisher ref="https://distant-reading.net">COST Action
-                                        "Distant Reading for European Literary History"
-                                        (CA16204)</publisher>
-                                    <date when="2021-04-09"/>
-                                </bibl>
-                            </sourceDesc>
-                        </egXML>
-                    </div3>
-                    <div3>
-                        <head>Mesures du document</head>
-                        <p><gi>extent</gi> indique les dimensions du texte encodé sous la forme
-                            d'une balise <gi>measure</gi>. Plusieurs balises <gi>measure</gi>
-                            peuvent coexister les unes après les autres en fonction de ce qui est
-                            indiqué dans la collection extraite. Un attribut <hi>unit</hi> prend
-                            pour valeur l'unité décrite pouvant être <hi>tokens</hi>,
-                            <hi>words</hi>, <hi>sentences</hi>, <hi>pages</hi>. Une balise
-                                <gi>measure</gi> dont l'attribut <hi>unit</hi> a pour valeur
-                                <hi>token_colaf</hi> doit obligatoirement être présente.</p>
-                        <p>Pour ajouter la valeur de token_colaf, une feuille XSLT/ un programme
-                            python est disponible dans le dépôt github des métadonnées du
-                            projet.</p>
-                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <extent>
-                                <measure unit="words">29772</measure>
-                            </extent>
-                        </egXML>
-
-                    </div3>
-                    <div3>
-                        <head>Applications employées</head>
-                        <p>L'<gi>encodingDesc</gi> décrit les étapes d'obtention du fichier. Chaque
-                            application employée pour obtenir le fichier est rapporté dans une
-                            balise <gi>application</gi> qui détaille le nom de l'application, sa
-                            version utilisée, son nom dans une balise <gi>label</gi> et un lien qui
-                            pointe vers l'appli avec la balise <gi>ptr</gi>.</p>
-                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <application version="XX" ident="NomAppli">
-                                <label>Nom appli</label>
-                                <ptr target="url"/>
-                            </application>
-                        </egXML>
-                        <p>Dans le cas d'un document obtenu en OCRisant un PDF, on peut ainsi
-                            indiquer une première application pour le Layout, une deuxième type
-                            Kraken...</p>
-
-                    </div3>
-                    <div3>
-                        <head>Enregistrement des modifications</head>
-                        <p>Le <gi>revisionDesc</gi> permet de conserver les modifications effectuées
-                            sur le document XML. Pour chaque modification une balise <gi>change</gi>
-                            est créée. Elle indique la date de la modification avec l'attribut
-                                <hi>when</hi>, la personne qui l'a modifié avec <hi>who</hi> qui
-                            renvoie à l'identifiant du responsable créé dans le <gi>respStmt</gi> et
-                            donne une brève information de la modification</p>
-                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <revisionDesc>
-                                <change when="2023-12-19" who="#JJANES">Création du fichier
-                                    TEI</change>
-                            </revisionDesc>
-                        </egXML>
-                    </div3>
-                    <div3>
-                        <head>ProfileDesc</head>
+                        <head>Le FileDesc</head>
                         <div4>
-                            <head>La gestion des langues dans COLaF</head>
-                            <p>Pour représenter la ou les langue(s) du document dans les
-                                métadonnées, on utilise, pour chaque langue, la balise
-                                    <gi>language</gi> située dans la balise <gi>langUsage</gi> qui
-                                se trouve elle-même dans le <gi>profileDesc</gi>.Une balise
-                                    <gi>language</gi> est présentée comme suit:</p>
+                            <head>Identification du document</head>
+                            <p>Le TitleStmt doit permettre l'identification du fichier. Il donne le
+                                nom du fichier, ses auteurs et éditeurs. Tous ces éléments sont
+                                obligatoires.</p>
+
+                            <list>
+                                <item><gi>title</gi>:Titre du document (type-main) et de la
+                                    collection dont il est extrait (type-collection)</item>
+                                <item><gi>author</gi>: Auteur du texte encodé quand il y en a
+                                    un.</item>
+                                <item><gi>respStmt</gi>: Responsables de l'édition TEI du document.
+                                        <gi>resp</gi> indique le rôle que la personne a joué dans
+                                    l'encodage de l'édition TEI. Il peut prendre les valeurs <list>
+                                        <item>Digitized by</item>
+                                        <item>Transcribed by</item>
+                                        <item>Encoded by</item>
+                                    </list>
+                                    <gi>persName</gi> contient le nom de la personne structuré sous
+                                    la forme <gi>surname</gi>, <gi>forename</gi> et <gi>idno</gi> où
+                                    idno correspond à l'orcid. Chaque <gi>persName</gi> a un
+                                        <att>xml:id</att> qui est construit sous la forme
+                                    "{InitialePrénom}{Nom}". </item>
+                                <item><gi>principal</gi>: Nom du chercheur qui est principalement
+                                    responsable de la création d'un texte électronique. Ici Benoît.
+                                    Se structure de la même façon que les personnes responsables
+                                    avec <gi>persName</gi>.</item>
+                                <item><gi>funder</gi>: Nom de l'organisme financeur du projet. Ici
+                                    l'Inria.</item>
+                            </list>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <language ident="met-fra-std" usage="100">
-                                    <idno type="language">met-fra-std</idno>
-                                    <!--Niveau de description-->
-                                    <idno type="script">latin</idno>
-                                    <name>Nom de la langue décrite</name><!--Il est possible d'ajouter deux balises name avec un xml:lang différent pour indiquer le nom de la langue en français et dans la langue même-->
-                                    <date>Avec les attributs when et not before not after en
-                                        fonction de s'il s'agit d'une date précise ou non</date>
-                                    <location>
-                                        <!--A compléter en fonction de ce qui est fourni-->
-                                        <country/>
-                                        <region/>
-                                        <settlement/>
-                                        <geo/>
-                                    </location>
-                                </language>
+                                <titleStmt>
+                                    <title type="main">Lucignole</title>
+                                    <title type="collection">ELteC Collection</title>
+                                    <author>Mendès, Catulle (1841-1909)</author>
+                                    <respStmt>
+                                        <resp>Encoded by</resp>
+                                        <persName xml:id="JJANES">
+                                            <surName>Janès</surName>
+                                            <foreName>Juliette</foreName>
+                                            <idno type="orcid">0000-0002-8971-6173</idno>
+                                        </persName>
+                                    </respStmt>
+                                    <principal>
+                                        <persName xml:id="BSAGOT">
+                                            <surName>Sagot</surName>
+                                            <foreName>Benoît</foreName>
+                                            <idno type="orcid">0000-0001-8957-9503</idno>
+                                        </persName>
+                                    </principal>
+                                    <funder>Inria</funder>
+                                </titleStmt>
                             </egXML>
-                            <p>La balise <gi>language</gi> a pour attributs obligatoires
-                                    <hi>xml:id</hi> qui permet de nommer la langue afin de la
-                                réutiliser dans le texte. La première langue décrite sera appelée
-                                "lang-01", la deuxième "lang-02" et ainsi de suite... L'attribut
-                                    <hi>usage</hi> indique le taux d'utilisation de la langue dans
-                                le texte du document. Si seule cette langue est employée, elle sera
-                                de <hi>100</hi>, si une autre langue est employée autant de fois, de
-                                    <hi>50</hi>, si elle apparait de temps en temps mais reste
-                                fréquente <hi>25</hi>, si elle apparait épisodiquement <hi>10</hi>
-                                et ainsi de suite. La somme des valeurs d'usage doit être de 100. Si
-                                le texte est traduit entièrement d'une autre langue, on peut ajouter
-                                cette langue et la décrire ici dans une balise <gi>language</gi> qui
-                                aurait pour valeur de l'attribut <hi>usage</hi> 0.</p>
-                            <p>Pour structurer une langue, on fonctionne par niveau de description
-                                avec les balises <gi>idno</gi> indiquant les codes construits par
-                                COLaF <ref
-                                    target="https://docs.google.com/spreadsheets/d/1qDCYXatqf-SjL9TQ51KK7s5bv59Nw-wamSAZufuOZlw/edit#gid=1709095818"
-                                    >ici</ref>. On indique à la fois la langue et le script (latin
-                                la plupart du temps). </p>
-                            <p>On indique la date du texte, qui peut différer de sa publication,
-                                dans la balise dédiée.</p>
-                            <p>La localisation de la rédaction du texte, quand c'est possible, est
-                                indiqué dans la balise dédiée et détaillée en plusieurs balises plus
-                                précises. En effet, il est possible que lieu de publication diffère
-                                de l'endroit où est parlée la langue et qu'entre deux lieux la
-                                langue soit différente (à l'instar de l'occitan).</p>
+
                         </div4>
                         <div4>
-                            <head>Représenter le genre textuel dans COLaF</head>
+                            <head>Informations de publication du document</head>
+
+                            <p>Le <gi>publicationStmt</gi> détaille les informations associées à la
+                                publication du document XML-TEI.</p>
+                            <list>
+                                <item><gi>idno</gi>: l'identifiant du fichier</item>
+                                <item><gi>publisher</gi>: Nom de l'éditeur scientifique de
+                                    l'édition. Ici COLaF. Un attribut <att>ref</att> fait le lien
+                                    avec le site internet du projet.</item>
+                                <item><gi>date</gi> date d'ajout du document dans COLaF</item>
+                                <item><gi>licence</gi> licence du document récupéré ou bien celle de
+                                    COLaF</item>
+                            </list>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <publicationStmt>
+                                    <idno>PicConcours_001</idno>
+                                    <publisher ref="https://colaf.huma-num.fr/">Corpus et Outils
+                                        pour les Langues de France (COLaF)</publisher>
+                                    <date when="2023-11-24"/>
+                                    <availability>
+                                        <licence
+                                            target="https://creativecommons.org/licenses/by/4.0/">CC
+                                            BY 4.0</licence>
+                                    </availability>
+                                </publicationStmt>
+                            </egXML>
+                        </div4>
+                        <div4>
+                            <head>Bibliographie du texte encodé</head>
+                            <p>Le <gi>sourceDesc</gi>:Informations bibliographiques sur le texte
+                                encodé. Les données bibliographiques sont contenues dans une balise
+                                    <gi>bibl</gi>. En fonction du format dans lequel est récupéré le
+                                texte encodé, plusieurs <gi>bibl</gi> peuvent coexister avec des
+                                    <hi>type</hi> différents. Si le document est une source imprimée
+                                de base, l'attribut <att>type</att> va avoir pour valeur
+                                    <val>printSource</val>. S'il a une version numérique, qu'il
+                                s'agisse d'un document nativement numérique ou déjà traité par la
+                                collection dont il est issu, le <att>type</att> aura pour valeur
+                                    <val>digitalSource</val>. L'idée est de récupérer le plus
+                                d'informations possibles, si elles sont déjà indiquées, en se
+                                référant aux balises pouvant être contenues dans la balise
+                                    <gi>bibl</gi>. Dans tous les cas, il est nécessaire d'avoir,
+                                pour chaque <gi>bibl</gi>, au moins les balises suivantes: </p>
+                            <list>
+                                <item><gi>ptr</gi>avec l'attribut <att>target</att> pointant vers le
+                                    lien d'où le texte a été récupéré/la collection est
+                                    issus.</item>
+                                <item><gi>title</gi></item>
+                                <item><gi>author</gi></item>
+                                <item><gi>publisher</gi></item>
+                                <item><gi>date</gi> avec l'attribut <att>when</att></item>
+                            </list>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <sourceDesc>
+                                    <bibl type="printSource">
+                                        <title>Lucignole</title>
+                                        <author>Mendès, Catulle (1841-1909)</author>
+                                        <pubPlace>Paris</pubPlace>
+                                        <publisher>E. Dentu</publisher>
+                                        <date when="1892"/>
+                                    </bibl>
+                                    <bibl type="digitalSource">
+                                        <ptr target="https://zenodo.org/communities/eltec/"/>
+                                        <title>Lucignole : édition ELTeC</title>
+                                        <author>Christof Schöch</author>
+                                        <author>BnF</author>
+                                        <publisher ref="https://distant-reading.net">COST Action
+                                            "Distant Reading for European Literary History"
+                                            (CA16204)</publisher>
+                                        <date when="2021-04-09"/>
+                                    </bibl>
+                                </sourceDesc>
+                            </egXML>
+                        </div4>
+                        <div4>
+                            <head>Mesures du document</head>
+                            <p><gi>extent</gi> indique les dimensions du texte encodé sous la forme
+                                d'une balise <gi>measure</gi>. Plusieurs balises <gi>measure</gi>
+                                peuvent coexister les unes après les autres en fonction de ce qui
+                                est indiqué dans la collection extraite. Un attribut <hi>unit</hi>
+                                prend pour valeur l'unité décrite pouvant être <hi>tokens</hi>,
+                                    <hi>words</hi>, <hi>sentences</hi>, <hi>pages</hi>. Une balise
+                                    <gi>measure</gi> dont l'attribut <hi>unit</hi> a pour valeur
+                                    <hi>token_colaf</hi> doit obligatoirement être présente.</p>
+                            <p>Pour ajouter la valeur de token_colaf, une feuille XSLT/ un programme
+                                python est disponible dans le dépôt github des métadonnées du
+                                projet.</p>
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <extent>
+                                    <measure unit="words">29772</measure>
+                                </extent>
+                            </egXML>
+
+                        </div4>
+                    </div3>
+                    <div3>
+                        <head>EncodingDesc - Applications employées</head>
+                        <p>L'encodingDesc contient des informations sur les applications employées
+                            pour construire le fichier. Chaque application employée pour obtenir le
+                            fichier est rapporté dans une balise <gi>application</gi>. Elle doit
+                            contenir: <list>
+                                <item><att>ident</att> avec un identifiant pour s'y réferer si
+                                    nécessaire.</item>
+                                <item><att>version</att></item>
+                                <item><att>source</att> (optionnel): si l'application est dérivée
+                                    d'une autre application déjà mentionnée.</item>
+                                <item><gi>label</gi>: le nom de l'application</item>
+                                <item><gi>desc</gi>:la description de l'application <list>
+                                        <item>Description non structurée si nécessaire</item>
+                                        <item>description avec information bibliographique courte
+                                            avec la balise <gi>bibl</gi></item>
+                                    </list></item>
+
+                            </list> qui détaille le nom de l'application, sa version utilisée, son
+                            nom dans une balise <gi>label</gi> et un lien qui pointe vers l'appli
+                            avec la balise <gi>ptr</gi>.</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <appInfo>
+                                <application ident="forum_to_tei" version="0.0.3">
+                                    <label>forum_to_tei.py</label>
+                                    <desc>
+                                        <bibl>
+                                            <title>Script python forum_to_tei.py</title>
+                                            <author>
+                                                <forename>Oriane</forename>
+                                                <surname>Nédey</surname>
+                                            </author>
+                                            <date when="2024"/>
+                                        </bibl>
+                                    </desc>
+                                    <ptr
+                                        target="https://github.com/DEFI-COLaF/forum-occitania-scraping/blob/forum_to_tei/forum_to_tei.py"
+                                    />
+                                </application>
+                                <application ident="fasttext-lid218e" version="1.0">
+                                    <label>FastText model LID218e released as part of the NLLB
+                                        project</label>
+                                    <desc>
+                                        <bibl type="article">
+                                            <title>No Language Left Behind: Scaling Human-Centered
+                                                Machine Translation</title>
+                                            <ptr target="http://arxiv.org/abs/2207.04672"/>
+                                            <author>NLLB Team</author>
+                                            <date when="2022"/>
+                                        </bibl>
+                                    </desc>
+                                    <ptr target="https://tinyurl.com/nllblid218e"/>
+                                </application>
+                                <application ident="fasttext-lid218e-post" source="#forum_to_tei"
+                                    version="0.0.3">
+                                    <label>forum_to_tei - predict_post_language</label>
+                                    <desc> Custom language identification wrapper for predicting the
+                                        language of a post based on FastText model LID218e.
+                                        Corresponds to function
+                                        forum_to_tei.lid.predict_post_language <ptr
+                                            source="https://github.com/DEFI-COLaF/forum-occitania-scraping/blob/9a2202d87fb5ea0f9ee345c7b20f6407dc539a75/tei_converter/lid.py#L161"
+                                            target="#forum_to_tei"/> . The post is first
+                                        preprocessed by: - removing potential blockquotes, URLs and
+                                        emails that could harm the predictions quality - removing
+                                        all tags (by extracting the raw text from the HTML tree) The
+                                        function calls the FastText model for prediction of the top
+                                        5 labels. Because posts can be very small and FastText
+                                        predictions often returns wrong and improbable labels, after
+                                        a detailed analysis of the forum's posts, only the following
+                                        languages (available in the set of model labels) have been
+                                        set as plausible: Occitan, French, Catalan, English,
+                                        Spanish. A main post language is selected only if the top
+                                        label is Occitan or one of the plausible labels along with a
+                                        high confidence score (0.8 or 0.6 if the user speaks
+                                        Occitan). Occitan can be added as an alternative probable
+                                        language if it was not already selected as the main post
+                                        language, but is present in the set of predictions. Scores
+                                        corresponds to the FastText predictions scores (between 0
+                                        and 1). </desc></application></appInfo>
+                        </egXML>
+
+                    </div3>
+
+                    <div3>
+                        <head>ProfileDesc</head>
+                        <p>Le ProfileDesc contient des informations complémentaires sur le fichier
+                            spécifique au projet. Dans le cas de COLaF il s'agit d'informations sur
+                            les langues présentes dans les documents, le type/genre du document et
+                            de façon optionnelle, les locuteurs présents dans le document.</p>
+                        <div4>
+                            <head>Représentation des langues</head>
+                            <p>Pour une description de la représentation des langues au niveau
+                                global du fichier, se réferer à la première partie. Pour satisfaire
+                                les besoins du projet, la balise <gi>langue</gi> est détaillée avec
+                                des informations sur son script, la période et le lieu.</p>
+                            <p>La balise <gi>language</gi> contient: <list>
+                                    <item>
+                                        <att>ident</att>: permet d'identifier la langue afin de la
+                                        réutiliser dans le texte. Sa valeur correspond à
+                                        l'identifiant glotto. Si une même langue est présente
+                                        plusieurs fois dans le document avec des variations de
+                                        lieu/temps, il est nécessaire de créer autant de balise
+                                            <gi>langue</gi> que nécessaire. Alors cet identifiant
+                                        sera adjoint d'un numéro à incrémenter: {IDGlotto}_001,
+                                        {IDGlotto}_002....</item>
+                                    <item><att>usage</att>taux d'utilisation de la langue dans le
+                                        texte du document. Si seule cette langue est employée, elle
+                                        sera de <hi>100</hi>, si une autre langue est employée
+                                        autant de fois, de <hi>50</hi>, si elle apparait de temps en
+                                        temps mais reste fréquente <hi>25</hi>, si elle apparait
+                                        épisodiquement <hi>10</hi> et ainsi de suite. La somme des
+                                        valeurs d'usage doit être de 100. Si le texte est traduit
+                                        entièrement d'une autre langue, on peut ajouter cette langue
+                                        et la décrire ici dans une balise <gi>language</gi> qui
+                                        aurait pour valeur de l'attribut <hi>usage</hi> 0.</item>
+                                    <item><gi>idno</gi>: <list>
+                                            <item>Avec une valeur <val>language</val> de
+                                                  <att>type</att>:code de langue, récupéré dans <ref
+                                                  target="https://glottolog.org">Glottolog</ref>, le
+                                                plus proche possible de la variété traitée.</item>
+                                            <item>Avec une valeur <val>script</val> de
+                                                  <att>type</att>: code de script, récupéré dans
+                                                  <ref
+                                                  target="https://en.wikipedia.org/wiki/ISO_15924"
+                                                  >ISO 15924</ref></item>
+                                        </list></item>
+                                    <item><gi>date</gi>: date du texte, qui peut différer de la date
+                                        de publication. A indiquer dans un attribut
+                                        <att>when</att>.</item>
+                                    <item><gi>location</gi>:location de la rédaction du date, quand
+                                        c'est possible. A détailler en des balises plus précises: <list>
+                                            <item><gi>settlement</gi>: pour la ville</item>
+                                            <item><gi>region</gi></item>
+                                            <item><gi>country</gi></item>
+                                        </list></item>
+                                    <!--A détailler question coordonnées géographiques - variations de noms...-->
+                                </list></p>
+
+                            <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                                <langUsage>
+                                    <language ident="stan1290" usage="100">
+                                        <idno type="langue" xml:id="stan1290"/>
+                                        <idno type="script" xml:id="latn"/>
+                                        <name>Français</name>
+                                        <date when="1860">1860</date>
+                                        <location>
+                                            <settlement>Paris</settlement>
+                                            <region>Ile-de-France</region>
+                                            <country>France</country>
+                                        </location>
+                                    </language>
+                                </langUsage>
+                            </egXML>
+
+                        </div4>
+                        <div4>
+                            <head>Représentation du genre textuel</head>
+                            <!--description des mots clefs dans le csv plus précise à faire-->
                             <p>Au vu de la quantité et de la variété de documents que le projet
                                 COLaF va traiter, il est nécessaire d'organiser le corpus en
                                 indiquant le type de document traité et le genre. Pour cela on
@@ -306,7 +504,7 @@
                                 cours de construction et disponible <ref
                                     target="https://github.com/DEFI-COLaF/metadata/TEI/Documentation_Genres/"
                                     >ici</ref>.</p>
-                            <p>ce vocabulaire fonctionne sur plusieurs niveaux: Supergenre, genre et
+                            <p>Ce vocabulaire fonctionne sur plusieurs niveaux: Supergenre, genre et
                                 mots-clefs. Supergenre et genre sont des listes fermées tandis que
                                 mots-clefs acceptent l'ajout de nouveaux termes. Il faut combiner
                                 ces informations pour définir au mieux le document traité. Par
@@ -315,10 +513,11 @@
                                 mot-clef Technology computing engineering.</p>
                             <p>Ces informations se trouvent, à l'instar des langues, dans le
                                     <gi>ProfileDesc</gi>. En suivant l'exemple plus bas, chaque
-                                    <gi>term</gi> correspond à un mot clef. L'attribut <gi>type</gi>
-                                renseigne sur le niveau de description du terme:
-                                <hi>supergenre</hi>, <hi>genre</hi> ou mot-clef. Le terme est à
-                                inscrire en toutes lettres entre les deux balises.</p>
+                                    <gi>term</gi> correspond à un mot clef. L'attribut
+                                    <att>type</att> renseigne sur le niveau de description du terme:
+                                    <val>supergenre</val>, <val>genre</val> ou <val>mot-clef</val>.
+                                Le terme est à inscrire en toutes lettres entre les deux
+                                balises.</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <textClass>
                                     <keywords>
@@ -334,11 +533,11 @@
 
                         </div4>
                         <div4>
-                            <head>Représenter les participants -OPTIONNEL</head>
+                            <head>Représentation des locuteurs -OPTIONNEL</head>
                             <p>Contrairement aux autres métadonnées, cette métadonnée est
                                 optionnelle et est employable uniquement dans des cas précis de
                                 locuteurs différents de l'auteur. C'est par exemple le cas pour des
-                                pièces de théâtres, de participants à un débat transcrit ou des
+                                pièces de théâtre, de participants à un débat transcrit ou des
                                 discussions sur internet de type Forum ou commentaires. L'idée est
                                 de pouvoir présenter les informations que l'on a sur les différents
                                 personnages qui participent au texte.</p>
@@ -351,26 +550,28 @@
                             <list>
                                 <item>Nom, prénom, pseudonym: dans la balise
                                     <gi>persName</gi></item>
-                                <item>Age: dans l'attribut <hi>age</hi>, à sélectionner entre les
-                                    valeurs <hi>child</hi> (jusqu'à 12 ans), <hi>teenager</hi>
-                                    (12-18 ans), <hi>young-adult</hi> (18-30 ans), <hi>adult</hi>
-                                    (30-60) et <hi>senior</hi>.</item>
-                                <item>Gender: dans l'attribut optionnel<hi>gender</hi>, à
-                                    sélectionner entre les valeurs <hi>F</hi> et <hi>M</hi>.</item>
+                                <item>Age: dans l'attribut <att>age</att>, à sélectionner entre les
+                                    valeurs <val>child</val> (jusqu'à 12 ans), <val>teenager</val>
+                                    (12-18 ans), <val>young-adult</val> (18-30 ans),
+                                        <val>adult</val> (30-60) et <val>senior</val>.</item>
+                                <item>Gender: dans l'attribut optionnel<att>gender</att>, à
+                                    sélectionner entre les valeurs <val>F</val> et
+                                    <val>M</val>.</item>
                                 <item>Lieu et date de naissance:dans la balise <gi>birth</gi>
                                         et<gi>placeName</gi> (qui peut être détaillé). L'attribut
-                                        <hi>when</hi> permet d'indiquer la date de naissance.</item>
+                                        <att>when</att> permet d'indiquer la date de
+                                    naissance.</item>
                                 <item>Lieu de vie: dans la balise <gi>residence</gi> qui peut être
                                     détaillée en fonction des nécessités en utilisant les
                                     différentes balises de lieux.</item>
                                 <item>Niveau social: dans la balise <gi>socecStatut</gi> et
-                                    l'attribut <hi>rend</hi> en sélectionnant dans la liste de
-                                    valeurs suivantes:<hi>high</hi>,<hi>middle</hi> et
-                                    <hi>low</hi>.</item>
-                                <item>Langues parlées: où l'attribut <hi>level</hi> indique le
-                                    niveau du locuteur: <hi>fluent</hi>, <hi>intermediate</hi> ou
-                                        <hi>basic</hi> et <hi>tag</hi> indique la langue parlée, la
-                                    valeur correspondant à <hi>ident</hi> de la langue
+                                    l'attribut <att>rend</att> en sélectionnant dans la liste de
+                                    valeurs suivantes:<val>high</val>,<val>middle</val> et
+                                        <val>low</val>.</item>
+                                <item>Langues parlées: où l'attribut <att>level</att> indique le
+                                    niveau du locuteur: <val>fluent</val>, <val>intermediate</val>
+                                    ou <val>basic</val> et <val>tag</val> indique la langue parlée,
+                                    la valeur correspondant à <val>ident</val> de la langue
                                     correspondant.</item>
                             </list>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
@@ -408,14 +609,30 @@
                             <p> On considère que les métadonnées sont en français standard. Ainsi,
                                 si une information géographique est dans une autre langue, il faudra
                                 uniquement indiquer cette langue là avec l'attribut
-                                    <hi>xml:lang</hi> comme dans l'exemple.</p>
+                                    <att>xml:lang</att> comme dans l'exemple.</p>
                         </div4>
+                    </div3>
+                    <div3>
+                        <head>RevisionDesc</head>
+                        <p>Le <gi>revisionDesc</gi> permet de conserver les modifications effectuées
+                            sur le document XML. Pour chaque modification une balise <gi>change</gi>
+                            est créée. Elle indique la date de la modification avec l'attribut
+                                <hi>when</hi>, la personne qui l'a modifié avec <hi>who</hi> qui
+                            renvoie à l'identifiant du responsable créé dans le <gi>respStmt</gi> et
+                            donne une brève information de la modification</p>
+                        <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                            <revisionDesc>
+                                <change when="2023-12-19" who="#JJANES">Création du fichier
+                                    TEI</change>
+                            </revisionDesc>
+                        </egXML>
                     </div3>
                 </div2>
                 <div2>
                     <head>Structuration du texte</head>
-                    <p>Le texte est encodé dans une balise <gi>text</gi> et est entièrement contenu
-                        dans une balise <gi>body</gi>.</p>
+                    <p>Le texte est encodé dans une balise <gi>text</gi> et est encodé dans une
+                        balise <gi>front</gi> pour les pages de titre et les sommaires et dans une
+                        balise <gi>body</gi> pour le corps du texte.</p>
                     <div3>
                         <head>Divisions</head>
                         <p>Les divisions principales du texte sont indiquées et structurées avec la
@@ -423,6 +640,7 @@
                             valeurs que peut prendre l'attribut <hi>type</hi> dans le cadre de la
                             division de base sont:</p>
                         <list>
+                            <!-- A refaire-->
                             <item>part</item>
                             <item>chapter</item>
                             <item>act</item>
@@ -431,8 +649,9 @@
                             <item>topic</item>
                             <item>letter</item>
                         </list>
-                        <p> Dans le cas d'une page de titre, la balise <gi>div</gi> est typée avec
-                            la valeur <hi>titlepage</hi>, sous la forme:</p>
+                        <p> Dans le cas d'une page de titre, au sein de la balise <gi>front</gi>, la
+                            balise <gi>div</gi> est typée avec la valeur <hi>titlepage</hi>, sous la
+                            forme:</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                             <div type="titlepage">
                                 <p>Titre du document sur la page principale</p>
@@ -443,10 +662,10 @@
                     </div3>
                     <div3>
                         <head>Définition de la langue</head>
-                        <p>Les identifiants employées pour décrire les langues dans le corps du
-                            texte correspondent aux identifiants créés dans les métadonnées de
-                            langue (balise language, attribut ident). Pour les appeler dans le corps
-                            du texte on ajoute un dièse (#) devant cet identifiant.</p>
+                        <p>Les identifiants employés pour décrire les langues dans le corps du texte
+                            correspondent aux identifiants créés dans les métadonnées de langue
+                            (balise language, attribut ident). Pour les appeler dans le corps du
+                            texte on ajoute un dièse (#) devant cet identifiant.</p>
                         <p>La langue principale du document est indiquée dans la balise
                                 <gi>text</gi> avec l'attribut <hi>xml:lang</hi>. Dans le cas où la
                             langue employée change dans le texte, on réutilise cet attribut avec la
@@ -523,14 +742,14 @@
                             <p>Dans le cas où le texte n'est pas en prose mais en vers, on structure
                                 le texte avec les balises <gi>lg</gi> pour les strophes et
                                     <gi>l</gi> pour les vers. </p>
-                            <p>Exemple issu des TEI Guidelines</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <div>
                                     <lg>
-                                        <l>Les amoureux fervents et les savants austères</l>
-                                        <l>Aiment également, dans leur mûre saison,</l>
-                                        <l>Les chats puissants et doux, orgueil de la maison,</l>
-                                        <l>Qui comme eux sont frileux et comme eux sédentaires.</l>
+                                        <l>Accoute un fos, mo ne pas bête,</l>
+                                        <l>Et ma me pèr’ lui touzours dit</l>
+                                        <l>Que mo ze l’avais dans me tête</l>
+                                        <l>Fort touzours, beaucoup de l’esprit.</l>
+                                        <l>Ah! io, io, io, ça y vrai, saite.</l>
                                     </lg>
                                 </div>
                             </egXML>
@@ -552,23 +771,14 @@
                                 dans le fichier TEI, le plus important est de conserver la balise
                                     <gi>stage</gi>, <gi>p</gi> ou <gi>l</gi> et dans une moindre
                                 mesure <gi>speaker</gi> et <gi>stage</gi>.</p>
-                            <p>Exemple issu des TEI guidelines</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                                <sp who="#VALERE">
-                                    <speaker> Valère.</speaker>
-                                    <p>Hé bien ! Sabine, quel conseil me donneras-tu ?</p>
-                                </sp>
-                                <sp who="#SABINE">
-                                    <speaker> Sabine.</speaker>
-                                    <p>Vraiment, il y a bien des nouvelles. Mon oncle veut
-                                        résolûment que ma cousine épouse Villebrequin, et les
-                                        affaires sont tellement avancées, que je crois qu'ils
-                                        eussent été mariés dès aujourd'hui, si vous n'étiez aimé ...
-                                        Le bonhomme ne manquera pas de faire loger ma cousine à ce
-                                        pavillon qui est au bout de notre jardin, et par ce moyen
-                                        vous pourriez l'entretenir à l'insu de notre vieillard,
-                                        l'épouser, et le laisser pester tout son soûl avec
-                                        Villebrequin.</p>
+                                <sp who="#FRELINGUE">
+                                    <speaker>FRELINGUE.</speaker>
+                                    <l>Elle a le mal de mer, elle a le mal de terre,</l>
+                                    <l>Elle a... Que sais-je enfin ? Elle n'est pas trop bien ;</l>
+                                    <l>Cent drogues qu'on lui fait, ne lui servent de rien.</l>
+                                    <l>Si l'on la peut sauver, la cure sera belle.</l>
+                                    <l>Taisons nous ; ces gens-là sont je crois de chez elle.</l>
                                 </sp>
                             </egXML>
                         </div4>
@@ -578,9 +788,12 @@
                                 nécessaire de les structurer de telle façon:</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <list>
-                                    <item>Point 1</item>
-                                    <item>Point 2</item>
-                                    <item>Point 3</item>
+                                    <head>ACTEURS</head>
+                                    <item>LA HOLLANDE.</item>
+                                    <item>BELINE, sa suivante.</item>
+                                    <item>MARILLE, servante de la Hollande.</item>
+                                    <item>GOULEMER, Matelot. </item>
+                                    <item>FRELINGUE, Hollandaise.</item>
                                 </list>
                             </egXML>
                             <p>Les listes non ordonnées, numérotées ou non sont toutes
@@ -596,9 +809,6 @@
                                 on encode dans une division <gi>div</gi> typée avec <hi>entry</hi>
                                 et <gi>p</gi>, soit on détaille un peu plus l'information avec les
                                 balises dédiées ci-dessous:</p>
-                            <p>Le texte exemple est issu de LADaS, du subset
-                                Persée:hiper_2284-5666_2015_num_2_1_892_0283.jpg et des TEI
-                                Guidelines.</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <!--Exemple d'entrée non détaillée-->
                                 <div type="entry">
@@ -754,12 +964,13 @@
                             </egXML>
                         </div4>
                         <div4>
-                            <head>Données morphosyntaxiques</head>
-                            <p>Les données morphosyntaxiques sont représentées avec les balises
-                                    <gi>s</gi> pour encoder une phrase, <gi>w</gi> pour un mot/token
-                                et <gi>pc</gi> pour de la ponctuation. Les attributs de base de
-                                description morphosyntaxiques y sont associés: <gi>pos</gi> pour le
-                                part of speech, <gi>lemma</gi> pour les lemmes, <gi>n</gi>...</p>
+                            <head>Données d'annotation linguistique</head>
+                            <p>Les données d'annotation linguistique sont représentées avec les
+                                balises <gi>s</gi> pour encoder une phrase, <gi>w</gi> pour un
+                                mot/token et <gi>pc</gi> pour de la ponctuation. Les attributs de
+                                base de description morphosyntaxiques y sont associés:
+                                    <att>pos</att> pour le part of speech, <att>lemma</att> pour les
+                                lemmes, <att>n</att>...</p>
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <p>
                                     <s>
@@ -841,7 +1052,7 @@
                                             <gi>head</gi>.</p>
                                     <p>Chaque post est encodé par une balise <gi>post</gi> dont
                                         l'utilisation est décrite dans le 1.3.3.6. La langue,
-                                        décrite dans l'attribut <hi>xml:lang</hi> de cette balise,
+                                        décrite dans l'attribut <att>xml:lang</att> de cette balise,
                                         est prédite par un modèle d'où la balise <gi>certainty</gi>
                                         intégrée dans la balise post (voir 1.3.2.). Les paragraphes
                                         sont structurés par des <gi>p</gi>, les listes par des
@@ -885,7 +1096,8 @@
                                                   match="@xml:id" source="lid218e.bin"/>
                                                   <p><lb/>Espèras un chic, qu'ei hicat las paraulas
                                                   au solèr ...</p>
-                                                </post> </div>
+                                                </post>
+                                            </div>
                                         </div>
                                     </egXML>
                                     <p>Les réponses à un post, sous la forme d'une citation,
@@ -979,11 +1191,13 @@
                     </elementSpec>
                     <elementSpec ident="person" mode="change">
                         <content>
-                            <elementRef key="persName" minOccurs="0"/>
-                            <elementRef key="langKnowledge" minOccurs="0"/>
-                            <elementRef key="birth" minOccurs="0"/>
-                            <elementRef key="residence" minOccurs="0"/>
-                            <elementRef key="socecStatut" minOccurs="0"/>
+                            <sequence preserveOrder="false">
+                                <elementRef key="persName" minOccurs="0"/>
+                                <elementRef key="langKnowledge" minOccurs="0"/>
+                                <elementRef key="birth" minOccurs="0"/>
+                                <elementRef key="residence" minOccurs="0"/>
+                                <elementRef key="socecStatut" minOccurs="0"/>
+                            </sequence>
                         </content>
                         <attList>
                             <attDef ident="xml:id" mode="change" usage="req">
@@ -1091,8 +1305,10 @@
                     </elementSpec>
                     <elementSpec ident="list" mode="change">
                         <content>
-                            <elementRef key="head" minOccurs="0" maxOccurs="1"/>
-                            <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
+                            <sequence preserveOrder="false">
+                                <elementRef key="head" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="item" minOccurs="1" maxOccurs="unbounded"/>
+                            </sequence>
                         </content>
                         <attList>
                             <attDef ident="type" mode="delete"/>
@@ -1192,8 +1408,10 @@
                     </elementSpec>
                     <elementSpec ident="respStmt" mode="change">
                         <content>
-                            <elementRef key="resp" minOccurs="1"/>
-                            <elementRef key="persName" minOccurs="1"/>
+                            <sequence preserveOrder="false">
+                                <elementRef key="resp" minOccurs="1"/>
+                                <elementRef key="persName" minOccurs="1"/>
+                            </sequence>
                         </content>
                     </elementSpec>
                     <elementSpec ident="measure" mode="change">
