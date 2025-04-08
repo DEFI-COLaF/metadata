@@ -1150,11 +1150,7 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut occupation"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-<<<<<<< HEAD
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del"/>
-=======
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media num"/>
->>>>>>> a27acd1 (ajout citestructure pour décrire l'arborescence du fichier)
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del num"/>
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
