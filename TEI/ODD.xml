@@ -1147,14 +1147,14 @@
                     <!--Checking modules-->
 
                     <moduleRef key="namesdates"
-                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut"/>
+                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut occupation"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del num"/>
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
-                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application "/>
+                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure"/>
                     <moduleRef key="transcr" include="fw"/>
                     <moduleRef key="linking" include="ab"/>
                     <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
@@ -1197,6 +1197,7 @@
                                 <elementRef key="birth" minOccurs="0"/>
                                 <elementRef key="residence" minOccurs="0"/>
                                 <elementRef key="socecStatut" minOccurs="0"/>
+                                <elementRef key="occupation" minOccurs="0"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1266,6 +1267,7 @@
                                 <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="label" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="code" minOccurs="0" maxOccurs="unbounded"/>
+                                <elementRef key="num" minOccurs="0" maxOccurs="unbounded"/>
                             </sequence>
                         </content>
                     </elementSpec>
@@ -1570,7 +1572,6 @@
                     <elementSpec ident="titleStmt" mode="change">
                         <content>
                             <sequence preserveOrder="true">
-                                <elementRef key="idno" minOccurs="1"/>
                                 <elementRef key="title" minOccurs="1" maxOccurs="2"/>
                                 <elementRef key="author" minOccurs="0" maxOccurs="unbounded"/>
                                 <elementRef key="respStmt" minOccurs="1" maxOccurs="unbounded"/>
@@ -1582,6 +1583,8 @@
                     <elementSpec ident="publicationStmt" mode="change">
                         <content>
                             <sequence preserveOrder="true">
+                                
+                                <elementRef key="idno" minOccurs="1"/>
                                 <elementRef key="publisher" minOccurs="1"/>
                                 <elementRef key="date" minOccurs="1"/>
                                 <elementRef key="availability" minOccurs="1"/>
@@ -1765,6 +1768,7 @@
                                     <valItem ident="forum"/>
                                     <valItem ident="topic"/>
                                     <valItem ident="letter"/>
+                                    <valItem ident="parabole"/>
                                 </valList>
                             </attDef>
                         </attList>
