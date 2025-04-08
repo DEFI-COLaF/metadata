@@ -4,17 +4,12 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-<<<<<<< HEAD
-         ns="http://www.tei-c.org/ns/1.0">
-<!--[https://creativecommons.org/licenses/by/4.0/] Attribution 4.0 International (CC BY 4.0)-->
-=======
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2025-04-08T07:00:56Z. . 
+Schema generated from ODD source 2025-04-08T07:07:42Z. . 
 TEI Edition: P5 Version 4.8.0. Last updated on 8th July 2024, revision 1f9891a87 
 TEI Edition Location: https://www.tei-c.org/Vault/P5/4.8.0/ 
   
 --><!--[https://creativecommons.org/licenses/by/4.0/] Attribution 4.0 International (CC BY 4.0)-->
->>>>>>> a27acd1 (ajout citestructure pour décrire l'arborescence du fichier)
    <define name="macro.abContent">
       <zeroOrMore>
          <choice>
@@ -3663,7 +3658,6 @@ Suggested values include: 1] m (metre); 2] kg (kilogram); 3] s (second); 4] Hz (
                <ref name="item"/>
             </oneOrMore>
          </interleave>
-
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   id="oddbyexample-list-gloss-list-must-have-labels-constraint-rule-18">
@@ -5054,7 +5048,6 @@ Elements 7.2.5. Speech Contents]</a:documentation>
    <define name="person">
       <element name="person">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(person) provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [14.3.2. The Person Element 16.2.2. The Participant Description]</a:documentation>
-
          <interleave>
             <optional>
                <ref name="persName"/>
@@ -5072,7 +5065,6 @@ Elements 7.2.5. Speech Contents]</a:documentation>
                <ref name="occupation"/>
             </optional>
          </interleave>
-
          <ref name="att.global.attribute.n"/>
          <ref name="att.global.attribute.xmllang"/>
          <ref name="att.global.attribute.xmlbase"/>
