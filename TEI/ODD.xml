@@ -1150,7 +1150,7 @@
                         include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut occupation orgName"/>
                     <moduleRef key="corpus" include="particDesc"/>
                     <moduleRef key="core"
-                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del num"/>
+                        include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del num q"/>
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
