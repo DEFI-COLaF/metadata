@@ -1157,7 +1157,7 @@
                         include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure refsDecl"/>
                     <moduleRef key="transcr" include="fw"/>
                     <moduleRef key="linking" include="ab"/>
-                    <moduleRef key="textstructure" include="TEI text body div dateline signed"/>
+                    <moduleRef key="textstructure" include="TEI text body div dateline signed front"/>
                     <moduleRef key="dictionaries"
                         include="entry form sense orth pron gramGrp pos gen def"/>
                     <moduleRef key="certainty" include="certainty"/>
