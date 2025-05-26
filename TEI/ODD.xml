@@ -1154,10 +1154,10 @@
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
-                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure refsDecl"/>
+                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure refsDecl creation"/>
                     <moduleRef key="transcr" include="fw"/>
                     <moduleRef key="linking" include="ab"/>
-                    <moduleRef key="textstructure" include="TEI text body div dateline signed front"/>
+                    <moduleRef key="textstructure" include="TEI text body div dateline signed front back"/>
                     <moduleRef key="dictionaries"
                         include="entry form sense orth pron gramGrp pos gen def"/>
                     <moduleRef key="certainty" include="certainty"/>
@@ -1668,6 +1668,7 @@
                                 <elementRef key="langUsage" minOccurs="1" maxOccurs="1"/>
                                 <elementRef key="textClass" minOccurs="1" maxOccurs="1"/>
                                 <elementRef key="particDesc" minOccurs="0" maxOccurs="1"/>
+                                <elementRef key="creation" minOccurs="0" maxOccurs="1"/>
                             </sequence>
                         </content>
                     </elementSpec>
