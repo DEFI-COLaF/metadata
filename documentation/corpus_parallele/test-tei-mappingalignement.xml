@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+
+   <standOff>
+      <!-- ou spanGrp / span -->
+      <!-- pour chaque paire de documents et chaque type (sentence/paragraph), on crée un linkGrp et autant d'éléments link que d'alignement -->
+      <linkGrp source="doc-occ.xml" corresp="doc-fr.xml" type="sentence">
+         <link target="#oc-str001-v001:oc-str001-v001-anch037 #fr-str001-v001 " ana="0.76"/>
+         <!-- cas d'omission : trouver une convention pour 'rien'-->
+         <link target="#NA #fr-str001-v005"/>
+         
+      </linkGrp>
+      
+      
+      <!-- si plusieurs fichiers -->
+      <linkGrp source="doc-occ.xml" corresp="doc-fr.xml doc-lim.xml doc-auv.xml" type="sentence-multilingual">
+         <link target="#oc-str001-v001:oc-str001-v001-anch037 #fr-str001-v001 #lim-str001-v001 #auv-str001-v001 " ana="0.56 0.89"/>
+        
+         
+      </linkGrp>
+   </standOff>
+     
+        
+</TEI>

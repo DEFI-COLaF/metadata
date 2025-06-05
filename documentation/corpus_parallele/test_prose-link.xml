@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+
+   <standOff>
+      <linkGrp source="doc-occ.xml" corresp="doc-fr.xml" type="sentence">
+         <!-- Si traduction littérale: un paragraphe=1 paragraphe-->
+         <link target="#occ-ch001-p0001 #fr-ch001-p0001 " ana="0.76"/>
+         <!-- Si 1 paragraphe = 2 paragraphes-->
+         <link target="#occ-ch001-p0002:occ-ch001-p0003 #fr-ch001-p0002" ana="0.79"/>
+
+      </linkGrp>
+      <linkGrp source="doc-en.xml" corresp="doc-fr.xml" type="sentence">
+         <!-- Si la traduction ne garde pas certains éléments-->
+         <link
+            target="#en-ch01-p001-ch0057:en-ch001-p0001-char0106 #fr-ch01-p0001-char0003:fr-ch01-p001-char096 "
+            ana="0.76"/>
+         <!-- Que faire des morceaux de texte non traduits? 
+            Jusqu'à quel niveau aller? 
+            Au niveau phrase du texte gauche? => les phrases ne sont pas identiques. 
+            Dans ce cas là avoir une balise sentence en plus? -->
+
+      </linkGrp>
+
+
+      <!-- si plusieurs fichiers -->
+      <linkGrp source="doc-occ.xml" corresp="doc-fr.xml doc-lim.xml doc-auv.xml"
+         type="sentence-multilingual">
+         <link
+            target="#oc-str001-v001:oc-str001-v001-anch037 #fr-str001-v001 #lim-str001-v001 #auv-str001-v001 "
+            ana="0.56 0.89"/>
+
+
+      </linkGrp>
+   </standOff>
+
+
+</TEI>

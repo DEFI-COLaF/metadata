@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <head>J'ai décidé de monter sur mon âne</head>
+         <lg>
+            <l xml:id="fr-str001-v001">J'ai décidé de monter sur mon âne</l>
+            <l>Pour aller voir l'accouchée,</l>
+            <l>J'ai décidé de monter sur mon âne,</l>
+            <l>Pour aller voir si c'est vrai; <stage>(bis)</stage></l>
+         </lg>
+         
+         
+         <lg type="chorus"> 
+            <!--<stage>Refrain</stage> / <head>Refrain</head>-->
+            <l>Des maillots et des chemisettes <note type="inline-brackets">[brassières]</note></l>
+            <l>Nous en chargerons notre petite ânesse</l>
+            <l>Un fromage comme un mortier</l>
+            <l>Nous le mangerons tous en compagnie</l>
+            <l>Ah ! ah ! ah ! ah !</l>
+         </lg>
+      </body>
+  </text>
+</TEI>

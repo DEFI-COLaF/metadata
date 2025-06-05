@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>L'ISLA DEU TESAUR</head>
+         <div type="chapter" n="1">
+            <head>CAPÍTOL 1 LO VIELH LOP DE MAR A L'AMIRAU BENBOW</head>
+            <p>Lo casteran Trelawney, lo mètge Livesey e la rèsta d'aqueths sénhers m'avent demandat
+               d'escríver tots los detalhs sus l'isla deu tesaur, deu començament dinc a la fin,
+               shens estujar arren sonque la posicion de l'isla, e aquò solament pr'amor qu'i sobra
+               enqüèra un tesaur, que'm preni lo calam l'annada 17.., e que me'n torni tà l'epòca
+               quan lo pair e tienèva l'Amirau Benbow, e quan lo vielh marin de la pèth usclada dab
+               ua estafilada hèita per un còp de sabre e prenó, peu purmèr còp, lo son lotjament
+               devath lo noste teit.</p>
+            <p>Que'u me brembi com s'estossi ger, quan arribè d'un pas pesant a la nosta pòrta, lo
+               cròfe de marin au darrèr sus un carriòt. </p>
+            <p>Qu'èra un omiàs gualhard, pesuc, marron com un averan ; la soa trena gondronosa que'u
+               cadèva sus las espatlas d'ua vèsta blua cascanta ; las soas mans qu'èran arroganhadas
+               e cobèrtas de cicatriças dab unglas negras e copadas ; e l'estafilada de sabre
+               qu'avèva sus la maishèra qu'èra hastiau e d'un blanc livide.§oc-gascon-grclass </p>
+         </div>
+      </body>
+   </text>
+</TEI>
