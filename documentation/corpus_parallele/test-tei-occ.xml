@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <head>Siéu decida de mountar sus mon ai</head>
+      
+            <lg xml:id="oc-str001">
+               <l xml:id="oc-str001-v001">Siáu decidat de montar <anchor xml:id="oc-str001-v001-char037"/>sus mon ai</l>
+               <l>Per anar vèire<anchor xml:id="oc-str001-v002-char034"/> l'Acochada,</l>
+            <l>Siáu decidat de montar sus mon ai,</l>
+            <l>Per anar vèire s'es verai; <stage>(bis)</stage></l></lg>
+            
+            <!--Refrin <stage> ?-->
+            <lg type="chorus"><l>De malhoats e de camisetas</l>
+            <l>N'en cargarem nòstrei saumetas</l>
+            <l>Un fromatge coma un mortier</l>
+            <l>Lo manjarem totei de companhiá</l>
+            <l>Ah ! Ah ! Ah ! Ah !</l></lg>
+      </body>
+  </text>
+</TEI>

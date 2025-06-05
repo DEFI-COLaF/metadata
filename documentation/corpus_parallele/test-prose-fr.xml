@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>L'île au trésors</head>
+         <div type="chapter" n="1">
+            <head> I Le vieux loup de mer</head>
+            <p xml:id="fr-ch01-p0001">On <anchor xml:id="fr-ch01-p0001-char0003"/>me demande de raconter tout ce qui se rapporte à mes aventures
+               dans l’île au Trésor, — tout, depuis le commencement jusqu’à la fin, — en ne
+               réservant que la vraie position géographique de l’île, et cela par la raison qu’il
+               s’y trouve encore des richesses enfouies. Je prends donc la plume, en l’an de grâce
+               1782, et je me reporte au temps où mon père tenait sur la route de Bristol, à deux ou
+               trois cents pas de la côte, l’auberge de l’Amiral-Benbow.<anchor xml:id="fr-ch01-p001-char096"/> </p>
+            <p xml:id="fr-ch01-p0002">C’est alors qu’un vieux marin, à la face rôtie par le soleil et balafrée d’une
+               immense estafilade, vint pour la première fois loger sous notre toit. Je le vois
+               encore, arrivant d’un pas lourd à la porte de chez nous, suivi de son coffre de
+               matelot qu’un homme traînait dans une brouette. Il était grand, d’apparence
+               athlétique, avec une face au teint couleur de brique, une queue goudronnée qui
+               battait le col graisseux de son vieil habit bleu, des mains énormes, calleuses,
+               toutes couturées de cicatrices, et ce coup de sabre qui avait laissé sur sa face, du
+               front au bas de la joue gauche, un sillon blanchâtre et livide… Je me le rappelle
+               comme si c’était d’hier, s’arrêtant pour regarder tout autour de la baie en
+               sifflotant entre ses dents ; puis, fredonnant cette vieille chanson de mer qu’il
+               devait si souvent nous faire entendre, hélas ! </p>
+         </div>
+      </body>
+   </text>
+</TEI>

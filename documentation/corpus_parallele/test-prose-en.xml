@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <head>Treasure Island</head>
+         <div type="chapter" n="1">
+            <head>I The old sea-dog at the admiral benbow</head>
+            <p xml:id="en-ch001-p0001">Squire Trelawney, Doctor Livesey, and the rest of these gentlemen <anchor xml:id="en-ch01-p001-ch0057"/> having asked me to
+               write down the whole particulars about Treasure Island, from the beginning to the
+               end, keeping nothing back but the bearings of the island, and that only because there
+               is still treasure not yet lifted, I take up my pen in the year of grace 17—, and go
+               back to the time when my father kept the Admiral Benbow Inn<anchor xml:id="en-ch001-p0001-char0106"/>, and the brown old
+               seaman, with the saber-cut, first took up his lodging under our roof. </p>
+            <p xml:id="en-ch001-p0002">I remember him as if it were yesterday, as he came plodding to the inn door, his
+               sea-chest following behind him in a hand-barrow;[3] a tall, strong, heavy, nut-brown
+               man; his tarry pig-tail[4] falling over the shoulders of his soiled blue coat; his
+               hands ragged and scarred, with black, broken nails, and the saber-cut across one
+               cheek, a dirty, livid white. I remember him looking round the cove and whistling to
+               himself as he did so, and then breaking out in that old sea-song that he sung so
+               often afterward: </p>
+         </div>
+      </body>
+   </text>
+</TEI>
