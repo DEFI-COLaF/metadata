@@ -36,7 +36,127 @@
     <text>
         <body>
             <div1>
-                <head>Guide l'encodage du projet COLaF</head>
+                <head>COLaF Project encoding guidelines</head>
+                <p>Through the COLaF project (Corpus et Outils pour les Langues de France, Corpus
+                    and Tools for the Languages of France), <ref target="https://www.inria.fr/en"
+                        >Inria</ref> aims to contribute to the development of free corpora and tools
+                    for French and other languages of France, in close collaboration with academic
+                    and institutional partners. It embraces the full diversity of French and the
+                    languages of France, from regional and creole varieties to migrant, indigenous,
+                    and sign languages, in both standard and non-standard forms. </p>
+                <p>This document describes the encoding choices made within the project. Given the
+                    project’s scope, the documents processed are highly diverse. As a result, the
+                    text encoding differs only slightly from a TEI all. However, due to COLaF’s
+                    goals, it was necessary to describe certain metadata as precisely as possible,
+                    in order to represent each document and enable their positioning and retrieval
+                    within a corpus of corpora. This short documentation therefore focuses on
+                    the detailed metadata selected by COLaF rather than serving as an exhaustive
+                    catalogue of every tag used in each corpus produced by COLaF. </p>
+                <div2>
+                    <head>Identifier</head>
+                    <p> The COLaF corpus is organised into collections of related documents. Each
+                        file must have a specific identifier following the format
+                        "{CollectionName}_{Identifier}". The collection name is a simplified
+                        normalized form of the subcorpus name and the identifier comes from an
+                        existing ID, a web URI or a sequential number.</p>
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <idno>PicConcours_01</idno>
+                    </egXML>
+                </div2>
+                <div2>
+                    <head>Representation of language</head>
+                    <p>The COLaF project focuses on accuratly representing linguistic variation in
+                        texts, including dialectal, geographic, chronological and social aspects.
+                        Languages are described in the metadata using the <gi>language</gi> element.
+                        Glottolog is used to identify languages and dialects with stable
+                        identifiers, while scripts are described with the ISO 15924 standard. Since
+                            <att>xml:lang</att> is supposed to contain only BCP47 identifier, it is
+                        not possible to put a value with numbers. Therefore, a simplified version of
+                        the Glottolog identifier without numbers is used to link <att>xml:lang</att>
+                        and <att>ident</att>. We prioritised interoperability over strict TEI
+                        compliance by doing this instead of creating a new attribute for languages. </p>
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <language ident="stan" usage="100">
+                            <idno type="langue" xml:id="stan1290"/>
+                            <idno type="script" xml:id="latn"/>
+                            <name>Français</name>
+                        </language>
+                    </egXML>
+                    <p>A language represented in a text cannot be defined solely by its name.
+                        Variations occur depending on the time, place, and the person who speaks it.
+                        To fully capture all the parameters that influence language, information
+                        about place, person, and language are combined within the same text through
+                        pointers. Ontologies and controlled vocabularies are used to ensure maximum
+                        data interoperability. When this has not been possible, specific sets of
+                        values have been established based on specialized vocabularies. For example, geonames is used for places.</p>
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <person xml:id="person_17">
+                        <name> Guillautin Fougere</name>
+                        <langKnowledge>
+                            <langKnown tag="stan-1290"/>
+                            <langKnown tag="poit-1241"/>
+                        </langKnowledge>
+                        <occupation>Sous-Préfet</occupation>
+                        <residence>
+                            <settlement>
+                                <name>Rochefort</name>
+                                <idno type="geonames">2983276</idno></settlement>
+                            <region><name>Charente-Maritime</name><idno type="geonames"
+                                >3026644</idno></region></residence>
+                    </person>
+                        <!-- -->
+                        <place xml:id="place_26" corresp="#poit-1241">
+                            <settlement><name>Marennes</name><idno type="geonames">2995854</idno></settlement>
+                            <region><name>Charente-Maritime</name><idno type="geonames">3026644</idno></region>
+                        </place>
+                    <!---->
+                        <div type="parabole" n="29" xml:lang="poit-1241" hand="#person_17" corresp="#place_26"
+                            subtype="1818">
+                            <head xml:lang="stan-1290"><lb/>Traduction de la Parabole de l’Enfant prodigue en patois de
+                                <lb/>Marennes, Charente-Inférieure, envoyée, en 1818, par <lb/>M. Guillotin FOUGERÉ,
+                                sous-préfet, (M. I.)</head>
+                            <p n="11"><lb/><num>11</num>. In houme avoil deux cheut d'enfant.</p>
+                            <p n="12"><lb/><num>12</num>. Don le pus jenne dicit à son père: Mon père,<pb n="059"
+                                facs="https://gallica.bnf.fr/ark:/12148/bd6t5334045p/f059"/><fw type="numbering">— 49
+                                    —</fw><lb/>baillez me le benn qu’i deus avoirt pre mon lot, et i leus <lb/>fasit le
+                                partage de son benn.</p>
+                            <p n="13"><lb/><num>13</num>. Queuque jour après le pus jenne emportit avecques <lb/>li
+                                tout ce qu’il avoit, s’en engit voyager en in pays be <lb/>leung où il dépensit tout son
+                                benn en débauche.</p></div></egXML>
+                </div2>
+                <div2>
+                    <head>Representation of textual genres</head>
+                    <p>Given the quantity and variety of documents processed by the COLaF
+                        project, the corpus must be organized by indicating document type and
+                        genre. This is done with a set of controlled vocabulary keywords,
+                        currently under development and available <ref
+                            target="https://github.com/DEFI-COLaF/metadata/TEI/Documentation_Genres/"
+                            >here</ref>.</p>
+                    
+                    <p>The vocabulary works on three levels: Supergenre, genre, and keywords.
+                        Supergenre and genre are closed lists, while keywords allow new terms.
+                        These must be combined to best describe each document. For example, an
+                        online computer science newspaper article would be described with
+                        supergenres Nonfiction and Web, genre Press, and keyword Technology
+                        computing engineering.</p>
+                    
+                    <egXML xmlns="http://www.tei-c.org/ns/Examples">
+                        <textClass>
+                            <keywords>
+                                <term type="supergenre" rend="nonfiction">Non Fiction</term>
+                                <term type="supergenre" rend="web">Web</term>
+                                <term type="genre" rend="nonfiction-press">Press</term>
+                                <term type="motclef"
+                                    rend="nonfiction-press-technology-engineering"
+                                    >Technology computing engineering</term>
+                            </keywords>
+                        </textClass>
+                    </egXML>
+                </div2>
+
+            </div1>
+            <div1>
+                <head>Guide d'encodage du projet COLaF</head>
                 <div2>
                     <head>Introduction</head>
                     <p>À travers le projet COLaF (Corpus et Outils pour les Langues de France), <ref
@@ -139,7 +259,6 @@
                             Le but est de représenter la variation linguistique de chaque texte le
                             mieux possible au niveau dialectal, géographique, chronologique et même
                             social.</p>
-
                         <p>Pour ce faire, il faut décrire de la façon la plus précise possible les
                             langues présentes dans les documents, via la balise <gi>language</gi>
                             présente dans les métadonnées.Pour la langue, nous utilisons la norme
@@ -147,16 +266,16 @@
                             données de langues et dialectes associant à chacun un identifiant unique
                             et stable et développé par l'Institut Max Planck. Le script est décrit
                             avec la norme ISO 15924, bien que sa valeur sera dans la plupart des cas
-                                <val>latn</val>.</p>
+                                <val>latn</val>. L'attribut <att>xml:lang</att> n'acceptant pas de
+                            nombre comme valeur, il n'est pas possible d'y indiquer l'identifiant
+                            Glottolog. Le lien entre <att>xml:lang</att> et <att>ident</att> est
+                            donc fait par un identifiant créé en supprimant la numérotation de
+                            l'identifiant Glottolog.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <language ident="stan1290" usage="100">
+                            <language ident="stan" usage="100">
                                 <idno type="langue" xml:id="stan1290"/>
                                 <idno type="script" xml:id="latn"/>
                                 <name>Français</name>
-                                <date when="1860">1860</date>
-                                <location>
-                                    <settlement>Paris</settlement>
-                                </location>
                             </language>
                         </egXML>
                         <p>La langue de base des documents encodés est le français moderne de
@@ -172,8 +291,8 @@
                             en picard, on ajoute cette information au niveau le plus haut dans sur
                             la balise <gi>text</gi>.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                            <text xml:lang="stan1290"/>
-                            <title xml:lang="pica1241">Ch'viux bertcheux</title>
+                            <text xml:lang="stan"/>
+                            <title xml:lang="pica">Ch'viux bertcheux</title>
                         </egXML>
                     </div3>
                 </div2>
@@ -438,12 +557,7 @@
                                     <item>
                                         <att>ident</att>: permet d'identifier la langue afin de la
                                         réutiliser dans le texte. Sa valeur correspond à
-                                        l'identifiant glotto. Si une même langue est présente
-                                        plusieurs fois dans le document avec des variations de
-                                        lieu/temps, il est nécessaire de créer autant de balise
-                                            <gi>langue</gi> que nécessaire. Alors cet identifiant
-                                        sera adjoint d'un numéro à incrémenter: {IDGlotto}_001,
-                                        {IDGlotto}_002....</item>
+                                        l'identifiant glotto moins les numéros.</item>
                                     <item><att>usage</att>taux d'utilisation de la langue dans le
                                         texte du document. Si seule cette langue est employée, elle
                                         sera de <hi>100</hi>, si une autre langue est employée
@@ -465,30 +579,14 @@
                                                   target="https://en.wikipedia.org/wiki/ISO_15924"
                                                   >ISO 15924</ref></item>
                                         </list></item>
-                                    <item><gi>date</gi>: date du texte, qui peut différer de la date
-                                        de publication. A indiquer dans un attribut
-                                        <att>when</att>.</item>
-                                    <item><gi>location</gi>:location de la rédaction du date, quand
-                                        c'est possible. A détailler en des balises plus précises: <list>
-                                            <item><gi>settlement</gi>: pour la ville</item>
-                                            <item><gi>region</gi></item>
-                                            <item><gi>country</gi></item>
-                                        </list></item>
-                                    <!--A détailler question coordonnées géographiques - variations de noms...-->
                                 </list></p>
 
                             <egXML xmlns="http://www.tei-c.org/ns/Examples">
                                 <langUsage>
-                                    <language ident="stan1290" usage="100">
+                                    <language ident="stan" usage="100">
                                         <idno type="langue" xml:id="stan1290"/>
                                         <idno type="script" xml:id="latn"/>
                                         <name>Français</name>
-                                        <date when="1860">1860</date>
-                                        <location>
-                                            <settlement>Paris</settlement>
-                                            <region>Ile-de-France</region>
-                                            <country>France</country>
-                                        </location>
                                     </language>
                                 </langUsage>
                             </egXML>
@@ -580,14 +678,14 @@
                                         <person xml:id="P-0001" gender="F" age="young-adult">
                                             <persName>Juliette Janès</persName>
                                             <langKnowledge>
-                                                <langKnown level="fluent" tag="met-fra-std"
+                                                <langKnown level="fluent" tag="stan"
                                                   >Français</langKnown>
-                                                <langKnown level="basic" tag="met-oïl-pic"
+                                                <langKnown level="basic" tag="pica"
                                                   >Picard</langKnown>
                                             </langKnowledge>
                                             <birth when="1998">
                                                 <placeName>Amiens</placeName>
-                                                <placeName xml:lang="met-oïl-pic">Anmien</placeName>
+                                                <placeName xml:lang="pica">Anmien</placeName>
                                             </birth>
                                             <residence>
                                                 <settlement>Asnières sur Seine</settlement>
@@ -1157,7 +1255,8 @@
                         include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure refsDecl creation"/>
                     <moduleRef key="transcr" include="fw"/>
                     <moduleRef key="linking" include="ab"/>
-                    <moduleRef key="textstructure" include="TEI text body div dateline signed front back"/>
+                    <moduleRef key="textstructure"
+                        include="TEI text body div dateline signed front back"/>
                     <moduleRef key="dictionaries"
                         include="entry form sense orth pron gramGrp pos gen def"/>
                     <moduleRef key="certainty" include="certainty"/>
@@ -1586,7 +1685,7 @@
                     <elementSpec ident="publicationStmt" mode="change">
                         <content>
                             <sequence preserveOrder="true">
-                                
+
                                 <elementRef key="idno" minOccurs="1"/>
                                 <elementRef key="publisher" minOccurs="1"/>
                                 <elementRef key="date" minOccurs="1"/>
