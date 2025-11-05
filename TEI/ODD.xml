@@ -1245,8 +1245,8 @@
                     <!--Checking modules-->
 
                     <moduleRef key="namesdates"
-                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut occupation orgName"/>
-                    <moduleRef key="corpus" include="particDesc"/>
+                        include="location settlement region geo country persName surname forename langKnowledge langKnown person listPerson birth residence socecStatut occupation orgName settlement listPlace place placeName"/>
+                    <moduleRef key="corpus" include="particDesc settingDesc"/>
                     <moduleRef key="core"
                         include="p foreign hi name date ref list item head note pb lb author respStmt resp title publisher bibl l lg sp speaker stage measure ptr pubPlace label term ref graphic quote label desc media del num q"/>
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
@@ -1262,6 +1262,8 @@
                     <moduleRef key="certainty" include="certainty"/>
                     <moduleRef key="tagdocs" include="code"/>
                     <moduleRef key="cmc" include="post"/>
+                    <moduleRef key="msdescription" include="msIdentifier repository"/>
+                    <moduleRef key="textcrit" include="app rdg"/>
 
 
                     <!-- namesdates -->
@@ -1325,10 +1327,11 @@
                     <elementSpec ident="langKnown" mode="change">
                         <attList>
                             <attDef ident="level" mode="change" usage="rec">
-                                <valList mode="add" type="closed">
+                                <valList mode="add" type="semi">
                                     <valItem ident="intermediate"/>
                                     <valItem ident="fluent"/>
                                     <valItem ident="basic"/>
+                                    <valItem ident="maternal"/>
                                 </valList>
                             </attDef>
                             <attDef ident="tag" mode="change" usage="req"/>
@@ -1346,66 +1349,6 @@
                         </attList>
                     </elementSpec>
 
-                    <elementSpec ident="p" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <textNode/>
-                                <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="foreign" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="del" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="w" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="label" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="code" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="num" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="q" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="quote" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="label" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="code" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="ref" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
-                                <textNode/>
-                                <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="media" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="hi" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="name" mode="change">
-                        <attList>
-                            <attDef ident="when" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="date" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="when" mode="change" usage="rec"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="ref" mode="change">
-                        <attList>
-                            <attDef ident="target" mode="change" usage="rec"/>
-                        </attList>
-                    </elementSpec>
                     <elementSpec ident="list" mode="change">
                         <content>
                             <sequence preserveOrder="false">
@@ -1415,11 +1358,6 @@
                         </content>
                         <attList>
                             <attDef ident="type" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="head" mode="change">
-                        <attList>
                             <attDef ident="type" mode="delete"/>
                         </attList>
                     </elementSpec>
@@ -1445,16 +1383,6 @@
                             <attDef ident="n" mode="change" usage="rec"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="author" mode="change">
-                        <attList>
-                            <attDef ident="when" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="resp" mode="change">
-                        <attList>
-                            <attDef ident="when" mode="delete"/>
-                        </attList>
-                    </elementSpec>
                     <elementSpec ident="title" mode="change">
                         <attList>
                             <attDef ident="level" mode="delete"/>
@@ -1467,37 +1395,6 @@
                             <attDef ident="when" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="lg" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="l" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="lb" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="stage" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="who" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="sp" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="speaker" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="stage" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="l" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
                     <elementSpec ident="hi" mode="change">
                         <attList>
                             <attDef ident="rend" mode="change" usage="rec">
@@ -1508,15 +1405,6 @@
                                 </valList>
                             </attDef>
                         </attList>
-                    </elementSpec>
-                    <elementSpec ident="respStmt" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="resp" minOccurs="1"/>
-                                <elementRef key="persName" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="orgName" minOccurs="0" maxOccurs="1"/>
-                            </sequence>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="measure" mode="change">
                         <attList>
@@ -1609,18 +1497,9 @@
                     <!--Checking module figures-->
 
                     <elementSpec ident="figure" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="head" minOccurs="0"/>
-                                <elementRef key="figDesc" minOccurs="0"/>
-                                <elementRef key="graphic" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
                         <attList>
                             <attDef ident="type" mode="change">
-                                <valList mode="add" type="closed">
-                                    <valItem ident="maths"/>
+                                <valList mode="add" type="semi">
                                     <valItem ident="decoration"/>
                                     <valItem ident="stamp"/>
                                     <valItem ident="sticker"/>
@@ -1639,6 +1518,7 @@
                                 <elementRef key="pubPlace" minOccurs="0"/>
                                 <elementRef key="publisher" minOccurs="0"/>
                                 <elementRef key="date" minOccurs="1"/>
+                                <elementRef key="msIdentifier" minOccurs="0" maxOccurs="1"/>
                             </sequence>
                         </content>
                         <attList>
@@ -1651,53 +1531,8 @@
                         </attList>
                     </elementSpec>
                     <!--Checking module header-->
-                    <elementSpec ident="teiHeader" mode="change">
-                        <content>
-                            <sequence preserveOrder="true">
-                                <elementRef key="fileDesc"/>
-                                <elementRef key="profileDesc"/>
-                                <elementRef key="encodingDesc" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="revisionDesc"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="fileDesc" mode="change">
-                        <content>
-                            <sequence preserveOrder="true">
-                                <elementRef key="titleStmt"/>
-                                <elementRef key="publicationStmt"/>
-                                <elementRef key="sourceDesc"/>
-                                <elementRef key="extent"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="titleStmt" mode="change">
-                        <content>
-                            <sequence preserveOrder="true">
-                                <elementRef key="title" minOccurs="1" maxOccurs="2"/>
-                                <elementRef key="author" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="respStmt" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="principal" minOccurs="1" maxOccurs="1"/>
-                                <elementRef key="funder" minOccurs="1" maxOccurs="1"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="publicationStmt" mode="change">
-                        <content>
-                            <sequence preserveOrder="true">
-
-                                <elementRef key="idno" minOccurs="1"/>
-                                <elementRef key="publisher" minOccurs="1"/>
-                                <elementRef key="date" minOccurs="1"/>
-                                <elementRef key="availability" minOccurs="1"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="sourceDesc" mode="change">
-                        <content>
-                            <elementRef key="bibl" minOccurs="1" maxOccurs="unbounded"/>
-                        </content>
-                    </elementSpec>
+                    
+                    
 
                     <elementSpec ident="idno" mode="change">
                         <attList>
@@ -1708,69 +1543,9 @@
                                     <valItem ident="script"/>
                                 </valList>
                             </attDef>
-                            <attDef ident="xml:id" mode="change" usage="rec">
-                                <!--A faire: Ajouter les codes langues et script-->
-                            </attDef>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="funder" mode="change">
-                        <attList>
-                            <attDef ident="when" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="principal" mode="change">
-                        <attList>
-                            <attDef ident="when" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="availability" mode="change">
-                        <content>
-                            <elementRef key="licence"/>
-                        </content>
-                        <attList>
-                            <attDef ident="status" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="licence" mode="change">
-                        <attList>
-                            <attDef ident="when" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="language" mode="change">
-                        <content>
-                            <sequence>
-                                <elementRef key="idno" minOccurs="1" maxOccurs="unbounded"/>
-                                <elementRef key="name" minOccurs="0" maxOccurs="2"/>
-                                <elementRef key="date" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="location" minOccurs="0" maxOccurs="1"/>
-                            </sequence>
-                        </content>
-                        <attList>
-                            <attDef ident="usage" mode="change" usage="rec">
-                                <datatype>
-                                    <dataRef key="teidata.count"/>
-                                </datatype>
-                            </attDef>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="change" mode="change">
-                        <attList>
-                            <attDef ident="target" mode="delete"/>
-                            <attDef ident="who" mode="change" usage="req"/>
-                            <attDef ident="when" mode="change" usage="req"/>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="profileDesc" mode="change">
-                        <content>
-                            <sequence>
-                                <elementRef key="langUsage" minOccurs="1" maxOccurs="1"/>
-                                <elementRef key="textClass" minOccurs="1" maxOccurs="1"/>
-                                <elementRef key="particDesc" minOccurs="0" maxOccurs="1"/>
-                                <elementRef key="creation" minOccurs="0" maxOccurs="1"/>
-                            </sequence>
-                        </content>
-                    </elementSpec>
+                    
                     <!--Checking module gaiji-->
                     <!--Checking module verse-->
                     <!--Checking module transcr-->
@@ -1788,79 +1563,14 @@
                     </elementSpec>
                     <!--Checking module linking-->
 
-                    <elementSpec ident="ab" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    
 
-                    <elementSpec ident="s" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="w" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="pc" mode="change">
-                        <attList>
-                            <attDef ident="force" mode="delete"/>
-                            <attDef ident="unit" mode="delete"/>
-                            <attDef ident="pre" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <classSpec ident="att.linguistic" type="atts" mode="change">
-                        <attList>
-                            <attDef ident="lemmaRef" mode="delete"/>
-                            <attDef ident="join" mode="delete"/>
-                        </attList>
-                    </classSpec>
                     <!--Checking module textstructure-->
 
-                    <elementSpec ident="TEI" mode="change">
-                        <attList>
-                            <attDef ident="version" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="text" mode="change">
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
                     <elementSpec ident="div" mode="change">
-                        <content>
-                            <sequence preserveOrder="false">
-                                <elementRef key="head" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="p" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="lg" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="list" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="sp" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="stage" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="div" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="fw" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="dateline" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="signed" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="note" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="figure" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="ab" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="entry" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="post" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="pb" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="quote" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="s" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="certainty" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="table" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="other" minOccurs="0" maxOccurs="unbounded"/>
-                                <elementRef key="code" minOccurs="0" maxOccurs="unbounded"/>
-                            </sequence>
-                        </content>
                         <attList>
                             <attDef ident="type" mode="change">
-                                <valList mode="add" type="closed">
+                                <valList mode="add" type="semi">
                                     <valItem ident="chapter"/>
                                     <valItem ident="entry"/>
                                     <valItem ident="titlepage"/>
