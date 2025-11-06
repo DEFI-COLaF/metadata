@@ -1252,7 +1252,7 @@
                     <moduleRef key="figures" include="figure table row cell figDesc"/>
                     <moduleRef key="analysis" include="s w pc"/>
                     <moduleRef key="header"
-                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure refsDecl creation"/>
+                        include="teiHeader fileDesc titleStmt idno funder principal publicationStmt availability licence sourceDesc profileDesc langUsage language revisionDesc change extent textClass keywords catRef encodingDesc appInfo application refState citeStructure refsDecl creation taxonomy classDecl category catDesc desc"/>
                     <moduleRef key="transcr" include="fw"/>
                     <moduleRef key="linking" include="ab"/>
                     <moduleRef key="textstructure"
